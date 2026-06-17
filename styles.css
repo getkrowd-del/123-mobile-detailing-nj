@@ -1,0 +1,59 @@
+:root {
+            --racing-yellow: #facc15;
+            --carbon-dark: #121214;
+            --asphalt-gray: #1e1e24;
+            --borders: #2d2d34;
+        }
+
+        body {
+            background-color: var(--carbon-dark);
+            color: #f3f4f6;
+            font-family: 'Outfit', sans-serif;
+            background-image: 
+                radial-gradient(rgba(250, 204, 21, 0.05) 1px, transparent 0),
+                radial-gradient(rgba(250, 204, 21, 0.05) 1px, transparent 0);
+            background-size: 20px 20px;
+            background-position: 0 0, 10px 10px;
+        }
+
+        /* Custom slanted borders & buttons simulating modern aerodynamics */
+        .slant-cut {
+            clip-path: polygon(0 0, 100% 0, 96% 100%, 4% 100%);
+        }
+
+        .btn-slant {
+            clip-path: polygon(6% 0, 100% 0, 94% 100%, 0 100%);
+        }
+
+        .font-racing-title {
+            font-family: 'Outfit', sans-serif;
+            font-weight: 900;
+            letter-spacing: -0.03em;
+            text-transform: uppercase;
+            font-style: italic;
+        }
+
+        /* Checkered accent pattern */
+        .checkered-pattern {
+            background-color: #000;
+            background-image: 
+                linear-gradient(45deg, #1f2937 25%, transparent 25%, transparent 75%, #1f2937 75%, #1f2937),
+                linear-gradient(45deg, #1f2937 25%, transparent 25%, transparent 75%, #1f2937 75%, #1f2937);
+            background-size: 16px 16px;
+            background-position: 0 0, 8px 8px;
+        }
+        
+        .carbon-texture {
+            background: linear-gradient(27deg, #151515 5px, transparent 5px) 0 5px,
+                        linear-gradient(207deg, #151515 5px, transparent 5px) 10px 0,
+                        linear-gradient(27deg, #222 5px, transparent 5px) 0px 10px,
+                        linear-gradient(207deg, #222 5px, transparent 5px) 10px 5px,
+                        linear-gradient(90deg, #1b1b1b 10px, transparent 10px),
+                        linear-gradient(#1d1d1d 25%, #1a1a1a 25%, #1a1a1a 50%, transparent 50%, transparent 75%, #242424 75%, #242424);
+            background-size: 20px 20px;
+            background-color: #131313;
+        }
+
+        .glow-yellow {
+            box-shadow: 0 0 15px rgba(250, 204, 21, 0.4);
+        }
