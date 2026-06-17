@@ -1,0 +1,525 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<!-- BASE:START (managed by Coding Agent — do not edit) -->
+<base href="/123-mobile-detailing-nj/">
+<!-- BASE:END -->
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- FontAwesome for sport and garage icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts for High-Octane Sport typography -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Chalan:ital,wght@0,900;1,900&family=Kona:wght@800&family=Outfit:wght@400;600;800;900&family=Permanent+Marker&display=swap" rel="stylesheet">
+    
+    
+
+<!-- SEO Meta Tags -->
+<title>123 Auto Detailing - High-Performance Mobile Pit Crew</title>
+<meta property="og:title" content="123 Auto Detailing - High-Performance Mobile Pit Crew" />
+<meta property="og:type" content="website" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="123 Auto Detailing - High-Performance Mobile Pit Crew" />
+<!-- End SEO Meta Tags -->
+<script data-lp-token-hydrate>
+(function(){try{
+  var slug="lp-mqildm4j-hztmk";
+  var SK='lp_access_'+slug;
+  var map={access_token:'lp_pw_',allowlist_access_token:'lp_al_',pin_access_token:'lp_pin_',paywall_access_token:'lp_paid_'};
+  var u=new URL(location.href);var found=null;var changed=false;
+  Object.keys(map).forEach(function(p){var v=u.searchParams.get(p);if(v){found=v;try{localStorage.setItem(map[p]+slug,v);}catch(e){}u.searchParams.delete(p);changed=true;}});
+  if(found){try{sessionStorage.setItem(SK,found);}catch(e){}}
+  else{try{if(!sessionStorage.getItem(SK)){var t=localStorage.getItem('lp_pw_'+slug)||localStorage.getItem('lp_al_'+slug)||localStorage.getItem('lp_pin_'+slug)||localStorage.getItem('lp_paid_'+slug);if(t)sessionStorage.setItem(SK,t);}}catch(e){}}
+  if(changed){try{history.replaceState(null,'',u.toString());}catch(e){}}
+  function getTok(){try{return sessionStorage.getItem(SK)||localStorage.getItem('lp_pw_'+slug)||localStorage.getItem('lp_al_'+slug)||localStorage.getItem('lp_pin_'+slug)||localStorage.getItem('lp_paid_'+slug);}catch(e){return null;}}
+  function needsToken(url,method){if(!url)return false;var s=String(url);var m=(method||'GET').toUpperCase();var isSheetWrite=(m==='POST'||m==='PATCH'||m==='PUT'||m==='DELETE')&&/\/sheet-rows(\/|$|\?)/.test(s);var isSheetRead=/\/sheet-data(\/|$|\?)/.test(s);var isLlm=/\/api\/landing-pages\/public\/[^/]+\/(llm|llm-config)(\/|$|\?)/.test(s);return isSheetWrite||isSheetRead||isLlm;}
+  if(window.fetch){var _f=window.fetch;window.fetch=function(input,init){try{var url=typeof input==='string'?input:(input&&input.url)||'';var method=(init&&init.method)||(input&&input.method)||'GET';if(needsToken(url,method)){var tok=getTok();if(tok){init=init||{};var h=new Headers(init.headers||(typeof input!=='string'?input.headers:undefined)||{});if(!h.has('X-Landing-Page-Token'))h.set('X-Landing-Page-Token',tok);init.headers=h;}}}catch(e){}return _f.call(this,input,init);};}
+  if(window.XMLHttpRequest){var _o=XMLHttpRequest.prototype.open;var _s=XMLHttpRequest.prototype.send;XMLHttpRequest.prototype.open=function(m,u){this.__lpM=m;this.__lpU=u;return _o.apply(this,arguments);};XMLHttpRequest.prototype.send=function(){try{if(needsToken(this.__lpU,this.__lpM)){var tok=getTok();if(tok)this.setRequestHeader('X-Landing-Page-Token',tok);}}catch(e){}return _s.apply(this,arguments);};}
+}catch(e){}})();
+</script>
+
+<script data-field-replace>
+(function(){
+  var params=new URLSearchParams(window.location.search);
+  var fields={};
+  var paramMap={
+    'first_name':'firstName','last_name':'lastName','full_name':'fullName',
+    'email':'email','phone':'phone','company':'company',
+    'city':'city','state':'state','country':'country'
+  };
+  var skipTags={'SCRIPT':1,'STYLE':1,'NOSCRIPT':1,'TEXTAREA':1,'CODE':1,'PRE':1};
+  var hasUrlFields=false;
+  for(var p in paramMap){
+    var v=params.get(p);
+    if(v){fields[paramMap[p]]=v;hasUrlFields=true;}
+  }
+  var contactId=params.get('contact_id');
+  function esc(s){
+    if(!s)return s;
+    var d=document.createElement('div');
+    d.appendChild(document.createTextNode(s));
+    return d.innerHTML;
+  }
+  function doReplace(data){
+    var r={};
+    r['{{full_name}}']=esc(((data.firstName||'')+' '+(data.lastName||'')).trim()||((data.fullName||data.name)||''));
+    r['{{first_name}}']=esc(data.firstName||(data.name?data.name.split(' ')[0]:'')||'');
+    r['{{last_name}}']=esc(data.lastName||(data.name&&data.name.indexOf(' ')>-1?data.name.substring(data.name.indexOf(' ')+1):'')||'');
+    r['{{email}}']=esc(data.email||'');
+    r['{{phone}}']=esc(data.phone||'');
+    r['{{company}}']=esc(data.company||'');
+    r['{{city}}']=esc(data.city||'');
+    r['{{state}}']=esc(data.state||'');
+    r['{{country}}']=esc(data.country||'');
+    r['{{date}}']=new Date().toLocaleDateString();
+    r['{{time}}']=new Date().toLocaleTimeString();
+    r['{{location}}']=[data.city,data.state,data.country].filter(Boolean).join(', ');
+    r['{{tracking_id}}']=esc(data.trackingId||'');
+    r['{{lastClickedProduct}}']=esc(data.lastClickedProduct||'');
+    r['{{lastProductClickDate}}']=esc(data.lastProductClickDate||'');
+    r['{{lastClickedProductPrice}}']=esc(data.lastClickedProductPrice||'');
+    r['{{lastClickedProductURL}}']=esc(data.lastClickedProductURL||'');
+    r['{{productsClickedCount}}']=esc(data.productsClickedCount||'0');
+    r['{{ip_address}}']=esc(data.ipAddress||'');
+    r['{{ip}}']=esc(data.ipAddress||'');
+    if(data.customFields){
+      for(var k in data.customFields){
+        r['{{'+k+'}}']=esc(String(data.customFields[k]||''));
+      }
+    }
+    params.forEach(function(v,k){
+      if(!paramMap[k]&&k!=='contact_id'&&k!=='page_id'&&k.indexOf('utm_')!==0){
+        r['{{'+k+'}}']=esc(v);
+      }
+    });
+    var hasValues=false;
+    for(var key in r){if(r[key]){hasValues=true;break;}}
+    if(!hasValues)return;
+    var walker=document.createTreeWalker(document.body,NodeFilter.SHOW_TEXT,{
+      acceptNode:function(n){
+        var p=n.parentNode;
+        if(p&&skipTags[p.nodeName])return NodeFilter.FILTER_REJECT;
+        return NodeFilter.FILTER_ACCEPT;
+      }
+    });
+    var node;
+    while(node=walker.nextNode()){
+      var txt=node.nodeValue;
+      if(txt&&txt.indexOf('{{')>-1){
+        var changed=txt;
+        for(var ph in r){
+          if(r[ph]&&changed.indexOf(ph)>-1){
+            changed=changed.split(ph).join(r[ph]);
+          }
+        }
+        if(changed!==txt)node.nodeValue=changed;
+      }
+    }
+    var attrs=['value','placeholder','content','alt','title'];
+    attrs.forEach(function(attr){
+      var els=document.querySelectorAll('['+attr+'*="{{"]');
+      for(var i=0;i<els.length;i++){
+        var tag=els[i].tagName;
+        if(skipTags[tag])continue;
+        var val=els[i].getAttribute(attr);
+        if(val){
+          var nv=val;
+          for(var ph in r){
+            if(r[ph]&&nv.indexOf(ph)>-1){
+              nv=nv.split(ph).join(r[ph]);
+            }
+          }
+          if(nv!==val)els[i].setAttribute(attr,nv);
+        }
+      }
+    });
+  }
+  function run(){
+    if(contactId){
+      var xhr=new XMLHttpRequest();
+      xhr.open('GET','https://paymegpt.com/api/landing/context/'+encodeURIComponent(contactId)+'?page_id=4976');
+      xhr.onload=function(){
+        if(xhr.status===200){
+          try{
+            var resp=JSON.parse(xhr.responseText);
+            if(resp.success&&resp.contact){
+              var merged=resp.contact;
+              for(var k in fields){merged[k]=fields[k];}
+              doReplace(merged);
+              return;
+            }
+          }catch(e){}
+        }
+        if(hasUrlFields)doReplace(fields);
+      };
+      xhr.onerror=function(){if(hasUrlFields)doReplace(fields);};
+      xhr.send();
+    }else if(hasUrlFields){
+      doReplace(fields);
+    }
+  }
+  if(document.readyState==='loading'){document.addEventListener('DOMContentLoaded',run);}
+  else{run();}
+})();
+</script>
+<script data-payment>
+(function(){
+  var slug='zn4EZsdV';
+  var apiBase='https://paymegpt.com';
+  var successSubtext='';var successBtnLabel='Continue';var successBtnColor='#16a34a';var successRedirect='';
+  function findEmail(){
+    var ids=['email','emailAddress','buyer-email','buyerEmail','user-email','userEmail','checkout-email','customer-email','contact-email'];
+    for(var i=0;i<ids.length;i++){var el=document.getElementById(ids[i]);if(el&&el.value&&el.value.includes('@'))return el.value.trim();}
+    var inputs=document.querySelectorAll('input[type="email"],input[name*="email"],input[placeholder*="email"],input[placeholder*="Email"]');
+    for(var j=0;j<inputs.length;j++){if(inputs[j].value&&inputs[j].value.includes('@'))return inputs[j].value.trim();}
+    return '';
+  }
+  function findName(){
+    var ids=['name','fullName','full-name','buyer-name','buyerName','customer-name','userName','user-name'];
+    for(var i=0;i<ids.length;i++){var el=document.getElementById(ids[i]);if(el&&el.value)return el.value.trim();}
+    var inputs=document.querySelectorAll('input[name*="name"]:not([name*="email"]):not([type="email"]),input[placeholder*="name"]:not([placeholder*="email"]):not([type="email"]),input[placeholder*="Name"]:not([type="email"])');
+    for(var j=0;j<inputs.length;j++){if(inputs[j].value)return inputs[j].value.trim();}
+    return '';
+  }
+  var __realProcessPayment=function(a,b,c,d,e){
+    var amountCents,email,productName,productDescription,customerName,quantity;
+    if(a&&typeof a==='object'){
+      amountCents=a.amountCents;email=a.email;productName=a.productName;
+      productDescription=a.productDescription||'';customerName=a.name||'';quantity=a.quantity||1;
+    }else{
+      amountCents=typeof a==='number'?a:0;productName=typeof b==='string'?b:'';
+      productDescription=typeof c==='string'?c:'';email='';customerName='';quantity=1;
+    }
+    if(!email)email=findEmail();
+    if(!customerName)customerName=findName();
+    if(!productName){alert('Product name is required.');return Promise.reject('no_product_name');}
+    if(!amountCents||amountCents<100){alert('Amount must be at least $1.00');return Promise.reject('invalid_amount');}
+    if(!email){alert('Please enter your email address.');return Promise.reject('no_email');}
+    var successBase=window.location.href.split('?')[0];
+    var __pLoc=(document.documentElement.lang||navigator.language||'en');
+    return fetch(apiBase+'/api/landing-pages/public/'+slug+'/payment/checkout',{
+      method:'POST',headers:{'Content-Type':'application/json'},
+      body:JSON.stringify({email:email,name:customerName,amountCents:amountCents,productName:productName,productDescription:productDescription,quantity:quantity,locale:__pLoc,successUrl:successBase+'?payment=success&product='+encodeURIComponent(productName)+'&session_id={CHECKOUT_SESSION_ID}',cancelUrl:successBase+'?payment=cancelled'})
+    }).then(function(r){return r.json();}).then(function(d){
+      if(d.checkoutUrl){window.location.href=d.checkoutUrl;}
+      else{alert(d.error||'Failed to process payment');throw new Error(d.error);}
+    });
+  };
+  Object.defineProperty(window,'__processPayment',{value:__realProcessPayment,writable:false,configurable:false});
+  document.addEventListener('DOMContentLoaded',function(){
+    var urlParams=new URLSearchParams(window.location.search);
+    if(urlParams.get('payment')==='success'){
+      var sidP=urlParams.get('session_id');
+      if(sidP){try{fetch(apiBase+'/api/landing-pages/public/'+slug+'/checkout/confirm',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({sessionId:sidP})}).catch(function(){});}catch(e){}}
+      var pName=urlParams.get('product')||'your item';
+      var overlay=document.createElement('div');overlay.id='payment-success-overlay';
+      overlay.style.cssText='position:fixed;top:0;left:0;right:0;bottom:0;background:rgba(0,0,0,0.5);display:flex;align-items:center;justify-content:center;z-index:999999;font-family:system-ui,-apple-system,sans-serif;';
+      function esc(s){return String(s||'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');}
+      var subTxt=successSubtext||('Thank you for purchasing '+pName+'.');
+      overlay.innerHTML='<div style="background:white;border-radius:16px;padding:40px;max-width:420px;width:90%;text-align:center;box-shadow:0 20px 60px rgba(0,0,0,0.15);"><div style="width:64px;height:64px;border-radius:50%;background:#dcfce7;margin:0 auto 20px;display:flex;align-items:center;justify-content:center;"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#16a34a" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></div><h2 style="margin:0 0 12px;font-size:24px;font-weight:700;color:#111827;">Payment Successful!</h2><p style="margin:0 0 24px;color:#6b7280;font-size:16px;">'+esc(subTxt)+'</p><button id="lp-pay-success-btn" style="padding:12px 32px;font-size:16px;font-weight:600;background:'+successBtnColor+';color:white;border:none;border-radius:8px;cursor:pointer;">'+esc(successBtnLabel)+'</button></div>';
+      document.body.appendChild(overlay);
+      var pBtn=document.getElementById('lp-pay-success-btn');
+      if(pBtn){pBtn.addEventListener('click',function(){if(successRedirect){window.location.href=successRedirect;}else{overlay.remove();window.history.replaceState({},'',window.location.pathname);}});}
+    }
+  });
+})();
+</script>  <link rel="stylesheet" href="styles.css">
+</head>
+<body class="min-h-screen pb-12">
+
+    <!-- Top Pit-Stop Speed Dispatch Bar -->
+    <div class="checkered-pattern h-4 w-full border-b border-gray-800"></div>
+    
+    <div class="bg-yellow-400 text-stone-950 font-black py-3 px-4">
+        <div class="max-w-6xl mx-auto flex flex-col md:flex-row items-center justify-between gap-2 text-center md:text-left">
+            <span class="font-racing-title text-base tracking-wider flex items-center gap-2">
+                <span class="inline-block w-2.5 h-2.5 bg-red-600 animate-ping rounded-full"></span>
+                <i class="fa-solid fa-truck-fast"></i> DIRECT HOME DRIVEWAY DISPATCH ACTIVE
+            </span>
+            <div class="flex flex-wrap justify-center gap-3 md:gap-4">
+                <a href="tel:1234567890" class="bg-stone-950 text-yellow-400 font-bold px-4 py-1.5 rounded-sm text-sm uppercase hover:bg-stone-800 transition-all">
+                    <i class="fa-solid fa-phone"></i> CALL: (123) 456-7890
+                </a>
+                <a href="sms:1234567890" class="bg-red-600 text-white font-bold px-4 py-1.5 rounded-sm text-sm uppercase hover:bg-red-700 transition-all">
+                    <i class="fa-solid fa-comment-sms"></i> TEXT TO BOOK
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Outer Shell -->
+    <div class="max-w-6xl mx-auto mt-6 px-4">
+
+        <!-- Navigation Bar -->
+        <nav class="bg-stone-900 border border-stone-800 rounded-lg p-4 flex flex-col sm:flex-row items-center justify-between gap-4 shadow-xl">
+            <div class="flex items-center gap-3">
+                <div class="bg-yellow-400 text-stone-950 p-2 rounded font-black text-xl italic tracking-tighter">
+                    123
+                </div>
+                <div>
+                    <span class="font-racing-title text-xl text-white tracking-widest block leading-none">AUTO DETAILING</span>
+                    <span class="text-xs text-yellow-400 tracking-widest font-mono font-bold uppercase">PIT STOP CREW</span>
+                </div>
+            </div>
+            
+            <div class="flex items-center gap-6 text-sm font-semibold tracking-wider text-stone-300 uppercase">
+                <a href="#about" class="hover:text-yellow-400 transition-all">Paddock Info</a>
+                <a href="#tiers" class="hover:text-yellow-400 transition-all">Tuning Services</a>
+                <a href="#pitstop-booking" class="bg-yellow-400 text-stone-950 font-bold px-4 py-2 rounded-sm btn-slant hover:bg-yellow-300 transition-all text-xs">
+                    Get Scheduled
+                </a>
+            </div>
+        </nav>
+
+        <!-- Hero Grid Section -->
+        <main class="mt-8 grid grid-cols-1 lg:grid-cols-12 gap-8 items-center bg-stone-900/60 p-6 sm:p-10 rounded-2xl border border-stone-800 shadow-2xl relative overflow-hidden">
+            <div class="absolute top-0 right-0 w-64 h-64 bg-yellow-400/5 rounded-full blur-3xl pointer-events-none"></div>
+
+            <!-- Left Side Information -->
+            <div class="lg:col-span-6 space-y-6">
+                <div class="inline-flex items-center gap-2 bg-stone-800 border border-stone-700 rounded-full px-3 py-1 text-xs font-bold text-stone-300 uppercase">
+                    <i class="fa-solid fa-gauge-high text-yellow-400"></i> Track-Grade Care for Your Ride
+                </div>
+
+                <h1 class="font-racing-title text-4xl sm:text-6xl text-white leading-tight">
+                    MOBILE <span class="text-yellow-400">PIT STOP</span> <br>
+                    DETAILING!
+                </h1>
+
+                <p class="text-stone-400 text-sm sm:text-base leading-relaxed">
+                    Why waste hours in waiting rooms? Our rapid mobile garage vehicle brings high-pressure pure water, advanced premium wax glaze formulas, and industrial-tier suction right to your home. We treat your vehicle with the speed, detail, and precision of a world-class professional paddock crew.
+                </p>
+
+                <!-- Status Check Info Board -->
+                <div class="grid grid-cols-2 gap-4 pt-2">
+                    <div class="bg-stone-800/80 p-3 rounded border-l-4 border-yellow-400">
+                        <span class="block text-[10px] text-stone-400 font-bold uppercase tracking-wider">Pit Crew Area</span>
+                        <span class="text-white font-bold text-sm">We Drive To You</span>
+                    </div>
+                    <div class="bg-stone-800/80 p-3 rounded border-l-4 border-red-500">
+                        <span class="block text-[10px] text-stone-400 font-bold uppercase tracking-wider">Water Onboard</span>
+                        <span class="text-white font-bold text-sm">Self-Contained Power</span>
+                    </div>
+                </div>
+
+                <div class="flex flex-col sm:flex-row gap-3 pt-4">
+                    <a href="tel:1234567890" class="bg-yellow-400 hover:bg-yellow-300 text-stone-950 font-black px-6 py-4 rounded text-center btn-slant uppercase tracking-wider flex items-center justify-center gap-2 transition-all glow-yellow">
+                        <i class="fa-solid fa-phone"></i> Call Pit Crew
+                    </a>
+                    <a href="sms:1234567890" class="bg-stone-800 hover:bg-stone-700 border border-stone-700 text-white font-black px-6 py-4 rounded text-center btn-slant uppercase tracking-wider flex items-center justify-center gap-2 transition-all">
+                        <i class="fa-solid fa-comment-sms text-yellow-400"></i> Text Message
+                    </a>
+                </div>
+            </div>
+
+            <!-- Right Side Image Graphic (carwash.jpeg) -->
+            <div class="lg:col-span-6 flex justify-center relative">
+                <div class="relative bg-stone-950 p-3 rounded-2xl border-2 border-stone-800 shadow-2xl group max-w-sm sm:max-w-md">
+                    <!-- Bold yellow sports framing -->
+                    <div class="absolute -top-3 -right-3 bg-yellow-400 text-stone-950 font-black text-xs px-3 py-1 italic tracking-wider rounded uppercase shadow-md z-10">
+                        Wet-Gloss Spec
+                    </div>
+                    
+                    <div class="overflow-hidden rounded-xl border border-stone-700">
+                        <!-- Verbatim image tag referencing "carwash.jpeg" with live fallback -->
+                        <img src="carwash.jpeg" onerror="this.onerror=null; this.src='https://krowdimg.b-cdn.net/clients/123MobileDetailing/carwash.jpeg';" alt="123 Mobile Detailing Formula Carwash Crew" class="w-full h-auto transition-transform duration-500 group-hover:scale-105">
+                    </div>
+                    
+                    <!-- Racing decal look bottom bar -->
+                    <div class="bg-stone-900 border-t border-stone-800 mt-3 p-3 rounded-lg flex items-center justify-between text-xs font-mono text-stone-400">
+                        <span>SERIES TYPE: WET WASH</span>
+                        <span class="text-yellow-400 font-bold"><i class="fa-solid fa-check-double"></i> READY FOR DISPATCH</span>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <!-- Detailing Tier Services Section -->
+        <section class="mt-16" id="tiers">
+            <div class="text-center max-w-xl mx-auto space-y-3 mb-12">
+                <div class="inline-block checkered-pattern px-4 py-1 text-xs text-white tracking-widest font-bold uppercase rounded-sm border border-stone-800">
+                    STAGE TUNING PACKAGES
+                </div>
+                <h2 class="font-racing-title text-3xl sm:text-4xl text-white">CHOOSE YOUR PERFORMANCE PACKAGE</h2>
+                <p class="text-stone-400 text-xs sm:text-sm">No complex payment flows or digital card purchases. Simply review our configurations, then text or call to summon your driveway pit stop team!</p>
+            </div>
+
+            <!-- Services Grid -->
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                
+                <!-- Package 1 -->
+                <div class="bg-stone-900 border-2 border-stone-800 hover:border-stone-700 p-6 rounded-xl flex flex-col justify-between space-y-6 transition-all relative">
+                    <div class="space-y-4">
+                        <div class="flex items-center justify-between">
+                            <span class="text-[11px] text-yellow-400 font-mono font-bold tracking-widest uppercase">LAP 1</span>
+                            <span class="bg-stone-800 text-white font-mono text-xs px-2.5 py-1 rounded">STAGE 1</span>
+                        </div>
+                        <h3 class="font-racing-title text-2xl text-white">EXPRESS WASH & DRY</h3>
+                        <p class="text-stone-400 text-xs font-mono">Precision exterior cleansing and rim restoration.</p>
+                        <div class="h-px bg-stone-800"></div>
+                        <ul class="space-y-2 text-xs text-stone-300 font-mono">
+                            <li><i class="fa-solid fa-circle-check text-yellow-400 mr-2"></i> Scratch-Free Hand Bath</li>
+                            <li><i class="fa-solid fa-circle-check text-yellow-400 mr-2"></i> High-Extraction Wheel Clean</li>
+                            <li><i class="fa-solid fa-circle-check text-yellow-400 mr-2"></i> Ultra-Soft Air Dry Blow</li>
+                            <li><i class="fa-solid fa-circle-check text-yellow-400 mr-2"></i> Hydrophobic Spray Coat</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <div class="text-3xl font-racing-title text-white mb-4">$45 <span class="text-xs font-mono font-normal text-stone-500">flat rate</span></div>
+                        <div class="grid grid-cols-2 gap-2">
+                            <a href="tel:1234567890" class="bg-stone-800 hover:bg-stone-700 text-white text-[11px] font-bold py-2 px-1 text-center rounded uppercase transition-all">
+                                <i class="fa-solid fa-phone"></i> Call
+                            </a>
+                            <a href="sms:1234567890" class="bg-yellow-400 hover:bg-yellow-300 text-stone-950 text-[11px] font-bold py-2 px-1 text-center rounded uppercase transition-all">
+                                <i class="fa-solid fa-comment-sms"></i> Text Info
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Package 2 (Featured Track Option) -->
+                <div class="bg-stone-900 border-2 border-yellow-400 p-6 rounded-xl flex flex-col justify-between space-y-6 transition-all relative glow-yellow">
+                    <div class="absolute -top-3.5 left-1/2 -translate-x-1/2 bg-yellow-400 text-stone-950 font-black text-[10px] tracking-widest px-4 py-1 uppercase rounded-full shadow-md">
+                        CREW RECOMMENDATION
+                    </div>
+                    <div class="space-y-4">
+                        <div class="flex items-center justify-between pt-2">
+                            <span class="text-[11px] text-yellow-400 font-mono font-bold tracking-widest uppercase">LAP 2</span>
+                            <span class="bg-yellow-400 text-stone-950 font-mono text-xs px-2.5 py-1 rounded font-bold">STAGE 2</span>
+                        </div>
+                        <h3 class="font-racing-title text-2xl text-white">DEEP INTERIOR DETAIL</h3>
+                        <p class="text-stone-400 text-xs font-mono">Complete sanitization, extraction, and interior reset.</p>
+                        <div class="h-px bg-stone-800"></div>
+                        <ul class="space-y-2 text-xs text-stone-300 font-mono">
+                            <li><i class="fa-solid fa-circle-check text-yellow-400 mr-2"></i> Deep Extraction Carpet Vac</li>
+                            <li><i class="fa-solid fa-circle-check text-yellow-400 mr-2"></i> Full Dash & Console Detail</li>
+                            <li><i class="fa-solid fa-circle-check text-yellow-400 mr-2"></i> Upholstery Steaming & Clean</li>
+                            <li><i class="fa-solid fa-circle-check text-yellow-400 mr-2"></i> Premium Matte Conditioner</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <div class="text-3xl font-racing-title text-yellow-400 mb-4">$65 <span class="text-xs font-mono font-normal text-stone-500">flat rate</span></div>
+                        <div class="grid grid-cols-2 gap-2">
+                            <a href="tel:1234567890" class="bg-stone-800 hover:bg-stone-700 text-white text-[11px] font-bold py-2 px-1 text-center rounded uppercase transition-all">
+                                <i class="fa-solid fa-phone"></i> Call Now
+                            </a>
+                            <a href="sms:1234567890" class="bg-yellow-400 hover:bg-yellow-300 text-stone-950 text-[11px] font-bold py-2 px-1 text-center rounded uppercase transition-all">
+                                <i class="fa-solid fa-comment-sms"></i> Text Request
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Package 3 -->
+                <div class="bg-stone-900 border-2 border-stone-800 hover:border-stone-700 p-6 rounded-xl flex flex-col justify-between space-y-6 transition-all relative">
+                    <div class="space-y-4">
+                        <div class="flex items-center justify-between">
+                            <span class="text-[11px] text-yellow-400 font-mono font-bold tracking-widest uppercase">LAP 3</span>
+                            <span class="bg-stone-800 text-white font-mono text-xs px-2.5 py-1 rounded">STAGE 3</span>
+                        </div>
+                        <h3 class="font-racing-title text-2xl text-white">THE CHAMPIONSHIP DETAIL</h3>
+                        <p class="text-stone-400 text-xs font-mono">Total bumper-to-bumper deep glaze showroom overhaul.</p>
+                        <div class="h-px bg-stone-800"></div>
+                        <ul class="space-y-2 text-xs text-stone-300 font-mono">
+                            <li><i class="fa-solid fa-circle-check text-yellow-400 mr-2"></i> Full Stage 1 & Stage 2 Combos</li>
+                            <li><i class="fa-solid fa-circle-check text-yellow-400 mr-2"></i> Chrome & Exhaust Grate Polish</li>
+                            <li><i class="fa-solid fa-circle-check text-yellow-400 mr-2"></i> Protective Wet-Gloss Wax Shell</li>
+                            <li><i class="fa-solid fa-circle-check text-yellow-400 mr-2"></i> Premium Tire Compound Glow</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <div class="text-3xl font-racing-title text-white mb-4">$110 <span class="text-xs font-mono font-normal text-stone-500">flat rate</span></div>
+                        <div class="grid grid-cols-2 gap-2">
+                            <a href="tel:1234567890" class="bg-stone-800 hover:bg-stone-700 text-white text-[11px] font-bold py-2 px-1 text-center rounded uppercase transition-all">
+                                <i class="fa-solid fa-phone"></i> Call
+                            </a>
+                            <a href="sms:1234567890" class="bg-yellow-400 hover:bg-yellow-300 text-stone-950 text-[11px] font-bold py-2 px-1 text-center rounded uppercase transition-all">
+                                <i class="fa-solid fa-comment-sms"></i> Text Info
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- Booking & Dispatch Paddock Sheet -->
+        <section class="mt-16 bg-stone-900 border border-stone-800 p-6 sm:p-10 rounded-2xl relative overflow-hidden" id="pitstop-booking">
+            <div class="absolute inset-0 checkered-pattern opacity-5 pointer-events-none"></div>
+
+            <div class="relative z-10 max-w-3xl mx-auto">
+                <div class="text-center mb-8 space-y-2">
+                    <span class="text-yellow-400 font-black text-xs font-mono uppercase tracking-widest">RAPID BOOKING SHEETS</span>
+                    <h2 class="font-racing-title text-3xl text-white">SUBMIT A PIT STOP DISPATCH</h2>
+                    <p class="text-stone-400 text-xs sm:text-sm">Send your garage location and coordinates below. A pit representative will immediately text or call you to confirm your slot!</p>
+                </div>
+
+                <!-- Simple, secure action form -->
+                <form id="racingDispatchForm" onsubmit="handleRacingSubmit(event)" class="space-y-6">
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                        <div>
+                            <label class="block text-xs font-bold uppercase text-stone-300 mb-2 font-mono">Driver's Full Name</label>
+                            <input type="text" id="driver_name" required placeholder="e.g. John Doe" class="w-full bg-stone-950 border border-stone-800 focus:border-yellow-400 rounded-lg py-3 px-4 text-white font-mono text-sm placeholder-stone-600 focus:outline-none">
+                        </div>
+                        <div>
+                            <label class="block text-xs font-bold uppercase text-stone-300 mb-2 font-mono">Mobile Contact Line (Call/Text)</label>
+                            <input type="tel" id="driver_phone" required placeholder="e.g. (123) 456-7890" class="w-full bg-stone-950 border border-stone-800 focus:border-yellow-400 rounded-lg py-3 px-4 text-white font-mono text-sm placeholder-stone-600 focus:outline-none">
+                        </div>
+                    </div>
+
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                        <div>
+                            <label class="block text-xs font-bold uppercase text-stone-300 mb-2 font-mono">Vehicle Machine Model</label>
+                            <input type="text" id="machine_model" required placeholder="e.g. 2024 Black Ford F-150" class="w-full bg-stone-950 border border-stone-800 focus:border-yellow-400 rounded-lg py-3 px-4 text-white font-mono text-sm placeholder-stone-600 focus:outline-none">
+                        </div>
+                        <div>
+                            <label class="block text-xs font-bold uppercase text-stone-300 mb-2 font-mono">Desired Tune Package</label>
+                            <select id="stage_package" class="w-full bg-stone-950 border border-stone-800 focus:border-yellow-400 rounded-lg py-3 px-4 text-white font-mono text-sm focus:outline-none cursor-pointer">
+                                <option value="Stage 1: Express Wash ($45)">Stage 1: Express Wash ($45)</option>
+                                <option value="Stage 2: Deep Interior Clean ($65)" selected>Stage 2: Deep Interior Clean ($65)</option>
+                                <option value="Stage 3: Championship Detail ($110)">Stage 3: Championship Detail ($110)</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div>
+                        <button type="submit" class="w-full bg-yellow-400 hover:bg-yellow-300 text-stone-950 font-black text-lg py-4 px-6 rounded btn-slant uppercase tracking-wider flex items-center justify-center gap-3 transition-all glow-yellow">
+                            <i class="fa-solid fa-flag-checkered"></i> DISPATCH CREW NOW
+                        </button>
+                    </div>
+                </form>
+
+                <!-- Secure success confirmation block -->
+                <div id="dispatchSuccessBlock" class="hidden mt-6 p-4 rounded-xl border border-yellow-400/30 bg-yellow-400/5 text-yellow-400 text-center space-y-2">
+                    <p class="font-racing-title text-xl"><i class="fa-solid fa-truck-fast"></i> DISPATCH LOGGED!</p>
+                    <p class="text-xs font-mono" id="successDetailText"></p>
+                </div>
+            </div>
+        </section>
+
+    </div>
+
+    <!-- Footer Section -->
+    <footer class="mt-20 border-t border-stone-800 pt-10 text-center space-y-4">
+        <div class="checkered-pattern h-3 w-full mb-6"></div>
+        <div class="max-w-md mx-auto space-y-3 px-4">
+            <span class="font-racing-title text-white tracking-widest text-lg">123 AUTO DETAILING</span>
+            <p class="text-xs text-stone-400 font-mono leading-relaxed">
+                Classic Values. High-Octane Clean. Operating straight out of mobile responder dispatch vans. All services subject to weather conditions.
+            </p>
+            <p class="text-xs text-stone-500 font-mono">
+                📞 Dispatch Line: <a href="tel:1234567890" class="text-yellow-400 underline">(123) 456-7890</a> | &copy; 2026. All rights reserved.
+            </p>
+        </div>
+    </footer>
+
+    <!-- Secure form submission processor -->
+    
+  <script src="script.js"></script>
+</body>
+</html>
