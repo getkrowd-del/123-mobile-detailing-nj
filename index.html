@@ -231,32 +231,555 @@
 <body class="min-h-screen">
 
 <!-- Chat Teaser -->
-<div id="chat-teaser">
+<div id="chat-teaser" data-section="section-1">
     <div class="teaser-bubble">
         <button class="teaser-close" id="teaser-close-btn">✕</button>
         <p style="font-size:0.88rem;color:#f3f4f6;line-height:1.55;">👋 Hey! Need a quote or want to book a detail? <strong style="color:#facc15;">Tap me</strong> and let's get your ride looking fresh!</p>
     </div>
 </div>
 <button id="custom-chat-btn" class="chat-bounce"><img src="https://krowdimg.b-cdn.net/clients/123MobileDetailing/chatIcon.PNG" alt="Chat with us"></button>
-<div id="chat-panel"><iframe id="chat-iframe" src="" allow="microphone"></iframe></div>
+<div id="chat-panel" data-section="section-2"><iframe id="chat-iframe" src="" allow="microphone"></iframe></div>
 
 <!-- Mobile Nav Overlay -->
-<div class="mobile-nav-overlay" id="mobileMenu">
-    <a href="/">Home</a>
-    <a href="#tiers" style="color:#facc15;font-weight:700;">Detailing</a>
-    <a href="/paint-protection-film/" class="sub-link" data-subpage="ppf">Paint Protection Film</a>
-    <a href="/ceramic-coatings/" class="sub-link" data-subpage="ceramic">Ceramic Coatings</a>
-    <a href="/tinting/" class="sub-link" data-subpage="tinting">Tinting</a>
-    <a href="/paint-corrections/" class="sub-link" data-subpage="paint-corrections">Paint Corrections</a>
-    <a href="/about/" data-subpage="about">About</a>
-    <a href="/gallery/" data-subpage="gallery">Gallery</a>
-    <a href="/blog/" data-subpage="blog">The Garage Journal</a>
-    <a href="#contact-form" style="background:#facc15;color:#121214;text-align:center;border-radius:6px;font-weight:800;margin-top:12px;">Contact Us</a>
+<div data-section="section-3">
+  <section id="tiers" class="py-12 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8" aria-label="Service packages">
+    <h2 class="font-racing-title text-4xl text-center mb-10">Choose Your Package</h2>
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+      <article tabindex="0" class="relative rounded-lg bg-stone-900 p-6 flex flex-col shadow-md cursor-pointer border-2 border-transparent group" data-package="Express" data-price="125">
+        <div class="absolute top-2 right-2 bg-stone-800 text-yellow-400 font-mono text-xs py-1 px-2 rounded">Package 1</div>
+        <h3 class="font-racing-title text-xl mb-2">Express</h3>
+        <p class="mb-4 text-stone-400 flex-grow">Quick interior and exterior detail</p>
+        <p class="font-mono text-yellow-400 text-lg mb-4">$125</p>
+        <button type="button" class="btn-slant bg-yellow-400 text-stone-900 font-semibold px-4 py-2 mt-auto w-full focus:outline-none focus:ring-4 focus:ring-yellow-400">Select Package</button>
+      </article>
+      <article tabindex="0" class="relative rounded-lg bg-stone-900 p-6 flex flex-col shadow-md cursor-pointer border-2 border-transparent group" data-package="Interior" data-price="225">
+        <div class="absolute top-2 right-2 bg-stone-800 text-yellow-400 font-mono text-xs py-1 px-2 rounded">Package 2</div>
+        <h3 class="font-racing-title text-xl mb-2">Interior</h3>
+        <p class="mb-4 text-stone-400 flex-grow">Complete interior detail including deep cleaning</p>
+        <p class="font-mono text-yellow-400 text-lg mb-4">$225</p>
+        <button type="button" class="btn-slant bg-yellow-400 text-stone-900 font-semibold px-4 py-2 mt-auto w-full focus:outline-none focus:ring-4 focus:ring-yellow-400">Select Package</button>
+      </article>
+      <article tabindex="0" class="relative rounded-lg bg-stone-900 p-6 flex flex-col shadow-md cursor-pointer border-2 border-transparent group" data-package="Exterior" data-price="225">
+        <div class="absolute top-2 right-2 bg-stone-800 text-yellow-400 font-mono text-xs py-1 px-2 rounded">Package 3</div>
+        <h3 class="font-racing-title text-xl mb-2">Exterior</h3>
+        <p class="mb-4 text-stone-400 flex-grow">Thorough exterior wash, wax, and finish</p>
+        <p class="font-mono text-yellow-400 text-lg mb-4">$225</p>
+        <button type="button" class="btn-slant bg-yellow-400 text-stone-900 font-semibold px-4 py-2 mt-auto w-full focus:outline-none focus:ring-4 focus:ring-yellow-400">Select Package</button>
+      </article>
+      <article tabindex="0" class="relative rounded-lg bg-stone-900 p-6 flex flex-col shadow-md cursor-pointer border-2 border-yellow-400 group glow-yellow" data-package="Full" data-price="400" aria-current="true">
+        <div class="absolute top-2 right-2 bg-yellow-400 text-stone-900 font-mono text-xs py-1 px-3 rounded">CREW RECOMMENDATION</div>
+        <h3 class="font-racing-title text-xl mb-2">Full</h3>
+        <p class="mb-4 text-stone-400 flex-grow">Complete interior & exterior detail with paint correction</p>
+        <p class="font-mono text-yellow-400 text-lg mb-4">$400</p>
+        <button type="button" class="btn-slant bg-yellow-400 text-stone-900 font-semibold px-4 py-2 mt-auto w-full focus:outline-none focus:ring-4 focus:ring-yellow-400">Select Package</button>
+      </article>
+    </div>
+  </section>
+
+  <section id="booking-form" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 grid grid-cols-1 lg:grid-cols-3 gap-8">
+    <form id="bookingForm" class="lg:col-span-2 bg-stone-900 rounded-lg p-8 shadow-md text-stone-200 font-mono" novalidate>
+      <!-- Progress bar -->
+      <div class="mb-8">
+        <div class="w-full bg-stone-800 rounded h-2 overflow-hidden">
+          <div id="progressBar" class="bg-yellow-400 h-2 rounded transition-all duration-300 ease-in-out" style="width:33%;"></div>
+        </div>
+        <div class="flex justify-between text-xs mt-1 text-stone-400">
+          <span>1. Vehicle & Location</span>
+          <span>2. Add-ons & Disclaimers</span>
+          <span>3. Schedule & Contact</span>
+        </div>
+      </div>
+
+      <!-- Step 1 -->
+      <fieldset id="step1" class="space-y-6">
+        <legend class="font-racing-title text-2xl mb-4">Vehicle & Location</legend>
+        <div class="grid grid-cols-3 gap-4">
+          <label for="year" class="block">Year <input type="number" name="year" id="year" min="1990" max="2027" required class="mt-1 w-full rounded bg-stone-800 border border-stone-700 p-2 text-yellow-400" placeholder="1999"></label>
+          <label for="make" class="block">Make <input type="text" name="make" id="make" required class="mt-1 w-full rounded bg-stone-800 border border-stone-700 p-2 text-yellow-400" placeholder="Toyota"></label>
+          <label for="model" class="block">Model <input type="text" name="model" id="model" required class="mt-1 w-full rounded bg-stone-800 border border-stone-700 p-2 text-yellow-400" placeholder="Camry"></label>
+        </div>
+        <label class="block">Vehicle Size
+          <select name="size" id="size" class="mt-1 w-full rounded bg-stone-800 border border-stone-700 p-2 text-yellow-400" required>
+            <option value="Coupe/Sedan" data-surcharge="0" selected>Coupe/Sedan (base)</option>
+            <option value="Mid-Size SUV/Crossover" data-surcharge="30">Mid-Size SUV/Crossover (+$30)</option>
+            <option value="XL SUV/Truck/Minivan" data-surcharge="60">XL SUV/Truck/Minivan (+$60)</option>
+          </select>
+        </label>
+        <label for="street" class="block">Street Address
+          <input type="text" name="street" id="street" required class="mt-1 w-full rounded bg-stone-800 border border-stone-700 p-2 text-yellow-400" placeholder="1234 Main St">
+        </label>
+        <div class="grid grid-cols-6 gap-4">
+          <label for="city" class="col-span-2 block">City
+            <input type="text" name="city" id="city" required class="mt-1 w-full rounded bg-stone-800 border border-stone-700 p-2 text-yellow-400" placeholder="Phoenix">
+          </label>
+          <label for="state" class="col-span-1 block">State
+            <input type="text" name="state" id="state" maxlength="2" required class="mt-1 w-full rounded bg-stone-800 border border-stone-700 p-2 text-yellow-400 uppercase" placeholder="AZ" style="text-transform: uppercase;">
+          </label>
+          <label for="zip" class="col-span-1 block">Zip Code
+            <input type="text" name="zip" id="zip" required class="mt-1 w-full rounded bg-stone-800 border border-stone-700 p-2 text-yellow-400" placeholder="85001" pattern="\d{5}">
+          </label>
+        </div>
+        <label for="locationType" class="block">Location Type
+          <select name="locationType" id="locationType" class="mt-1 w-full rounded bg-stone-800 border border-stone-700 p-2 text-yellow-400" required>
+            <option value="Residential Driveway" selected>Residential Driveway</option>
+            <option value="Apartment Lot">Apartment Lot</option>
+            <option value="Office Parking Lot">Office Parking Lot</option>
+          </select>
+        </label>
+        <label for="utility" class="block">Water & Power Access
+          <select name="utility" id="utility" class="mt-1 w-full rounded bg-stone-800 border border-stone-700 p-2 text-yellow-400" required>
+            <option value="Yes within 50ft" selected>Yes within 50ft</option>
+            <option value="No self-contained unit">No self-contained unit</option>
+          </select>
+        </label>
+        <button type="button" id="toStep2" class="btn-slant bg-yellow-400 text-stone-900 font-semibold px-6 py-3 mt-6 block w-full focus:outline-none focus:ring-4 focus:ring-yellow-400">Next: Add-ons</button>
+      </fieldset>
+
+      <!-- Step 2 -->
+      <fieldset id="step2" class="space-y-6 hidden">
+        <legend class="font-racing-title text-2xl mb-4">Add-ons & Disclaimers</legend>
+        <div class="grid grid-cols-2 gap-4">
+          <label class="flex items-center space-x-3"><input type="checkbox" name="addons" value="Pet Hair Removal" data-price="45" class="text-yellow-400"><span>Pet Hair Removal +$45</span></label>
+          <label class="flex items-center space-x-3"><input type="checkbox" name="addons" value="Engine Bay Clean" data-price="50" class="text-yellow-400"><span>Engine Bay Clean +$50</span></label>
+          <label class="flex items-center space-x-3"><input type="checkbox" name="addons" value="Headlight Restoration" data-price="75" class="text-yellow-400"><span>Headlight Restoration +$75</span></label>
+          <label class="flex items-center space-x-3"><input type="checkbox" name="addons" value="Ceramic Sealant Upgrade" data-price="95" class="text-yellow-400"><span>Ceramic Sealant Upgrade +$95</span></label>
+        </div>
+        <div id="tier1Disclaimer" class="hidden bg-stone-800 p-4 rounded text-yellow-400 text-sm border border-yellow-400">
+          <label class="flex items-center space-x-2"><input type="checkbox" id="tier1Ack" class="text-yellow-400" required><span>I acknowledge my vehicle is well-maintained and detail-ready for the Express package.</span></label>
+        </div>
+        <div id="tier4Disclaimer" class="hidden bg-stone-800 p-4 rounded text-yellow-400 text-sm border border-yellow-400">
+          <p>Note: Pricing for Full package may adjust upon arrival based on vehicle condition.</p>
+        </div>
+        <div class="flex justify-between mt-6">
+          <button type="button" id="backToStep1" class="btn-slant bg-stone-800 border border-yellow-400 text-yellow-400 font-semibold px-6 py-3 focus:outline-none focus:ring-4 focus:ring-yellow-400">Back</button>
+          <button type="button" id="toStep3" class="btn-slant bg-yellow-400 text-stone-900 font-semibold px-6 py-3 focus:outline-none focus:ring-4 focus:ring-yellow-400">Next: Schedule</button>
+        </div>
+      </fieldset>
+
+      <!-- Step 3 -->
+      <fieldset id="step3" class="space-y-6 hidden">
+        <legend class="font-racing-title text-2xl mb-4">Schedule & Contact</legend>
+        <label for="date" class="block">Preferred Date
+          <input type="date" name="date" id="date" required class="mt-1 w-full rounded bg-stone-800 border border-stone-700 p-2 text-yellow-400" min="">
+        </label>
+        <label for="timeWindow" class="block">Time Window
+          <select name="timeWindow" id="timeWindow" class="mt-1 w-full rounded bg-stone-800 border border-stone-700 p-2 text-yellow-400" required>
+            <option value="Morning (8AM-11AM)" selected>Morning (8AM-11AM)</option>
+            <option value="Afternoon (11AM-3PM)">Afternoon (11AM-3PM)</option>
+            <option value="Evening (3PM-6PM)">Evening (3PM-6PM)</option>
+          </select>
+        </label>
+        <label for="fullName" class="block">Full Name
+          <input type="text" name="fullName" id="fullName" required class="mt-1 w-full rounded bg-stone-800 border border-stone-700 p-2 text-yellow-400" placeholder="John Doe">
+        </label>
+        <label for="phone" class="block">Phone
+          <input type="tel" name="phone" id="phone" required class="mt-1 w-full rounded bg-stone-800 border border-stone-700 p-2 text-yellow-400" placeholder="(555) 123-4567" pattern="[\d\s\-\+\(\)]{7,}">
+        </label>
+        <label for="email" class="block">Email
+          <input type="email" name="email" id="email" required class="mt-1 w-full rounded bg-stone-800 border border-stone-700 p-2 text-yellow-400" placeholder="email@example.com">
+        </label>
+        <div id="formError" class="text-red-500 font-semibold hidden" role="alert"></div>
+        <div class="flex justify-between mt-6">
+          <button type="button" id="backToStep2" class="btn-slant bg-stone-800 border border-yellow-400 text-yellow-400 font-semibold px-6 py-3 focus:outline-none focus:ring-4 focus:ring-yellow-400">Back</button>
+          <button type="submit" id="submitBooking" class="btn-slant bg-yellow-400 text-stone-900 font-semibold px-6 py-3 focus:outline-none focus:ring-4 focus:ring-yellow-400">Submit Booking</button>
+        </div>
+      </fieldset>
+    </form>
+
+    <aside id="bookingSummary" class="bg-stone-950 rounded-lg p-6 shadow-md sticky top-20 h-fit max-h-[calc(100vh-5rem)] text-stone-300 font-mono flex flex-col space-y-4">
+      <h3 class="font-racing-title text-2xl text-yellow-400 mb-4 border-b border-yellow-400 pb-2">Booking Summary</h3>
+      <dl class="flex flex-col space-y-2">
+        <div class="flex justify-between">
+          <dt>Selected Package:</dt>
+          <dd id="summaryPackage" class="text-yellow-400 font-semibold">Full</dd>
+        </div>
+        <div class="flex justify-between">
+          <dt>Base Price:</dt>
+          <dd id="summaryBasePrice" class="text-yellow-400 font-semibold">$400</dd>
+        </div>
+        <div class="flex justify-between">
+          <dt>Vehicle Size:</dt>
+          <dd id="summaryVehicleSize" class="">Coupe/Sedan</dd>
+        </div>
+        <div class="flex justify-between">
+          <dt>Size Surcharge:</dt>
+          <dd id="summarySurcharge" class="">$0</dd>
+        </div>
+        <div class="border-t border-stone-800 mt-2 pt-2">
+          <dt>Add-ons:</dt>
+          <dd id="summaryAddons" class="flex flex-col gap-1 pl-2 min-h-[2rem]">None</dd>
+        </div>
+        <div class="border-t border-stone-800 mt-4 pt-4 text-yellow-400 font-semibold flex justify-between text-lg">
+          <dt>Estimated Total:</dt>
+          <dd id="summaryTotal">$400</dd>
+        </div>
+      </dl>
+      <div class="mt-6 bg-stone-800 border border-yellow-400 rounded p-3 text-yellow-400 text-sm flex items-center space-x-3">
+        <i class="fas fa-info-circle" aria-hidden="true"></i>
+        <p class="m-0">No Prepayment Required</p>
+      </div>
+    </aside>
+  </section>
+
+  <div id="successModal" class="fixed inset-0 bg-black/95 text-yellow-400 flex flex-col items-center justify-center p-8 font-mono text-center hidden z-50">
+    <div class="max-w-xl bg-stone-900 rounded-lg p-10 shadow-lg border-2 border-yellow-400">
+      <h2 class="font-racing-title text-4xl mb-6">Booking Confirmed!</h2>
+      <p class="mb-4">Thank you, <span id="confName" class="font-semibold"></span>, for booking our <span id="confPackage" class="font-semibold"></span> package.</p>
+      <p class="mb-2">Vehicle: <span id="confVehicle" class="font-semibold"></span></p>
+      <p class="mb-2">Service Address:</p>
+      <p id="confAddress" class="mb-4"></p>
+      <p class="mb-2">Time Slot: <span id="confTime" class="font-semibold"></span></p>
+      <p class="font-semibold text-lg mb-6">Estimated Total: <span id="confTotal"></span></p>
+      <button id="closeSuccess" class="btn-slant bg-yellow-400 text-stone-900 font-semibold px-6 py-3 focus:outline-none focus:ring-4 focus:ring-yellow-400">Return to Site</button>
+    </div>
+  </div>
+
+  <script>
+    (() => {
+      // Package card elements and form elements
+      const packageCards = document.querySelectorAll('#tiers article');
+      const bookingForm = document.getElementById('bookingForm');
+      const progressBar = document.getElementById('progressBar');
+      const steps = ['step1', 'step2', 'step3'];
+      let currentStep = 0;
+
+      // Step containers
+      const stepEls = steps.map(id => document.getElementById(id));
+
+      // Summary elements
+      const summaryPackage = document.getElementById('summaryPackage');
+      const summaryBasePrice = document.getElementById('summaryBasePrice');
+      const summaryVehicleSize = document.getElementById('summaryVehicleSize');
+      const summarySurcharge = document.getElementById('summarySurcharge');
+      const summaryAddons = document.getElementById('summaryAddons');
+      const summaryTotal = document.getElementById('summaryTotal');
+
+      // Disclaimers
+      const tier1Disclaimer = document.getElementById('tier1Disclaimer');
+      const tier4Disclaimer = document.getElementById('tier4Disclaimer');
+      const tier1Ack = document.getElementById('tier1Ack');
+
+      // Form error display
+      const formError = document.getElementById('formError');
+
+      // Success modal elements
+      const successModal = document.getElementById('successModal');
+      const confName = document.getElementById('confName');
+      const confPackage = document.getElementById('confPackage');
+      const confVehicle = document.getElementById('confVehicle');
+      const confAddress = document.getElementById('confAddress');
+      const confTime = document.getElementById('confTime');
+      const confTotal = document.getElementById('confTotal');
+      const closeSuccessBtn = document.getElementById('closeSuccess');
+
+      // Inputs
+      const inputs = {
+        year: bookingForm.year,
+        make: bookingForm.make,
+        model: bookingForm.model,
+        size: bookingForm.size,
+        street: bookingForm.street,
+        city: bookingForm.city,
+        state: bookingForm.state,
+        zip: bookingForm.zip,
+        locationType: bookingForm.locationType,
+        utility: bookingForm.utility,
+        addons: [...bookingForm.querySelectorAll('input[name="addons"]')],
+        date: bookingForm.date,
+        timeWindow: bookingForm.timeWindow,
+        fullName: bookingForm.fullName,
+        phone: bookingForm.phone,
+        email: bookingForm.email
+      };
+
+      // Defaults
+      const packageMap = {};
+      packageCards.forEach(card => {
+        packageMap[card.dataset.package] = {
+          title: card.dataset.package,
+          price: Number(card.dataset.price),
+          el: card
+        };
+      });
+
+      // Default selected package = Full
+      let selectedPackage = packageMap['Full'];
+
+      // Set min date for preferred date input = today
+      inputs.date.min = new Date().toISOString().split('T')[0];
+
+      // Highlight default package on load
+      function selectPackageCard(card) {
+        packageCards.forEach(c => {
+          c.classList.remove('border-yellow-400', 'glow-yellow');
+          c.setAttribute('aria-current', 'false');
+        });
+        card.classList.add('border-yellow-400', 'glow-yellow');
+        card.setAttribute('aria-current', 'true');
+      }
+      selectPackageCard(selectedPackage.el);
+
+      // Handle package selection clicks
+      packageCards.forEach(card => {
+        card.addEventListener('click', () => {
+          selectedPackage = packageMap[card.dataset.package];
+          selectPackageCard(card);
+          updateDisclaimers();
+          updateSummary();
+          // Scroll to booking form
+          document.getElementById('booking-form').scrollIntoView({behavior:'smooth'});
+        });
+        card.querySelector('button').addEventListener('click', e => {
+          e.preventDefault();
+          card.click();
+        });
+      });
+
+      // Update disclaimers based on selected package
+      function updateDisclaimers() {
+        tier1Disclaimer.classList.toggle('hidden', selectedPackage.title !== 'Express');
+        tier4Disclaimer.classList.toggle('hidden', selectedPackage.title !== 'Full');
+        if (tier1Disclaimer.classList.contains('hidden')) {
+          tier1Ack.checked = false;
+        }
+      }
+
+      // Calculate Summary and update DOM
+      function updateSummary() {
+        const basePrice = selectedPackage.price;
+        summaryPackage.textContent = selectedPackage.title;
+        summaryBasePrice.textContent = `$${basePrice}`;
+        summaryVehicleSize.textContent = inputs.size.value;
+        const surcharge = Number(inputs.size.selectedOptions[0].dataset.surcharge) || 0;
+        summarySurcharge.textContent = surcharge ? `$${surcharge}` : '$0';
+
+        // Add-ons list and total
+        const selectedAddons = inputs.addons.filter(chk => chk.checked);
+        if (selectedAddons.length) {
+          summaryAddons.innerHTML = '';
+          selectedAddons.forEach(chk => {
+            const addonPrice = Number(chk.dataset.price);
+            const item = document.createElement('div');
+            item.textContent = `${chk.value} +$${addonPrice}`;
+            summaryAddons.appendChild(item);
+          });
+        } else {
+          summaryAddons.textContent = 'None';
+        }
+        const addonsTotal = selectedAddons.reduce((acc, cur) => acc + Number(cur.dataset.price), 0);
+
+        const total = basePrice + surcharge + addonsTotal;
+        summaryTotal.textContent = `$${total}`;
+
+        return total;
+      }
+
+      // Initial disclaimers and summary on load
+      updateDisclaimers();
+      updateSummary();
+
+      // Step navigation buttons
+      const btnToStep2 = document.getElementById('toStep2');
+      const btnBackToStep1 = document.getElementById('backToStep1');
+      const btnToStep3 = document.getElementById('toStep3');
+      const btnBackToStep2 = document.getElementById('backToStep2');
+
+      function showStep(n) {
+        stepEls.forEach((el, i) => {
+          el.classList.toggle('hidden', i !== n);
+        });
+        currentStep = n;
+        progressBar.style.width = ((n+1)*33)+'%';
+        formError.classList.add('hidden');
+        formError.textContent = '';
+        // Scroll form top
+        bookingForm.scrollIntoView({behavior:'smooth'});
+      }
+
+      // Validate Step 1 fields
+      function validateStep1() {
+        // Required: year between min/max, make, model, vehicle size, street, city, state(2 char), zip(5 digit)
+        let valid = true;
+        formError.classList.add('hidden');
+        formError.textContent = '';
+        if(!inputs.year.value || inputs.year.value < 1990 || inputs.year.value > 2027) {
+          valid = false;
+          formError.textContent = 'Please enter a valid vehicle year between 1990 and 2027.';
+        } else if (!inputs.make.value.trim()) {
+          valid = false;
+          formError.textContent = 'Please enter vehicle make.';
+        } else if (!inputs.model.value.trim()) {
+          valid = false;
+          formError.textContent = 'Please enter vehicle model.';
+        } else if (!inputs.size.value) {
+          valid = false;
+          formError.textContent = 'Please select a vehicle size.';
+        } else if (!inputs.street.value.trim()) {
+          valid = false;
+          formError.textContent = 'Please enter street address.';
+        } else if (!inputs.city.value.trim()) {
+          valid = false;
+          formError.textContent = 'Please enter city.';
+        } else if (!inputs.state.value.trim() || inputs.state.value.trim().length !== 2) {
+          valid = false;
+          formError.textContent = 'Please enter 2-letter state abbreviation.';
+        } else if (!inputs.zip.value.trim() || !/^\d{5}$/.test(inputs.zip.value.trim())) {
+          valid = false;
+          formError.textContent = 'Please enter 5-digit zip code.';
+        }
+        if(!valid) {
+          formError.classList.remove('hidden');
+        }
+        return valid;
+      }
+
+      // Validate Step 2 including disclaimer acknowledgment if needed
+      function validateStep2() {
+        formError.classList.add('hidden');
+        formError.textContent = '';
+        if(selectedPackage.title === 'Express' && !tier1Ack.checked) {
+          formError.textContent = 'Please acknowledge your vehicle is well-maintained for Express package.';
+          formError.classList.remove('hidden');
+          return false;
+        }
+        return true;
+      }
+
+      // Validate Step 3 contact & date fields
+      function validateStep3() {
+        formError.classList.add('hidden');
+        formError.textContent = '';
+
+        if(!inputs.date.value) {
+          formError.textContent = 'Please select a preferred date.';
+        } else if(!inputs.timeWindow.value) {
+          formError.textContent = 'Please select a preferred time window.';
+        } else if(!inputs.fullName.value.trim()) {
+          formError.textContent = 'Please enter your full name.';
+        } else if(!inputs.phone.value.trim()) {
+          formError.textContent = 'Please enter your phone number.';
+        } else if(!inputs.email.value.trim() || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(inputs.email.value.trim())) {
+          formError.textContent = 'Please enter a valid email address.';
+        }
+
+        if(formError.textContent) {
+          formError.classList.remove('hidden');
+          return false;
+        }
+        return true;
+      }
+
+      // Navigation handlers
+      btnToStep2.addEventListener('click', () => {
+        if(validateStep1()) {
+          showStep(1);
+        }
+      });
+      btnBackToStep1.addEventListener('click', () => {
+        showStep(0);
+      });
+      btnToStep3.addEventListener('click', () => {
+        if(validateStep2()) {
+          showStep(2);
+        }
+      });
+      btnBackToStep2.addEventListener('click', () => {
+        showStep(1);
+      });
+
+      // Update Summary on form changes
+      bookingForm.addEventListener('change', e => {
+        if(['size','addons'].includes(e.target.name) || e.target.name === 'addons') {
+          updateSummary();
+        }
+        if(e.target === inputs.size) {
+          updateSummary();
+        }
+      });
+
+      // On addons change update summary immediately
+      inputs.addons.forEach(chk => {
+        chk.addEventListener('change', () => {
+          updateSummary();
+        });
+      });
+
+      // Submit handler
+      bookingForm.addEventListener('submit', async e => {
+        e.preventDefault();
+        if(!validateStep3()) return;
+
+        // Prepare data for webhook
+        const addonList = inputs.addons.filter(chk=>chk.checked).map(chk=>chk.value);
+        const total = updateSummary();
+
+        const payload = {
+          contactName: inputs.fullName.value.trim(),
+          contactEmail: inputs.email.value.trim(),
+          contactPhone: inputs.phone.value.trim(),
+          data: {
+            "Vehicle Year": inputs.year.value,
+            "Vehicle Make": inputs.make.value.trim(),
+            "Vehicle Model": inputs.model.value.trim(),
+            "Vehicle Size Category": inputs.size.value,
+            "Street Address": inputs.street.value.trim(),
+            "City": inputs.city.value.trim(),
+            "State": inputs.state.value.trim().toUpperCase(),
+            "Zip Code": inputs.zip.value.trim(),
+            "Location Type": inputs.locationType.value,
+            "Water & Power Access": inputs.utility.value,
+            "Selected Package": selectedPackage.title,
+            "Package Price": "$" + selectedPackage.price,
+            "Add-ons": addonList.length ? addonList.join(", ") : "None",
+            "Appointment Date": inputs.date.value,
+            "Preferred Time": inputs.timeWindow.value,
+            "Estimated Total": total
+          }
+        };
+
+        try {
+          const resp = await fetch('https://paymegpt.com/api/webhooks/flow/3762/7f18c3f219503532eb92a6241effecebc06fd7609c4a002ffa6b3feea89c169b', {
+            method: 'POST',
+            headers: {'Content-Type': 'application/json'},
+            body: JSON.stringify(payload)
+          });
+          if(!resp.ok) throw new Error('Network response not ok');
+        } catch (error) {
+          formError.textContent = 'Error submitting booking. Please try again later.';
+          formError.classList.remove('hidden');
+          return;
+        }
+
+        // Show success modal
+        confName.textContent = payload.contactName;
+        confPackage.textContent = payload.data["Selected Package"];
+        confVehicle.textContent = `${payload.data["Vehicle Year"]} ${payload.data["Vehicle Make"]} ${payload.data["Vehicle Model"]}`;
+        confAddress.innerHTML = `${payload.data["Street Address"]}<br>${payload.data["City"]}, ${payload.data["State"]} ${payload.data["Zip Code"]}`;
+        confTime.textContent = `${payload.data["Appointment Date"]} — ${payload.data["Preferred Time"]}`;
+        confTotal.textContent = payload.data["Estimated Total"];
+        successModal.classList.remove('hidden');
+        window.scrollTo({top:0,behavior:'smooth'});
+      });
+
+      // Close success modal and reset form
+      closeSuccessBtn.addEventListener('click', () => {
+        bookingForm.reset();
+        selectPackageCard(selectedPackage.el);
+        updateSummary();
+        updateDisclaimers();
+        showStep(0);
+        successModal.classList.add('hidden');
+      });
+
+      // On load, show step 1
+      showStep(0);
+    })();
+  </script>
 </div>
 
 <!-- Top Dispatch Bar -->
-<div class="checkered-pattern h-4 w-full border-b border-gray-800"></div>
-<div class="bg-yellow-400 text-stone-950 font-black py-3 px-4">
+<div class="checkered-pattern h-4 w-full border-b border-gray-800" data-section="section-4"></div>
+<div class="bg-yellow-400 text-stone-950 font-black py-3 px-4" data-section="section-5">
     <div class="max-w-6xl mx-auto flex flex-col md:flex-row items-center justify-between gap-2 text-center md:text-left">
         <span class="font-racing-title text-base tracking-wider flex items-center gap-2">
             <span class="inline-block w-2.5 h-2.5 bg-red-600 animate-ping rounded-full"></span>
@@ -273,7 +796,7 @@
     </div>
 </div>
 
-<div class="max-w-6xl mx-auto mt-6 px-4">
+<div class="max-w-6xl mx-auto mt-6 px-4" data-section="section-6">
 
     <!-- Navigation -->
     <nav class="bg-stone-900 border border-stone-800 rounded-lg p-4 flex items-center justify-between gap-4 shadow-xl">
@@ -548,7 +1071,7 @@
 </div>
 
 <!-- Footer -->
-<footer class="mt-20 border-t border-stone-800 pt-0">
+<footer class="mt-20 border-t border-stone-800 pt-0" data-section="footer">
     <div class="checkered-pattern h-3 w-full"></div>
     <div class="max-w-6xl mx-auto px-4 py-12">
         <div class="grid grid-cols-1 md:grid-cols-4 gap-10">
