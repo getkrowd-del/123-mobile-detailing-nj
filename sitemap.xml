@@ -1,6 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>https://123mobiledetailing.com/blog/</loc>
+    <lastmod>2026-06-18T14:24:04.975Z</lastmod>
+    <changefreq>weekly</changefreq>
+  </url>
+  <url>
     <loc>https://123mobiledetailing.com/about/</loc>
     <lastmod>2026-06-18T14:24:00.010Z</lastmod>
     <changefreq>weekly</changefreq>
@@ -8,11 +13,6 @@
   <url>
     <loc>https://123mobiledetailing.com/paint-protection-film/</loc>
     <lastmod>2026-06-18T14:13:09.603Z</lastmod>
-    <changefreq>weekly</changefreq>
-  </url>
-  <url>
-    <loc>https://123mobiledetailing.com/blog/</loc>
-    <lastmod>2026-06-18T13:55:48.533Z</lastmod>
     <changefreq>weekly</changefreq>
   </url>
   <url>
