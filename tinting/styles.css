@@ -1,0 +1,207 @@
+/* ===== GLOBAL RESET & BASE ===== */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Outfit', sans-serif;
+            background-color: #121214;
+            color: #f0f0f0;
+            scroll-behavior: smooth;
+        }
+        /* ===== RACING YELLOW ACCENT ===== */
+        .racing-yellow {
+            color: #facc15;
+        }
+        .bg-racing-yellow {
+            background-color: #facc15;
+        }
+        .border-racing-yellow {
+            border-color: #facc15;
+        }
+        .hover-racing-yellow:hover {
+            background-color: #facc15;
+            color: #121214;
+        }
+        /* ===== ITALIC UPPERCASE RACING TITLE ===== */
+        .racing-title {
+            font-style: italic;
+            text-transform: uppercase;
+            font-weight: 800;
+            letter-spacing: 0.04em;
+        }
+        .racing-title-light {
+            font-style: italic;
+            text-transform: uppercase;
+            font-weight: 600;
+            letter-spacing: 0.03em;
+        }
+        /* ===== CHECKERED PATTERN OVERLAY ===== */
+        .checkered-bg {
+            background-image: linear-gradient(45deg, rgba(250, 204, 21, 0.08) 25%, transparent 25%),
+                linear-gradient(-45deg, rgba(250, 204, 21, 0.08) 25%, transparent 25%),
+                linear-gradient(45deg, transparent 75%, rgba(250, 204, 21, 0.08) 75%),
+                linear-gradient(-45deg, transparent 75%, rgba(250, 204, 21, 0.08) 75%);
+            background-size: 40px 40px;
+            background-position: 0 0, 0 20px, 20px -20px, -20px 0px;
+        }
+        .checkered-sm {
+            background-image: linear-gradient(45deg, rgba(250, 204, 21, 0.12) 25%, transparent 25%),
+                linear-gradient(-45deg, rgba(250, 204, 21, 0.12) 25%, transparent 25%),
+                linear-gradient(45deg, transparent 75%, rgba(250, 204, 21, 0.12) 75%),
+                linear-gradient(-45deg, transparent 75%, rgba(250, 204, 21, 0.12) 75%);
+            background-size: 20px 20px;
+            background-position: 0 0, 0 10px, 10px -10px, -10px 0px;
+        }
+        /* ===== DROPDOWN ===== */
+        .dropdown-menu {
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(6px);
+            transition: opacity 0.25s ease, transform 0.25s ease, visibility 0s 0.25s;
+            pointer-events: none;
+        }
+        .dropdown-group:hover .dropdown-menu,
+        .dropdown-group:focus-within .dropdown-menu {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+            pointer-events: auto;
+            transition-delay: 0s;
+        }
+        /* ===== BENEFIT CARD ===== */
+        .benefit-card {
+            background: rgba(255, 255, 255, 0.04);
+            border: 1px solid rgba(250, 204, 21, 0.15);
+            border-radius: 1rem;
+            padding: 1.75rem 1.5rem;
+            transition: border-color 0.3s, transform 0.3s, box-shadow 0.3s;
+        }
+        .benefit-card:hover {
+            border-color: #facc15;
+            transform: translateY(-4px);
+            box-shadow: 0 12px 32px -8px rgba(250, 204, 21, 0.15);
+        }
+        /* ===== TINT LEVEL CARD ===== */
+        .tint-card {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(250, 204, 21, 0.10);
+            border-radius: 1rem;
+            padding: 1.5rem 1.25rem;
+            text-align: center;
+            transition: border-color 0.3s, transform 0.3s;
+        }
+        .tint-card:hover {
+            border-color: #facc15;
+            transform: scale(1.03);
+        }
+        /* ===== CHAT WIDGET ===== */
+        #chat-widget {
+            position: fixed;
+            bottom: 24px;
+            right: 24px;
+            width: 96px;
+            height: 96px;
+            z-index: 9999;
+            cursor: pointer;
+            border-radius: 50%;
+            overflow: hidden;
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.6);
+            transition: transform 0.25s, box-shadow 0.25s;
+            border: 2px solid #facc15;
+        }
+        #chat-widget:hover {
+            transform: scale(1.07);
+            box-shadow: 0 12px 32px rgba(250, 204, 21, 0.25);
+        }
+        #chat-widget img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+        /* ===== EMBED OVERLAY ===== */
+        #chat-overlay {
+            position: fixed;
+            inset: 0;
+            z-index: 9998;
+            background: rgba(0, 0, 0, 0.7);
+            display: none;
+            align-items: center;
+            justify-content: center;
+            backdrop-filter: blur(4px);
+        }
+        #chat-overlay.active {
+            display: flex;
+        }
+        #chat-overlay iframe {
+            width: 90%;
+            max-width: 480px;
+            height: 80vh;
+            max-height: 700px;
+            border: none;
+            border-radius: 1.25rem;
+            box-shadow: 0 24px 64px rgba(0, 0, 0, 0.8);
+        }
+        #chat-close {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: #facc15;
+            color: #121214;
+            border: none;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            font-size: 1.5rem;
+            font-weight: 700;
+            cursor: pointer;
+            line-height: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+            transition: transform 0.2s;
+        }
+        #chat-close:hover {
+            transform: scale(1.1);
+        }
+        /* ===== HERO CHECKERED STRIPE ===== */
+        .hero-stripe {
+            background: repeating-linear-gradient(90deg, #facc15 0px, #facc15 4px, transparent 4px, transparent 12px);
+            height: 6px;
+            width: 100%;
+        }
+        /* ===== RESPONSIVE ===== */
+        @media (max-width: 640px) {
+            #chat-widget {
+                width: 72px;
+                height: 72px;
+                bottom: 16px;
+                right: 16px;
+            }
+            #chat-overlay iframe {
+                width: 95%;
+                height: 70vh;
+            }
+        }
+        /* custom scrollbar */
+        ::-webkit-scrollbar {
+            width: 6px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #1a1a1e;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #facc15;
+            border-radius: 3px;
+        }
+        /* footer link hover */
+        .footer-link {
+            color: #aaa;
+            transition: color 0.2s;
+        }
+        .footer-link:hover {
+            color: #facc15;
+        }
