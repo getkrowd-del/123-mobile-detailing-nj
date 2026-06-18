@@ -1,0 +1,172 @@
+/* ===== GLOBAL STYLES ===== */
+        /* Carbon dark background, Outfit font, smooth scroll */
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+        body {
+            font-family: 'Outfit', sans-serif;
+            background-color: #121214;
+            color: #f3f4f6;
+        }
+
+        /* ===== CHECKERED PATTERN UTILITY ===== */
+        /* Used for section backgrounds, card overlays, and decorative bands */
+        .checkered-pattern {
+            background-image:
+                linear-gradient(45deg, rgba(250, 204, 21, 0.15) 25%, transparent 25%),
+                linear-gradient(-45deg, rgba(250, 204, 21, 0.15) 25%, transparent 25%),
+                linear-gradient(45deg, transparent 75%, rgba(250, 204, 21, 0.15) 75%),
+                linear-gradient(-45deg, transparent 75%, rgba(250, 204, 21, 0.15) 75%);
+            background-size: 20px 20px;
+            background-position: 0 0, 0 10px, 10px -10px, -10px 0px;
+        }
+        .checkered-pattern-sm {
+            background-image:
+                linear-gradient(45deg, rgba(250, 204, 21, 0.12) 25%, transparent 25%),
+                linear-gradient(-45deg, rgba(250, 204, 21, 0.12) 25%, transparent 25%),
+                linear-gradient(45deg, transparent 75%, rgba(250, 204, 21, 0.12) 75%),
+                linear-gradient(-45deg, transparent 75%, rgba(250, 204, 21, 0.12) 75%);
+            background-size: 12px 12px;
+            background-position: 0 0, 0 6px, 6px -6px, -6px 0px;
+        }
+        .checkered-pattern-lg {
+            background-image:
+                linear-gradient(45deg, rgba(250, 204, 21, 0.08) 25%, transparent 25%),
+                linear-gradient(-45deg, rgba(250, 204, 21, 0.08) 25%, transparent 25%),
+                linear-gradient(45deg, transparent 75%, rgba(250, 204, 21, 0.08) 75%),
+                linear-gradient(-45deg, transparent 75%, rgba(250, 204, 21, 0.08) 75%);
+            background-size: 40px 40px;
+            background-position: 0 0, 0 20px, 20px -20px, -20px 0px;
+        }
+
+        /* ===== RACING TITLE STYLE ===== */
+        /* Italic, uppercase, with a subtle text shadow for depth */
+        .racing-title {
+            font-style: italic;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            text-shadow: 2px 2px 0 rgba(250, 204, 21, 0.2);
+        }
+        .racing-title-yellow {
+            color: #facc15;
+            text-shadow: 3px 3px 0 rgba(18, 18, 20, 0.5);
+        }
+
+        /* ===== GALLERY CARD STYLES ===== */
+        /* Placeholder cards with checkered overlay and hover lift */
+        .gallery-card {
+            position: relative;
+            overflow: hidden;
+            border: 1px solid rgba(250, 204, 21, 0.15);
+            transition: transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94), border-color 0.4s ease, box-shadow 0.4s ease;
+            cursor: pointer;
+        }
+        .gallery-card:hover {
+            transform: translateY(-6px) scale(1.02);
+            border-color: #facc15;
+            box-shadow: 0 20px 40px -12px rgba(250, 204, 21, 0.25);
+        }
+        .gallery-card::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(135deg, rgba(250, 204, 21, 0.05) 0%, transparent 50%);
+            pointer-events: none;
+        }
+        .gallery-card .card-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0; right: 0;
+            padding: 1rem 1.25rem;
+            background: linear-gradient(0deg, rgba(18,18,20,0.92) 40%, transparent 100%);
+            transform: translateY(8px);
+            opacity: 0.9;
+            transition: transform 0.3s ease, opacity 0.3s ease;
+        }
+        .gallery-card:hover .card-overlay {
+            transform: translateY(0);
+            opacity: 1;
+        }
+
+        /* ===== BEFORE / AFTER COMPARISON PLACEHOLDER ===== */
+        .comparison-card {
+            position: relative;
+            overflow: hidden;
+            border: 1px solid rgba(250, 204, 21, 0.1);
+            transition: border-color 0.3s ease, box-shadow 0.3s ease;
+        }
+        .comparison-card:hover {
+            border-color: rgba(250, 204, 21, 0.4);
+            box-shadow: 0 0 30px -8px rgba(250, 204, 21, 0.15);
+        }
+
+        /* ===== DIVIDER LINE ===== */
+        .divider-yellow {
+            height: 3px;
+            background: linear-gradient(90deg, transparent, #facc15, transparent);
+            width: 120px;
+            margin: 0.5rem auto 0;
+        }
+
+        /* ===== CHAT WIDGET ===== */
+        #chat-widget {
+            position: fixed;
+            bottom: 28px;
+            right: 28px;
+            width: 96px;
+            height: 96px;
+            z-index: 9999;
+            border: none;
+            background: transparent;
+            cursor: pointer;
+            transition: transform 0.3s ease;
+        }
+        #chat-widget:hover {
+            transform: scale(1.08);
+        }
+        #chat-widget .chat-bubble {
+            width: 96px;
+            height: 96px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #facc15 0%, #e6b800 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 8px 30px rgba(250, 204, 21, 0.35);
+            position: relative;
+            transition: box-shadow 0.3s ease;
+        }
+        #chat-widget:hover .chat-bubble {
+            box-shadow: 0 12px 40px rgba(250, 204, 21, 0.5);
+        }
+        #chat-widget .chat-bubble i {
+            font-size: 2.4rem;
+            color: #121214;
+        }
+        #chat-widget .chat-bubble .pulse-ring {
+            position: absolute;
+            inset: -6px;
+            border-radius: 50%;
+            border: 2px solid rgba(250, 204, 21, 0.3);
+            animation: pulse-ring 2s ease-in-out infinite;
+        }
+        @keyframes pulse-ring {
+            0% { transform: scale(1); opacity: 0.8; }
+            50% { transform: scale(1.12); opacity: 0.2; }
+            100% { transform: scale(1); opacity: 0.8; }
+        }
+
+        /* ===== SCROLLBAR STYLING ===== */
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: #1a1a1e; }
+        ::-webkit-scrollbar-thumb { background: #facc15; border-radius: 4px; }
+        ::-webkit-scrollbar-thumb:hover { background: #e6b800; }
+
+        /* ===== RESPONSIVE HELPER ===== */
+        @media (max-width: 640px) {
+            .racing-title { letter-spacing: 0.02em; }
+        }
+
+        /* ===== ASPECT RATIO FIX ===== */
+        .aspect-4-3 { aspect-ratio: 4 / 3; }
+        .aspect-square { aspect-ratio: 1 / 1; }
+        .aspect-video { aspect-ratio: 16 / 9; }
