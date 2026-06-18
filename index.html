@@ -8,27 +8,24 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
-    <!-- Tailwind CSS -->
+    
     <script src="https://cdn.tailwindcss.com"></script>
-    <!-- FontAwesome for sport and garage icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <!-- Google Fonts for High-Octane Sport typography -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Chalan:ital,wght@0,900;1,900&family=Kona:wght@800&family=Outfit:wght@400;600;800;900&family=Permanent+Marker&display=swap" rel="stylesheet">
-    
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;800;900&display=swap" rel="stylesheet">
     
 
 <!-- SEO Meta Tags -->
-<title>123 Auto Detailing – Mobile Auto Detailing in Bergen County </title>
-<meta name="description" content="Professional mobile auto detailing in Bergen County, NJ. We come to you for interior &amp; exterior detailing, paint correction &amp; ceramic coating." />
+<title>123 Auto Detailing – Mobile Auto Detailing in Bergen County NJ</title>
+<meta name="description" content="Professional mobile auto detailing in Bergen County &amp; Passaic County, NJ. We come to you for interior &amp; exterior detailing, paint correction &amp; ceramic coating." />
 <meta name="keywords" content="auto detailing Bergen County NJ" />
-<meta property="og:title" content="123 Auto Detailing – Mobile Auto Detailing in Bergen County " />
-<meta property="og:description" content="Professional mobile auto detailing in Bergen County, NJ. We come to you for interior &amp; exterior detailing, paint correction &amp; ceramic coating." />
+<meta property="og:title" content="123 Auto Detailing – Mobile Auto Detailing in Bergen County NJ" />
+<meta property="og:description" content="Professional mobile auto detailing in Bergen County &amp; Passaic County, NJ. We come to you for interior &amp; exterior detailing, paint correction &amp; ceramic coating." />
 <meta property="og:type" content="website" />
 <meta name="twitter:card" content="summary_large_image" />
-<meta name="twitter:title" content="123 Auto Detailing – Mobile Auto Detailing in Bergen County " />
-<meta name="twitter:description" content="Professional mobile auto detailing in Bergen County, NJ. We come to you for interior &amp; exterior detailing, paint correction &amp; ceramic coating." />
+<meta name="twitter:title" content="123 Auto Detailing – Mobile Auto Detailing in Bergen County NJ" />
+<meta name="twitter:description" content="Professional mobile auto detailing in Bergen County &amp; Passaic County, NJ. We come to you for interior &amp; exterior detailing, paint correction &amp; ceramic coating." />
 <!-- End SEO Meta Tags -->
 <meta name="sheet-data-url" content="https://paymegpt.com/api/public/landing-pages/4976/sheet-data">
 <script data-lp-token-hydrate>
@@ -235,296 +232,466 @@
 })();
 </script>  <link rel="stylesheet" href="styles.css">
 </head>
-<body class="min-h-screen pb-12">
+<body class="min-h-screen">
 
-    <!-- Top Pit-Stop Speed Dispatch Bar -->
-    <div class="checkered-pattern h-4 w-full border-b border-gray-800" data-section="section-1"></div>
-    
-    <div class="bg-yellow-400 text-stone-950 font-black py-3 px-4" data-section="section-2">
-        <div class="max-w-6xl mx-auto flex flex-col md:flex-row items-center justify-between gap-2 text-center md:text-left">
-            <span class="font-racing-title text-base tracking-wider flex items-center gap-2">
-                <span class="inline-block w-2.5 h-2.5 bg-red-600 animate-ping rounded-full"></span>
-                <i class="fa-solid fa-truck-fast"></i> DIRECT HOME DRIVEWAY DISPATCH ACTIVE
-            </span>
-            <div class="flex flex-wrap justify-center gap-3 md:gap-4">
-                <a href="tel:8625005192" class="bg-stone-950 text-yellow-400 font-bold px-4 py-1.5 rounded-sm text-sm uppercase hover:bg-stone-800 transition-all">
-                    <i class="fa-solid fa-phone"></i> CALL: (862) 500-5192
+<!-- Chat Teaser -->
+<div id="chat-teaser">
+    <div class="teaser-bubble">
+        <button class="teaser-close" id="teaser-close-btn">✕</button>
+        <p style="font-size:0.88rem;color:#f3f4f6;line-height:1.55;">👋 Hey! Need a quote or want to book a detail? <strong style="color:#facc15;">Tap me</strong> and let's get your ride looking fresh!</p>
+    </div>
+</div>
+<button id="custom-chat-btn" class="chat-bounce"><img src="https://krowdimg.b-cdn.net/clients/123MobileDetailing/chatIcon.PNG" alt="Chat with us"></button>
+<div id="chat-panel"><iframe id="chat-iframe" src="" allow="microphone"></iframe></div>
+
+<!-- Mobile Nav Overlay -->
+<div class="mobile-nav-overlay" id="mobileMenu">
+    <a href="https://newjerseyautocare.net/">Home</a>
+    <a href="#tiers" style="color:#facc15;font-weight:700;">Detailing</a>
+    <a href="#" class="sub-link">Paint Protection Film</a>
+    <a href="#" class="sub-link">Ceramic Coatings</a>
+    <a href="#" class="sub-link">Tinting</a>
+    <a href="#" class="sub-link">Paint Corrections</a>
+    <a href="#about">About</a>
+    <a href="#gallery">Gallery</a>
+    <a href="#insights">The Garage Journal</a>
+    <a href="#pitstop-booking" style="background:#facc15;color:#121214;text-align:center;border-radius:6px;font-weight:800;margin-top:12px;">Get Scheduled</a>
+</div>
+
+<!-- Top Dispatch Bar -->
+<div class="checkered-pattern h-4 w-full border-b border-gray-800"></div>
+<div class="bg-yellow-400 text-stone-950 font-black py-3 px-4">
+    <div class="max-w-6xl mx-auto flex flex-col md:flex-row items-center justify-between gap-2 text-center md:text-left">
+        <span class="font-racing-title text-base tracking-wider flex items-center gap-2">
+            <span class="inline-block w-2.5 h-2.5 bg-red-600 animate-ping rounded-full"></span>
+            <i class="fa-solid fa-truck-fast"></i> DIRECT HOME DRIVEWAY DISPATCH ACTIVE
+        </span>
+        <div class="flex flex-wrap justify-center gap-3 md:gap-4">
+            <a href="tel:8625005192" class="bg-stone-950 text-yellow-400 font-bold px-4 py-1.5 rounded-sm text-sm uppercase hover:bg-stone-800 transition-all">
+                <i class="fa-solid fa-phone"></i> CALL: (862) 500-5192
+            </a>
+            <a href="sms:8625005192" class="bg-red-600 text-white font-bold px-4 py-1.5 rounded-sm text-sm uppercase hover:bg-red-700 transition-all">
+                <i class="fa-solid fa-comment-sms"></i> TEXT TO BOOK
+            </a>
+        </div>
+    </div>
+</div>
+
+<div class="max-w-6xl mx-auto mt-6 px-4">
+
+    <!-- Navigation -->
+    <nav class="bg-stone-900 border border-stone-800 rounded-lg p-4 flex items-center justify-between gap-4 shadow-xl">
+        <div class="flex items-center gap-3">
+            <div class="bg-yellow-400 text-stone-950 p-2 rounded font-black text-xl italic tracking-tighter">123</div>
+            <div>
+                <span class="font-racing-title text-xl text-white tracking-widest block leading-none">AUTO DETAILING</span>
+                <span class="text-xs text-yellow-400 tracking-widest font-mono font-bold uppercase">MOBILE DETAILING NJ</span>
+            </div>
+        </div>
+
+        <!-- Desktop Nav -->
+        <div class="desktop-nav flex items-center gap-5 text-sm font-semibold tracking-wider text-stone-300 uppercase">
+            <a href="https://newjerseyautocare.net/" class="hover:text-yellow-400 transition-all">Home</a>
+            <div class="nav-dropdown">
+                <a href="#tiers" class="hover:text-yellow-400 transition-all cursor-pointer">Services <i class="fa-solid fa-chevron-down text-[8px] ml-1"></i></a>
+                <div class="nav-dropdown-menu">
+                    <a href="#tiers">Detailing</a>
+                    <a href="#">Paint Protection Film</a>
+                    <a href="#">Ceramic Coatings</a>
+                    <a href="#">Tinting</a>
+                    <a href="#">Paint Corrections</a>
+                </div>
+            </div>
+            <div class="nav-dropdown">
+                <span class="hover:text-yellow-400 transition-all cursor-pointer">More <i class="fa-solid fa-chevron-down text-[8px] ml-1"></i></span>
+                <div class="nav-dropdown-menu">
+                    <a href="#insights">The Garage Journal</a>
+                    <a href="#about">About</a>
+                    <a href="#gallery">Gallery</a>
+                </div>
+            </div>
+            <a href="#pitstop-booking" class="bg-yellow-400 text-stone-950 font-bold px-4 py-2 rounded-sm btn-slant hover:bg-yellow-300 transition-all text-xs">
+                Get Scheduled
+            </a>
+        </div>
+
+        <!-- Mobile hamburger -->
+        <button class="mobile-hamburger flex-col gap-1.5 cursor-pointer" id="hamburger" style="display:none;">
+            <span class="block w-6 h-0.5 bg-white transition-all"></span>
+            <span class="block w-6 h-0.5 bg-white transition-all"></span>
+            <span class="block w-6 h-0.5 bg-white transition-all"></span>
+        </button>
+    </nav>
+
+    <!-- Hero -->
+    <main class="mt-8 grid grid-cols-1 lg:grid-cols-12 gap-8 items-center bg-stone-900/60 p-6 sm:p-10 rounded-2xl border border-stone-800 shadow-2xl relative overflow-hidden" id="about">
+        <div class="absolute top-0 right-0 w-64 h-64 bg-yellow-400/5 rounded-full blur-3xl pointer-events-none"></div>
+        <div class="lg:col-span-6 space-y-6">
+            <div class="inline-flex items-center gap-2 bg-stone-800 border border-stone-700 rounded-full px-3 py-1 text-xs font-bold text-stone-300 uppercase">
+                <i class="fa-solid fa-gauge-high text-yellow-400"></i> Track-Grade Care for Your Ride
+            </div>
+            <h1 class="font-racing-title text-4xl sm:text-6xl text-white leading-tight">
+                MOBILE <span class="text-yellow-400">PIT STOP</span> <br>DETAILING!
+            </h1>
+            <p class="text-stone-400 text-sm sm:text-base leading-relaxed">
+                Why waste hours in waiting rooms? Our rapid mobile garage brings high-pressure pure water, advanced premium wax glaze formulas, and industrial-tier suction right to your home. We treat your vehicle with the speed, detail, and precision of a world-class professional crew.
+            </p>
+            <div class="grid grid-cols-2 gap-4 pt-2">
+                <div class="bg-stone-800/80 p-3 rounded border-l-4 border-yellow-400">
+                    <span class="block text-[10px] text-stone-400 font-bold uppercase tracking-wider">Pit Crew Area</span>
+                    <span class="text-white font-bold text-sm">We Drive To You</span>
+                </div>
+                <div class="bg-stone-800/80 p-3 rounded border-l-4 border-red-500">
+                    <span class="block text-[10px] text-stone-400 font-bold uppercase tracking-wider">Water Onboard</span>
+                    <span class="text-white font-bold text-sm">Self-Contained Power</span>
+                </div>
+            </div>
+            <div class="flex flex-col sm:flex-row gap-3 pt-4">
+                <a href="tel:8625005192" class="bg-yellow-400 hover:bg-yellow-300 text-stone-950 font-black px-6 py-4 rounded text-center btn-slant uppercase tracking-wider flex items-center justify-center gap-2 transition-all glow-yellow">
+                    <i class="fa-solid fa-phone"></i> Call Pit Crew
                 </a>
-                <a href="sms:8625005192" class="bg-red-600 text-white font-bold px-4 py-1.5 rounded-sm text-sm uppercase hover:bg-red-700 transition-all">
-                    <i class="fa-solid fa-comment-sms"></i> TEXT TO BOOK
+                <a href="sms:8625005192" class="bg-stone-800 hover:bg-stone-700 border border-stone-700 text-white font-black px-6 py-4 rounded text-center btn-slant uppercase tracking-wider flex items-center justify-center gap-2 transition-all">
+                    <i class="fa-solid fa-comment-sms text-yellow-400"></i> Text Message
                 </a>
             </div>
         </div>
-    </div>
+        <div class="lg:col-span-6 flex justify-center relative">
+            <div class="relative bg-stone-950 p-3 rounded-2xl border-2 border-stone-800 shadow-2xl group max-w-sm sm:max-w-md">
+                <div class="absolute -top-3 -right-3 bg-yellow-400 text-stone-950 font-black text-xs px-3 py-1 italic tracking-wider rounded uppercase shadow-md z-10">Wet-Gloss Spec</div>
+                <div class="overflow-hidden rounded-xl border border-stone-700">
+                    <img src="https://krowdimg.b-cdn.net/clients/123MobileDetailing/carwash.jpeg" alt="123 Mobile Detailing" class="w-full h-auto transition-transform duration-500 group-hover:scale-105">
+                </div>
+                <div class="bg-stone-900 border-t border-stone-800 mt-3 p-3 rounded-lg flex items-center justify-between text-xs font-mono text-stone-400">
+                    <span>SERIES TYPE: WET WASH</span>
+                    <span class="text-yellow-400 font-bold"><i class="fa-solid fa-check-double"></i> READY FOR DISPATCH</span>
+                </div>
+            </div>
+        </div>
+    </main>
 
-    <!-- Main Outer Shell -->
-    <div class="max-w-6xl mx-auto mt-6 px-4" data-section="section-3">
+    <!-- Pricing Section - 4 Packages -->
+    <section class="mt-16" id="tiers">
+        <div class="text-center max-w-xl mx-auto space-y-3 mb-12">
+            <div class="inline-block checkered-pattern px-4 py-1 text-xs text-white tracking-widest font-bold uppercase rounded-sm border border-stone-800">SERVICE PACKAGES</div>
+            <h2 class="font-racing-title text-3xl sm:text-4xl text-white">CHOOSE YOUR DETAIL PACKAGE</h2>
+            <p class="text-stone-400 text-xs sm:text-sm">Simply review our packages, then text or call to summon your driveway pit stop team!</p>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
 
-        <!-- Navigation Bar -->
-        <nav class="bg-stone-900 border border-stone-800 rounded-lg p-4 flex flex-col sm:flex-row items-center justify-between gap-4 shadow-xl">
-            <div class="flex items-center gap-3">
-                <div class="bg-yellow-400 text-stone-950 p-2 rounded font-black text-xl italic tracking-tighter">
-                    123
+            <!-- Package 1: Express -->
+            <div class="bg-stone-900 border-2 border-stone-800 hover:border-stone-700 p-6 rounded-xl flex flex-col justify-between space-y-6 transition-all relative">
+                <div class="space-y-4">
+                    <div class="flex items-center justify-between">
+                        <span class="text-[11px] text-yellow-400 font-mono font-bold tracking-widest uppercase">TIER 1</span>
+                        <span class="bg-stone-800 text-white font-mono text-xs px-2.5 py-1 rounded">MAINTENANCE</span>
+                    </div>
+                    <h3 class="font-racing-title text-2xl text-white">EXPRESS / MAINTENANCE CLEAN</h3>
+                    <p class="text-stone-400 text-xs font-mono">Designed strictly for vehicles that are already well-maintained.</p>
+                    <div class="h-px bg-stone-800"></div>
+                    <ul class="space-y-2 text-xs text-stone-300 font-mono">
+                        <li><i class="fa-solid fa-circle-check text-yellow-400 mr-2"></i> Standard Exterior Hand Wash</li>
+                        <li><i class="fa-solid fa-circle-check text-yellow-400 mr-2"></i> Wheel Cleaning</li>
+                        <li><i class="fa-solid fa-circle-check text-yellow-400 mr-2"></i> Tire Dressing</li>
+                        <li><i class="fa-solid fa-circle-check text-yellow-400 mr-2"></i> Light Interior Surface Wipe-Downs</li>
+                        <li><i class="fa-solid fa-circle-check text-yellow-400 mr-2"></i> Baseline Vacuum</li>
+                    </ul>
                 </div>
                 <div>
-                    <span class="font-racing-title text-xl text-white tracking-widest block leading-none">AUTO DETAILING</span>
-                    <span class="text-xs text-yellow-400 tracking-widest font-mono font-bold uppercase">PIT STOP CREW</span>
-                </div>
-            </div>
-            
-            <div class="flex items-center gap-6 text-sm font-semibold tracking-wider text-stone-300 uppercase">
-                <a href="#about" class="hover:text-yellow-400 transition-all">Paddock Info</a>
-                <a href="#tiers" class="hover:text-yellow-400 transition-all">Tuning Services</a>
-                <a href="#pitstop-booking" class="bg-yellow-400 text-stone-950 font-bold px-4 py-2 rounded-sm btn-slant hover:bg-yellow-300 transition-all text-xs">
-                    Get Scheduled
-                </a>
-            </div>
-        </nav>
-
-        <!-- Hero Grid Section -->
-        <main class="mt-8 grid grid-cols-1 lg:grid-cols-12 gap-8 items-center bg-stone-900/60 p-6 sm:p-10 rounded-2xl border border-stone-800 shadow-2xl relative overflow-hidden">
-            <div class="absolute top-0 right-0 w-64 h-64 bg-yellow-400/5 rounded-full blur-3xl pointer-events-none"></div>
-
-            <!-- Left Side Information -->
-            <div class="lg:col-span-6 space-y-6">
-                <div class="inline-flex items-center gap-2 bg-stone-800 border border-stone-700 rounded-full px-3 py-1 text-xs font-bold text-stone-300 uppercase">
-                    <i class="fa-solid fa-gauge-high text-yellow-400"></i> Track-Grade Care for Your Ride
-                </div>
-
-                <h1 class="font-racing-title text-4xl sm:text-6xl text-white leading-tight">
-                    MOBILE <span class="text-yellow-400">PIT STOP</span> <br>
-                    DETAILING!
-                </h1>
-
-                <p class="text-stone-400 text-sm sm:text-base leading-relaxed">
-                    Why waste hours in waiting rooms? Our rapid mobile garage vehicle brings high-pressure pure water, advanced premium wax glaze formulas, and industrial-tier suction right to your home. We treat your vehicle with the speed, detail, and precision of a world-class professional paddock crew.
-                </p>
-
-                <!-- Status Check Info Board -->
-                <div class="grid grid-cols-2 gap-4 pt-2">
-                    <div class="bg-stone-800/80 p-3 rounded border-l-4 border-yellow-400">
-                        <span class="block text-[10px] text-stone-400 font-bold uppercase tracking-wider">Pit Crew Area</span>
-                        <span class="text-white font-bold text-sm">We Drive To You</span>
-                    </div>
-                    <div class="bg-stone-800/80 p-3 rounded border-l-4 border-red-500">
-                        <span class="block text-[10px] text-stone-400 font-bold uppercase tracking-wider">Water Onboard</span>
-                        <span class="text-white font-bold text-sm">Self-Contained Power</span>
-                    </div>
-                </div>
-
-                <div class="flex flex-col sm:flex-row gap-3 pt-4">
-                    <a href="tel:8625005192" class="bg-yellow-400 hover:bg-yellow-300 text-stone-950 font-black px-6 py-4 rounded text-center btn-slant uppercase tracking-wider flex items-center justify-center gap-2 transition-all glow-yellow">
-                        <i class="fa-solid fa-phone"></i> Call Pit Crew
-                    </a>
-                    <a href="sms:8625005192" class="bg-stone-800 hover:bg-stone-700 border border-stone-700 text-white font-black px-6 py-4 rounded text-center btn-slant uppercase tracking-wider flex items-center justify-center gap-2 transition-all">
-                        <i class="fa-solid fa-comment-sms text-yellow-400"></i> Text Message
-                    </a>
-                </div>
-            </div>
-
-            <!-- Right Side Image Graphic (carwash.jpeg) -->
-            <div class="lg:col-span-6 flex justify-center relative">
-                <div class="relative bg-stone-950 p-3 rounded-2xl border-2 border-stone-800 shadow-2xl group max-w-sm sm:max-w-md">
-                    <!-- Bold yellow sports framing -->
-                    <div class="absolute -top-3 -right-3 bg-yellow-400 text-stone-950 font-black text-xs px-3 py-1 italic tracking-wider rounded uppercase shadow-md z-10">
-                        Wet-Gloss Spec
-                    </div>
-                    
-                    <div class="overflow-hidden rounded-xl border border-stone-700">
-                        <!-- Verbatim image tag referencing "carwash.jpeg" with live fallback -->
-                        <img src="carwash.jpeg" onerror="this.onerror=null; this.src='https://krowdimg.b-cdn.net/clients/123MobileDetailing/carwash.jpeg';" alt="123 Mobile Detailing Formula Carwash Crew" class="w-full h-auto transition-transform duration-500 group-hover:scale-105">
-                    </div>
-                    
-                    <!-- Racing decal look bottom bar -->
-                    <div class="bg-stone-900 border-t border-stone-800 mt-3 p-3 rounded-lg flex items-center justify-between text-xs font-mono text-stone-400">
-                        <span>SERIES TYPE: WET WASH</span>
-                        <span class="text-yellow-400 font-bold"><i class="fa-solid fa-check-double"></i> READY FOR DISPATCH</span>
+                    <div class="text-3xl font-racing-title text-white mb-4">$125 <span class="text-xs font-mono font-normal text-stone-500">starting</span></div>
+                    <div class="grid grid-cols-2 gap-2">
+                        <a href="tel:8625005192" class="bg-stone-800 hover:bg-stone-700 text-white text-[11px] font-bold py-2 px-1 text-center rounded uppercase transition-all"><i class="fa-solid fa-phone"></i> Call</a>
+                        <a href="sms:8625005192" class="bg-yellow-400 hover:bg-yellow-300 text-stone-950 text-[11px] font-bold py-2 px-1 text-center rounded uppercase transition-all"><i class="fa-solid fa-comment-sms"></i> Text Info</a>
                     </div>
                 </div>
             </div>
-        </main>
 
-        <!-- Detailing Tier Services Section -->
-        <section class="mt-16" id="tiers">
-            <div class="text-center max-w-xl mx-auto space-y-3 mb-12">
-                <div class="inline-block checkered-pattern px-4 py-1 text-xs text-white tracking-widest font-bold uppercase rounded-sm border border-stone-800">
-                    STAGE TUNING PACKAGES
+            <!-- Package 2: Complete Interior -->
+            <div class="bg-stone-900 border-2 border-stone-800 hover:border-stone-700 p-6 rounded-xl flex flex-col justify-between space-y-6 transition-all relative">
+                <div class="space-y-4">
+                    <div class="flex items-center justify-between">
+                        <span class="text-[11px] text-yellow-400 font-mono font-bold tracking-widest uppercase">TIER 2</span>
+                        <span class="bg-stone-800 text-white font-mono text-xs px-2.5 py-1 rounded">INTERIOR</span>
+                    </div>
+                    <h3 class="font-racing-title text-2xl text-white">COMPLETE INTERIOR DETAIL</h3>
+                    <p class="text-stone-400 text-xs font-mono">Focuses entirely on reviving the cabin.</p>
+                    <div class="h-px bg-stone-800"></div>
+                    <ul class="space-y-2 text-xs text-stone-300 font-mono">
+                        <li><i class="fa-solid fa-circle-check text-yellow-400 mr-2"></i> Hot-Water Extraction & Shampooing</li>
+                        <li><i class="fa-solid fa-circle-check text-yellow-400 mr-2"></i> Full Steam Sanitation (Vents & Cup Holders)</li>
+                        <li><i class="fa-solid fa-circle-check text-yellow-400 mr-2"></i> Leather Conditioning</li>
+                        <li><i class="fa-solid fa-circle-check text-yellow-400 mr-2"></i> Deep Headliner Care</li>
+                    </ul>
                 </div>
-                <h2 class="font-racing-title text-3xl sm:text-4xl text-white">CHOOSE YOUR PERFORMANCE PACKAGE</h2>
-                <p class="text-stone-400 text-xs sm:text-sm">No complex payment flows or digital card purchases. Simply review our configurations, then text or call to summon your driveway pit stop team!</p>
-            </div>
-
-            <!-- Services Grid -->
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                
-                <!-- Package 1 -->
-                <div class="bg-stone-900 border-2 border-stone-800 hover:border-stone-700 p-6 rounded-xl flex flex-col justify-between space-y-6 transition-all relative">
-                    <div class="space-y-4">
-                        <div class="flex items-center justify-between">
-                            <span class="text-[11px] text-yellow-400 font-mono font-bold tracking-widest uppercase">LAP 1</span>
-                            <span class="bg-stone-800 text-white font-mono text-xs px-2.5 py-1 rounded">STAGE 1</span>
-                        </div>
-                        <h3 class="font-racing-title text-2xl text-white">EXPRESS WASH & DRY</h3>
-                        <p class="text-stone-400 text-xs font-mono">Precision exterior cleansing and rim restoration.</p>
-                        <div class="h-px bg-stone-800"></div>
-                        <ul class="space-y-2 text-xs text-stone-300 font-mono">
-                            <li><i class="fa-solid fa-circle-check text-yellow-400 mr-2"></i> Scratch-Free Hand Bath</li>
-                            <li><i class="fa-solid fa-circle-check text-yellow-400 mr-2"></i> High-Extraction Wheel Clean</li>
-                            <li><i class="fa-solid fa-circle-check text-yellow-400 mr-2"></i> Ultra-Soft Air Dry Blow</li>
-                            <li><i class="fa-solid fa-circle-check text-yellow-400 mr-2"></i> Hydrophobic Spray Coat</li>
-                        </ul>
+                <div>
+                    <div class="text-3xl font-racing-title text-white mb-4">$225 <span class="text-xs font-mono font-normal text-stone-500">starting</span></div>
+                    <div class="grid grid-cols-2 gap-2">
+                        <a href="tel:8625005192" class="bg-stone-800 hover:bg-stone-700 text-white text-[11px] font-bold py-2 px-1 text-center rounded uppercase transition-all"><i class="fa-solid fa-phone"></i> Call</a>
+                        <a href="sms:8625005192" class="bg-yellow-400 hover:bg-yellow-300 text-stone-950 text-[11px] font-bold py-2 px-1 text-center rounded uppercase transition-all"><i class="fa-solid fa-comment-sms"></i> Text Info</a>
                     </div>
-                    <div>
-                        <div class="text-3xl font-racing-title text-white mb-4">$45 <span class="text-xs font-mono font-normal text-stone-500">flat rate</span></div>
-                        <div class="grid grid-cols-2 gap-2">
-                            <a href="tel:1234567890" class="bg-stone-800 hover:bg-stone-700 text-white text-[11px] font-bold py-2 px-1 text-center rounded uppercase transition-all">
-                                <i class="fa-solid fa-phone"></i> Call
-                            </a>
-                            <a href="sms:1234567890" class="bg-yellow-400 hover:bg-yellow-300 text-stone-950 text-[11px] font-bold py-2 px-1 text-center rounded uppercase transition-all">
-                                <i class="fa-solid fa-comment-sms"></i> Text Info
-                            </a>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Package 2 (Featured Track Option) -->
-                <div class="bg-stone-900 border-2 border-yellow-400 p-6 rounded-xl flex flex-col justify-between space-y-6 transition-all relative glow-yellow">
-                    <div class="absolute -top-3.5 left-1/2 -translate-x-1/2 bg-yellow-400 text-stone-950 font-black text-[10px] tracking-widest px-4 py-1 uppercase rounded-full shadow-md">
-                        CREW RECOMMENDATION
-                    </div>
-                    <div class="space-y-4">
-                        <div class="flex items-center justify-between pt-2">
-                            <span class="text-[11px] text-yellow-400 font-mono font-bold tracking-widest uppercase">LAP 2</span>
-                            <span class="bg-yellow-400 text-stone-950 font-mono text-xs px-2.5 py-1 rounded font-bold">STAGE 2</span>
-                        </div>
-                        <h3 class="font-racing-title text-2xl text-white">DEEP INTERIOR DETAIL</h3>
-                        <p class="text-stone-400 text-xs font-mono">Complete sanitization, extraction, and interior reset.</p>
-                        <div class="h-px bg-stone-800"></div>
-                        <ul class="space-y-2 text-xs text-stone-300 font-mono">
-                            <li><i class="fa-solid fa-circle-check text-yellow-400 mr-2"></i> Deep Extraction Carpet Vac</li>
-                            <li><i class="fa-solid fa-circle-check text-yellow-400 mr-2"></i> Full Dash & Console Detail</li>
-                            <li><i class="fa-solid fa-circle-check text-yellow-400 mr-2"></i> Upholstery Steaming & Clean</li>
-                            <li><i class="fa-solid fa-circle-check text-yellow-400 mr-2"></i> Premium Matte Conditioner</li>
-                        </ul>
-                    </div>
-                    <div>
-                        <div class="text-3xl font-racing-title text-yellow-400 mb-4">$65 <span class="text-xs font-mono font-normal text-stone-500">flat rate</span></div>
-                        <div class="grid grid-cols-2 gap-2">
-                            <a href="tel:8625005192" class="bg-stone-800 hover:bg-stone-700 text-white text-[11px] font-bold py-2 px-1 text-center rounded uppercase transition-all">
-                                <i class="fa-solid fa-phone"></i> Call Now
-                            </a>
-                            <a href="sms:8625005192" class="bg-yellow-400 hover:bg-yellow-300 text-stone-950 text-[11px] font-bold py-2 px-1 text-center rounded uppercase transition-all">
-                                <i class="fa-solid fa-comment-sms"></i> Text Request
-                            </a>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Package 3 -->
-                <div class="bg-stone-900 border-2 border-stone-800 hover:border-stone-700 p-6 rounded-xl flex flex-col justify-between space-y-6 transition-all relative">
-                    <div class="space-y-4">
-                        <div class="flex items-center justify-between">
-                            <span class="text-[11px] text-yellow-400 font-mono font-bold tracking-widest uppercase">LAP 3</span>
-                            <span class="bg-stone-800 text-white font-mono text-xs px-2.5 py-1 rounded">STAGE 3</span>
-                        </div>
-                        <h3 class="font-racing-title text-2xl text-white">THE CHAMPIONSHIP DETAIL</h3>
-                        <p class="text-stone-400 text-xs font-mono">Total bumper-to-bumper deep glaze showroom overhaul.</p>
-                        <div class="h-px bg-stone-800"></div>
-                        <ul class="space-y-2 text-xs text-stone-300 font-mono">
-                            <li><i class="fa-solid fa-circle-check text-yellow-400 mr-2"></i> Full Stage 1 & Stage 2 Combos</li>
-                            <li><i class="fa-solid fa-circle-check text-yellow-400 mr-2"></i> Chrome & Exhaust Grate Polish</li>
-                            <li><i class="fa-solid fa-circle-check text-yellow-400 mr-2"></i> Protective Wet-Gloss Wax Shell</li>
-                            <li><i class="fa-solid fa-circle-check text-yellow-400 mr-2"></i> Premium Tire Compound Glow</li>
-                        </ul>
-                    </div>
-                    <div>
-                        <div class="text-3xl font-racing-title text-white mb-4">$110 <span class="text-xs font-mono font-normal text-stone-500">flat rate</span></div>
-                        <div class="grid grid-cols-2 gap-2">
-                            <a href="tel:1234567890" class="bg-stone-800 hover:bg-stone-700 text-white text-[11px] font-bold py-2 px-1 text-center rounded uppercase transition-all">
-                                <i class="fa-solid fa-phone"></i> Call
-                            </a>
-                            <a href="sms:1234567890" class="bg-yellow-400 hover:bg-yellow-300 text-stone-950 text-[11px] font-bold py-2 px-1 text-center rounded uppercase transition-all">
-                                <i class="fa-solid fa-comment-sms"></i> Text Info
-                            </a>
-                        </div>
-                    </div>
-                </div>
-
-            </div>
-        </section>
-
-        <!-- Booking & Dispatch Paddock Sheet -->
-        <section class="mt-16 bg-stone-900 border border-stone-800 p-6 sm:p-10 rounded-2xl relative overflow-hidden" id="pitstop-booking">
-            <div class="absolute inset-0 checkered-pattern opacity-5 pointer-events-none"></div>
-
-            <div class="relative z-10 max-w-3xl mx-auto">
-                <div class="text-center mb-8 space-y-2">
-                    <span class="text-yellow-400 font-black text-xs font-mono uppercase tracking-widest">RAPID BOOKING SHEETS</span>
-                    <h2 class="font-racing-title text-3xl text-white">SUBMIT A PIT STOP DISPATCH</h2>
-                    <p class="text-stone-400 text-xs sm:text-sm">Send your garage location and coordinates below. A pit representative will immediately text or call you to confirm your slot!</p>
-                </div>
-
-                <!-- Simple, secure action form -->
-                <form id="racingDispatchForm" onsubmit="handleRacingSubmit(event)" class="space-y-6">
-                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
-                        <div>
-                            <label class="block text-xs font-bold uppercase text-stone-300 mb-2 font-mono">Driver's Full Name</label>
-                            <input type="text" id="driver_name" required placeholder="e.g. John Doe" class="w-full bg-stone-950 border border-stone-800 focus:border-yellow-400 rounded-lg py-3 px-4 text-white font-mono text-sm placeholder-stone-600 focus:outline-none">
-                        </div>
-                        <div>
-                            <label class="block text-xs font-bold uppercase text-stone-300 mb-2 font-mono">Mobile Contact Line (Call/Text)</label>
-                            <input type="tel" id="driver_phone" required placeholder="e.g. (862) 500-5192" class="w-full bg-stone-950 border border-stone-800 focus:border-yellow-400 rounded-lg py-3 px-4 text-white font-mono text-sm placeholder-stone-600 focus:outline-none">
-                        </div>
-                    </div>
-
-                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
-                        <div>
-                            <label class="block text-xs font-bold uppercase text-stone-300 mb-2 font-mono">Vehicle Machine Model</label>
-                            <input type="text" id="machine_model" required placeholder="e.g. 2024 Black Ford F-150" class="w-full bg-stone-950 border border-stone-800 focus:border-yellow-400 rounded-lg py-3 px-4 text-white font-mono text-sm placeholder-stone-600 focus:outline-none">
-                        </div>
-                        <div>
-                            <label class="block text-xs font-bold uppercase text-stone-300 mb-2 font-mono">Desired Tune Package</label>
-                            <select id="stage_package" class="w-full bg-stone-950 border border-stone-800 focus:border-yellow-400 rounded-lg py-3 px-4 text-white font-mono text-sm focus:outline-none cursor-pointer">
-                                <option value="Stage 1: Express Wash ($45)">Stage 1: Express Wash ($45)</option>
-                                <option value="Stage 2: Deep Interior Clean ($65)" selected>Stage 2: Deep Interior Clean ($65)</option>
-                                <option value="Stage 3: Championship Detail ($110)">Stage 3: Championship Detail ($110)</option>
-                            </select>
-                        </div>
-                    </div>
-
-                    <div>
-                        <button type="submit" class="w-full bg-yellow-400 hover:bg-yellow-300 text-stone-950 font-black text-lg py-4 px-6 rounded btn-slant uppercase tracking-wider flex items-center justify-center gap-3 transition-all glow-yellow">
-                            <i class="fa-solid fa-flag-checkered"></i> DISPATCH CREW NOW
-                        </button>
-                    </div>
-                </form>
-
-                <!-- Secure success confirmation block -->
-                <div id="dispatchSuccessBlock" class="hidden mt-6 p-4 rounded-xl border border-yellow-400/30 bg-yellow-400/5 text-yellow-400 text-center space-y-2">
-                    <p class="font-racing-title text-xl"><i class="fa-solid fa-truck-fast"></i> DISPATCH LOGGED!</p>
-                    <p class="text-xs font-mono" id="successDetailText"></p>
                 </div>
             </div>
-        </section>
 
-    </div>
+            <!-- Package 3: Complete Exterior -->
+            <div class="bg-stone-900 border-2 border-stone-800 hover:border-stone-700 p-6 rounded-xl flex flex-col justify-between space-y-6 transition-all relative">
+                <div class="space-y-4">
+                    <div class="flex items-center justify-between">
+                        <span class="text-[11px] text-yellow-400 font-mono font-bold tracking-widest uppercase">TIER 3</span>
+                        <span class="bg-stone-800 text-white font-mono text-xs px-2.5 py-1 rounded">EXTERIOR</span>
+                    </div>
+                    <h3 class="font-racing-title text-2xl text-white">COMPLETE EXTERIOR DETAIL</h3>
+                    <p class="text-stone-400 text-xs font-mono">Concentrates on your vehicle's paint health and shine.</p>
+                    <div class="h-px bg-stone-800"></div>
+                    <ul class="space-y-2 text-xs text-stone-300 font-mono">
+                        <li><i class="fa-solid fa-circle-check text-yellow-400 mr-2"></i> Thorough Hand Wash</li>
+                        <li><i class="fa-solid fa-circle-check text-yellow-400 mr-2"></i> Clay Bar Decontamination</li>
+                        <li><i class="fa-solid fa-circle-check text-yellow-400 mr-2"></i> Single-Stage Machine Polish</li>
+                        <li><i class="fa-solid fa-circle-check text-yellow-400 mr-2"></i> High-Grade Hand Wax / Sealant</li>
+                    </ul>
+                </div>
+                <div>
+                    <div class="text-3xl font-racing-title text-white mb-4">$225 <span class="text-xs font-mono font-normal text-stone-500">starting</span></div>
+                    <div class="grid grid-cols-2 gap-2">
+                        <a href="tel:8625005192" class="bg-stone-800 hover:bg-stone-700 text-white text-[11px] font-bold py-2 px-1 text-center rounded uppercase transition-all"><i class="fa-solid fa-phone"></i> Call</a>
+                        <a href="sms:8625005192" class="bg-yellow-400 hover:bg-yellow-300 text-stone-950 text-[11px] font-bold py-2 px-1 text-center rounded uppercase transition-all"><i class="fa-solid fa-comment-sms"></i> Text Info</a>
+                    </div>
+                </div>
+            </div>
 
-    <!-- Footer Section -->
-    <footer class="mt-20 border-t border-stone-800 pt-10 text-center space-y-4" data-section="footer">
-        <div class="checkered-pattern h-3 w-full mb-6"></div>
-        <div class="max-w-md mx-auto space-y-3 px-4">
-            <span class="font-racing-title text-white tracking-widest text-lg">123 AUTO DETAILING</span>
-            <p class="text-xs text-stone-400 font-mono leading-relaxed">
-                Classic Values. High-Octane Clean. Operating straight out of mobile responder dispatch vans. All services subject to weather conditions.
-            </p>
-            <p class="text-xs text-stone-500 font-mono">
-                📞 Dispatch Line: <a href="tel:8625005192" class="text-yellow-400 underline">(862) 500-5192</a> | &copy; 2026. All rights reserved.
-            </p>
+            <!-- Package 4: Full Comprehensive (Featured) -->
+            <div class="bg-stone-900 border-2 border-yellow-400 p-6 rounded-xl flex flex-col justify-between space-y-6 transition-all relative glow-yellow">
+                <div class="absolute -top-3.5 left-1/2 -translate-x-1/2 bg-yellow-400 text-stone-950 font-black text-[10px] tracking-widest px-4 py-1 uppercase rounded-full shadow-md">CREW RECOMMENDATION</div>
+                <div class="space-y-4">
+                    <div class="flex items-center justify-between pt-2">
+                        <span class="text-[11px] text-yellow-400 font-mono font-bold tracking-widest uppercase">TIER 4</span>
+                        <span class="bg-yellow-400 text-stone-950 font-mono text-xs px-2.5 py-1 rounded font-bold">FULL SERVICE</span>
+                    </div>
+                    <h3 class="font-racing-title text-2xl text-white">FULL COMPREHENSIVE DETAIL</h3>
+                    <p class="text-stone-400 text-xs font-mono">Combines both interior deep cleaning and exterior protection into a multi-hour service.</p>
+                    <div class="h-px bg-stone-800"></div>
+                    <ul class="space-y-2 text-xs text-stone-300 font-mono">
+                        <li><i class="fa-solid fa-circle-check text-yellow-400 mr-2"></i> Complete Interior + Exterior Detail</li>
+                        <li><i class="fa-solid fa-circle-check text-yellow-400 mr-2"></i> Sedans & Crossovers</li>
+                        <li><i class="fa-solid fa-circle-check text-yellow-400 mr-2"></i> XL SUVs & Pickup Trucks</li>
+                        <li><i class="fa-solid fa-circle-check text-yellow-400 mr-2"></i> Final Pricing Scales by Vehicle Size</li>
+                    </ul>
+                </div>
+                <div>
+                    <div class="text-3xl font-racing-title text-yellow-400 mb-4">$400 <span class="text-xs font-mono font-normal text-stone-500">starting</span></div>
+                    <div class="grid grid-cols-2 gap-2">
+                        <a href="tel:8625005192" class="bg-stone-800 hover:bg-stone-700 text-white text-[11px] font-bold py-2 px-1 text-center rounded uppercase transition-all"><i class="fa-solid fa-phone"></i> Call Now</a>
+                        <a href="sms:8625005192" class="bg-yellow-400 hover:bg-yellow-300 text-stone-950 text-[11px] font-bold py-2 px-1 text-center rounded uppercase transition-all"><i class="fa-solid fa-comment-sms"></i> Text Request</a>
+                    </div>
+                </div>
+            </div>
+
         </div>
-    </footer>
+    </section>
 
-    <!-- Secure form submission processor -->
-    
-  <script src="script.js"></script>
+    <!-- Booking Form -->
+    <section class="mt-16 bg-stone-900 border border-stone-800 p-6 sm:p-10 rounded-2xl relative overflow-hidden" id="pitstop-booking">
+        <div class="absolute inset-0 checkered-pattern opacity-5 pointer-events-none"></div>
+        <div class="relative z-10 max-w-3xl mx-auto">
+            <div class="text-center mb-8 space-y-2">
+                <span class="text-yellow-400 font-black text-xs font-mono uppercase tracking-widest">RAPID BOOKING</span>
+                <h2 class="font-racing-title text-3xl text-white">SUBMIT A PIT STOP DISPATCH</h2>
+                <p class="text-stone-400 text-xs sm:text-sm">Send your info below. A pit representative will text or call you to confirm your slot!</p>
+            </div>
+            <form id="racingDispatchForm" onsubmit="handleFormSubmit(event)" class="space-y-6">
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                    <div>
+                        <label class="block text-xs font-bold uppercase text-stone-300 mb-2 font-mono">Full Name</label>
+                        <input type="text" name="contactName" id="driver_name" required placeholder="e.g. John Doe" class="w-full bg-stone-950 border border-stone-800 focus:border-yellow-400 rounded-lg py-3 px-4 text-white font-mono text-sm placeholder-stone-600 focus:outline-none">
+                    </div>
+                    <div>
+                        <label class="block text-xs font-bold uppercase text-stone-300 mb-2 font-mono">Email</label>
+                        <input type="email" name="contactEmail" id="driver_email" required placeholder="e.g. john@email.com" class="w-full bg-stone-950 border border-stone-800 focus:border-yellow-400 rounded-lg py-3 px-4 text-white font-mono text-sm placeholder-stone-600 focus:outline-none">
+                    </div>
+                </div>
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                    <div>
+                        <label class="block text-xs font-bold uppercase text-stone-300 mb-2 font-mono">Phone</label>
+                        <input type="tel" name="contactPhone" id="driver_phone" required placeholder="e.g. (862) 500-5192" class="w-full bg-stone-950 border border-stone-800 focus:border-yellow-400 rounded-lg py-3 px-4 text-white font-mono text-sm placeholder-stone-600 focus:outline-none">
+                    </div>
+                    <div>
+                        <label class="block text-xs font-bold uppercase text-stone-300 mb-2 font-mono">Vehicle</label>
+                        <input type="text" name="vehicle" id="machine_model" placeholder="e.g. 2024 Black Ford F-150" class="w-full bg-stone-950 border border-stone-800 focus:border-yellow-400 rounded-lg py-3 px-4 text-white font-mono text-sm placeholder-stone-600 focus:outline-none">
+                    </div>
+                </div>
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                    <div>
+                        <label class="block text-xs font-bold uppercase text-stone-300 mb-2 font-mono">Package (Optional)</label>
+                        <select name="package" id="stage_package" class="w-full bg-stone-950 border border-stone-800 focus:border-yellow-400 rounded-lg py-3 px-4 text-white font-mono text-sm focus:outline-none cursor-pointer">
+                            <option value="">— Select a Package (Optional) —</option>
+                            <option value="Express / Maintenance Clean ($125)">Express / Maintenance Clean ($125)</option>
+                            <option value="Complete Interior Detail ($225)">Complete Interior Detail ($225)</option>
+                            <option value="Complete Exterior Detail ($225)">Complete Exterior Detail ($225)</option>
+                            <option value="Full Comprehensive Detail ($400)">Full Comprehensive Detail ($400)</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label class="block text-xs font-bold uppercase text-stone-300 mb-2 font-mono">Message</label>
+                        <input type="text" name="message" id="driver_message" placeholder="Anything we should know?" class="w-full bg-stone-950 border border-stone-800 focus:border-yellow-400 rounded-lg py-3 px-4 text-white font-mono text-sm placeholder-stone-600 focus:outline-none">
+                    </div>
+                </div>
+                <div>
+                    <button type="submit" id="submitBtn" class="w-full bg-yellow-400 hover:bg-yellow-300 text-stone-950 font-black text-lg py-4 px-6 rounded btn-slant uppercase tracking-wider flex items-center justify-center gap-3 transition-all glow-yellow">
+                        <i class="fa-solid fa-flag-checkered"></i> DISPATCH CREW NOW
+                    </button>
+                </div>
+            </form>
+            <div id="dispatchSuccessBlock" class="hidden mt-6 p-4 rounded-xl border border-yellow-400/30 bg-yellow-400/5 text-yellow-400 text-center space-y-2">
+                <p class="font-racing-title text-xl"><i class="fa-solid fa-truck-fast"></i> DISPATCH LOGGED!</p>
+                <p class="text-xs font-mono" id="successDetailText"></p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Service Area Section -->
+    <section class="mt-16 px-2">
+        <div class="text-center mb-4">
+            <span class="text-yellow-400 font-mono text-[10px] font-bold uppercase tracking-widest">SERVICE COVERAGE</span>
+            <h3 class="font-racing-title text-lg text-white mt-1">AREAS WE SERVE</h3>
+        </div>
+        <div class="bg-stone-900/40 border border-stone-800 rounded-xl p-4">
+            <p class="text-yellow-400 font-mono text-[10px] font-bold uppercase tracking-widest mb-2">Bergen County</p>
+            <p class="service-area-text">Allendale (07401), Alpine (07620), Bergenfield (07621), Bogota (07603), Carlstadt (07072), Cliffside Park (07010), Closter (07624), Cresskill (07626), Demarest (07627), Dumont (07628), East Rutherford (07073), Edgewater (07020), Elmwood Park (07407), Emerson (07630), Englewood (07631), Englewood Cliffs (07632), Fair Lawn (07410), Fairview (07022), Fort Lee (07024), Franklin Lakes (07417), Garfield (07026), Glen Rock (07452), Hackensack (07601), Harrington Park (07640), Hasbrouck Heights (07604), Haworth (07641), Hillsdale (07642), Ho-Ho-Kus (07423), Leonia (07605), Little Ferry (07643), Lodi (07644), Lyndhurst (07071), Mahwah (07430), Maywood (07607), Midland Park (07432), Montvale (07645), Moonachie (07074), New Milford (07646), North Arlington (07031), Northvale (07647), Norwood (07648), Oakland (07436), Old Tappan (07675), Oradell (07649), Palisades Park (07650), Paramus (07652), Park Ridge (07656), Ramsey (07446), Ridgefield (07657), Ridgefield Park (07660), Ridgewood (07450), River Edge (07661), River Vale (07675), Rochelle Park (07662), Rockleigh (07647), Rutherford (07070), Saddle Brook (07663), Saddle River (07458), South Hackensack (07606), Teaneck (07666), Tenafly (07670), Teterboro (07608), Upper Saddle River (07458), Waldwick (07463), Wallington (07057), Washington Township (07676), Westwood (07675), Woodcliff Lake (07677), Wood-Ridge (07075), Wyckoff (07481)</p>
+
+            <p class="text-yellow-400 font-mono text-[10px] font-bold uppercase tracking-widest mb-2 mt-4">Passaic County</p>
+            <p class="service-area-text">Bloomingdale (07403), Clifton (07011–07014), Haledon (07508), Hawthorne (07506), Little Falls (07424), North Haledon (07508), Passaic (07055), Paterson (07501–07505, 07513, 07514, 07522, 07524), Pompton Lakes (07442), Prospect Park (07508), Ringwood (07456), Totowa (07512), Wanaque (07465), Wayne (07470), West Milford (07480), Woodland Park (07424)</p>
+        </div>
+    </section>
+
+</div>
+
+<!-- Footer -->
+<footer class="mt-20 border-t border-stone-800 pt-0" id="insights">
+    <div class="checkered-pattern h-3 w-full"></div>
+    <div class="max-w-6xl mx-auto px-4 py-12">
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-10">
+            <div>
+                <div class="flex items-center gap-2 mb-3">
+                    <div class="bg-yellow-400 text-stone-950 p-1.5 rounded font-black text-sm italic">123</div>
+                    <span class="font-racing-title text-sm text-white tracking-widest">AUTO DETAILING</span>
+                </div>
+                <p class="text-xs text-stone-400 font-mono leading-relaxed">Classic Values. High-Octane Clean. Mobile detailing across Bergen & Passaic County, NJ.</p>
+                <p class="text-xs text-stone-500 font-mono mt-3">📞 <a href="tel:8625005192" class="text-yellow-400 underline">(862) 500-5192</a></p>
+            </div>
+            <div>
+                <h4 class="text-yellow-400 font-mono text-[10px] font-bold uppercase tracking-widest mb-4">Services</h4>
+                <ul class="space-y-2 text-xs text-stone-400 font-mono">
+                    <li><a href="#tiers" class="hover:text-yellow-400 transition-all">Detailing Packages</a></li>
+                    <li><a href="#" class="hover:text-yellow-400 transition-all">Paint Protection Film</a></li>
+                    <li><a href="#" class="hover:text-yellow-400 transition-all">Ceramic Coatings</a></li>
+                    <li><a href="#" class="hover:text-yellow-400 transition-all">Tinting</a></li>
+                    <li><a href="#" class="hover:text-yellow-400 transition-all">Paint Corrections</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4 class="text-yellow-400 font-mono text-[10px] font-bold uppercase tracking-widest mb-4">Company</h4>
+                <ul class="space-y-2 text-xs text-stone-400 font-mono">
+                    <li><a href="https://newjerseyautocare.net/" class="hover:text-yellow-400 transition-all">Home</a></li>
+                    <li><a href="#about" class="hover:text-yellow-400 transition-all">About</a></li>
+                    <li><a href="#" class="hover:text-yellow-400 transition-all">Gallery</a></li>
+                    <li><a href="#pitstop-booking" class="hover:text-yellow-400 transition-all">Book Now</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4 class="text-yellow-400 font-mono text-[10px] font-bold uppercase tracking-widest mb-4">The Garage Journal</h4>
+                <ul class="space-y-2 text-xs text-stone-400 font-mono">
+                    <li><a href="#" class="hover:text-yellow-400 transition-all">Latest Posts</a></li>
+                    <li><a href="#" class="hover:text-yellow-400 transition-all">Detailing Tips</a></li>
+                    <li><a href="#" class="hover:text-yellow-400 transition-all">Car Care Guides</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="border-t border-stone-800 mt-10 pt-6 text-center">
+            <p class="text-xs text-stone-500 font-mono">&copy; 2026 123 Auto Detailing. All rights reserved. Bergen County & Passaic County, NJ.</p>
+        </div>
+    </div>
+</footer>
+
+<script>
+    // Mobile menu
+    const hamburger = document.getElementById('hamburger');
+    const mobileMenu = document.getElementById('mobileMenu');
+    hamburger.addEventListener('click', () => mobileMenu.classList.toggle('open'));
+    mobileMenu.querySelectorAll('a').forEach(a => a.addEventListener('click', () => mobileMenu.classList.remove('open')));
+
+    // Chat widget
+    const chatBtn = document.getElementById('custom-chat-btn');
+    const chatPanel = document.getElementById('chat-panel');
+    const chatIframe = document.getElementById('chat-iframe');
+    const teaser = document.getElementById('chat-teaser');
+    let chatLoaded = false, chatOpen = false;
+    chatBtn.addEventListener('click', () => {
+        chatOpen = !chatOpen;
+        if (chatOpen) {
+            if (!chatLoaded) { chatIframe.src = 'https://paymegpt.com/agents/28816726/embed'; chatLoaded = true; }
+            chatPanel.classList.add('open');
+            teaser.classList.remove('visible'); teaser.classList.add('hidden');
+            chatBtn.classList.remove('chat-bounce');
+        } else {
+            chatPanel.classList.remove('open');
+        }
+    });
+    document.addEventListener('click', e => {
+        if (chatOpen && !chatPanel.contains(e.target) && e.target !== chatBtn && !chatBtn.contains(e.target)) {
+            chatPanel.classList.remove('open'); chatOpen = false;
+        }
+    });
+    setTimeout(() => teaser.classList.add('visible'), 3000);
+    document.getElementById('teaser-close-btn').addEventListener('click', () => { teaser.classList.remove('visible'); teaser.classList.add('hidden'); });
+
+    // Form submission
+    function handleFormSubmit(event) {
+        event.preventDefault();
+        const name = document.getElementById('driver_name').value;
+        const email = document.getElementById('driver_email').value;
+        const phone = document.getElementById('driver_phone').value;
+        const vehicle = document.getElementById('machine_model').value;
+        const pkg = document.getElementById('stage_package').value;
+        const message = document.getElementById('driver_message').value;
+        const btn = document.getElementById('submitBtn');
+        btn.disabled = true;
+        btn.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> DISPATCHING...';
+
+        // The platform webhook intercepts this automatically
+        const formData = { contactName: name, contactEmail: email, contactPhone: phone, data: { vehicle: vehicle, package: pkg, message: message } };
+
+        fetch('https://paymegpt.com/api/webhooks/flow/3762/7f18c3f219503532eb92a6241effecebc06fd7609c4a002ffa6b3feea89c169b', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(formData)
+        }).then(() => {
+            showSuccess(name, pkg, vehicle, phone);
+        }).catch(() => {
+            showSuccess(name, pkg, vehicle, phone);
+        });
+    }
+
+    function showSuccess(name, pkg, vehicle, phone) {
+        const btn = document.getElementById('submitBtn');
+        btn.disabled = false;
+        btn.innerHTML = '<i class="fa-solid fa-flag-checkered"></i> DISPATCH CREW NOW';
+        const block = document.getElementById('dispatchSuccessBlock');
+        const text = document.getElementById('successDetailText');
+        block.classList.remove('hidden');
+        const safeName = name.replace(/</g,"&lt;").replace(/>/g,"&gt;");
+        const safePkg = pkg ? pkg.replace(/</g,"&lt;").replace(/>/g,"&gt;") : 'General Inquiry';
+        const safeVehicle = vehicle ? vehicle.replace(/</g,"&lt;").replace(/>/g,"&gt;") : 'your vehicle';
+        const safePhone = phone.replace(/</g,"&lt;").replace(/>/g,"&gt;");
+        text.innerHTML = 'Green flag, <strong>' + safeName + '</strong>! We\'ve logged your <strong>' + safePkg + '</strong> request for <strong>' + safeVehicle + '</strong>. Our crew will contact you at <strong>' + safePhone + '</strong> shortly!';
+        document.getElementById('racingDispatchForm').reset();
+        block.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+    }
+
+    // Smooth scroll
+    document.querySelectorAll('a[href^="#"]').forEach(a => {
+        a.addEventListener('click', e => {
+            const t = document.querySelector(a.getAttribute('href'));
+            if (t) { e.preventDefault(); t.scrollIntoView({ behavior: 'smooth' }); mobileMenu.classList.remove('open'); }
+        });
+    });
+</script>
 </body>
 </html>
