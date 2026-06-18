@@ -28,7 +28,6 @@
         }
         .glow-yellow { box-shadow: 0 0 15px rgba(250,204,21,0.4); }
 
-        /* Nav dropdown */
         .nav-dropdown { position: relative; }
         .nav-dropdown-menu {
             display: none; position: absolute; top: 100%; left: 0; background: #1a1a20; border: 1px solid #2d2d34;
@@ -38,15 +37,13 @@
         .nav-dropdown-menu a { display: block; padding: 0.5rem 1rem; font-size: 0.8rem; color: #d1d5db; text-decoration: none; transition: all 0.2s; }
         .nav-dropdown-menu a:hover { background: rgba(250,204,21,0.1); color: #facc15; }
 
-        /* Mobile menu */
         .mobile-nav-overlay { display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.95); z-index: 100; overflow-y: auto; padding: 80px 24px 40px; }
         .mobile-nav-overlay.open { display: block; }
         .mobile-nav-overlay a { display: block; color: #f3f4f6; font-size: 1.1rem; padding: 12px 0; border-bottom: 1px solid #2d2d34; text-decoration: none; }
         .mobile-nav-overlay .sub-link { padding-left: 20px; font-size: 0.95rem; color: #9ca3af; }
 
-        /* Chat teaser */
         #chat-teaser {
-            position: fixed; bottom: 90px; right: 20px; z-index: 9999; max-width: 260px;
+            position: fixed; bottom: 110px; right: 20px; z-index: 9999; max-width: 260px;
             opacity: 0; transform: translateY(10px) scale(0.95);
             transition: opacity 0.4s ease, transform 0.4s ease; pointer-events: none;
         }
@@ -61,7 +58,7 @@
         .teaser-close { position: absolute; top: 8px; right: 10px; background: none; border: none; color: rgba(200,200,200,0.5); font-size: 1rem; cursor: pointer; }
 
         #custom-chat-btn {
-            position: fixed; bottom: 16px; right: 16px; z-index: 9999; width: 64px; height: 64px;
+            position: fixed; bottom: 16px; right: 16px; z-index: 9999; width: 96px; height: 96px;
             background: transparent; border: none; padding: 0; cursor: pointer; transition: transform 0.2s;
         }
         #custom-chat-btn:hover { transform: scale(1.1); }
@@ -73,14 +70,13 @@
         .chat-bounce { animation: chatBounce 2s ease-in-out infinite; }
 
         #chat-panel {
-            position: fixed; bottom: 90px; right: 16px; z-index: 9998; width: 380px; height: 560px;
+            position: fixed; bottom: 120px; right: 16px; z-index: 9998; width: 380px; height: 560px;
             border-radius: 16px; overflow: hidden; box-shadow: 0 20px 60px rgba(0,0,0,0.6);
             border: 1px solid rgba(250,204,21,0.3); display: none; flex-direction: column;
         }
         #chat-panel.open { display: flex; }
         #chat-panel iframe { width: 100%; flex: 1; border: none; }
 
-        /* Service area */
         .service-area-text { font-size: 0.65rem; color: #6b7280; line-height: 1.6; }
 
         @media(max-width:768px) {
