@@ -251,7 +251,7 @@
     <a href="/about/" data-subpage="about">About</a>
     <a href="/gallery/" data-subpage="gallery">Gallery</a>
     <a href="/blog/" data-subpage="blog">The Garage Journal</a>
-    <a href="#contact-form" style="background:#facc15;color:#121214;text-align:center;border-radius:6px;font-weight:800;margin-top:12px;">Contact Us</a>
+    <a href="#booking-section" style="background:#facc15;color:#121214;text-align:center;border-radius:6px;font-weight:800;margin-top:12px;">Book Service</a>
 </div>
 
 <!-- Top Dispatch Bar -->
@@ -266,8 +266,8 @@
             <a href="tel:8625005192" class="bg-stone-950 text-yellow-400 font-bold px-4 py-1.5 rounded-sm text-sm uppercase hover:bg-stone-800 transition-all">
                 <i class="fa-solid fa-phone"></i> CALL: (862) 500-5192
             </a>
-            <a href="#contact-form" class="bg-red-600 text-white font-bold px-4 py-1.5 rounded-sm text-sm uppercase hover:bg-red-700 transition-all">
-                <i class="fa-solid fa-envelope"></i> CONTACT US
+            <a href="#booking-section" class="bg-red-600 text-white font-bold px-4 py-1.5 rounded-sm text-sm uppercase hover:bg-red-700 transition-all">
+                <i class="fa-solid fa-envelope"></i> BOOK DRIVEWAY APPOINTMENT
             </a>
         </div>
     </div>
@@ -306,8 +306,8 @@
                     <a href="gallery" data-subpage="gallery">Gallery</a>
                 </div>
             </div>
-            <a href="#contact-form" class="bg-yellow-400 text-stone-950 font-bold px-4 py-2 rounded-sm btn-slant hover:bg-yellow-300 transition-all text-xs">
-                Contact Us
+            <a href="#booking-section" class="bg-yellow-400 text-stone-950 font-bold px-4 py-2 rounded-sm btn-slant hover:bg-yellow-300 transition-all text-xs">
+                Book Appointment
             </a>
         </div>
 
@@ -343,11 +343,11 @@
                 </div>
             </div>
             <div class="flex flex-col sm:flex-row gap-3 pt-4">
-                <a href="tel:8625005192" class="bg-yellow-400 hover:bg-yellow-300 text-stone-950 font-black px-6 py-4 rounded text-center btn-slant uppercase tracking-wider flex items-center justify-center gap-2 transition-all glow-yellow">
-                    <i class="fa-solid fa-phone"></i> Call Pit Crew
+                <a href="#tiers" class="bg-yellow-400 hover:bg-yellow-300 text-stone-950 font-black px-6 py-4 rounded text-center btn-slant uppercase tracking-wider flex items-center justify-center gap-2 transition-all glow-yellow">
+                    <i class="fa-solid fa-calendar-days"></i> Choose Package
                 </a>
-                <a href="#contact-form" class="bg-stone-800 hover:bg-stone-700 border border-stone-700 text-white font-black px-6 py-4 rounded text-center btn-slant uppercase tracking-wider flex items-center justify-center gap-2 transition-all">
-                    <i class="fa-solid fa-envelope text-yellow-400"></i> Contact Us
+                <a href="#booking-section" class="bg-stone-800 hover:bg-stone-700 border border-stone-700 text-white font-black px-6 py-4 rounded text-center btn-slant uppercase tracking-wider flex items-center justify-center gap-2 transition-all">
+                    <i class="fa-solid fa-envelope text-yellow-400"></i> Open Booking Board
                 </a>
             </div>
         </div>
@@ -370,18 +370,18 @@
         <div class="text-center max-w-xl mx-auto space-y-3 mb-12">
             <div class="inline-block checkered-pattern px-4 py-1 text-xs text-white tracking-widest font-bold uppercase rounded-sm border border-stone-800">SERVICE PACKAGES</div>
             <h2 class="font-racing-title text-3xl sm:text-4xl text-white">CHOOSE YOUR DETAIL PACKAGE</h2>
-            <p class="text-stone-400 text-xs sm:text-sm">Review our packages below then contact us to schedule your driveway pit stop!</p>
+            <p class="text-stone-400 text-xs sm:text-sm">Select a tier below. Your selection instantly configures the interactive pit stop scheduler below!</p>
         </div>
         <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
 
             <!-- Package 1: Express -->
-            <div class="bg-stone-900 border-2 border-stone-800 hover:border-stone-700 p-6 rounded-xl flex flex-col justify-between space-y-6 transition-all relative">
+            <div id="card-tier1" onclick="selectPackage('tier1')" class="cursor-pointer bg-stone-900 border-2 border-stone-800 hover:border-stone-700 p-6 rounded-xl flex flex-col justify-between space-y-6 transition-all duration-300 group">
                 <div class="space-y-4">
                     <div class="flex items-center justify-between">
                         <span class="text-[11px] text-yellow-400 font-mono font-bold tracking-widest uppercase">TIER 1</span>
                         <span class="bg-stone-800 text-white font-mono text-xs px-2.5 py-1 rounded">MAINTENANCE</span>
                     </div>
-                    <h3 class="font-racing-title text-2xl text-white">EXPRESS / MAINTENANCE CLEAN</h3>
+                    <h3 class="font-racing-title text-2xl text-white group-hover:text-yellow-400 transition-colors">EXPRESS / MAINTENANCE CLEAN</h3>
                     <p class="text-stone-400 text-xs font-mono">Designed strictly for vehicles that are already well-maintained.</p>
                     <div class="h-px bg-stone-800"></div>
                     <ul class="space-y-2 text-xs text-stone-300 font-mono">
@@ -394,18 +394,20 @@
                 </div>
                 <div>
                     <div class="text-3xl font-racing-title text-white mb-4">$125 <span class="text-xs font-mono font-normal text-stone-500">starting</span></div>
-                    <a href="#contact-form" class="block w-full bg-yellow-400 hover:bg-yellow-300 text-stone-950 text-sm font-bold py-3 text-center rounded uppercase transition-all"><i class="fa-solid fa-calendar-check mr-1"></i> Book Now</a>
+                    <button class="block w-full bg-stone-800 text-yellow-400 hover:bg-yellow-400 hover:text-stone-950 text-sm font-bold py-3 text-center rounded uppercase transition-all duration-200">
+                        Select Express
+                    </button>
                 </div>
             </div>
 
             <!-- Package 2: Complete Interior -->
-            <div class="bg-stone-900 border-2 border-stone-800 hover:border-stone-700 p-6 rounded-xl flex flex-col justify-between space-y-6 transition-all relative">
+            <div id="card-tier2" onclick="selectPackage('tier2')" class="cursor-pointer bg-stone-900 border-2 border-stone-800 hover:border-stone-700 p-6 rounded-xl flex flex-col justify-between space-y-6 transition-all duration-300 group">
                 <div class="space-y-4">
                     <div class="flex items-center justify-between">
                         <span class="text-[11px] text-yellow-400 font-mono font-bold tracking-widest uppercase">TIER 2</span>
                         <span class="bg-stone-800 text-white font-mono text-xs px-2.5 py-1 rounded">INTERIOR</span>
                     </div>
-                    <h3 class="font-racing-title text-2xl text-white">COMPLETE INTERIOR DETAIL</h3>
+                    <h3 class="font-racing-title text-2xl text-white group-hover:text-yellow-400 transition-colors">COMPLETE INTERIOR DETAIL</h3>
                     <p class="text-stone-400 text-xs font-mono">Focuses entirely on reviving the cabin.</p>
                     <div class="h-px bg-stone-800"></div>
                     <ul class="space-y-2 text-xs text-stone-300 font-mono">
@@ -417,18 +419,20 @@
                 </div>
                 <div>
                     <div class="text-3xl font-racing-title text-white mb-4">$225 <span class="text-xs font-mono font-normal text-stone-500">starting</span></div>
-                    <a href="#contact-form" class="block w-full bg-yellow-400 hover:bg-yellow-300 text-stone-950 text-sm font-bold py-3 text-center rounded uppercase transition-all"><i class="fa-solid fa-calendar-check mr-1"></i> Book Now</a>
+                    <button class="block w-full bg-stone-800 text-yellow-400 hover:bg-yellow-400 hover:text-stone-950 text-sm font-bold py-3 text-center rounded uppercase transition-all duration-200">
+                        Select Interior Clean
+                    </button>
                 </div>
             </div>
 
             <!-- Package 3: Complete Exterior -->
-            <div class="bg-stone-900 border-2 border-stone-800 hover:border-stone-700 p-6 rounded-xl flex flex-col justify-between space-y-6 transition-all relative">
+            <div id="card-tier3" onclick="selectPackage('tier3')" class="cursor-pointer bg-stone-900 border-2 border-stone-800 hover:border-stone-700 p-6 rounded-xl flex flex-col justify-between space-y-6 transition-all duration-300 group">
                 <div class="space-y-4">
                     <div class="flex items-center justify-between">
                         <span class="text-[11px] text-yellow-400 font-mono font-bold tracking-widest uppercase">TIER 3</span>
                         <span class="bg-stone-800 text-white font-mono text-xs px-2.5 py-1 rounded">EXTERIOR</span>
                     </div>
-                    <h3 class="font-racing-title text-2xl text-white">COMPLETE EXTERIOR DETAIL</h3>
+                    <h3 class="font-racing-title text-2xl text-white group-hover:text-yellow-400 transition-colors">COMPLETE EXTERIOR DETAIL</h3>
                     <p class="text-stone-400 text-xs font-mono">Concentrates on your vehicle's paint health and shine.</p>
                     <div class="h-px bg-stone-800"></div>
                     <ul class="space-y-2 text-xs text-stone-300 font-mono">
@@ -440,12 +444,14 @@
                 </div>
                 <div>
                     <div class="text-3xl font-racing-title text-white mb-4">$225 <span class="text-xs font-mono font-normal text-stone-500">starting</span></div>
-                    <a href="#contact-form" class="block w-full bg-yellow-400 hover:bg-yellow-300 text-stone-950 text-sm font-bold py-3 text-center rounded uppercase transition-all"><i class="fa-solid fa-calendar-check mr-1"></i> Book Now</a>
+                    <button class="block w-full bg-stone-800 text-yellow-400 hover:bg-yellow-400 hover:text-stone-950 text-sm font-bold py-3 text-center rounded uppercase transition-all duration-200">
+                        Select Exterior Care
+                    </button>
                 </div>
             </div>
 
             <!-- Package 4: Full Comprehensive (Featured) -->
-            <div class="bg-stone-900 border-2 border-yellow-400 p-6 rounded-xl flex flex-col justify-between space-y-6 transition-all relative glow-yellow">
+            <div id="card-tier4" onclick="selectPackage('tier4')" class="cursor-pointer bg-stone-900 border-2 border-yellow-400 p-6 rounded-xl flex flex-col justify-between space-y-6 transition-all duration-300 relative glow-yellow">
                 <div class="absolute -top-3.5 left-1/2 -translate-x-1/2 bg-yellow-400 text-stone-950 font-black text-[10px] tracking-widest px-4 py-1 uppercase rounded-full shadow-md">CREW RECOMMENDATION</div>
                 <div class="space-y-4">
                     <div class="flex items-center justify-between pt-2">
@@ -464,47 +470,403 @@
                 </div>
                 <div>
                     <div class="text-3xl font-racing-title text-yellow-400 mb-4">$400 <span class="text-xs font-mono font-normal text-stone-500">starting</span></div>
-                    <a href="#contact-form" class="block w-full bg-yellow-400 hover:bg-yellow-300 text-stone-950 text-sm font-bold py-3 text-center rounded uppercase transition-all glow-yellow"><i class="fa-solid fa-calendar-check mr-1"></i> Book Now</a>
+                    <button class="block w-full bg-yellow-400 hover:bg-yellow-300 text-stone-950 text-sm font-bold py-3 text-center rounded uppercase transition-all">
+                        Select Comprehensive
+                    </button>
                 </div>
             </div>
 
         </div>
     </section>
 
-    <!-- Contact Us Form -->
+    <!-- Unified Interactive Booking Section (hidden initially until a package is selected) -->
+    <section id="booking-section" class="scroll-mt-24 mt-16 max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-3 gap-8 hidden">
+        
+        <!-- Interactive Step-by-Step Dispatch Form (Left 2 Columns) -->
+        <div class="lg:col-span-2 bg-stone-900 border border-stone-800 rounded-2xl p-6 sm:p-8 space-y-8 relative overflow-hidden">
+            <div class="absolute inset-0 checkered-pattern opacity-[0.02] pointer-events-none"></div>
+            
+            <!-- Step Indicators and Navigation -->
+            <div class="relative z-10 flex flex-col sm:flex-row items-start sm:items-center justify-between border-b border-stone-800 pb-5 gap-3">
+                <div>
+                    <h3 class="font-racing-title text-xl text-white tracking-widest">DRIVEWAY PIT APPOINTMENT</h3>
+                    <p id="step-indicator" class="text-xs text-stone-400 mt-1 font-mono">Step 1 of 3: Vehicle Parameters</p>
+                </div>
+                <div class="flex items-center gap-1">
+                    <div id="progress-bar-1" class="step-pill w-8 h-1.5 bg-yellow-400 rounded-sm"></div>
+                    <div id="progress-bar-2" class="step-pill w-8 h-1.5 bg-stone-800 rounded-sm"></div>
+                    <div id="progress-bar-3" class="step-pill w-8 h-1.5 bg-stone-800 rounded-sm"></div>
+                </div>
+            </div>
+
+            <!-- Form Element -->
+            <form id="racingDispatchForm" onsubmit="handleFormSubmit(event)" class="relative z-10 space-y-6" novalidate>
+                
+                <!-- STEP 1: VEHICLE PARAMETERS -->
+                <div id="form-step-1" class="space-y-6">
+                    <div class="space-y-4">
+                        <span class="text-xs font-bold font-mono uppercase tracking-widest text-yellow-400 flex items-center gap-2">
+                            <i class="fa-solid fa-car"></i> 1. Vehicle Telemetry
+                        </span>
+                        
+                        <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
+                            <div>
+                                <label class="block text-[10px] font-bold uppercase text-stone-400 mb-2 font-mono">Vehicle Year *</label>
+                                <input type="number" id="vehicleYear" name="vehicleYear" required min="1990" max="2027" placeholder="e.g. 2023"
+                                       class="w-full bg-stone-950 border border-stone-800 focus:border-yellow-400 rounded-lg py-3 px-4 text-white font-mono text-sm focus:outline-none">
+                            </div>
+                            <div>
+                                <label class="block text-[10px] font-bold uppercase text-stone-400 mb-2 font-mono">Make *</label>
+                                <input type="text" id="vehicleMake" name="vehicleMake" required placeholder="e.g. Ford"
+                                       class="w-full bg-stone-950 border border-stone-800 focus:border-yellow-400 rounded-lg py-3 px-4 text-white font-mono text-sm focus:outline-none">
+                            </div>
+                            <div>
+                                <label class="block text-[10px] font-bold uppercase text-stone-400 mb-2 font-mono">Model *</label>
+                                <input type="text" id="vehicleModel" name="vehicleModel" required placeholder="e.g. F-150"
+                                       class="w-full bg-stone-950 border border-stone-800 focus:border-yellow-400 rounded-lg py-3 px-4 text-white font-mono text-sm focus:outline-none">
+                            </div>
+                        </div>
+
+                        <!-- Vehicle Size Dropdown -->
+                        <div>
+                            <label class="block text-[10px] font-bold uppercase text-stone-400 mb-2 font-mono">Vehicle Class Size *</label>
+                            <select id="vehicleSize" name="vehicleSize" required onchange="calculateEstimate()"
+                                    class="w-full bg-stone-950 border border-stone-800 focus:border-yellow-400 rounded-lg py-3 px-4 text-white font-mono text-sm focus:outline-none cursor-pointer">
+                                <option value="" disabled selected>— Select Vehicle Class —</option>
+                                <option value="sedan">Coupe / Sedan (Base Rate)</option>
+                                <option value="crossover">Mid-Size SUV / Crossover (+$30.00)</option>
+                                <option value="truck">XL SUV / Truck / Minivan (+$60.00)</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <!-- Step 1 Navigation -->
+                    <div class="pt-4 flex justify-end">
+                        <button type="button" onclick="goToStep(2)" class="bg-yellow-400 hover:bg-yellow-300 text-stone-950 font-black uppercase text-xs px-6 py-4 rounded btn-slant flex items-center gap-2 transition transform active:scale-95 shadow-md">
+                            Next: Location & Boosters
+                            <i class="fa-solid fa-arrow-right"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- STEP 2: LOCATION & BOOSTERS -->
+                <div id="form-step-2" class="space-y-6 hidden">
+                    
+                    <!-- Performance Boosters (Add-ons) -->
+                    <div class="space-y-4">
+                        <span class="text-xs font-bold font-mono uppercase tracking-widest text-yellow-400 flex items-center gap-2">
+                            <i class="fa-solid fa-gauge-high"></i> 2. Performance Add-ons (Boost Your Clean)
+                        </span>
+                        
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                            <label class="flex items-center gap-3 p-3 bg-stone-950 border border-stone-800 hover:border-stone-700 rounded-lg cursor-pointer transition">
+                                <input type="checkbox" id="addon-pethair" value="45" onchange="calculateEstimate()" class="w-4 h-4 rounded bg-stone-900 border-stone-700 text-yellow-400 focus:ring-0">
+                                <div>
+                                    <span class="block text-xs font-bold text-white font-mono">Pet Hair Removal</span>
+                                    <span class="text-[10px] text-yellow-400 font-bold font-mono">+$45.00</span>
+                                </div>
+                            </label>
+                            <label class="flex items-center gap-3 p-3 bg-stone-950 border border-stone-800 hover:border-stone-700 rounded-lg cursor-pointer transition">
+                                <input type="checkbox" id="addon-engine" value="50" onchange="calculateEstimate()" class="w-4 h-4 rounded bg-stone-900 border-stone-700 text-yellow-400 focus:ring-0">
+                                <div>
+                                    <span class="block text-xs font-bold text-white font-mono">Engine Bay Clean</span>
+                                    <span class="text-[10px] text-yellow-400 font-bold font-mono">+$50.00</span>
+                                </div>
+                            </label>
+                            <label class="flex items-center gap-3 p-3 bg-stone-950 border border-stone-800 hover:border-stone-700 rounded-lg cursor-pointer transition">
+                                <input type="checkbox" id="addon-headlight" value="75" onchange="calculateEstimate()" class="w-4 h-4 rounded bg-stone-900 border-stone-700 text-yellow-400 focus:ring-0">
+                                <div>
+                                    <span class="block text-xs font-bold text-white font-mono">Headlight Restoration</span>
+                                    <span class="text-[10px] text-yellow-400 font-bold font-mono">+$75.00</span>
+                                </div>
+                            </label>
+                            <label class="flex items-center gap-3 p-3 bg-stone-950 border border-stone-800 hover:border-stone-700 rounded-lg cursor-pointer transition">
+                                <input type="checkbox" id="addon-ceramic" value="95" onchange="calculateEstimate()" class="w-4 h-4 rounded bg-stone-900 border-stone-700 text-yellow-400 focus:ring-0">
+                                <div>
+                                    <span class="block text-xs font-bold text-white font-mono">Ceramic Sealant Upgrade</span>
+                                    <span class="text-[10px] text-yellow-400 font-bold font-mono">+$95.00</span>
+                                </div>
+                            </label>
+                        </div>
+                    </div>
+
+                    <!-- Location details with full granular address, city, state, zip -->
+                    <div class="space-y-4 pt-4 border-t border-stone-800/60">
+                        <span class="text-xs font-bold font-mono uppercase tracking-widest text-yellow-400 flex items-center gap-2">
+                            <i class="fa-solid fa-map-location-dot"></i> 3. Driveway Logistics Address
+                        </span>
+
+                        <div class="grid grid-cols-1 sm:grid-cols-12 gap-4">
+                            <!-- Street Address -->
+                            <div class="sm:col-span-12">
+                                <label class="block text-[10px] font-bold uppercase text-stone-400 mb-1.5 font-mono">Street Address *</label>
+                                <input type="text" id="streetAddress" required placeholder="e.g. 123 Main Street"
+                                       class="w-full bg-stone-950 border border-stone-800 focus:border-yellow-400 rounded-lg py-3 px-4 text-white font-mono text-sm focus:outline-none">
+                            </div>
+                            <!-- City -->
+                            <div class="sm:col-span-5">
+                                <label class="block text-[10px] font-bold uppercase text-stone-400 mb-1.5 font-mono">City *</label>
+                                <input type="text" id="addressCity" required placeholder="e.g. Ridgewood"
+                                       class="w-full bg-stone-950 border border-stone-800 focus:border-yellow-400 rounded-lg py-3 px-4 text-white font-mono text-sm focus:outline-none">
+                            </div>
+                            <!-- State -->
+                            <div class="sm:col-span-3">
+                                <label class="block text-[10px] font-bold uppercase text-stone-400 mb-1.5 font-mono">State *</label>
+                                <input type="text" id="addressState" required value="NJ" placeholder="NJ"
+                                       class="w-full bg-stone-950 border border-stone-800 focus:border-yellow-400 rounded-lg py-3 px-4 text-white font-mono text-sm focus:outline-none">
+                            </div>
+                            <!-- Zip Code -->
+                            <div class="sm:col-span-4">
+                                <label class="block text-[10px] font-bold uppercase text-stone-400 mb-1.5 font-mono">Zip Code *</label>
+                                <input type="text" id="addressZip" required placeholder="e.g. 07450"
+                                       class="w-full bg-stone-950 border border-stone-800 focus:border-yellow-400 rounded-lg py-3 px-4 text-white font-mono text-sm focus:outline-none">
+                            </div>
+                        </div>
+
+                        <!-- Location Utilities and Setup type -->
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                            <div>
+                                <label class="block text-[10px] font-bold uppercase text-stone-400 mb-2 font-mono">Setup Type *</label>
+                                <select id="locationType" required
+                                        class="w-full bg-stone-950 border border-stone-800 focus:border-yellow-400 rounded-lg py-3 px-4 text-white font-mono text-sm focus:outline-none cursor-pointer">
+                                    <option value="driveway">Residential Driveway</option>
+                                    <option value="apartment">Apartment Complex Lot / Garage</option>
+                                    <option value="office">Office Center Lot</option>
+                                </select>
+                            </div>
+                            <div>
+                                <label class="block text-[10px] font-bold uppercase text-stone-400 mb-2 font-mono">Standard Power / Spigot Access? *</label>
+                                <select id="utilityAccess" required
+                                        class="w-full bg-stone-950 border border-stone-800 focus:border-yellow-400 rounded-lg py-3 px-4 text-white font-mono text-sm focus:outline-none cursor-pointer">
+                                    <option value="standard">Yes, standard access available within 50ft</option>
+                                    <option value="none">No, please bring self-contained water & generator rig</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Dynamic warnings block matching user screenshot logic -->
+                    <div class="space-y-4 pt-4 border-t border-stone-800/60">
+                        <div id="tier1Disclaimer" class="bg-stone-950 border-l-4 border-yellow-400 p-4 rounded-r-lg space-y-2 hidden">
+                            <p class="text-xs text-stone-300 leading-relaxed font-mono">
+                                <strong class="text-white">Notice for Tier 1:</strong> Because you selected the <strong class="text-white">Express / Maintenance Clean</strong>, your vehicle must already be in reasonably well-maintained shape. Vehicles displaying severe dog hair, heavy mud cake, or mold must upgrade packages on-site.
+                            </p>
+                            <label class="flex items-center gap-2.5 mt-2 cursor-pointer">
+                                <input type="checkbox" id="maintenanceAcknowledge" class="w-4 h-4 rounded bg-stone-900 border-stone-700 text-yellow-400 focus:ring-0">
+                                <span class="text-[11px] font-bold text-white uppercase tracking-wider font-mono">I confirm my vehicle is well-maintained</span>
+                            </label>
+                        </div>
+                        <div id="tier4Disclaimer" class="bg-stone-950 border-l-4 border-red-500 p-4 rounded-r-lg hidden">
+                            <p class="text-xs text-stone-300 leading-relaxed font-mono">
+                                <strong class="text-white font-racing-title tracking-wider block mb-1 text-red-500">Tier 4 Intensive Dispatch Notice</strong> Full Comprehensive detail requires advanced steam, interior extractions and exterior paint correction logic. Pricing adapts to actual condition and dimensions of the vehicle.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Step 2 Navigation -->
+                    <div class="pt-4 flex justify-between items-center">
+                        <button type="button" onclick="goToStep(1)" class="text-stone-400 hover:text-white font-bold text-xs uppercase flex items-center gap-1.5 transition font-mono">
+                            <i class="fa-solid fa-arrow-left"></i> Back
+                        </button>
+                        <button type="button" onclick="goToStep(3)" class="bg-yellow-400 hover:bg-yellow-300 text-stone-950 font-black uppercase text-xs px-6 py-4 rounded btn-slant flex items-center gap-2 transition transform active:scale-95 shadow-md">
+                            Next: Date & Contacts
+                            <i class="fa-solid fa-arrow-right"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- STEP 3: SCHEDULE & DRIVER DETAILS -->
+                <div id="form-step-3" class="space-y-6 hidden">
+                    <div class="space-y-4">
+                        <span class="text-xs font-bold font-mono uppercase tracking-widest text-yellow-400 flex items-center gap-2">
+                            <i class="fa-solid fa-calendar-check"></i> 4. Preferred Time-Slot Window
+                        </span>
+
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                            <div>
+                                <label class="block text-[10px] font-bold uppercase text-stone-400 mb-1.5 font-mono">Preferred Dispatch Date *</label>
+                                <input type="date" id="bookingDate" required
+                                       class="w-full bg-stone-950 border border-stone-800 focus:border-yellow-400 rounded-lg py-3 px-4 text-white font-mono text-sm focus:outline-none">
+                            </div>
+                            <div>
+                                <label class="block text-[10px] font-bold uppercase text-stone-400 mb-1.5 font-mono">Arrival Window Option *</label>
+                                <select id="timeWindow" required
+                                        class="w-full bg-stone-950 border border-stone-800 focus:border-yellow-400 rounded-lg py-3 px-4 text-white font-mono text-sm focus:outline-none cursor-pointer">
+                                    <option value="" disabled selected>— Select Time-slot Window —</option>
+                                    <option value="morning">Morning Dispatch (8:00 AM - 12:00 PM)</option>
+                                    <option value="afternoon">Afternoon Dispatch (12:00 PM - 4:00 PM)</option>
+                                    <option value="evening">Evening Dispatch (4:00 PM - 8:00 PM)</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="space-y-4 pt-4 border-t border-stone-800/60">
+                        <span class="text-xs font-bold font-mono uppercase tracking-widest text-yellow-400 flex items-center gap-2">
+                            <i class="fa-solid fa-id-card"></i> Your Contact Details
+                        </span>
+
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                            <div>
+                                <label class="block text-[10px] font-bold uppercase text-stone-300 mb-2 font-mono">Full Name *</label>
+                                <input type="text" id="driver_name" required placeholder="e.g. John Doe"
+                                       class="w-full bg-stone-950 border border-stone-800 focus:border-yellow-400 rounded-lg py-3 px-4 text-white font-mono text-sm placeholder-stone-700 focus:outline-none">
+                            </div>
+                            <div>
+                                <label class="block text-[10px] font-bold uppercase text-stone-300 mb-2 font-mono">Email Address *</label>
+                                <input type="email" id="driver_email" required placeholder="e.g. john@email.com"
+                                       class="w-full bg-stone-950 border border-stone-800 focus:border-yellow-400 rounded-lg py-3 px-4 text-white font-mono text-sm placeholder-stone-700 focus:outline-none">
+                            </div>
+                        </div>
+
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                            <div>
+                                <label class="block text-[10px] font-bold uppercase text-stone-300 mb-2 font-mono">Phone Number *</label>
+                                <input type="tel" id="driver_phone" required placeholder="e.g. (862) 500-5192"
+                                       class="w-full bg-stone-950 border border-stone-800 focus:border-yellow-400 rounded-lg py-3 px-4 text-white font-mono text-sm placeholder-stone-700 focus:outline-none">
+                            </div>
+                            <div>
+                                <label class="block text-[10px] font-bold uppercase text-stone-300 mb-2 font-mono">Message / Special Instructions (Optional)</label>
+                                <input type="text" id="driver_message" placeholder="e.g. Back door is unlocked, dog is inside"
+                                       class="w-full bg-stone-950 border border-stone-800 focus:border-yellow-400 rounded-lg py-3 px-4 text-white font-mono text-sm placeholder-stone-700 focus:outline-none">
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Client Error Alert Console -->
+                    <div id="errorPanel" class="hidden text-red-500 text-xs bg-red-950/20 border border-red-900/60 p-4 rounded-lg flex items-center gap-2">
+                        <span class="text-red-500 font-bold">⚠️</span>
+                        <span id="errorMessage" class="font-mono">Please complete all required telemetry and scheduler slots.</span>
+                    </div>
+
+                    <!-- Step 3 Navigation / Live Dispatch Submit -->
+                    <div class="pt-4 flex justify-between items-center">
+                        <button type="button" onclick="goToStep(2)" class="text-stone-400 hover:text-white font-bold text-xs uppercase flex items-center gap-1.5 transition font-mono">
+                            <i class="fa-solid fa-arrow-left"></i> Back
+                        </button>
+                        <button type="submit" id="submitBtn" class="bg-yellow-400 hover:bg-yellow-300 text-stone-950 font-black text-sm px-8 py-4 rounded btn-slant uppercase tracking-wider flex items-center gap-2 transition transform active:scale-95 shadow-xl glow-yellow">
+                            <i class="fa-solid fa-paper-plane"></i> BOOK DISPATCH SECURELY
+                        </button>
+                    </div>
+                </div>
+
+            </form>
+
+            <!-- Dispatch webhook success alert -->
+            <div id="dispatchSuccessBlock" class="hidden mt-6 p-6 rounded-xl border border-yellow-400/30 bg-yellow-400/5 text-yellow-400 text-center space-y-3 relative z-10">
+                <p class="font-racing-title text-2xl"><i class="fa-solid fa-circle-check"></i> DISPATCH SECURED!</p>
+                <p class="text-sm font-mono leading-relaxed" id="successDetailText"></p>
+                <button onclick="resetUnifiedForm()" class="bg-yellow-400 text-stone-950 font-black text-xs px-5 py-2.5 rounded tracking-wide uppercase transition hover:bg-yellow-300">
+                    Submit Another Detail Request
+                </button>
+            </div>
+        </div>
+
+        <!-- Live Pricing Estimator Sticky Panel (Right Column) -->
+        <div class="space-y-6">
+            <div class="bg-stone-900 border border-stone-800 rounded-2xl p-6 sticky top-28 space-y-6 shadow-2xl">
+                <h3 class="font-racing-title text-sm tracking-widest text-yellow-400 border-b border-stone-800 pb-3">LIVE PIT TICKET SUMMARY</h3>
+                
+                <!-- Package Detail Area -->
+                <div class="space-y-1 font-mono">
+                    <span class="text-[9px] text-stone-500 uppercase font-bold tracking-wider">SELECTED LEVEL</span>
+                    <div class="flex items-center justify-between">
+                        <h4 id="summaryPackageTitle" class="text-sm font-bold text-white uppercase italic">None Selected</h4>
+                        <span id="summaryPackagePrice" class="text-sm font-bold text-yellow-400">$0.00</span>
+                    </div>
+                </div>
+
+                <!-- Vehicle Details Area -->
+                <div class="space-y-1 font-mono">
+                    <span class="text-[9px] text-stone-500 uppercase font-bold tracking-wider">VEHICLE CLASSIFICATION</span>
+                    <div class="flex items-center justify-between">
+                        <h4 id="summaryVehicleClass" class="text-xs text-stone-300">Class Not Selected</h4>
+                        <span id="summaryVehicleCost" class="text-xs font-bold text-stone-400">$0.00</span>
+                    </div>
+                </div>
+
+                <!-- Selected Addons Area -->
+                <div class="space-y-1.5 font-mono">
+                    <span class="text-[9px] text-stone-500 uppercase font-bold tracking-wider block">ADD-ONS SCHEDULED</span>
+                    <div id="summaryAddonContainer" class="space-y-1 text-xs text-stone-400">
+                        <div class="text-stone-600 italic">No add-ons scheduled</div>
+                    </div>
+                </div>
+
+                <!-- Dynamic Address Snapshot inside ticket -->
+                <div id="summaryAddressBlock" class="space-y-1 font-mono text-xs border-t border-stone-800 pt-3 hidden">
+                    <span class="text-[9px] text-stone-500 uppercase font-bold tracking-wider block">DISPATCH ADDRESS</span>
+                    <p id="summaryAddressText" class="text-stone-300 text-[11px] leading-relaxed italic"></p>
+                </div>
+
+                <hr class="border-stone-800">
+
+                <!-- Pricing Total breakdown -->
+                <div class="space-y-2 font-mono">
+                    <div class="flex justify-between items-center text-xs text-stone-400">
+                        <span>Base Package Rate</span>
+                        <span id="summaryBaseSubtotal">$0.00</span>
+                    </div>
+                    <div class="flex justify-between items-center text-xs text-stone-400">
+                        <span>Add-on Treatment Subtotal</span>
+                        <span id="summaryAddonSubtotal">$0.00</span>
+                    </div>
+                    <div class="flex justify-between items-center border-t border-stone-800 pt-3">
+                        <span class="font-racing-title text-sm tracking-wider text-white">ESTIMATED TOTAL</span>
+                        <div class="text-right">
+                            <span id="summaryTotal" class="text-2xl font-racing-title text-yellow-400">$0.00</span>
+                            <span class="block text-[8px] font-semibold text-stone-500 uppercase tracking-widest mt-0.5">Estimated on Visual Check</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Prepayment assurance cards -->
+            <div class="bg-stone-900 border border-stone-800/60 p-4 rounded-xl flex items-start gap-3">
+                <span class="text-yellow-400 text-lg">⚡</span>
+                <div>
+                    <h4 class="text-xs font-bold text-white uppercase font-mono tracking-wider">Zero Prepayment Required</h4>
+                    <p class="text-[10px] text-stone-400 font-mono leading-relaxed mt-0.5">Pay after your driveway appointment is finished. We accept Cards, Cash, Apple Pay, and Venmo.</p>
+                </div>
+            </div>
+        </div>
+
+    </section>
+
+    <!-- Contact Us Form (General fallbacks and queries) -->
     <section class="mt-16 bg-stone-900 border border-stone-800 p-6 sm:p-10 rounded-2xl relative overflow-hidden" id="contact-form">
         <div class="absolute inset-0 checkered-pattern opacity-5 pointer-events-none"></div>
         <div class="relative z-10 max-w-3xl mx-auto">
             <div class="text-center mb-8 space-y-2">
                 <span class="text-yellow-400 font-black text-xs font-mono uppercase tracking-widest">GET IN TOUCH</span>
                 <h2 class="font-racing-title text-3xl text-white">CONTACT US</h2>
-                <p class="text-stone-400 text-xs sm:text-sm">Send your info below and a team member will text or call you to confirm your slot!</p>
+                <p class="text-stone-400 text-xs sm:text-sm">Have a custom query, a question about your paint work, or just want general info? Let us know below!</p>
             </div>
-            <form id="racingDispatchForm" onsubmit="handleFormSubmit(event)" class="space-y-6">
+            <form id="generalContactForm" onsubmit="handleContactSubmit(event)" class="space-y-6">
                 <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
                     <div>
-                        <label class="block text-xs font-bold uppercase text-stone-300 mb-2 font-mono">Full Name</label>
-                        <input type="text" name="contactName" id="driver_name" required placeholder="e.g. John Doe" class="w-full bg-stone-950 border border-stone-800 focus:border-yellow-400 rounded-lg py-3 px-4 text-white font-mono text-sm placeholder-stone-600 focus:outline-none">
+                        <label class="block text-xs font-bold uppercase text-stone-300 mb-2 font-mono">Full Name *</label>
+                        <input type="text" name="contactName" id="contact_name" required placeholder="e.g. John Doe" class="w-full bg-stone-950 border border-stone-800 focus:border-yellow-400 rounded-lg py-3 px-4 text-white font-mono text-sm placeholder-stone-600 focus:outline-none">
                     </div>
                     <div>
-                        <label class="block text-xs font-bold uppercase text-stone-300 mb-2 font-mono">Email</label>
-                        <input type="email" name="contactEmail" id="driver_email" required placeholder="e.g. john@email.com" class="w-full bg-stone-950 border border-stone-800 focus:border-yellow-400 rounded-lg py-3 px-4 text-white font-mono text-sm placeholder-stone-600 focus:outline-none">
+                        <label class="block text-xs font-bold uppercase text-stone-300 mb-2 font-mono">Email *</label>
+                        <input type="email" name="contactEmail" id="contact_email" required placeholder="e.g. john@email.com" class="w-full bg-stone-950 border border-stone-800 focus:border-yellow-400 rounded-lg py-3 px-4 text-white font-mono text-sm placeholder-stone-600 focus:outline-none">
                     </div>
                 </div>
                 <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
                     <div>
-                        <label class="block text-xs font-bold uppercase text-stone-300 mb-2 font-mono">Phone</label>
-                        <input type="tel" name="contactPhone" id="driver_phone" required placeholder="e.g. (862) 500-5192" class="w-full bg-stone-950 border border-stone-800 focus:border-yellow-400 rounded-lg py-3 px-4 text-white font-mono text-sm placeholder-stone-600 focus:outline-none">
+                        <label class="block text-xs font-bold uppercase text-stone-300 mb-2 font-mono">Phone *</label>
+                        <input type="tel" name="contactPhone" id="contact_phone" required placeholder="e.g. (862) 500-5192" class="w-full bg-stone-950 border border-stone-800 focus:border-yellow-400 rounded-lg py-3 px-4 text-white font-mono text-sm placeholder-stone-600 focus:outline-none">
                     </div>
                     <div>
                         <label class="block text-xs font-bold uppercase text-stone-300 mb-2 font-mono">Vehicle</label>
-                        <input type="text" name="vehicle" id="machine_model" placeholder="e.g. 2024 Black Ford F-150" class="w-full bg-stone-950 border border-stone-800 focus:border-yellow-400 rounded-lg py-3 px-4 text-white font-mono text-sm placeholder-stone-600 focus:outline-none">
+                        <input type="text" name="vehicle" id="contact_vehicle" placeholder="e.g. 2024 Black Ford F-150" class="w-full bg-stone-950 border border-stone-800 focus:border-yellow-400 rounded-lg py-3 px-4 text-white font-mono text-sm placeholder-stone-600 focus:outline-none">
                     </div>
                 </div>
                 <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
                     <div>
                         <label class="block text-xs font-bold uppercase text-stone-300 mb-2 font-mono">Package (Optional)</label>
-                        <select name="package" id="stage_package" class="w-full bg-stone-950 border border-stone-800 focus:border-yellow-400 rounded-lg py-3 px-4 text-white font-mono text-sm focus:outline-none cursor-pointer">
+                        <select name="package" id="contact_package" class="w-full bg-stone-950 border border-stone-800 focus:border-yellow-400 rounded-lg py-3 px-4 text-white font-mono text-sm focus:outline-none cursor-pointer">
                             <option value="">— Select a Package (Optional) —</option>
                             <option value="Express / Maintenance Clean ($125)">Express / Maintenance Clean ($125)</option>
                             <option value="Complete Interior Detail ($225)">Complete Interior Detail ($225)</option>
@@ -513,19 +875,19 @@
                         </select>
                     </div>
                     <div>
-                        <label class="block text-xs font-bold uppercase text-stone-300 mb-2 font-mono">Message</label>
-                        <input type="text" name="message" id="driver_message" placeholder="Anything we should know?" class="w-full bg-stone-950 border border-stone-800 focus:border-yellow-400 rounded-lg py-3 px-4 text-white font-mono text-sm placeholder-stone-600 focus:outline-none">
+                        <label class="block text-xs font-bold uppercase text-stone-300 mb-2 font-mono">Message *</label>
+                        <input type="text" name="message" id="contact_message" required placeholder="How can we help you?" class="w-full bg-stone-950 border border-stone-800 focus:border-yellow-400 rounded-lg py-3 px-4 text-white font-mono text-sm placeholder-stone-600 focus:outline-none">
                     </div>
                 </div>
                 <div>
-                    <button type="submit" id="submitBtn" class="w-full bg-yellow-400 hover:bg-yellow-300 text-stone-950 font-black text-lg py-4 px-6 rounded btn-slant uppercase tracking-wider flex items-center justify-center gap-3 transition-all glow-yellow">
+                    <button type="submit" id="contactSubmitBtn" class="w-full bg-yellow-400 hover:bg-yellow-300 text-stone-950 font-black text-lg py-4 px-6 rounded btn-slant uppercase tracking-wider flex items-center justify-center gap-3 transition-all glow-yellow">
                         <i class="fa-solid fa-paper-plane"></i> SEND MESSAGE
                     </button>
                 </div>
             </form>
-            <div id="dispatchSuccessBlock" class="hidden mt-6 p-4 rounded-xl border border-yellow-400/30 bg-yellow-400/5 text-yellow-400 text-center space-y-2">
+            <div id="contactSuccessBlock" class="hidden mt-6 p-4 rounded-xl border border-yellow-400/30 bg-yellow-400/5 text-yellow-400 text-center space-y-2">
                 <p class="font-racing-title text-xl"><i class="fa-solid fa-circle-check"></i> MESSAGE SENT!</p>
-                <p class="text-xs font-mono" id="successDetailText"></p>
+                <p class="text-xs font-mono" id="contactSuccessDetailText"></p>
             </div>
         </div>
     </section>
@@ -574,10 +936,10 @@
                 <h4 class="text-yellow-400 font-mono text-[10px] font-bold uppercase tracking-widest mb-4">Company</h4>
                 <ul class="space-y-2 text-xs text-stone-400 font-mono">
                     <li><a href="/" class="hover:text-yellow-400 transition-all">Home</a></li>
- <li><a href="/blog/" data-subpage="gallery" class="hover:text-yellow-400 transition-all">The Garage Journal</a></li>
+                    <li><a href="/blog/" data-subpage="gallery" class="hover:text-yellow-400 transition-all">The Garage Journal</a></li>
                     <li><a href="/about" data-subpage="about" class="hover:text-yellow-400 transition-all">About</a></li>
                     <li><a href="Gallery" data-subpage="gallery" class="hover:text-yellow-400 transition-all">Gallery</a></li>
-                    <li><a href="#contact-form" class="hover:text-yellow-400 transition-all">Contact Us</a></li>
+                    <li><a href="#booking-section" class="hover:text-yellow-400 transition-all">Book Service</a></li>
                 </ul>
             </div>
             
@@ -589,6 +951,13 @@
 </footer>
 
 <script>
+    // Set minimum scheduling date to today
+    const dateInput = document.getElementById('bookingDate');
+    if (dateInput) {
+        const today = new Date().toISOString().split('T')[0];
+        dateInput.setAttribute('min', today);
+    }
+
     // Mobile menu
     const hamburger = document.getElementById('hamburger');
     const mobileMenu = document.getElementById('mobileMenu');
@@ -620,53 +989,402 @@
     setTimeout(() => teaser.classList.add('visible'), 3000);
     document.getElementById('teaser-close-btn').addEventListener('click', () => { teaser.classList.remove('visible'); teaser.classList.add('hidden'); });
 
-    // Form submission
+    // -------------------------------------------------------------
+    // LIVE CALCULATION & INTERACTIVE PACKAGE SELECTOR LOGIC
+    // -------------------------------------------------------------
+    let selectedTier = ''; // Empty initially so form stays hidden until selected
+
+    const packages = {
+        tier1: { title: 'Express / Maintenance Clean', basePrice: 125 },
+        tier2: { title: 'Complete Interior Detail', basePrice: 225 },
+        tier3: { title: 'Complete Exterior Detail', basePrice: 225 },
+        tier4: { title: 'Full Comprehensive Detail', basePrice: 400 } 
+    };
+
+    const sizeMultipliers = {
+        sedan: 0,
+        crossover: 30,
+        truck: 60
+    };
+
+    // Handle package selection trigger
+    function selectPackage(tierId) {
+        // Reveal the booking section if hidden, as indicated in Screenshot 2026-06-18 at 4.31.16 PM.png
+        const bookingSec = document.getElementById('booking-section');
+        if (bookingSec) {
+            bookingSec.classList.remove('hidden');
+        }
+
+        selectedTier = tierId;
+        
+        // Visual highlights update
+        ['tier1', 'tier2', 'tier3', 'tier4'].forEach(id => {
+            const card = document.getElementById(`card-${id}`);
+            if (id === 'tier4') {
+                card.classList.replace('border-stone-800', 'border-yellow-400');
+            } else {
+                card.classList.replace('border-yellow-400', 'border-stone-800');
+            }
+        });
+
+        // Highlight chosen card dynamically
+        const selectedCard = document.getElementById(`card-${tierId}`);
+        selectedCard.classList.replace('border-stone-800', 'border-yellow-400');
+
+        // Toggle condition requirements/disclaimers
+        const tier1Disclaimer = document.getElementById('tier1Disclaimer');
+        const tier4Disclaimer = document.getElementById('tier4Disclaimer');
+
+        if (tierId === 'tier1') {
+            tier1Disclaimer.classList.remove('hidden');
+            document.getElementById('maintenanceAcknowledge').setAttribute('required', 'required');
+        } else {
+            tier1Disclaimer.classList.add('hidden');
+            document.getElementById('maintenanceAcknowledge').removeAttribute('required');
+        }
+
+        if (tierId === 'tier4') {
+            tier4Disclaimer.classList.remove('hidden');
+        } else {
+            tier4Disclaimer.classList.add('hidden');
+        }
+
+        // Recalculate estimator metrics
+        calculateEstimate();
+
+        // Smooth scroll to revealed booking form
+        if (bookingSec) {
+            bookingSec.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+    }
+
+    // Live pricing estimator calculations
+    function calculateEstimate() {
+        const packageObj = packages[selectedTier];
+        
+        // Update live receipt title and package price
+        document.getElementById('summaryPackageTitle').innerText = packageObj.title;
+        document.getElementById('summaryPackagePrice').innerText = `$${packageObj.basePrice.toFixed(2)}`;
+
+        // Process vehicle size modifiers
+        const sizeVal = document.getElementById('vehicleSize').value;
+        let sizeCost = 0;
+        if (sizeVal && sizeMultipliers[sizeVal] !== undefined) {
+            sizeCost = sizeMultipliers[sizeVal];
+            const optText = document.querySelector(`#vehicleSize option[value="${sizeVal}"]`).innerText;
+            document.getElementById('summaryVehicleClass').innerText = optText.split('(')[0].trim();
+            document.getElementById('summaryVehicleCost').innerText = `+$${sizeCost.toFixed(2)}`;
+        } else {
+            document.getElementById('summaryVehicleClass').innerText = 'No Vehicle Selected';
+            document.getElementById('summaryVehicleCost').innerText = '$0.00';
+        }
+
+        // Aggregate Performance Boosters (Add-ons) check states
+        let addonTotal = 0;
+        const summaryAddonContainer = document.getElementById('summaryAddonContainer');
+        summaryAddonContainer.innerHTML = '';
+
+        const addonsChecked = [];
+        ['pethair', 'engine', 'headlight', 'ceramic'].forEach(id => {
+            const el = document.getElementById(`addon-${id}`);
+            if (el && el.checked) {
+                const cost = parseFloat(el.value);
+                addonTotal += cost;
+                
+                let title = "";
+                if (id === 'pethair') title = "Pet Hair Removal";
+                if (id === 'engine') title = "Engine Bay Clean";
+                if (id === 'headlight') title = "Headlight Restoration";
+                if (id === 'ceramic') title = "Ceramic Sealant Upgrade";
+
+                addonsChecked.push({ title, cost });
+            }
+        });
+
+        if (addonsChecked.length > 0) {
+            addonsChecked.forEach(add => {
+                const div = document.createElement('div');
+                div.className = 'flex justify-between items-center text-stone-300';
+                div.innerHTML = `<span>+ ${add.title}</span> <span>$${add.cost.toFixed(2)}</span>`;
+                summaryAddonContainer.appendChild(div);
+            });
+        } else {
+            summaryAddonContainer.innerHTML = '<div class="text-stone-600 italic">No add-ons scheduled</div>';
+        }
+
+        // Update real-time Address Snapshot in ticket
+        const street = document.getElementById('streetAddress').value;
+        const city = document.getElementById('addressCity').value;
+        const state = document.getElementById('addressState').value;
+        const zip = document.getElementById('addressZip').value;
+        const summaryAddressBlock = document.getElementById('summaryAddressBlock');
+        const summaryAddressText = document.getElementById('summaryAddressText');
+        
+        if (street || city || zip) {
+            summaryAddressBlock.classList.remove('hidden');
+            summaryAddressText.innerText = `${street ? street : ''}${city ? ', ' + city : ''}${state ? ' ' + state : ''}${zip ? ' ' + zip : ''}`;
+        } else {
+            summaryAddressBlock.classList.add('hidden');
+        }
+
+        // Calculations sum up
+        const baseSub = packageObj.basePrice + sizeCost;
+        document.getElementById('summaryBaseSubtotal').innerText = `$${baseSub.toFixed(2)}`;
+        document.getElementById('summaryAddonSubtotal').innerText = `$${addonTotal.toFixed(2)}`;
+
+        const total = baseSub + addonTotal;
+        document.getElementById('summaryTotal').innerText = `$${total.toFixed(2)}`;
+    }
+
+    // Attach Event Listeners to Address inputs to update ticket live
+    ['streetAddress', 'addressCity', 'addressState', 'addressZip'].forEach(fieldId => {
+        document.getElementById(fieldId).addEventListener('input', calculateEstimate);
+    });
+
+    // Multi-Step form navigation controller
+    function goToStep(stepNum) {
+        const errorPanel = document.getElementById('errorPanel');
+        errorPanel.classList.add('hidden');
+
+        // Validation limits before progression
+        if (stepNum === 2) {
+            const yrValid = document.getElementById('vehicleYear').validity.valid;
+            const mkValid = document.getElementById('vehicleMake').validity.valid;
+            const mdValid = document.getElementById('vehicleModel').validity.valid;
+            const szValid = document.getElementById('vehicleSize').validity.valid;
+
+            if (!yrValid || !mkValid || !mdValid || !szValid) {
+                document.getElementById('errorMessage').innerText = "Please complete Year, Make, Model, and Vehicle Size Class before proceeding.";
+                errorPanel.classList.remove('hidden');
+                return;
+            }
+        }
+
+        if (stepNum === 3) {
+            const streetValid = document.getElementById('streetAddress').validity.valid;
+            const cityValid = document.getElementById('addressCity').validity.valid;
+            const stateValid = document.getElementById('addressState').validity.valid;
+            const zipValid = document.getElementById('addressZip').validity.valid;
+
+            if (!streetValid || !cityValid || !stateValid || !zipValid) {
+                document.getElementById('errorMessage').innerText = "Please fill out all detailed Logistics Address elements (Street, City, State, Zip).";
+                errorPanel.classList.remove('hidden');
+                return;
+            }
+
+            // Verify well-maintained verification checkbox for Tier 1
+            if (selectedTier === 'tier1' && !document.getElementById('maintenanceAcknowledge').checked) {
+                document.getElementById('errorMessage').innerText = "You must confirm your vehicle is well-maintained to book a Tier 1 clean.";
+                errorPanel.classList.remove('hidden');
+                return;
+            }
+        }
+
+        // Toggle visibilities
+        document.getElementById('form-step-1').classList.add('hidden');
+        document.getElementById('form-step-2').classList.add('hidden');
+        document.getElementById('form-step-3').classList.add('hidden');
+        document.getElementById(`form-step-${stepNum}`).classList.remove('hidden');
+
+        // Update progress visual states
+        document.getElementById('step-indicator').innerText = `Step ${stepNum} of 3: ` + 
+            (stepNum === 1 ? 'Vehicle Parameters' : stepNum === 2 ? 'Location & Boosters' : 'Schedule & Contacts');
+
+        for (let i = 1; i <= 3; i++) {
+            const bar = document.getElementById(`progress-bar-${i}`);
+            if (i <= stepNum) {
+                bar.classList.replace('bg-stone-800', 'bg-yellow-400');
+            } else {
+                bar.classList.replace('bg-yellow-400', 'bg-stone-800');
+            }
+        }
+    }
+
+    // -------------------------------------------------------------
+    // WEBHOOK INTEGRATION & SUCCESS TELEMETRY PROCESSOR
+    // -------------------------------------------------------------
     function handleFormSubmit(event) {
         event.preventDefault();
-        const name = document.getElementById('driver_name').value;
-        const email = document.getElementById('driver_email').value;
-        const phone = document.getElementById('driver_phone').value;
-        const vehicle = document.getElementById('machine_model').value;
-        const pkg = document.getElementById('stage_package').value;
-        const message = document.getElementById('driver_message').value;
+        const errorPanel = document.getElementById('errorPanel');
+        errorPanel.classList.add('hidden');
+
+        // Validation blocks
+        const dateValid = document.getElementById('bookingDate').validity.valid;
+        const windowValid = document.getElementById('timeWindow').validity.valid;
+        const nameValid = document.getElementById('driver_name').validity.valid;
+        const emailValid = document.getElementById('driver_email').validity.valid;
+        const phoneValid = document.getElementById('driver_phone').validity.valid;
+
+        if (!dateValid || !windowValid || !nameValid || !emailValid || !phoneValid) {
+            document.getElementById('errorMessage').innerText = "Please complete all schedule and driver contact elements to submit dispatch ticket.";
+            errorPanel.classList.remove('hidden');
+            return;
+        }
+
+        // Compile fields safely
+        const clientName = document.getElementById('driver_name').value.replace(/[<>]/g, "");
+        const clientEmail = document.getElementById('driver_email').value.replace(/[<>]/g, "");
+        const clientPhone = document.getElementById('driver_phone').value.replace(/[<>]/g, "");
+        
+        const yr = document.getElementById('vehicleYear').value;
+        const mk = document.getElementById('vehicleMake').value.replace(/[<>]/g, "");
+        const md = document.getElementById('vehicleModel').value.replace(/[<>]/g, "");
+        const sizeOption = document.getElementById('vehicleSize').value;
+        const vehicleDescription = `${yr} ${mk} ${md} (${sizeOption.toUpperCase()})`;
+
+        const street = document.getElementById('streetAddress').value.replace(/[<>]/g, "");
+        const city = document.getElementById('addressCity').value.replace(/[<>]/g, "");
+        const state = document.getElementById('addressState').value.replace(/[<>]/g, "");
+        const zip = document.getElementById('addressZip').value.replace(/[<>]/g, "");
+        const fullAddress = `${street}, ${city}, ${state} ${zip}`;
+
+        const bookDate = document.getElementById('bookingDate').value;
+        const selectedTimeSlot = document.getElementById('timeWindow').value;
+
+        // Collect checked addons
+        const scheduledAddons = [];
+        if (document.getElementById('addon-pethair').checked) scheduledAddons.push("Pet Hair Removal ($45)");
+        if (document.getElementById('addon-engine').checked) scheduledAddons.push("Engine Bay Detail ($50)");
+        if (document.getElementById('addon-headlight').checked) scheduledAddons.push("Headlight Restoration ($75)");
+        if (document.getElementById('addon-ceramic').checked) scheduledAddons.push("Ceramic Sealant Upgrade ($95)");
+        const addonsListText = scheduledAddons.length > 0 ? scheduledAddons.join(', ') : "None";
+
+        const rawMsg = document.getElementById('driver_message').value.replace(/[<>]/g, "");
+        const estimatedTotal = document.getElementById('summaryTotal').innerText;
+
+        // Spinner submission states
         const btn = document.getElementById('submitBtn');
+        btn.disabled = true;
+        btn.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> DISPATCHING LOGISTICS...';
+
+        // Pack payload strictly mapped to PayMeGPT webhook flow rules
+        const formData = {
+            contactName: clientName,
+            contactEmail: clientEmail,
+            contactPhone: clientPhone,
+            data: {
+                vehicle: vehicleDescription,
+                package: `${packages[selectedTier].title} (Starting Base)`,
+                serviceAddress: fullAddress,
+                scheduledDate: bookDate,
+                scheduledTimeSlot: selectedTimeSlot.toUpperCase(),
+                addonsScheduled: addonsListText,
+                estimatedPricingTicket: estimatedTotal,
+                clientMessage: rawMsg
+            }
+        };
+
+        // Stream transaction payload out to webhook endpoint safely
+        fetch('https://paymegpt.com/api/webhooks/flow/3762/7f18c3f219503532eb92a6241effecebc06fd7609c4a002ffa6b3feea89c169b', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(formData)
+        }).then(() => {
+            showSuccess(clientName, packages[selectedTier].title, vehicleDescription, clientPhone, fullAddress, bookDate, selectedTimeSlot, estimatedTotal);
+        }).catch(() => {
+            // Safe fallback simulation if cross-origin rules prevent response reading
+            showSuccess(clientName, packages[selectedTier].title, vehicleDescription, clientPhone, fullAddress, bookDate, selectedTimeSlot, estimatedTotal);
+        });
+    }
+
+    function showSuccess(name, pkg, vehicle, phone, address, date, slot, total) {
+        const btn = document.getElementById('submitBtn');
+        btn.disabled = false;
+        btn.innerHTML = '<i class="fa-solid fa-paper-plane"></i> BOOK DISPATCH SECURELY';
+        
+        // Hide stepper container form
+        document.getElementById('racingDispatchForm').classList.add('hidden');
+        
+        const block = document.getElementById('dispatchSuccessBlock');
+        const text = document.getElementById('successDetailText');
+        block.classList.remove('hidden');
+
+        text.innerHTML = `Thanks, <strong>${name}</strong>! We received your dispatch reservation for the <strong>${pkg}</strong> on <strong>${vehicle}</strong>.<br><br>
+        📍 <strong>Service Address:</strong> ${address}<br>
+        📅 <strong>Schedule Target:</strong> ${date} (${slot.toUpperCase()})<br>
+        💰 <strong>Ticket Estimate:</strong> <span class="text-yellow-400 font-bold">${total}</span> (subject to final inspection)<br><br>
+        Our crew will contact you at <strong>${phone}</strong> shortly to confirm dispatch parameters!`;
+
+        block.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+    }
+
+    // Reset Form and bring form views back to Step 1
+    function resetUnifiedForm() {
+        document.getElementById('racingDispatchForm').reset();
+        document.getElementById('racingDispatchForm').classList.remove('hidden');
+        document.getElementById('dispatchSuccessBlock').classList.add('hidden');
+        goToStep(1);
+        selectPackage('tier4');
+    }
+
+    // -------------------------------------------------------------
+    // GENERAL CONTACT FORM LOGIC (RETAINED)
+    // -------------------------------------------------------------
+    function handleContactSubmit(event) {
+        event.preventDefault();
+        const name = document.getElementById('contact_name').value;
+        const email = document.getElementById('contact_email').value;
+        const phone = document.getElementById('contact_phone').value;
+        const vehicle = document.getElementById('contact_vehicle').value;
+        const pkg = document.getElementById('contact_package').value;
+        const message = document.getElementById('contact_message').value;
+        
+        const btn = document.getElementById('contactSubmitBtn');
         btn.disabled = true;
         btn.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> SENDING...';
 
-        const formData = { contactName: name, contactEmail: email, contactPhone: phone, data: { vehicle: vehicle, package: pkg, message: message } };
+        const formData = { 
+            contactName: name, 
+            contactEmail: email, 
+            contactPhone: phone, 
+            data: { 
+                vehicle: vehicle, 
+                package: pkg, 
+                message: message,
+                formType: "General Contact Form Inquiry"
+            } 
+        };
 
         fetch('https://paymegpt.com/api/webhooks/flow/3762/7f18c3f219503532eb92a6241effecebc06fd7609c4a002ffa6b3feea89c169b', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify(formData)
         }).then(() => {
-            showSuccess(name, pkg, vehicle, phone);
+            showContactSuccess(name, pkg, vehicle, phone);
         }).catch(() => {
-            showSuccess(name, pkg, vehicle, phone);
+            showContactSuccess(name, pkg, vehicle, phone);
         });
     }
 
-    function showSuccess(name, pkg, vehicle, phone) {
-        const btn = document.getElementById('submitBtn');
+    function showContactSuccess(name, pkg, vehicle, phone) {
+        const btn = document.getElementById('contactSubmitBtn');
         btn.disabled = false;
         btn.innerHTML = '<i class="fa-solid fa-paper-plane"></i> SEND MESSAGE';
-        const block = document.getElementById('dispatchSuccessBlock');
-        const text = document.getElementById('successDetailText');
+        
+        const block = document.getElementById('contactSuccessBlock');
         block.classList.remove('hidden');
+        
         const safeName = name.replace(/</g,"&lt;").replace(/>/g,"&gt;");
         const safePkg = pkg ? pkg.replace(/</g,"&lt;").replace(/>/g,"&gt;") : 'General Inquiry';
         const safeVehicle = vehicle ? vehicle.replace(/</g,"&lt;").replace(/>/g,"&gt;") : 'your vehicle';
         const safePhone = phone.replace(/</g,"&lt;").replace(/>/g,"&gt;");
+        
+        const text = document.getElementById('contactSuccessDetailText');
         text.innerHTML = 'Thanks, <strong>' + safeName + '</strong>! We received your <strong>' + safePkg + '</strong> inquiry for <strong>' + safeVehicle + '</strong>. Our team will reach out to <strong>' + safePhone + '</strong> shortly!';
-        document.getElementById('racingDispatchForm').reset();
+        
+        document.getElementById('generalContactForm').reset();
         block.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
     }
 
-    // Smooth scroll
+    // Smooth scroll logic linked cleanly to elements
     document.querySelectorAll('a[href^="#"]').forEach(a => {
         a.addEventListener('click', e => {
             const t = document.querySelector(a.getAttribute('href'));
-            if (t) { e.preventDefault(); t.scrollIntoView({ behavior: 'smooth' }); mobileMenu.classList.remove('open'); }
+            if (t) { 
+                e.preventDefault(); 
+                t.scrollIntoView({ behavior: 'smooth' }); 
+                mobileMenu.classList.remove('open'); 
+            }
         });
     });
 </script>
