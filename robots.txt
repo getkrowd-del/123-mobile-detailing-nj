@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://getkrowd-del.github.io/123-mobile-detailing-nj/sitemap.xml
+Sitemap: https://123mobiledetailing.com/sitemap.xml
