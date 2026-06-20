@@ -13,20 +13,20 @@
     
 
 <!-- SEO Meta Tags -->
-<title>123 Auto Detailing – Mobile Auto Detailing in Bergen County NJ</title>
-<meta name="description" content="Professional mobile auto detailing in Bergen County &amp; Passaic County, NJ. We come to you for interior &amp; exterior detailing, paint correction &amp; ceramic coating." />
-<meta name="keywords" content="auto detailing Bergen County NJ" />
-<meta property="og:title" content="123 Auto Detailing – Mobile Auto Detailing in Bergen County NJ" />
-<meta property="og:description" content="Professional mobile auto detailing in Bergen County &amp; Passaic County, NJ. We come to you for interior &amp; exterior detailing, paint correction &amp; ceramic coating." />
+<title>Premium Mobile Auto Detailing in Northern New Jersey</title>
+<meta name="description" content="Get your car looking showroom ready without leaving home. Serving Bergen and Passaic Counties with professional mobile detailing, paint correction, and coatings." />
+<meta name="keywords" content="mobile detailing Bergen County NJ" />
+<meta property="og:title" content="Premium Mobile Auto Detailing in Northern New Jersey" />
+<meta property="og:description" content="Get your car looking showroom ready without leaving home. Serving Bergen and Passaic Counties with professional mobile detailing, paint correction, and coatings." />
 <meta property="og:type" content="website" />
 <meta name="twitter:card" content="summary_large_image" />
-<meta name="twitter:title" content="123 Auto Detailing – Mobile Auto Detailing in Bergen County NJ" />
-<meta name="twitter:description" content="Professional mobile auto detailing in Bergen County &amp; Passaic County, NJ. We come to you for interior &amp; exterior detailing, paint correction &amp; ceramic coating." />
+<meta name="twitter:title" content="Premium Mobile Auto Detailing in Northern New Jersey" />
+<meta name="twitter:description" content="Get your car looking showroom ready without leaving home. Serving Bergen and Passaic Counties with professional mobile detailing, paint correction, and coatings." />
 <!-- End SEO Meta Tags -->
 <meta name="sheet-data-url" content="https://paymegpt.com/api/public/landing-pages/4976/sheet-data">
 <script data-lp-token-hydrate>
 (function(){try{
-  var slug="lp-mqildm4j-hztmk";
+  var slug="mobile-detailing-bergen-passaic-nj";
   var SK='lp_access_'+slug;
   var map={access_token:'lp_pw_',allowlist_access_token:'lp_al_',pin_access_token:'lp_pin_',paywall_access_token:'lp_paid_'};
   var u=new URL(location.href);var found=null;var changed=false;
@@ -184,6 +184,7 @@
     for(var j=0;j<inputs.length;j++){if(inputs[j].value)return inputs[j].value.trim();}
     return '';
   }
+  function findPhone(){var ids=['phone','phoneNumber','phone-number','tel','telephone','mobile','mobileNumber','cell','contact-phone','buyer-phone'];for(var i=0;i<ids.length;i++){var el=document.getElementById(ids[i]);if(el&&el.value&&el.value.trim())return el.value.trim();}var inputs=document.querySelectorAll('input[type="tel"],input[name*="phone"],input[name*="tel"],input[name*="mobile"],input[placeholder*="phone"],input[placeholder*="Phone"]');for(var j=0;j<inputs.length;j++){if(inputs[j].value&&inputs[j].value.trim())return inputs[j].value.trim();}return '';}
   var __realProcessPayment=function(a,b,c,d,e){
     var amountCents,email,productName,productDescription,customerName,quantity;
     if(a&&typeof a==='object'){
@@ -195,6 +196,7 @@
     }
     if(!email)email=findEmail();
     if(!customerName)customerName=findName();
+    var phone=findPhone();
     if(!productName){alert('Product name is required.');return Promise.reject('no_product_name');}
     if(!amountCents||amountCents<100){alert('Amount must be at least $1.00');return Promise.reject('invalid_amount');}
     if(!email){alert('Please enter your email address.');return Promise.reject('no_email');}
@@ -202,7 +204,7 @@
     var __pLoc=(document.documentElement.lang||navigator.language||'en');
     return fetch(apiBase+'/api/landing-pages/public/'+slug+'/payment/checkout',{
       method:'POST',headers:{'Content-Type':'application/json'},
-      body:JSON.stringify({email:email,name:customerName,amountCents:amountCents,productName:productName,productDescription:productDescription,quantity:quantity,locale:__pLoc,successUrl:successBase+'?payment=success&product='+encodeURIComponent(productName)+'&session_id={CHECKOUT_SESSION_ID}',cancelUrl:successBase+'?payment=cancelled'})
+      body:JSON.stringify({email:email,name:customerName,phone:phone||'',amountCents:amountCents,productName:productName,productDescription:productDescription,quantity:quantity,locale:__pLoc,successUrl:successBase+'?payment=success&product='+encodeURIComponent(productName)+'&session_id={CHECKOUT_SESSION_ID}',cancelUrl:successBase+'?payment=cancelled'})
     }).then(function(r){return r.json();}).then(function(d){
       if(d.checkoutUrl){window.location.href=d.checkoutUrl;}
       else{alert(d.error||'Failed to process payment');throw new Error(d.error);}
@@ -226,37 +228,111 @@
     }
   });
 })();
+</script>
+<script data-cart>
+(function(){
+  var slug='zn4EZsdV';
+  var apiBase='https://paymegpt.com';
+  var successSubtext='';var successBtnLabel='Continue';var successBtnColor='#16a34a';var successRedirect='';
+  function findCartEmail(){
+    var ids=['email','emailAddress','buyer-email','buyerEmail','user-email','userEmail','checkout-email','customer-email','contact-email'];
+    for(var i=0;i<ids.length;i++){var el=document.getElementById(ids[i]);if(el&&el.value&&el.value.includes('@'))return el.value.trim();}
+    var inputs=document.querySelectorAll('input[type="email"],input[name*="email"],input[placeholder*="email"],input[placeholder*="Email"]');
+    for(var j=0;j<inputs.length;j++){if(inputs[j].value&&inputs[j].value.includes('@'))return inputs[j].value.trim();}
+    return '';
+  }
+  function findCartName(){
+    var ids=['name','fullName','full-name','buyer-name','buyerName','customer-name','userName','user-name'];
+    for(var i=0;i<ids.length;i++){var el=document.getElementById(ids[i]);if(el&&el.value)return el.value.trim();}
+    var inputs=document.querySelectorAll('input[name*="name"]:not([name*="email"]):not([type="email"]),input[placeholder*="name"]:not([placeholder*="email"]):not([type="email"]),input[placeholder*="Name"]:not([type="email"])');
+    for(var j=0;j<inputs.length;j++){if(inputs[j].value)return inputs[j].value.trim();}
+    return '';
+  }
+  function findCartPhone(){var ids=['phone','phoneNumber','phone-number','tel','telephone','mobile','mobileNumber','cell','contact-phone','buyer-phone'];for(var i=0;i<ids.length;i++){var el=document.getElementById(ids[i]);if(el&&el.value&&el.value.trim())return el.value.trim();}var inputs=document.querySelectorAll('input[type="tel"],input[name*="phone"],input[name*="tel"],input[name*="mobile"],input[placeholder*="phone"],input[placeholder*="Phone"]');for(var j=0;j<inputs.length;j++){if(inputs[j].value&&inputs[j].value.trim())return inputs[j].value.trim();}return '';}
+  var __realCart=function(arg){
+    var items, email='', customerName='', successUrl, cancelUrl, currency;
+    if(Array.isArray(arg)){items=arg;}
+    else if(arg&&typeof arg==='object'){
+      items=arg.items;email=arg.email||'';customerName=arg.name||arg.customerName||'';
+      successUrl=arg.successUrl;cancelUrl=arg.cancelUrl;currency=arg.currency;
+    }
+    if(!Array.isArray(items)||items.length===0){alert('No items in cart.');return Promise.reject('no_items');}
+    var cleanItems=[];var totalCents=0;
+    for(var i=0;i<items.length;i++){
+      var it=items[i];if(!it||typeof it!=='object'){alert('Invalid item at position '+i);return Promise.reject('bad_item');}
+      var nm=typeof it.name==='string'?it.name.trim():'';
+      if(!nm){alert('Item '+(i+1)+' is missing a name.');return Promise.reject('no_name');}
+      var amt=typeof it.amountCents==='number'?it.amountCents:(typeof it.amount==='number'?Math.round(it.amount*100):NaN);
+      if(!isFinite(amt)||amt<1){alert('Item "'+nm+'" needs a valid amount in cents.');return Promise.reject('bad_amount');}
+      var qty=(typeof it.quantity==='number'&&it.quantity>0)?Math.floor(it.quantity):1;
+      cleanItems.push({name:nm,description:it.description||'',amountCents:amt,quantity:qty});
+      totalCents+=amt*qty;
+    }
+    if(totalCents<50){alert('Cart total must be at least $0.50');return Promise.reject('total_too_low');}
+    if(!email)email=findCartEmail();
+    if(!customerName)customerName=findCartName();
+    var cartPhone=findCartPhone();
+    if(!email){var p=window.prompt('Enter your email for the receipt:','');if(p&&p.indexOf('@')>-1){email=p.trim();}else{alert('An email address is required to complete checkout.');return Promise.reject('no_email');}}
+    var successBase=window.location.href.split('?')[0];
+    var body={email:email,name:customerName,items:cleanItems,locale:(document.documentElement.lang||navigator.language||'en')};
+    if(currency)body.currency=currency;
+    if(cartPhone)body.phone=cartPhone;
+    body.successUrl=successUrl||(successBase+'?cart=success&email='+encodeURIComponent(email)+'&session_id={CHECKOUT_SESSION_ID}');
+    body.cancelUrl=cancelUrl||(successBase+'?cart=cancelled');
+    return fetch(apiBase+'/api/landing-pages/public/'+slug+'/cart/checkout',{
+      method:'POST',headers:{'Content-Type':'application/json'},
+      body:JSON.stringify(body)
+    }).then(function(r){return r.json();}).then(function(d){
+      if(d.checkoutUrl){window.location.href=d.checkoutUrl;}
+      else{alert(d.error||'Failed to process checkout');throw new Error(d.error);}
+    });
+  };
+  try{Object.defineProperty(window,'__processCart',{value:__realCart,writable:false,configurable:false});}catch(e){window.__processCart=__realCart;}
+  document.addEventListener('DOMContentLoaded',function(){
+    var urlParams=new URLSearchParams(window.location.search);
+    if(urlParams.get('cart')==='success'){
+      var sidC=urlParams.get('session_id');
+      if(sidC){try{fetch(apiBase+'/api/landing-pages/public/'+slug+'/checkout/confirm',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({sessionId:sidC})}).catch(function(){});}catch(e){}}
+      if(document.getElementById('payment-success-overlay')||document.getElementById('donation-success-overlay')||document.getElementById('cart-success-overlay'))return;
+      var overlay=document.createElement('div');overlay.id='cart-success-overlay';
+      overlay.style.cssText='position:fixed;top:0;left:0;right:0;bottom:0;background:rgba(0,0,0,0.5);display:flex;align-items:center;justify-content:center;z-index:999999;font-family:system-ui,-apple-system,sans-serif;';
+      function esc(s){return String(s||'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');}
+      var subTxt=successSubtext||'Thank you for your order.';
+      overlay.innerHTML='<div style="background:white;border-radius:16px;padding:40px;max-width:420px;width:90%;text-align:center;box-shadow:0 20px 60px rgba(0,0,0,0.15);"><div style="width:64px;height:64px;border-radius:50%;background:#dcfce7;margin:0 auto 20px;display:flex;align-items:center;justify-content:center;"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#16a34a" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></div><h2 style="margin:0 0 12px;font-size:24px;font-weight:700;color:#111827;">Order Confirmed!</h2><p style="margin:0 0 24px;color:#6b7280;font-size:16px;">'+esc(subTxt)+'</p><button id="lp-cart-success-btn" style="padding:12px 32px;font-size:16px;font-weight:600;background:'+successBtnColor+';color:white;border:none;border-radius:8px;cursor:pointer;">'+esc(successBtnLabel)+'</button></div>';
+      document.body.appendChild(overlay);
+      var cBtn=document.getElementById('lp-cart-success-btn');
+      if(cBtn){cBtn.addEventListener('click',function(){if(successRedirect){window.location.href=successRedirect;}else{overlay.remove();window.history.replaceState({},'',window.location.pathname);}});}
+    }
+  });
+})();
 </script>  <link rel="stylesheet" href="/styles.css">
 </head>
 <body class="min-h-screen">
 
-<!-- Chat Teaser -->
-<div id="chat-teaser">
+<div id="chat-teaser" data-section="chat-teaser">
     <div class="teaser-bubble">
         <button class="teaser-close" id="teaser-close-btn">✕</button>
         <p style="font-size:0.88rem;color:#f3f4f6;line-height:1.55;">👋 Hey! Need a quote or want to book a detail? <strong style="color:#facc15;">Tap me</strong> and let's get your ride looking fresh!</p>
     </div>
 </div>
 <button id="custom-chat-btn" class="chat-bounce"><img src="https://krowdimg.b-cdn.net/clients/123MobileDetailing/chatIcon.PNG" alt="Chat with us"></button>
-<div id="chat-panel"><iframe id="chat-iframe" src="" allow="microphone"></iframe></div>
+<div id="chat-panel" data-section="chat-panel"><iframe id="chat-iframe" src="" allow="microphone"></iframe></div>
 
-<!-- Mobile Nav Overlay -->
-<div class="mobile-nav-overlay" id="mobileMenu">
+<div class="mobile-nav-overlay" id="mobileMenu" data-section="mobile-nav">
     <a href="/">Home</a>
     <a href="#tiers" style="color:#facc15;font-weight:700;">Detailing</a>
-    <a href="/paint-protection-film/" class="sub-link" data-subpage="ppf">Paint Protection Film</a>
-    <a href="/ceramic-coatings/" class="sub-link" data-subpage="ceramic">Ceramic Coatings</a>
-    <a href="/tinting/" class="sub-link" data-subpage="tinting">Tinting</a>
-    <a href="/paint-corrections/" class="sub-link" data-subpage="paint-corrections">Paint Corrections</a>
-    <a href="/about/" data-subpage="about">About</a>
-    <a href="/gallery/" data-subpage="gallery">Gallery</a>
-    <a href="/blog/" data-subpage="blog">The Garage Journal</a>
-    <a href="#booking-section" style="background:#facc15;color:#121214;text-align:center;border-radius:6px;font-weight:800;margin-top:12px;">Book Service</a>
+    <a href="/paint-protection-film/" class="sub-link">Paint Protection Film</a>
+    <a href="/ceramic-coatings/" class="sub-link">Ceramic Coatings</a>
+    <a href="/tinting/" class="sub-link">Tinting</a>
+    <a href="/paint-corrections/" class="sub-link">Paint Corrections</a>
+    <a href="/about/">About</a>
+    <a href="/gallery/">Gallery</a>
+    <a href="/blog/">The Garage Journal</a>
+    <a href="#tiers" style="background:#facc15;color:#121214;text-align:center;border-radius:6px;font-weight:800;margin-top:12px;">Book Service</a>
 </div>
 
-<!-- Top Dispatch Bar -->
-<div class="checkered-pattern h-4 w-full border-b border-gray-800"></div>
-<div class="bg-yellow-400 text-stone-950 font-black py-3 px-4">
+<div class="checkered-pattern h-4 w-full border-b border-gray-800" data-section="dispatch-strip"></div>
+<div class="bg-yellow-400 text-stone-950 font-black py-3 px-4" data-section="dispatch-bar">
     <div class="max-w-6xl mx-auto flex flex-col md:flex-row items-center justify-between gap-2 text-center md:text-left">
         <span class="font-racing-title text-base tracking-wider flex items-center gap-2">
             <span class="inline-block w-2.5 h-2.5 bg-red-600 animate-ping rounded-full"></span>
@@ -266,17 +342,16 @@
             <a href="tel:8625005192" class="bg-stone-950 text-yellow-400 font-bold px-4 py-1.5 rounded-sm text-sm uppercase hover:bg-stone-800 transition-all">
                 <i class="fa-solid fa-phone"></i> CALL: (862) 500-5192
             </a>
-            <a href="#booking-section" class="bg-red-600 text-white font-bold px-4 py-1.5 rounded-sm text-sm uppercase hover:bg-red-700 transition-all">
+            <a href="#tiers" class="bg-red-600 text-white font-bold px-4 py-1.5 rounded-sm text-sm uppercase hover:bg-red-700 transition-all">
                 <i class="fa-solid fa-envelope"></i> BOOK DRIVEWAY APPOINTMENT
             </a>
         </div>
     </div>
 </div>
 
-<div class="max-w-6xl mx-auto mt-6 px-4">
+<div class="max-w-6xl mx-auto mt-6 px-4" data-section="page-content">
 
-    <!-- Navigation -->
-    <nav class="bg-stone-900 border border-stone-800 rounded-lg p-4 flex items-center justify-between gap-4 shadow-xl">
+    <nav class="bg-stone-900 border border-stone-800 rounded-lg p-4 flex items-center justify-between gap-4 shadow-xl" data-section="navbar">
         <div class="flex items-center gap-3">
             <div class="bg-yellow-400 text-stone-950 p-2 rounded font-black text-xl italic tracking-tighter">123</div>
             <div>
@@ -285,33 +360,31 @@
             </div>
         </div>
 
-        <!-- Desktop Nav -->
         <div class="desktop-nav flex items-center gap-5 text-sm font-semibold tracking-wider text-stone-300 uppercase">
             <a href="/" class="hover:text-yellow-400 transition-all">Home</a>
             <div class="nav-dropdown">
                 <a href="#tiers" class="hover:text-yellow-400 transition-all cursor-pointer">Services <i class="fa-solid fa-chevron-down text-[8px] ml-1"></i></a>
                 <div class="nav-dropdown-menu">
                     <a href="#tiers">Detailing</a>
-                    <a href="/paint-protection-film/" data-subpage="ppf">Paint Protection Film</a>
-                    <a href="/ceramic-coatings/" data-subpage="ceramic">Ceramic Coatings</a>
-                    <a href="/tinting/" data-subpage="tinting">Tinting</a>
-                    <a href="/paint-corrections/" data-subpage="paint-corrections">Paint Corrections</a>
+                    <a href="/paint-protection-film/">Paint Protection Film</a>
+                    <a href="/ceramic-coatings/">Ceramic Coatings</a>
+                    <a href="/tinting/">Tinting</a>
+                    <a href="/paint-corrections/">Paint Corrections</a>
                 </div>
             </div>
             <div class="nav-dropdown">
                 <span class="hover:text-yellow-400 transition-all cursor-pointer">More <i class="fa-solid fa-chevron-down text-[8px] ml-1"></i></span>
                 <div class="nav-dropdown-menu">
-                    <a href="/blog" data-subpage="blog">The Garage Journal</a>
-                    <a href="/about/" data-subpage="about">About</a>
-                    <a href="gallery" data-subpage="gallery">Gallery</a>
+                    <a href="/blog">The Garage Journal</a>
+                    <a href="/about/">About</a>
+                    <a href="gallery">Gallery</a>
                 </div>
             </div>
-            <a href="#booking-section" class="bg-yellow-400 text-stone-950 font-bold px-4 py-2 rounded-sm btn-slant hover:bg-yellow-300 transition-all text-xs">
+            <a href="#tiers" class="bg-yellow-400 text-stone-950 font-bold px-4 py-2 rounded-sm btn-slant hover:bg-yellow-300 transition-all text-xs">
                 Book Appointment
             </a>
         </div>
 
-        <!-- Mobile hamburger -->
         <button class="mobile-hamburger flex-col gap-1.5 cursor-pointer" id="hamburger" style="display:none;">
             <span class="block w-6 h-0.5 bg-white transition-all"></span>
             <span class="block w-6 h-0.5 bg-white transition-all"></span>
@@ -319,8 +392,7 @@
         </button>
     </nav>
 
-    <!-- Hero -->
-    <main class="mt-8 grid grid-cols-1 lg:grid-cols-12 gap-8 items-center bg-stone-900/60 p-6 sm:p-10 rounded-2xl border border-stone-800 shadow-2xl relative overflow-hidden" id="about">
+    <main class="mt-8 grid grid-cols-1 lg:grid-cols-12 gap-8 items-center bg-stone-900/60 p-6 sm:p-10 rounded-2xl border border-stone-800 shadow-2xl relative overflow-hidden" id="about" data-section="hero">
         <div class="absolute top-0 right-0 w-64 h-64 bg-yellow-400/5 rounded-full blur-3xl pointer-events-none"></div>
         <div class="lg:col-span-6 space-y-6">
             <div class="inline-flex items-center gap-2 bg-stone-800 border border-stone-700 rounded-full px-3 py-1 text-xs font-bold text-stone-300 uppercase">
@@ -346,7 +418,7 @@
                 <a href="#tiers" class="bg-yellow-400 hover:bg-yellow-300 text-stone-950 font-black px-6 py-4 rounded text-center btn-slant uppercase tracking-wider flex items-center justify-center gap-2 transition-all glow-yellow">
                     <i class="fa-solid fa-calendar-days"></i> Choose Package
                 </a>
-                <a href="#booking-section" class="bg-stone-800 hover:bg-stone-700 border border-stone-700 text-white font-black px-6 py-4 rounded text-center btn-slant uppercase tracking-wider flex items-center justify-center gap-2 transition-all">
+                <a href="#tiers" class="bg-stone-800 hover:bg-stone-700 border border-stone-700 text-white font-black px-6 py-4 rounded text-center btn-slant uppercase tracking-wider flex items-center justify-center gap-2 transition-all">
                     <i class="fa-solid fa-envelope text-yellow-400"></i> Open Booking Board
                 </a>
             </div>
@@ -365,8 +437,7 @@
         </div>
     </main>
 
-    <!-- Pricing Section -->
-    <section class="mt-16" id="tiers">
+    <section class="mt-16" id="tiers" data-section="pricing">
         <div class="text-center max-w-xl mx-auto space-y-3 mb-12">
             <div class="inline-block checkered-pattern px-4 py-1 text-xs text-white tracking-widest font-bold uppercase rounded-sm border border-stone-800">SERVICE PACKAGES</div>
             <h2 class="font-racing-title text-3xl sm:text-4xl text-white">CHOOSE YOUR DETAIL PACKAGE</h2>
@@ -374,7 +445,6 @@
         </div>
         <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
 
-            <!-- Package 1: Express -->
             <div id="card-tier1" onclick="selectPackage('tier1')" class="cursor-pointer bg-stone-900 border-2 border-stone-800 hover:border-stone-700 p-6 rounded-xl flex flex-col justify-between space-y-6 transition-all duration-300 group">
                 <div class="space-y-4">
                     <div class="flex items-center justify-between">
@@ -400,7 +470,6 @@
                 </div>
             </div>
 
-            <!-- Package 2: Complete Interior -->
             <div id="card-tier2" onclick="selectPackage('tier2')" class="cursor-pointer bg-stone-900 border-2 border-stone-800 hover:border-stone-700 p-6 rounded-xl flex flex-col justify-between space-y-6 transition-all duration-300 group">
                 <div class="space-y-4">
                     <div class="flex items-center justify-between">
@@ -425,7 +494,6 @@
                 </div>
             </div>
 
-            <!-- Package 3: Complete Exterior -->
             <div id="card-tier3" onclick="selectPackage('tier3')" class="cursor-pointer bg-stone-900 border-2 border-stone-800 hover:border-stone-700 p-6 rounded-xl flex flex-col justify-between space-y-6 transition-all duration-300 group">
                 <div class="space-y-4">
                     <div class="flex items-center justify-between">
@@ -450,7 +518,6 @@
                 </div>
             </div>
 
-            <!-- Package 4: Full Comprehensive (Featured) -->
             <div id="card-tier4" onclick="selectPackage('tier4')" class="cursor-pointer bg-stone-900 border-2 border-yellow-400 p-6 rounded-xl flex flex-col justify-between space-y-6 transition-all duration-300 relative glow-yellow">
                 <div class="absolute -top-3.5 left-1/2 -translate-x-1/2 bg-yellow-400 text-stone-950 font-black text-[10px] tracking-widest px-4 py-1 uppercase rounded-full shadow-md">CREW RECOMMENDATION</div>
                 <div class="space-y-4">
@@ -479,14 +546,11 @@
         </div>
     </section>
 
-    <!-- Unified Interactive Booking Section (hidden initially until a package is selected) -->
-    <section id="booking-section" class="scroll-mt-24 mt-16 max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-3 gap-8 hidden">
+    <section id="booking-section" class="scroll-mt-24 mt-16 max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-3 gap-8 hidden" data-section="booking-section">
         
-        <!-- Interactive Step-by-Step Dispatch Form (Left 2 Columns) -->
         <div class="lg:col-span-2 bg-stone-900 border border-stone-800 rounded-2xl p-6 sm:p-8 space-y-8 relative overflow-hidden">
             <div class="absolute inset-0 checkered-pattern opacity-[0.02] pointer-events-none"></div>
             
-            <!-- Step Indicators and Navigation -->
             <div class="relative z-10 flex flex-col sm:flex-row items-start sm:items-center justify-between border-b border-stone-800 pb-5 gap-3">
                 <div>
                     <h3 class="font-racing-title text-xl text-white tracking-widest">DRIVEWAY PIT APPOINTMENT</h3>
@@ -499,10 +563,8 @@
                 </div>
             </div>
 
-            <!-- Form Element -->
             <form id="racingDispatchForm" onsubmit="handleFormSubmit(event)" class="relative z-10 space-y-6" novalidate>
                 
-                <!-- STEP 1: VEHICLE PARAMETERS -->
                 <div id="form-step-1" class="space-y-6">
                     <div class="space-y-4">
                         <span class="text-xs font-bold font-mono uppercase tracking-widest text-yellow-400 flex items-center gap-2">
@@ -527,7 +589,6 @@
                             </div>
                         </div>
 
-                        <!-- Vehicle Size Dropdown -->
                         <div>
                             <label class="block text-[10px] font-bold uppercase text-stone-400 mb-2 font-mono">Vehicle Class Size *</label>
                             <select id="vehicleSize" name="vehicleSize" required onchange="calculateEstimate()"
@@ -540,7 +601,6 @@
                         </div>
                     </div>
 
-                    <!-- Step 1 Navigation -->
                     <div class="pt-4 flex justify-end">
                         <button type="button" onclick="goToStep(2)" class="bg-yellow-400 hover:bg-yellow-300 text-stone-950 font-black uppercase text-xs px-6 py-4 rounded btn-slant flex items-center gap-2 transition transform active:scale-95 shadow-md">
                             Next: Location & Boosters
@@ -549,10 +609,8 @@
                     </div>
                 </div>
 
-                <!-- STEP 2: LOCATION & BOOSTERS -->
                 <div id="form-step-2" class="space-y-6 hidden">
                     
-                    <!-- Performance Boosters (Add-ons) -->
                     <div class="space-y-4">
                         <span class="text-xs font-bold font-mono uppercase tracking-widest text-yellow-400 flex items-center gap-2">
                             <i class="fa-solid fa-gauge-high"></i> 2. Performance Add-ons (Boost Your Clean)
@@ -590,32 +648,27 @@
                         </div>
                     </div>
 
-                    <!-- Location details with full granular address, city, state, zip -->
                     <div class="space-y-4 pt-4 border-t border-stone-800/60">
                         <span class="text-xs font-bold font-mono uppercase tracking-widest text-yellow-400 flex items-center gap-2">
                             <i class="fa-solid fa-map-location-dot"></i> 3. Driveway Logistics Address
                         </span>
 
                         <div class="grid grid-cols-1 sm:grid-cols-12 gap-4">
-                            <!-- Street Address -->
                             <div class="sm:col-span-12">
                                 <label class="block text-[10px] font-bold uppercase text-stone-400 mb-1.5 font-mono">Street Address *</label>
                                 <input type="text" id="streetAddress" required placeholder="e.g. 123 Main Street"
                                        class="w-full bg-stone-950 border border-stone-800 focus:border-yellow-400 rounded-lg py-3 px-4 text-white font-mono text-sm focus:outline-none">
                             </div>
-                            <!-- City -->
                             <div class="sm:col-span-5">
                                 <label class="block text-[10px] font-bold uppercase text-stone-400 mb-1.5 font-mono">City *</label>
                                 <input type="text" id="addressCity" required placeholder="e.g. Ridgewood"
                                        class="w-full bg-stone-950 border border-stone-800 focus:border-yellow-400 rounded-lg py-3 px-4 text-white font-mono text-sm focus:outline-none">
                             </div>
-                            <!-- State -->
                             <div class="sm:col-span-3">
                                 <label class="block text-[10px] font-bold uppercase text-stone-400 mb-1.5 font-mono">State *</label>
                                 <input type="text" id="addressState" required value="NJ" placeholder="NJ"
                                        class="w-full bg-stone-950 border border-stone-800 focus:border-yellow-400 rounded-lg py-3 px-4 text-white font-mono text-sm focus:outline-none">
                             </div>
-                            <!-- Zip Code -->
                             <div class="sm:col-span-4">
                                 <label class="block text-[10px] font-bold uppercase text-stone-400 mb-1.5 font-mono">Zip Code *</label>
                                 <input type="text" id="addressZip" required placeholder="e.g. 07450"
@@ -623,7 +676,6 @@
                             </div>
                         </div>
 
-                        <!-- Location Utilities and Setup type -->
                         <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
                             <div>
                                 <label class="block text-[10px] font-bold uppercase text-stone-400 mb-2 font-mono">Setup Type *</label>
@@ -645,7 +697,6 @@
                         </div>
                     </div>
 
-                    <!-- Dynamic warnings block matching user screenshot logic -->
                     <div class="space-y-4 pt-4 border-t border-stone-800/60">
                         <div id="tier1Disclaimer" class="bg-stone-950 border-l-4 border-yellow-400 p-4 rounded-r-lg space-y-2 hidden">
                             <p class="text-xs text-stone-300 leading-relaxed font-mono">
@@ -663,7 +714,6 @@
                         </div>
                     </div>
 
-                    <!-- Step 2 Navigation -->
                     <div class="pt-4 flex justify-between items-center">
                         <button type="button" onclick="goToStep(1)" class="text-stone-400 hover:text-white font-bold text-xs uppercase flex items-center gap-1.5 transition font-mono">
                             <i class="fa-solid fa-arrow-left"></i> Back
@@ -675,7 +725,6 @@
                     </div>
                 </div>
 
-                <!-- STEP 3: SCHEDULE & DRIVER DETAILS -->
                 <div id="form-step-3" class="space-y-6 hidden">
                     <div class="space-y-4">
                         <span class="text-xs font-bold font-mono uppercase tracking-widest text-yellow-400 flex items-center gap-2">
@@ -733,13 +782,11 @@
                         </div>
                     </div>
 
-                    <!-- Client Error Alert Console -->
                     <div id="errorPanel" class="hidden text-red-500 text-xs bg-red-950/20 border border-red-900/60 p-4 rounded-lg flex items-center gap-2">
                         <span class="text-red-500 font-bold">⚠️</span>
                         <span id="errorMessage" class="font-mono">Please complete all required telemetry and scheduler slots.</span>
                     </div>
 
-                    <!-- Step 3 Navigation / Live Dispatch Submit -->
                     <div class="pt-4 flex justify-between items-center">
                         <button type="button" onclick="goToStep(2)" class="text-stone-400 hover:text-white font-bold text-xs uppercase flex items-center gap-1.5 transition font-mono">
                             <i class="fa-solid fa-arrow-left"></i> Back
@@ -752,7 +799,6 @@
 
             </form>
 
-            <!-- Dispatch webhook success alert -->
             <div id="dispatchSuccessBlock" class="hidden mt-6 p-6 rounded-xl border border-yellow-400/30 bg-yellow-400/5 text-yellow-400 text-center space-y-3 relative z-10">
                 <p class="font-racing-title text-2xl"><i class="fa-solid fa-circle-check"></i> DISPATCH SECURED!</p>
                 <p class="text-sm font-mono leading-relaxed" id="successDetailText"></p>
@@ -762,12 +808,10 @@
             </div>
         </div>
 
-        <!-- Live Pricing Estimator Sticky Panel (Right Column) -->
         <div class="space-y-6">
             <div class="bg-stone-900 border border-stone-800 rounded-2xl p-6 sticky top-28 space-y-6 shadow-2xl">
                 <h3 class="font-racing-title text-sm tracking-widest text-yellow-400 border-b border-stone-800 pb-3">LIVE PIT TICKET SUMMARY</h3>
                 
-                <!-- Package Detail Area -->
                 <div class="space-y-1 font-mono">
                     <span class="text-[9px] text-stone-500 uppercase font-bold tracking-wider">SELECTED LEVEL</span>
                     <div class="flex items-center justify-between">
@@ -776,7 +820,6 @@
                     </div>
                 </div>
 
-                <!-- Vehicle Details Area -->
                 <div class="space-y-1 font-mono">
                     <span class="text-[9px] text-stone-500 uppercase font-bold tracking-wider">VEHICLE CLASSIFICATION</span>
                     <div class="flex items-center justify-between">
@@ -785,7 +828,6 @@
                     </div>
                 </div>
 
-                <!-- Selected Addons Area -->
                 <div class="space-y-1.5 font-mono">
                     <span class="text-[9px] text-stone-500 uppercase font-bold tracking-wider block">ADD-ONS SCHEDULED</span>
                     <div id="summaryAddonContainer" class="space-y-1 text-xs text-stone-400">
@@ -793,7 +835,6 @@
                     </div>
                 </div>
 
-                <!-- Dynamic Address Snapshot inside ticket -->
                 <div id="summaryAddressBlock" class="space-y-1 font-mono text-xs border-t border-stone-800 pt-3 hidden">
                     <span class="text-[9px] text-stone-500 uppercase font-bold tracking-wider block">DISPATCH ADDRESS</span>
                     <p id="summaryAddressText" class="text-stone-300 text-[11px] leading-relaxed italic"></p>
@@ -801,7 +842,6 @@
 
                 <hr class="border-stone-800">
 
-                <!-- Pricing Total breakdown -->
                 <div class="space-y-2 font-mono">
                     <div class="flex justify-between items-center text-xs text-stone-400">
                         <span>Base Package Rate</span>
@@ -821,7 +861,6 @@
                 </div>
             </div>
 
-            <!-- Prepayment assurance cards -->
             <div class="bg-stone-900 border border-stone-800/60 p-4 rounded-xl flex items-start gap-3">
                 <span class="text-yellow-400 text-lg">⚡</span>
                 <div>
@@ -833,8 +872,7 @@
 
     </section>
 
-    <!-- Contact Us Form (General fallbacks and queries) -->
-    <section class="mt-16 bg-stone-900 border border-stone-800 p-6 sm:p-10 rounded-2xl relative overflow-hidden" id="contact-form">
+    <section class="mt-16 bg-stone-900 border border-stone-800 p-6 sm:p-10 rounded-2xl relative overflow-hidden" id="contact-form" data-section="contact-form">
         <div class="absolute inset-0 checkered-pattern opacity-5 pointer-events-none"></div>
         <div class="relative z-10 max-w-3xl mx-auto">
             <div class="text-center mb-8 space-y-2">
@@ -892,8 +930,7 @@
         </div>
     </section>
 
-    <!-- Service Area Section -->
-    <section class="mt-16 px-2">
+    <section class="mt-16 px-2" data-section="service-area">
         <div class="text-center mb-4">
             <span class="text-yellow-400 font-mono text-[10px] font-bold uppercase tracking-widest">SERVICE COVERAGE</span>
             <h3 class="font-racing-title text-lg text-white mt-1">AREAS WE SERVE</h3>
@@ -909,8 +946,7 @@
 
 </div>
 
-<!-- Footer -->
-<footer class="mt-20 border-t border-stone-800 pt-0">
+<footer class="mt-20 border-t border-stone-800 pt-0" data-section="footer">
     <div class="checkered-pattern h-3 w-full"></div>
     <div class="max-w-6xl mx-auto px-4 py-12">
         <div class="grid grid-cols-1 md:grid-cols-4 gap-10">
@@ -926,20 +962,20 @@
                 <h4 class="text-yellow-400 font-mono text-[10px] font-bold uppercase tracking-widest mb-4">Services</h4>
                 <ul class="space-y-2 text-xs text-stone-400 font-mono">
                     <li><a href="#tiers" class="hover:text-yellow-400 transition-all">Detailing Packages</a></li>
-                    <li><a href="/paint-protection-film/" data-subpage="ppf" class="hover:text-yellow-400 transition-all">Paint Protection Film</a></li>
-                    <li><a href="/ceramic-coatings/" data-subpage="ceramic" class="hover:text-yellow-400 transition-all">Ceramic Coatings</a></li>
-                    <li><a href="/tinting/" data-subpage="tinting" class="hover:text-yellow-400 transition-all">Tinting</a></li>
-                    <li><a href="/paint-corrections/" data-subpage="paint-corrections" class="hover:text-yellow-400 transition-all">Paint Corrections</a></li>
+                    <li><a href="/paint-protection-film/" class="hover:text-yellow-400 transition-all">Paint Protection Film</a></li>
+                    <li><a href="/ceramic-coatings/" class="hover:text-yellow-400 transition-all">Ceramic Coatings</a></li>
+                    <li><a href="/tinting/" class="hover:text-yellow-400 transition-all">Tinting</a></li>
+                    <li><a href="/paint-corrections/" class="hover:text-yellow-400 transition-all">Paint Corrections</a></li>
                 </ul>
             </div>
             <div>
                 <h4 class="text-yellow-400 font-mono text-[10px] font-bold uppercase tracking-widest mb-4">Company</h4>
                 <ul class="space-y-2 text-xs text-stone-400 font-mono">
                     <li><a href="/" class="hover:text-yellow-400 transition-all">Home</a></li>
-                    <li><a href="/blog/" data-subpage="gallery" class="hover:text-yellow-400 transition-all">The Garage Journal</a></li>
-                    <li><a href="/about" data-subpage="about" class="hover:text-yellow-400 transition-all">About</a></li>
-                    <li><a href="Gallery" data-subpage="gallery" class="hover:text-yellow-400 transition-all">Gallery</a></li>
-                    <li><a href="#booking-section" class="hover:text-yellow-400 transition-all">Book Service</a></li>
+                    <li><a href="/blog/" class="hover:text-yellow-400 transition-all">The Garage Journal</a></li>
+                    <li><a href="/about" class="hover:text-yellow-400 transition-all">About</a></li>
+                    <li><a href="Gallery" class="hover:text-yellow-400 transition-all">Gallery</a></li>
+                    <li><a href="#tiers" class="hover:text-yellow-400 transition-all">Book Service</a></li>
                 </ul>
             </div>
             
@@ -965,428 +1001,4 @@
     mobileMenu.querySelectorAll('a').forEach(a => a.addEventListener('click', () => mobileMenu.classList.remove('open')));
 
     // Chat widget
-    const chatBtn = document.getElementById('custom-chat-btn');
-    const chatPanel = document.getElementById('chat-panel');
-    const chatIframe = document.getElementById('chat-iframe');
-    const teaser = document.getElementById('chat-teaser');
-    let chatLoaded = false, chatOpen = false;
-    chatBtn.addEventListener('click', () => {
-        chatOpen = !chatOpen;
-        if (chatOpen) {
-            if (!chatLoaded) { chatIframe.src = 'https://paymegpt.com/agents/28816726/embed'; chatLoaded = true; }
-            chatPanel.classList.add('open');
-            teaser.classList.remove('visible'); teaser.classList.add('hidden');
-            chatBtn.classList.remove('chat-bounce');
-        } else {
-            chatPanel.classList.remove('open');
-        }
-    });
-    document.addEventListener('click', e => {
-        if (chatOpen && !chatPanel.contains(e.target) && e.target !== chatBtn && !chatBtn.contains(e.target)) {
-            chatPanel.classList.remove('open'); chatOpen = false;
-        }
-    });
-    setTimeout(() => teaser.classList.add('visible'), 3000);
-    document.getElementById('teaser-close-btn').addEventListener('click', () => { teaser.classList.remove('visible'); teaser.classList.add('hidden'); });
-
-    // -------------------------------------------------------------
-    // LIVE CALCULATION & INTERACTIVE PACKAGE SELECTOR LOGIC
-    // -------------------------------------------------------------
-    let selectedTier = ''; // Empty initially so form stays hidden until selected
-
-    const packages = {
-        tier1: { title: 'Express / Maintenance Clean', basePrice: 125 },
-        tier2: { title: 'Complete Interior Detail', basePrice: 225 },
-        tier3: { title: 'Complete Exterior Detail', basePrice: 225 },
-        tier4: { title: 'Full Comprehensive Detail', basePrice: 400 } 
-    };
-
-    const sizeMultipliers = {
-        sedan: 0,
-        crossover: 30,
-        truck: 60
-    };
-
-    // Handle package selection trigger
-    function selectPackage(tierId) {
-        // Reveal the booking section if hidden, as indicated in Screenshot 2026-06-18 at 4.31.16 PM.png
-        const bookingSec = document.getElementById('booking-section');
-        if (bookingSec) {
-            bookingSec.classList.remove('hidden');
-        }
-
-        selectedTier = tierId;
-        
-        // Visual highlights update
-        ['tier1', 'tier2', 'tier3', 'tier4'].forEach(id => {
-            const card = document.getElementById(`card-${id}`);
-            if (id === 'tier4') {
-                card.classList.replace('border-stone-800', 'border-yellow-400');
-            } else {
-                card.classList.replace('border-yellow-400', 'border-stone-800');
-            }
-        });
-
-        // Highlight chosen card dynamically
-        const selectedCard = document.getElementById(`card-${tierId}`);
-        selectedCard.classList.replace('border-stone-800', 'border-yellow-400');
-
-        // Toggle condition requirements/disclaimers
-        const tier1Disclaimer = document.getElementById('tier1Disclaimer');
-        const tier4Disclaimer = document.getElementById('tier4Disclaimer');
-
-        if (tierId === 'tier1') {
-            tier1Disclaimer.classList.remove('hidden');
-            document.getElementById('maintenanceAcknowledge').setAttribute('required', 'required');
-        } else {
-            tier1Disclaimer.classList.add('hidden');
-            document.getElementById('maintenanceAcknowledge').removeAttribute('required');
-        }
-
-        if (tierId === 'tier4') {
-            tier4Disclaimer.classList.remove('hidden');
-        } else {
-            tier4Disclaimer.classList.add('hidden');
-        }
-
-        // Recalculate estimator metrics
-        calculateEstimate();
-
-        // Smooth scroll to revealed booking form
-        if (bookingSec) {
-            bookingSec.scrollIntoView({ behavior: 'smooth', block: 'start' });
-        }
-    }
-
-    // Live pricing estimator calculations
-    function calculateEstimate() {
-        const packageObj = packages[selectedTier];
-        
-        // Update live receipt title and package price
-        document.getElementById('summaryPackageTitle').innerText = packageObj.title;
-        document.getElementById('summaryPackagePrice').innerText = `$${packageObj.basePrice.toFixed(2)}`;
-
-        // Process vehicle size modifiers
-        const sizeVal = document.getElementById('vehicleSize').value;
-        let sizeCost = 0;
-        if (sizeVal && sizeMultipliers[sizeVal] !== undefined) {
-            sizeCost = sizeMultipliers[sizeVal];
-            const optText = document.querySelector(`#vehicleSize option[value="${sizeVal}"]`).innerText;
-            document.getElementById('summaryVehicleClass').innerText = optText.split('(')[0].trim();
-            document.getElementById('summaryVehicleCost').innerText = `+$${sizeCost.toFixed(2)}`;
-        } else {
-            document.getElementById('summaryVehicleClass').innerText = 'No Vehicle Selected';
-            document.getElementById('summaryVehicleCost').innerText = '$0.00';
-        }
-
-        // Aggregate Performance Boosters (Add-ons) check states
-        let addonTotal = 0;
-        const summaryAddonContainer = document.getElementById('summaryAddonContainer');
-        summaryAddonContainer.innerHTML = '';
-
-        const addonsChecked = [];
-        ['pethair', 'engine', 'headlight', 'ceramic'].forEach(id => {
-            const el = document.getElementById(`addon-${id}`);
-            if (el && el.checked) {
-                const cost = parseFloat(el.value);
-                addonTotal += cost;
-                
-                let title = "";
-                if (id === 'pethair') title = "Pet Hair Removal";
-                if (id === 'engine') title = "Engine Bay Clean";
-                if (id === 'headlight') title = "Headlight Restoration";
-                if (id === 'ceramic') title = "Ceramic Sealant Upgrade";
-
-                addonsChecked.push({ title, cost });
-            }
-        });
-
-        if (addonsChecked.length > 0) {
-            addonsChecked.forEach(add => {
-                const div = document.createElement('div');
-                div.className = 'flex justify-between items-center text-stone-300';
-                div.innerHTML = `<span>+ ${add.title}</span> <span>$${add.cost.toFixed(2)}</span>`;
-                summaryAddonContainer.appendChild(div);
-            });
-        } else {
-            summaryAddonContainer.innerHTML = '<div class="text-stone-600 italic">No add-ons scheduled</div>';
-        }
-
-        // Update real-time Address Snapshot in ticket
-        const street = document.getElementById('streetAddress').value;
-        const city = document.getElementById('addressCity').value;
-        const state = document.getElementById('addressState').value;
-        const zip = document.getElementById('addressZip').value;
-        const summaryAddressBlock = document.getElementById('summaryAddressBlock');
-        const summaryAddressText = document.getElementById('summaryAddressText');
-        
-        if (street || city || zip) {
-            summaryAddressBlock.classList.remove('hidden');
-            summaryAddressText.innerText = `${street ? street : ''}${city ? ', ' + city : ''}${state ? ' ' + state : ''}${zip ? ' ' + zip : ''}`;
-        } else {
-            summaryAddressBlock.classList.add('hidden');
-        }
-
-        // Calculations sum up
-        const baseSub = packageObj.basePrice + sizeCost;
-        document.getElementById('summaryBaseSubtotal').innerText = `$${baseSub.toFixed(2)}`;
-        document.getElementById('summaryAddonSubtotal').innerText = `$${addonTotal.toFixed(2)}`;
-
-        const total = baseSub + addonTotal;
-        document.getElementById('summaryTotal').innerText = `$${total.toFixed(2)}`;
-    }
-
-    // Attach Event Listeners to Address inputs to update ticket live
-    ['streetAddress', 'addressCity', 'addressState', 'addressZip'].forEach(fieldId => {
-        document.getElementById(fieldId).addEventListener('input', calculateEstimate);
-    });
-
-    // Multi-Step form navigation controller
-    function goToStep(stepNum) {
-        const errorPanel = document.getElementById('errorPanel');
-        errorPanel.classList.add('hidden');
-
-        // Validation limits before progression
-        if (stepNum === 2) {
-            const yrValid = document.getElementById('vehicleYear').validity.valid;
-            const mkValid = document.getElementById('vehicleMake').validity.valid;
-            const mdValid = document.getElementById('vehicleModel').validity.valid;
-            const szValid = document.getElementById('vehicleSize').validity.valid;
-
-            if (!yrValid || !mkValid || !mdValid || !szValid) {
-                document.getElementById('errorMessage').innerText = "Please complete Year, Make, Model, and Vehicle Size Class before proceeding.";
-                errorPanel.classList.remove('hidden');
-                return;
-            }
-        }
-
-        if (stepNum === 3) {
-            const streetValid = document.getElementById('streetAddress').validity.valid;
-            const cityValid = document.getElementById('addressCity').validity.valid;
-            const stateValid = document.getElementById('addressState').validity.valid;
-            const zipValid = document.getElementById('addressZip').validity.valid;
-
-            if (!streetValid || !cityValid || !stateValid || !zipValid) {
-                document.getElementById('errorMessage').innerText = "Please fill out all detailed Logistics Address elements (Street, City, State, Zip).";
-                errorPanel.classList.remove('hidden');
-                return;
-            }
-
-            // Verify well-maintained verification checkbox for Tier 1
-            if (selectedTier === 'tier1' && !document.getElementById('maintenanceAcknowledge').checked) {
-                document.getElementById('errorMessage').innerText = "You must confirm your vehicle is well-maintained to book a Tier 1 clean.";
-                errorPanel.classList.remove('hidden');
-                return;
-            }
-        }
-
-        // Toggle visibilities
-        document.getElementById('form-step-1').classList.add('hidden');
-        document.getElementById('form-step-2').classList.add('hidden');
-        document.getElementById('form-step-3').classList.add('hidden');
-        document.getElementById(`form-step-${stepNum}`).classList.remove('hidden');
-
-        // Update progress visual states
-        document.getElementById('step-indicator').innerText = `Step ${stepNum} of 3: ` + 
-            (stepNum === 1 ? 'Vehicle Parameters' : stepNum === 2 ? 'Location & Boosters' : 'Schedule & Contacts');
-
-        for (let i = 1; i <= 3; i++) {
-            const bar = document.getElementById(`progress-bar-${i}`);
-            if (i <= stepNum) {
-                bar.classList.replace('bg-stone-800', 'bg-yellow-400');
-            } else {
-                bar.classList.replace('bg-yellow-400', 'bg-stone-800');
-            }
-        }
-    }
-
-    // -------------------------------------------------------------
-    // WEBHOOK INTEGRATION & SUCCESS TELEMETRY PROCESSOR
-    // -------------------------------------------------------------
-    function handleFormSubmit(event) {
-        event.preventDefault();
-        const errorPanel = document.getElementById('errorPanel');
-        errorPanel.classList.add('hidden');
-
-        // Validation blocks
-        const dateValid = document.getElementById('bookingDate').validity.valid;
-        const windowValid = document.getElementById('timeWindow').validity.valid;
-        const nameValid = document.getElementById('driver_name').validity.valid;
-        const emailValid = document.getElementById('driver_email').validity.valid;
-        const phoneValid = document.getElementById('driver_phone').validity.valid;
-
-        if (!dateValid || !windowValid || !nameValid || !emailValid || !phoneValid) {
-            document.getElementById('errorMessage').innerText = "Please complete all schedule and driver contact elements to submit dispatch ticket.";
-            errorPanel.classList.remove('hidden');
-            return;
-        }
-
-        // Compile fields safely
-        const clientName = document.getElementById('driver_name').value.replace(/[<>]/g, "");
-        const clientEmail = document.getElementById('driver_email').value.replace(/[<>]/g, "");
-        const clientPhone = document.getElementById('driver_phone').value.replace(/[<>]/g, "");
-        
-        const yr = document.getElementById('vehicleYear').value;
-        const mk = document.getElementById('vehicleMake').value.replace(/[<>]/g, "");
-        const md = document.getElementById('vehicleModel').value.replace(/[<>]/g, "");
-        const sizeOption = document.getElementById('vehicleSize').value;
-        const vehicleDescription = `${yr} ${mk} ${md} (${sizeOption.toUpperCase()})`;
-
-        const street = document.getElementById('streetAddress').value.replace(/[<>]/g, "");
-        const city = document.getElementById('addressCity').value.replace(/[<>]/g, "");
-        const state = document.getElementById('addressState').value.replace(/[<>]/g, "");
-        const zip = document.getElementById('addressZip').value.replace(/[<>]/g, "");
-        const fullAddress = `${street}, ${city}, ${state} ${zip}`;
-
-        const bookDate = document.getElementById('bookingDate').value;
-        const selectedTimeSlot = document.getElementById('timeWindow').value;
-
-        // Collect checked addons
-        const scheduledAddons = [];
-        if (document.getElementById('addon-pethair').checked) scheduledAddons.push("Pet Hair Removal ($45)");
-        if (document.getElementById('addon-engine').checked) scheduledAddons.push("Engine Bay Detail ($50)");
-        if (document.getElementById('addon-headlight').checked) scheduledAddons.push("Headlight Restoration ($75)");
-        if (document.getElementById('addon-ceramic').checked) scheduledAddons.push("Ceramic Sealant Upgrade ($95)");
-        const addonsListText = scheduledAddons.length > 0 ? scheduledAddons.join(', ') : "None";
-
-        const rawMsg = document.getElementById('driver_message').value.replace(/[<>]/g, "");
-        const estimatedTotal = document.getElementById('summaryTotal').innerText;
-
-        // Spinner submission states
-        const btn = document.getElementById('submitBtn');
-        btn.disabled = true;
-        btn.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> DISPATCHING LOGISTICS...';
-
-        // Pack payload strictly mapped to PayMeGPT webhook flow rules
-        const formData = {
-            contactName: clientName,
-            contactEmail: clientEmail,
-            contactPhone: clientPhone,
-            data: {
-                vehicle: vehicleDescription,
-                package: `${packages[selectedTier].title} (Starting Base)`,
-                serviceAddress: fullAddress,
-                scheduledDate: bookDate,
-                scheduledTimeSlot: selectedTimeSlot.toUpperCase(),
-                addonsScheduled: addonsListText,
-                estimatedPricingTicket: estimatedTotal,
-                clientMessage: rawMsg
-            }
-        };
-
-        // Stream transaction payload out to webhook endpoint safely
-        fetch('https://paymegpt.com/api/webhooks/flow/3762/7f18c3f219503532eb92a6241effecebc06fd7609c4a002ffa6b3feea89c169b', {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify(formData)
-        }).then(() => {
-            showSuccess(clientName, packages[selectedTier].title, vehicleDescription, clientPhone, fullAddress, bookDate, selectedTimeSlot, estimatedTotal);
-        }).catch(() => {
-            // Safe fallback simulation if cross-origin rules prevent response reading
-            showSuccess(clientName, packages[selectedTier].title, vehicleDescription, clientPhone, fullAddress, bookDate, selectedTimeSlot, estimatedTotal);
-        });
-    }
-
-    function showSuccess(name, pkg, vehicle, phone, address, date, slot, total) {
-        const btn = document.getElementById('submitBtn');
-        btn.disabled = false;
-        btn.innerHTML = '<i class="fa-solid fa-paper-plane"></i> BOOK DISPATCH SECURELY';
-        
-        // Hide stepper container form
-        document.getElementById('racingDispatchForm').classList.add('hidden');
-        
-        const block = document.getElementById('dispatchSuccessBlock');
-        const text = document.getElementById('successDetailText');
-        block.classList.remove('hidden');
-
-        text.innerHTML = `Thanks, <strong>${name}</strong>! We received your dispatch reservation for the <strong>${pkg}</strong> on <strong>${vehicle}</strong>.<br><br>
-        📍 <strong>Service Address:</strong> ${address}<br>
-        📅 <strong>Schedule Target:</strong> ${date} (${slot.toUpperCase()})<br>
-        💰 <strong>Ticket Estimate:</strong> <span class="text-yellow-400 font-bold">${total}</span> (subject to final inspection)<br><br>
-        Our crew will contact you at <strong>${phone}</strong> shortly to confirm dispatch parameters!`;
-
-        block.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
-    }
-
-    // Reset Form and bring form views back to Step 1
-    function resetUnifiedForm() {
-        document.getElementById('racingDispatchForm').reset();
-        document.getElementById('racingDispatchForm').classList.remove('hidden');
-        document.getElementById('dispatchSuccessBlock').classList.add('hidden');
-        goToStep(1);
-        selectPackage('tier4');
-    }
-
-    // -------------------------------------------------------------
-    // GENERAL CONTACT FORM LOGIC (RETAINED)
-    // -------------------------------------------------------------
-    function handleContactSubmit(event) {
-        event.preventDefault();
-        const name = document.getElementById('contact_name').value;
-        const email = document.getElementById('contact_email').value;
-        const phone = document.getElementById('contact_phone').value;
-        const vehicle = document.getElementById('contact_vehicle').value;
-        const pkg = document.getElementById('contact_package').value;
-        const message = document.getElementById('contact_message').value;
-        
-        const btn = document.getElementById('contactSubmitBtn');
-        btn.disabled = true;
-        btn.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> SENDING...';
-
-        const formData = { 
-            contactName: name, 
-            contactEmail: email, 
-            contactPhone: phone, 
-            data: { 
-                vehicle: vehicle, 
-                package: pkg, 
-                message: message,
-                formType: "General Contact Form Inquiry"
-            } 
-        };
-
-        fetch('https://paymegpt.com/api/webhooks/flow/3762/7f18c3f219503532eb92a6241effecebc06fd7609c4a002ffa6b3feea89c169b', {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify(formData)
-        }).then(() => {
-            showContactSuccess(name, pkg, vehicle, phone);
-        }).catch(() => {
-            showContactSuccess(name, pkg, vehicle, phone);
-        });
-    }
-
-    function showContactSuccess(name, pkg, vehicle, phone) {
-        const btn = document.getElementById('contactSubmitBtn');
-        btn.disabled = false;
-        btn.innerHTML = '<i class="fa-solid fa-paper-plane"></i> SEND MESSAGE';
-        
-        const block = document.getElementById('contactSuccessBlock');
-        block.classList.remove('hidden');
-        
-        const safeName = name.replace(/</g,"&lt;").replace(/>/g,"&gt;");
-        const safePkg = pkg ? pkg.replace(/</g,"&lt;").replace(/>/g,"&gt;") : 'General Inquiry';
-        const safeVehicle = vehicle ? vehicle.replace(/</g,"&lt;").replace(/>/g,"&gt;") : 'your vehicle';
-        const safePhone = phone.replace(/</g,"&lt;").replace(/>/g,"&gt;");
-        
-        const text = document.getElementById('contactSuccessDetailText');
-        text.innerHTML = 'Thanks, <strong>' + safeName + '</strong>! We received your <strong>' + safePkg + '</strong> inquiry for <strong>' + safeVehicle + '</strong>. Our team will reach out to <strong>' + safePhone + '</strong> shortly!';
-        
-        document.getElementById('generalContactForm').reset();
-        block.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
-    }
-
-    // Smooth scroll logic linked cleanly to elements
-    document.querySelectorAll('a[href^="#"]').forEach(a => {
-        a.addEventListener('click', e => {
-            const t = document.querySelector(a.getAttribute('href'));
-            if (t) { 
-                e.preventDefault(); 
-                t.scrollIntoView({ behavior: 'smooth' }); 
-                mobileMenu.classList.remove('open'); 
-            }
-        });
-    });
-</script>
-</body>
-</html>
+    const chatBtn = document.getElementById('custom-chat-
