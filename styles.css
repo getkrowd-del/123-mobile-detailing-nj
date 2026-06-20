@@ -79,11 +79,6 @@
 
         .service-area-text { font-size: 0.65rem; color: #6b7280; line-height: 1.6; }
 
-        /* Stepper Node Styling */
-        .step-pill {
-            transition: all 0.3s ease;
-        }
-
         @media(max-width:768px) {
             .desktop-nav { display: none !important; }
             .mobile-hamburger { display: flex !important; }
