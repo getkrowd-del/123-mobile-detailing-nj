@@ -13,20 +13,20 @@
     
 
 <!-- SEO Meta Tags -->
-<title>Premium Mobile Auto Detailing in Northern New Jersey</title>
-<meta name="description" content="Get your car looking showroom ready without leaving home. Serving Bergen and Passaic Counties with professional mobile detailing, paint correction, and coatings." />
-<meta name="keywords" content="mobile detailing Bergen County NJ" />
-<meta property="og:title" content="Premium Mobile Auto Detailing in Northern New Jersey" />
-<meta property="og:description" content="Get your car looking showroom ready without leaving home. Serving Bergen and Passaic Counties with professional mobile detailing, paint correction, and coatings." />
+<title>123 Auto Detailing – Mobile Auto Detailing in Bergen County NJ</title>
+<meta name="description" content="Professional mobile auto detailing in Bergen County &amp; Passaic County, NJ. We come to you for interior &amp; exterior detailing, paint correction &amp; ceramic coating." />
+<meta name="keywords" content="auto detailing Bergen County NJ" />
+<meta property="og:title" content="123 Auto Detailing – Mobile Auto Detailing in Bergen County NJ" />
+<meta property="og:description" content="Professional mobile auto detailing in Bergen County &amp; Passaic County, NJ. We come to you for interior &amp; exterior detailing, paint correction &amp; ceramic coating." />
 <meta property="og:type" content="website" />
 <meta name="twitter:card" content="summary_large_image" />
-<meta name="twitter:title" content="Premium Mobile Auto Detailing in Northern New Jersey" />
-<meta name="twitter:description" content="Get your car looking showroom ready without leaving home. Serving Bergen and Passaic Counties with professional mobile detailing, paint correction, and coatings." />
+<meta name="twitter:title" content="123 Auto Detailing – Mobile Auto Detailing in Bergen County NJ" />
+<meta name="twitter:description" content="Professional mobile auto detailing in Bergen County &amp; Passaic County, NJ. We come to you for interior &amp; exterior detailing, paint correction &amp; ceramic coating." />
 <!-- End SEO Meta Tags -->
 <meta name="sheet-data-url" content="https://paymegpt.com/api/public/landing-pages/4976/sheet-data">
 <script data-lp-token-hydrate>
 (function(){try{
-  var slug="mobile-detailing-bergen-passaic-nj";
+  var slug="lp-mqildm4j-hztmk";
   var SK='lp_access_'+slug;
   var map={access_token:'lp_pw_',allowlist_access_token:'lp_al_',pin_access_token:'lp_pin_',paywall_access_token:'lp_paid_'};
   var u=new URL(location.href);var found=null;var changed=false;
@@ -184,7 +184,6 @@
     for(var j=0;j<inputs.length;j++){if(inputs[j].value)return inputs[j].value.trim();}
     return '';
   }
-  function findPhone(){var ids=['phone','phoneNumber','phone-number','tel','telephone','mobile','mobileNumber','cell','contact-phone','buyer-phone'];for(var i=0;i<ids.length;i++){var el=document.getElementById(ids[i]);if(el&&el.value&&el.value.trim())return el.value.trim();}var inputs=document.querySelectorAll('input[type="tel"],input[name*="phone"],input[name*="tel"],input[name*="mobile"],input[placeholder*="phone"],input[placeholder*="Phone"]');for(var j=0;j<inputs.length;j++){if(inputs[j].value&&inputs[j].value.trim())return inputs[j].value.trim();}return '';}
   var __realProcessPayment=function(a,b,c,d,e){
     var amountCents,email,productName,productDescription,customerName,quantity;
     if(a&&typeof a==='object'){
@@ -196,7 +195,6 @@
     }
     if(!email)email=findEmail();
     if(!customerName)customerName=findName();
-    var phone=findPhone();
     if(!productName){alert('Product name is required.');return Promise.reject('no_product_name');}
     if(!amountCents||amountCents<100){alert('Amount must be at least $1.00');return Promise.reject('invalid_amount');}
     if(!email){alert('Please enter your email address.');return Promise.reject('no_email');}
@@ -204,7 +202,7 @@
     var __pLoc=(document.documentElement.lang||navigator.language||'en');
     return fetch(apiBase+'/api/landing-pages/public/'+slug+'/payment/checkout',{
       method:'POST',headers:{'Content-Type':'application/json'},
-      body:JSON.stringify({email:email,name:customerName,phone:phone||'',amountCents:amountCents,productName:productName,productDescription:productDescription,quantity:quantity,locale:__pLoc,successUrl:successBase+'?payment=success&product='+encodeURIComponent(productName)+'&session_id={CHECKOUT_SESSION_ID}',cancelUrl:successBase+'?payment=cancelled'})
+      body:JSON.stringify({email:email,name:customerName,amountCents:amountCents,productName:productName,productDescription:productDescription,quantity:quantity,locale:__pLoc,successUrl:successBase+'?payment=success&product='+encodeURIComponent(productName)+'&session_id={CHECKOUT_SESSION_ID}',cancelUrl:successBase+'?payment=cancelled'})
     }).then(function(r){return r.json();}).then(function(d){
       if(d.checkoutUrl){window.location.href=d.checkoutUrl;}
       else{alert(d.error||'Failed to process payment');throw new Error(d.error);}
@@ -228,99 +226,22 @@
     }
   });
 })();
-</script>
-<script data-cart>
-(function(){
-  var slug='zn4EZsdV';
-  var apiBase='https://paymegpt.com';
-  var successSubtext='';var successBtnLabel='Continue';var successBtnColor='#16a34a';var successRedirect='';
-  function findCartEmail(){
-    var ids=['email','emailAddress','buyer-email','buyerEmail','user-email','userEmail','checkout-email','customer-email','contact-email'];
-    for(var i=0;i<ids.length;i++){var el=document.getElementById(ids[i]);if(el&&el.value&&el.value.includes('@'))return el.value.trim();}
-    var inputs=document.querySelectorAll('input[type="email"],input[name*="email"],input[placeholder*="email"],input[placeholder*="Email"]');
-    for(var j=0;j<inputs.length;j++){if(inputs[j].value&&inputs[j].value.includes('@'))return inputs[j].value.trim();}
-    return '';
-  }
-  function findCartName(){
-    var ids=['name','fullName','full-name','buyer-name','buyerName','customer-name','userName','user-name'];
-    for(var i=0;i<ids.length;i++){var el=document.getElementById(ids[i]);if(el&&el.value)return el.value.trim();}
-    var inputs=document.querySelectorAll('input[name*="name"]:not([name*="email"]):not([type="email"]),input[placeholder*="name"]:not([placeholder*="email"]):not([type="email"]),input[placeholder*="Name"]:not([type="email"])');
-    for(var j=0;j<inputs.length;j++){if(inputs[j].value)return inputs[j].value.trim();}
-    return '';
-  }
-  function findCartPhone(){var ids=['phone','phoneNumber','phone-number','tel','telephone','mobile','mobileNumber','cell','contact-phone','buyer-phone'];for(var i=0;i<ids.length;i++){var el=document.getElementById(ids[i]);if(el&&el.value&&el.value.trim())return el.value.trim();}var inputs=document.querySelectorAll('input[type="tel"],input[name*="phone"],input[name*="tel"],input[name*="mobile"],input[placeholder*="phone"],input[placeholder*="Phone"]');for(var j=0;j<inputs.length;j++){if(inputs[j].value&&inputs[j].value.trim())return inputs[j].value.trim();}return '';}
-  var __realCart=function(arg){
-    var items, email='', customerName='', successUrl, cancelUrl, currency;
-    if(Array.isArray(arg)){items=arg;}
-    else if(arg&&typeof arg==='object'){
-      items=arg.items;email=arg.email||'';customerName=arg.name||arg.customerName||'';
-      successUrl=arg.successUrl;cancelUrl=arg.cancelUrl;currency=arg.currency;
-    }
-    if(!Array.isArray(items)||items.length===0){alert('No items in cart.');return Promise.reject('no_items');}
-    var cleanItems=[];var totalCents=0;
-    for(var i=0;i<items.length;i++){
-      var it=items[i];if(!it||typeof it!=='object'){alert('Invalid item at position '+i);return Promise.reject('bad_item');}
-      var nm=typeof it.name==='string'?it.name.trim():'';
-      if(!nm){alert('Item '+(i+1)+' is missing a name.');return Promise.reject('no_name');}
-      var amt=typeof it.amountCents==='number'?it.amountCents:(typeof it.amount==='number'?Math.round(it.amount*100):NaN);
-      if(!isFinite(amt)||amt<1){alert('Item "'+nm+'" needs a valid amount in cents.');return Promise.reject('bad_amount');}
-      var qty=(typeof it.quantity==='number'&&it.quantity>0)?Math.floor(it.quantity):1;
-      cleanItems.push({name:nm,description:it.description||'',amountCents:amt,quantity:qty});
-      totalCents+=amt*qty;
-    }
-    if(totalCents<50){alert('Cart total must be at least $0.50');return Promise.reject('total_too_low');}
-    if(!email)email=findCartEmail();
-    if(!customerName)customerName=findCartName();
-    var cartPhone=findCartPhone();
-    if(!email){var p=window.prompt('Enter your email for the receipt:','');if(p&&p.indexOf('@')>-1){email=p.trim();}else{alert('An email address is required to complete checkout.');return Promise.reject('no_email');}}
-    var successBase=window.location.href.split('?')[0];
-    var body={email:email,name:customerName,items:cleanItems,locale:(document.documentElement.lang||navigator.language||'en')};
-    if(currency)body.currency=currency;
-    if(cartPhone)body.phone=cartPhone;
-    body.successUrl=successUrl||(successBase+'?cart=success&email='+encodeURIComponent(email)+'&session_id={CHECKOUT_SESSION_ID}');
-    body.cancelUrl=cancelUrl||(successBase+'?cart=cancelled');
-    return fetch(apiBase+'/api/landing-pages/public/'+slug+'/cart/checkout',{
-      method:'POST',headers:{'Content-Type':'application/json'},
-      body:JSON.stringify(body)
-    }).then(function(r){return r.json();}).then(function(d){
-      if(d.checkoutUrl){window.location.href=d.checkoutUrl;}
-      else{alert(d.error||'Failed to process checkout');throw new Error(d.error);}
-    });
-  };
-  try{Object.defineProperty(window,'__processCart',{value:__realCart,writable:false,configurable:false});}catch(e){window.__processCart=__realCart;}
-  document.addEventListener('DOMContentLoaded',function(){
-    var urlParams=new URLSearchParams(window.location.search);
-    if(urlParams.get('cart')==='success'){
-      var sidC=urlParams.get('session_id');
-      if(sidC){try{fetch(apiBase+'/api/landing-pages/public/'+slug+'/checkout/confirm',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({sessionId:sidC})}).catch(function(){});}catch(e){}}
-      if(document.getElementById('payment-success-overlay')||document.getElementById('donation-success-overlay')||document.getElementById('cart-success-overlay'))return;
-      var overlay=document.createElement('div');overlay.id='cart-success-overlay';
-      overlay.style.cssText='position:fixed;top:0;left:0;right:0;bottom:0;background:rgba(0,0,0,0.5);display:flex;align-items:center;justify-content:center;z-index:999999;font-family:system-ui,-apple-system,sans-serif;';
-      function esc(s){return String(s||'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');}
-      var subTxt=successSubtext||'Thank you for your order.';
-      overlay.innerHTML='<div style="background:white;border-radius:16px;padding:40px;max-width:420px;width:90%;text-align:center;box-shadow:0 20px 60px rgba(0,0,0,0.15);"><div style="width:64px;height:64px;border-radius:50%;background:#dcfce7;margin:0 auto 20px;display:flex;align-items:center;justify-content:center;"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#16a34a" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></div><h2 style="margin:0 0 12px;font-size:24px;font-weight:700;color:#111827;">Order Confirmed!</h2><p style="margin:0 0 24px;color:#6b7280;font-size:16px;">'+esc(subTxt)+'</p><button id="lp-cart-success-btn" style="padding:12px 32px;font-size:16px;font-weight:600;background:'+successBtnColor+';color:white;border:none;border-radius:8px;cursor:pointer;">'+esc(successBtnLabel)+'</button></div>';
-      document.body.appendChild(overlay);
-      var cBtn=document.getElementById('lp-cart-success-btn');
-      if(cBtn){cBtn.addEventListener('click',function(){if(successRedirect){window.location.href=successRedirect;}else{overlay.remove();window.history.replaceState({},'',window.location.pathname);}});}
-    }
-  });
-})();
 </script>  <link rel="stylesheet" href="/styles.css">
 </head>
 <body class="min-h-screen">
 
 <!-- Chat Teaser -->
-<div id="chat-teaser" data-section="chat-teaser">
+<div id="chat-teaser">
     <div class="teaser-bubble">
         <button class="teaser-close" id="teaser-close-btn">✕</button>
         <p style="font-size:0.88rem;color:#f3f4f6;line-height:1.55;">👋 Hey! Need a quote or want to book a detail? <strong style="color:#facc15;">Tap me</strong> and let's get your ride looking fresh!</p>
     </div>
 </div>
 <button id="custom-chat-btn" class="chat-bounce"><img src="https://krowdimg.b-cdn.net/clients/123MobileDetailing/chatIcon.PNG" alt="Chat with us"></button>
-<div id="chat-panel" data-section="chat-panel"><iframe id="chat-iframe" src="" allow="microphone"></iframe></div>
+<div id="chat-panel"><iframe id="chat-iframe" src="" allow="microphone"></iframe></div>
 
 <!-- Mobile Nav Overlay -->
-<div class="mobile-nav-overlay" id="mobileMenu" data-section="mobile-nav">
+<div class="mobile-nav-overlay" id="mobileMenu">
     <a href="/">Home</a>
     <a href="#tiers" style="color:#facc15;font-weight:700;">Detailing</a>
     <a href="/paint-protection-film/" class="sub-link" data-subpage="ppf">Paint Protection Film</a>
@@ -330,12 +251,12 @@
     <a href="/about/" data-subpage="about">About</a>
     <a href="/gallery/" data-subpage="gallery">Gallery</a>
     <a href="/blog/" data-subpage="blog">The Garage Journal</a>
-    <a href="#tiers" style="background:#facc15;color:#121214;text-align:center;border-radius:6px;font-weight:800;margin-top:12px;">Book Service</a>
+    <a href="#booking-section" style="background:#facc15;color:#121214;text-align:center;border-radius:6px;font-weight:800;margin-top:12px;">Book Service</a>
 </div>
 
 <!-- Top Dispatch Bar -->
-<div class="checkered-pattern h-4 w-full border-b border-gray-800" data-section="dispatch-strip"></div>
-<div class="bg-yellow-400 text-stone-950 font-black py-3 px-4" data-section="dispatch-bar">
+<div class="checkered-pattern h-4 w-full border-b border-gray-800"></div>
+<div class="bg-yellow-400 text-stone-950 font-black py-3 px-4">
     <div class="max-w-6xl mx-auto flex flex-col md:flex-row items-center justify-between gap-2 text-center md:text-left">
         <span class="font-racing-title text-base tracking-wider flex items-center gap-2">
             <span class="inline-block w-2.5 h-2.5 bg-red-600 animate-ping rounded-full"></span>
@@ -345,17 +266,17 @@
             <a href="tel:8625005192" class="bg-stone-950 text-yellow-400 font-bold px-4 py-1.5 rounded-sm text-sm uppercase hover:bg-stone-800 transition-all">
                 <i class="fa-solid fa-phone"></i> CALL: (862) 500-5192
             </a>
-            <a href="#tiers" class="bg-red-600 text-white font-bold px-4 py-1.5 rounded-sm text-sm uppercase hover:bg-red-700 transition-all">
-    <i class="fa-solid fa-envelope"></i> BOOK DRIVEWAY APPOINTMENT
-</a>
+            <a href="#booking-section" class="bg-red-600 text-white font-bold px-4 py-1.5 rounded-sm text-sm uppercase hover:bg-red-700 transition-all">
+                <i class="fa-solid fa-envelope"></i> BOOK DRIVEWAY APPOINTMENT
+            </a>
         </div>
     </div>
 </div>
 
-<div class="max-w-6xl mx-auto mt-6 px-4" data-section="page-content">
+<div class="max-w-6xl mx-auto mt-6 px-4">
 
     <!-- Navigation -->
-    <nav class="bg-stone-900 border border-stone-800 rounded-lg p-4 flex items-center justify-between gap-4 shadow-xl" data-section="navbar">
+    <nav class="bg-stone-900 border border-stone-800 rounded-lg p-4 flex items-center justify-between gap-4 shadow-xl">
         <div class="flex items-center gap-3">
             <div class="bg-yellow-400 text-stone-950 p-2 rounded font-black text-xl italic tracking-tighter">123</div>
             <div>
@@ -399,7 +320,7 @@
     </nav>
 
     <!-- Hero -->
-    <main class="mt-8 grid grid-cols-1 lg:grid-cols-12 gap-8 items-center bg-stone-900/60 p-6 sm:p-10 rounded-2xl border border-stone-800 shadow-2xl relative overflow-hidden" id="about" data-section="hero">
+    <main class="mt-8 grid grid-cols-1 lg:grid-cols-12 gap-8 items-center bg-stone-900/60 p-6 sm:p-10 rounded-2xl border border-stone-800 shadow-2xl relative overflow-hidden" id="about">
         <div class="absolute top-0 right-0 w-64 h-64 bg-yellow-400/5 rounded-full blur-3xl pointer-events-none"></div>
         <div class="lg:col-span-6 space-y-6">
             <div class="inline-flex items-center gap-2 bg-stone-800 border border-stone-700 rounded-full px-3 py-1 text-xs font-bold text-stone-300 uppercase">
@@ -445,7 +366,7 @@
     </main>
 
     <!-- Pricing Section -->
-    <section class="mt-16" id="tiers" data-section="pricing">
+    <section class="mt-16" id="tiers">
         <div class="text-center max-w-xl mx-auto space-y-3 mb-12">
             <div class="inline-block checkered-pattern px-4 py-1 text-xs text-white tracking-widest font-bold uppercase rounded-sm border border-stone-800">SERVICE PACKAGES</div>
             <h2 class="font-racing-title text-3xl sm:text-4xl text-white">CHOOSE YOUR DETAIL PACKAGE</h2>
@@ -559,7 +480,7 @@
     </section>
 
     <!-- Unified Interactive Booking Section (hidden initially until a package is selected) -->
-    <section id="booking-section" class="scroll-mt-24 mt-16 max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-3 gap-8 hidden" data-section="booking-section">
+    <section id="booking-section" class="scroll-mt-24 mt-16 max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-3 gap-8 hidden">
         
         <!-- Interactive Step-by-Step Dispatch Form (Left 2 Columns) -->
         <div class="lg:col-span-2 bg-stone-900 border border-stone-800 rounded-2xl p-6 sm:p-8 space-y-8 relative overflow-hidden">
@@ -913,7 +834,7 @@
     </section>
 
     <!-- Contact Us Form (General fallbacks and queries) -->
-    <section class="mt-16 bg-stone-900 border border-stone-800 p-6 sm:p-10 rounded-2xl relative overflow-hidden" id="contact-form" data-section="contact-form">
+    <section class="mt-16 bg-stone-900 border border-stone-800 p-6 sm:p-10 rounded-2xl relative overflow-hidden" id="contact-form">
         <div class="absolute inset-0 checkered-pattern opacity-5 pointer-events-none"></div>
         <div class="relative z-10 max-w-3xl mx-auto">
             <div class="text-center mb-8 space-y-2">
@@ -972,7 +893,7 @@
     </section>
 
     <!-- Service Area Section -->
-    <section class="mt-16 px-2" data-section="service-area">
+    <section class="mt-16 px-2">
         <div class="text-center mb-4">
             <span class="text-yellow-400 font-mono text-[10px] font-bold uppercase tracking-widest">SERVICE COVERAGE</span>
             <h3 class="font-racing-title text-lg text-white mt-1">AREAS WE SERVE</h3>
@@ -989,7 +910,7 @@
 </div>
 
 <!-- Footer -->
-<footer class="mt-20 border-t border-stone-800 pt-0" data-section="footer">
+<footer class="mt-20 border-t border-stone-800 pt-0">
     <div class="checkered-pattern h-3 w-full"></div>
     <div class="max-w-6xl mx-auto px-4 py-12">
         <div class="grid grid-cols-1 md:grid-cols-4 gap-10">
@@ -1458,14 +1379,7 @@
     // Smooth scroll logic linked cleanly to elements
     document.querySelectorAll('a[href^="#"]').forEach(a => {
         a.addEventListener('click', e => {
-            const href = a.getAttribute('href');
-            if (href === '#booking-section') {
-                e.preventDefault();
-                selectPackage('tier4');
-                mobileMenu.classList.remove('open');
-                return;
-            }
-            const t = document.querySelector(href);
+            const t = document.querySelector(a.getAttribute('href'));
             if (t) { 
                 e.preventDefault(); 
                 t.scrollIntoView({ behavior: 'smooth' }); 
