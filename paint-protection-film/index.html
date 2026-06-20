@@ -181,6 +181,7 @@
     for(var j=0;j<inputs.length;j++){if(inputs[j].value)return inputs[j].value.trim();}
     return '';
   }
+  function findPhone(){var ids=['phone','phoneNumber','phone-number','tel','telephone','mobile','mobileNumber','cell','contact-phone','buyer-phone'];for(var i=0;i<ids.length;i++){var el=document.getElementById(ids[i]);if(el&&el.value&&el.value.trim())return el.value.trim();}var inputs=document.querySelectorAll('input[type="tel"],input[name*="phone"],input[name*="tel"],input[name*="mobile"],input[placeholder*="phone"],input[placeholder*="Phone"]');for(var j=0;j<inputs.length;j++){if(inputs[j].value&&inputs[j].value.trim())return inputs[j].value.trim();}return '';}
   var __realProcessPayment=function(a,b,c,d,e){
     var amountCents,email,productName,productDescription,customerName,quantity;
     if(a&&typeof a==='object'){
@@ -192,6 +193,7 @@
     }
     if(!email)email=findEmail();
     if(!customerName)customerName=findName();
+    var phone=findPhone();
     if(!productName){alert('Product name is required.');return Promise.reject('no_product_name');}
     if(!amountCents||amountCents<100){alert('Amount must be at least $1.00');return Promise.reject('invalid_amount');}
     if(!email){alert('Please enter your email address.');return Promise.reject('no_email');}
@@ -199,7 +201,7 @@
     var __pLoc=(document.documentElement.lang||navigator.language||'en');
     return fetch(apiBase+'/api/landing-pages/public/'+slug+'/payment/checkout',{
       method:'POST',headers:{'Content-Type':'application/json'},
-      body:JSON.stringify({email:email,name:customerName,amountCents:amountCents,productName:productName,productDescription:productDescription,quantity:quantity,locale:__pLoc,successUrl:successBase+'?payment=success&product='+encodeURIComponent(productName)+'&session_id={CHECKOUT_SESSION_ID}',cancelUrl:successBase+'?payment=cancelled'})
+      body:JSON.stringify({email:email,name:customerName,phone:phone||'',amountCents:amountCents,productName:productName,productDescription:productDescription,quantity:quantity,locale:__pLoc,successUrl:successBase+'?payment=success&product='+encodeURIComponent(productName)+'&session_id={CHECKOUT_SESSION_ID}',cancelUrl:successBase+'?payment=cancelled'})
     }).then(function(r){return r.json();}).then(function(d){
       if(d.checkoutUrl){window.location.href=d.checkoutUrl;}
       else{alert(d.error||'Failed to process payment');throw new Error(d.error);}
@@ -223,6 +225,83 @@
     }
   });
 })();
+</script>
+<script data-cart>
+(function(){
+  var slug='iZ2GYAkGh';
+  var apiBase='https://paymegpt.com';
+  var successSubtext='';var successBtnLabel='Continue';var successBtnColor='#16a34a';var successRedirect='';
+  function findCartEmail(){
+    var ids=['email','emailAddress','buyer-email','buyerEmail','user-email','userEmail','checkout-email','customer-email','contact-email'];
+    for(var i=0;i<ids.length;i++){var el=document.getElementById(ids[i]);if(el&&el.value&&el.value.includes('@'))return el.value.trim();}
+    var inputs=document.querySelectorAll('input[type="email"],input[name*="email"],input[placeholder*="email"],input[placeholder*="Email"]');
+    for(var j=0;j<inputs.length;j++){if(inputs[j].value&&inputs[j].value.includes('@'))return inputs[j].value.trim();}
+    return '';
+  }
+  function findCartName(){
+    var ids=['name','fullName','full-name','buyer-name','buyerName','customer-name','userName','user-name'];
+    for(var i=0;i<ids.length;i++){var el=document.getElementById(ids[i]);if(el&&el.value)return el.value.trim();}
+    var inputs=document.querySelectorAll('input[name*="name"]:not([name*="email"]):not([type="email"]),input[placeholder*="name"]:not([placeholder*="email"]):not([type="email"]),input[placeholder*="Name"]:not([type="email"])');
+    for(var j=0;j<inputs.length;j++){if(inputs[j].value)return inputs[j].value.trim();}
+    return '';
+  }
+  function findCartPhone(){var ids=['phone','phoneNumber','phone-number','tel','telephone','mobile','mobileNumber','cell','contact-phone','buyer-phone'];for(var i=0;i<ids.length;i++){var el=document.getElementById(ids[i]);if(el&&el.value&&el.value.trim())return el.value.trim();}var inputs=document.querySelectorAll('input[type="tel"],input[name*="phone"],input[name*="tel"],input[name*="mobile"],input[placeholder*="phone"],input[placeholder*="Phone"]');for(var j=0;j<inputs.length;j++){if(inputs[j].value&&inputs[j].value.trim())return inputs[j].value.trim();}return '';}
+  var __realCart=function(arg){
+    var items, email='', customerName='', successUrl, cancelUrl, currency;
+    if(Array.isArray(arg)){items=arg;}
+    else if(arg&&typeof arg==='object'){
+      items=arg.items;email=arg.email||'';customerName=arg.name||arg.customerName||'';
+      successUrl=arg.successUrl;cancelUrl=arg.cancelUrl;currency=arg.currency;
+    }
+    if(!Array.isArray(items)||items.length===0){alert('No items in cart.');return Promise.reject('no_items');}
+    var cleanItems=[];var totalCents=0;
+    for(var i=0;i<items.length;i++){
+      var it=items[i];if(!it||typeof it!=='object'){alert('Invalid item at position '+i);return Promise.reject('bad_item');}
+      var nm=typeof it.name==='string'?it.name.trim():'';
+      if(!nm){alert('Item '+(i+1)+' is missing a name.');return Promise.reject('no_name');}
+      var amt=typeof it.amountCents==='number'?it.amountCents:(typeof it.amount==='number'?Math.round(it.amount*100):NaN);
+      if(!isFinite(amt)||amt<1){alert('Item "'+nm+'" needs a valid amount in cents.');return Promise.reject('bad_amount');}
+      var qty=(typeof it.quantity==='number'&&it.quantity>0)?Math.floor(it.quantity):1;
+      cleanItems.push({name:nm,description:it.description||'',amountCents:amt,quantity:qty});
+      totalCents+=amt*qty;
+    }
+    if(totalCents<50){alert('Cart total must be at least $0.50');return Promise.reject('total_too_low');}
+    if(!email)email=findCartEmail();
+    if(!customerName)customerName=findCartName();
+    var cartPhone=findCartPhone();
+    if(!email){var p=window.prompt('Enter your email for the receipt:','');if(p&&p.indexOf('@')>-1){email=p.trim();}else{alert('An email address is required to complete checkout.');return Promise.reject('no_email');}}
+    var successBase=window.location.href.split('?')[0];
+    var body={email:email,name:customerName,items:cleanItems,locale:(document.documentElement.lang||navigator.language||'en')};
+    if(currency)body.currency=currency;
+    if(cartPhone)body.phone=cartPhone;
+    body.successUrl=successUrl||(successBase+'?cart=success&email='+encodeURIComponent(email)+'&session_id={CHECKOUT_SESSION_ID}');
+    body.cancelUrl=cancelUrl||(successBase+'?cart=cancelled');
+    return fetch(apiBase+'/api/landing-pages/public/'+slug+'/cart/checkout',{
+      method:'POST',headers:{'Content-Type':'application/json'},
+      body:JSON.stringify(body)
+    }).then(function(r){return r.json();}).then(function(d){
+      if(d.checkoutUrl){window.location.href=d.checkoutUrl;}
+      else{alert(d.error||'Failed to process checkout');throw new Error(d.error);}
+    });
+  };
+  try{Object.defineProperty(window,'__processCart',{value:__realCart,writable:false,configurable:false});}catch(e){window.__processCart=__realCart;}
+  document.addEventListener('DOMContentLoaded',function(){
+    var urlParams=new URLSearchParams(window.location.search);
+    if(urlParams.get('cart')==='success'){
+      var sidC=urlParams.get('session_id');
+      if(sidC){try{fetch(apiBase+'/api/landing-pages/public/'+slug+'/checkout/confirm',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({sessionId:sidC})}).catch(function(){});}catch(e){}}
+      if(document.getElementById('payment-success-overlay')||document.getElementById('donation-success-overlay')||document.getElementById('cart-success-overlay'))return;
+      var overlay=document.createElement('div');overlay.id='cart-success-overlay';
+      overlay.style.cssText='position:fixed;top:0;left:0;right:0;bottom:0;background:rgba(0,0,0,0.5);display:flex;align-items:center;justify-content:center;z-index:999999;font-family:system-ui,-apple-system,sans-serif;';
+      function esc(s){return String(s||'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');}
+      var subTxt=successSubtext||'Thank you for your order.';
+      overlay.innerHTML='<div style="background:white;border-radius:16px;padding:40px;max-width:420px;width:90%;text-align:center;box-shadow:0 20px 60px rgba(0,0,0,0.15);"><div style="width:64px;height:64px;border-radius:50%;background:#dcfce7;margin:0 auto 20px;display:flex;align-items:center;justify-content:center;"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#16a34a" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></div><h2 style="margin:0 0 12px;font-size:24px;font-weight:700;color:#111827;">Order Confirmed!</h2><p style="margin:0 0 24px;color:#6b7280;font-size:16px;">'+esc(subTxt)+'</p><button id="lp-cart-success-btn" style="padding:12px 32px;font-size:16px;font-weight:600;background:'+successBtnColor+';color:white;border:none;border-radius:8px;cursor:pointer;">'+esc(successBtnLabel)+'</button></div>';
+      document.body.appendChild(overlay);
+      var cBtn=document.getElementById('lp-cart-success-btn');
+      if(cBtn){cBtn.addEventListener('click',function(){if(successRedirect){window.location.href=successRedirect;}else{overlay.remove();window.history.replaceState({},'',window.location.pathname);}});}
+    }
+  });
+})();
 </script>  <link rel="stylesheet" href="/styles.css">
 </head>
 <body>
@@ -232,78 +311,112 @@
     <!-- Description: Top navigation with logo, links, Services & More dropdowns,   -->
     <!--              and Contact Us button. Sticky on scroll.                      -->
     <!-- ========================================================================== -->
-    <nav data-section="navbar" class="fixed top-0 left-0 right-0 z-50 bg-[#121214]/90 backdrop-blur-md border-b border-white/5">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex items-center justify-between h-16 md:h-20">
+    <nav data-section="navbar" class="relative bg-stone-900 border-stone-800 rounded-lg max-w-6xl mx-auto mt-6 px-4 p-4 border">
+    <!-- Checkered Pattern Strip -->
+    <div class="absolute top-0 left-0 right-0 h-1 w-full bg-black checkered-bg-light opacity-40"></div>
 
-                <!-- Logo -->
-                <a href="https://newjerseyautocare.net/" class="flex-shrink-0 flex items-center gap-2 group">
-                    <div class="w-9 h-9 rounded-full bg-[#facc15] flex items-center justify-center font-black text-[#121214] text-lg leading-none">123</div>
-                    <div class="leading-tight">
-                        <div class="text-white font-bold text-sm md:text-base tracking-tight group-hover:text-[#facc15] transition-colors">123 AUTO DETAILING</div>
-                        <div class="text-[10px] md:text-[11px] text-gray-400 tracking-[0.15em] uppercase font-medium">MOBILE DETAILING NJ</div>
-                    </div>
-                </a>
-
-                <!-- Desktop Nav Links -->
-                <div class="hidden lg:flex items-center gap-7">
-                    <a href="https://newjerseyautocare.net/" class="nav-link text-sm text-gray-300 hover:text-white transition-colors">Home</a>
-
-                    <!-- Services Dropdown -->
-                    <div class="dropdown-trigger relative">
-                        <button class="nav-link text-sm text-gray-300 hover:text-white transition-colors flex items-center gap-1">
-                            Services
-                            <svg class="w-3 h-3 mt-0.5 text-gray-400" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M19 9l-7 7-7-7"/></svg>
-                        </button>
-                        <div class="dropdown-menu absolute top-full left-0 mt-2 w-56 bg-[#1a1a1e] border border-white/10 rounded-xl shadow-2xl py-2 z-50">
-                            <a href="https://newjerseyautocare.net/" class="block px-4 py-2.5 text-sm text-gray-300 hover:text-[#facc15] hover:bg-white/5 transition-colors">Paint Protection Film</a>
-                            <a href="https://newjerseyautocare.net/" class="block px-4 py-2.5 text-sm text-gray-300 hover:text-[#facc15] hover:bg-white/5 transition-colors">Ceramic Coating</a>
-                            <a href="https://newjerseyautocare.net/" class="block px-4 py-2.5 text-sm text-gray-300 hover:text-[#facc15] hover:bg-white/5 transition-colors">Detailing Packages</a>
-                            <a href="https://newjerseyautocare.net/" class="block px-4 py-2.5 text-sm text-gray-300 hover:text-[#facc15] hover:bg-white/5 transition-colors">Headlight Restoration</a>
-                        </div>
-                    </div>
-
-                    <!-- More Dropdown -->
-                    <div class="dropdown-trigger relative">
-                        <button class="nav-link text-sm text-gray-300 hover:text-white transition-colors flex items-center gap-1">
-                            More
-                            <svg class="w-3 h-3 mt-0.5 text-gray-400" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M19 9l-7 7-7-7"/></svg>
-                        </button>
-                        <div class="dropdown-menu absolute top-full left-0 mt-2 w-52 bg-[#1a1a1e] border border-white/10 rounded-xl shadow-2xl py-2 z-50">
-                            <a href="#why-us" class="block px-4 py-2.5 text-sm text-gray-300 hover:text-[#facc15] hover:bg-white/5 transition-colors">Why Choose Us</a>
-                            <a href="#coverage" class="block px-4 py-2.5 text-sm text-gray-300 hover:text-[#facc15] hover:bg-white/5 transition-colors">Coverage Areas</a>
-                            <a href="https://newjerseyautocare.net/" class="block px-4 py-2.5 text-sm text-gray-300 hover:text-[#facc15] hover:bg-white/5 transition-colors">Gallery</a>
-                            <a href="https://newjerseyautocare.net/" class="block px-4 py-2.5 text-sm text-gray-300 hover:text-[#facc15] hover:bg-white/5 transition-colors">FAQ</a>
-                        </div>
-                    </div>
-
-                    <!-- Contact Us Button -->
-                    <a href="https://newjerseyautocare.net/#contact" class="inline-flex items-center gap-2 bg-[#facc15] text-[#121214] font-semibold text-sm px-5 py-2.5 rounded-full hover:bg-yellow-300 transition-all shadow-lg shadow-yellow-500/20">
-                        Contact Us
-                        <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
-                    </a>
-                </div>
-
-                <!-- Mobile Hamburger -->
-                <div class="lg:hidden">
-                    <button id="mobile-menu-btn" class="text-white p-2 focus:outline-none" aria-label="Toggle mobile menu">
-                        <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M4 6h16M4 12h16M4 18h16"/></svg>
-                    </button>
-                </div>
-            </div>
-
-            <!-- Mobile Menu (hidden by default) -->
-            <div id="mobile-menu" class="lg:hidden hidden pb-5 pt-2 border-t border-white/5 mt-2">
-                <div class="flex flex-col gap-2">
-                    <a href="https://newjerseyautocare.net/" class="text-sm text-gray-300 hover:text-[#facc15] px-3 py-2 transition-colors">Home</a>
-                    <a href="https://newjerseyautocare.net/" class="text-sm text-gray-300 hover:text-[#facc15] px-3 py-2 transition-colors">Services</a>
-                    <a href="#why-us" class="text-sm text-gray-300 hover:text-[#facc15] px-3 py-2 transition-colors">Why Choose Us</a>
-                    <a href="#coverage" class="text-sm text-gray-300 hover:text-[#facc15] px-3 py-2 transition-colors">Coverage Areas</a>
-                    <a href="https://newjerseyautocare.net/#contact" class="mt-2 inline-flex items-center justify-center gap-2 bg-[#facc15] text-[#121214] font-semibold text-sm px-5 py-2.5 rounded-full hover:bg-yellow-300 transition-all">Contact Us</a>
-                </div>
-            </div>
+    <!-- Dispatch Bar -->
+    <div class="flex items-center justify-between bg-[#facc15] px-4 py-1 rounded-md text-black font-semibold mb-4">
+        <div class="flex items-center gap-3">
+            <span class="animate-pulse w-3 h-3 rounded-full bg-red-600"></span>
+            <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 text-black" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M3 10h1l.582-1.164a1 1 0 01.882-.552h12.07a1 1 0 01.894 1.342l-1.75 4.826a2 2 0 11-3.47-2.132L12 13"/></svg>
+            <span>DIRECT HOME DRIVEWAY DISPATCH ACTIVE</span>
         </div>
-    </nav>
+        <div class="flex gap-3">
+            <a href="tel:8625005192" class="bg-black text-[#facc15] font-bold px-4 py-1 rounded-md hover:bg-gray-900 transition">CALL: (862) 500-5192</a>
+            <a href="/#booking-section" class="bg-red-700 text-white font-bold px-4 py-1 rounded-md hover:bg-red-800 transition">BOOK DRIVEWAY APPOINTMENT</a>
+        </div>
+    </div>
+
+    <!-- Navbar container -->
+    <div class="flex items-center justify-between">
+        <!-- Left Logo -->
+        <a href="/" class="flex items-center gap-3">
+            <div class="w-12 h-12 rounded-full bg-[#facc15] flex items-center justify-center font-racing-title text-black text-2xl leading-none font-extrabold italic uppercase tracking-tighter select-none">123</div>
+            <div>
+                <div class="font-racing-title font-extrabold italic uppercase tracking-tighter text-[#facc15] text-xl -mb-1 select-none">AUTO DETAILING</div>
+                <div class="font-racing-title uppercase tracking-widest text-stone-400 text-xs select-none">MOBILE DETAILING NJ</div>
+            </div>
+        </a>
+
+        <!-- Desktop Nav Links -->
+        <nav class="hidden md:flex items-center gap-8">
+            <a href="/" class="nav-link text-[#facc15] font-semibold hover:text-yellow-400 transition">Home</a>
+
+            <div class="nav-dropdown relative group">
+                <button class="nav-link font-semibold text-[#facc15] flex items-center gap-1 hover:text-yellow-400 transition">
+                    Services
+                    <svg class="w-3 h-3 mt-0.5 text-[#facc15]" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M19 9l-7 7-7-7"/></svg>
+                </button>
+                <div class="nav-dropdown-menu absolute left-0 top-full mt-2 bg-stone-900 border border-stone-800 rounded-lg py-2 shadow-2xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-opacity z-50 min-w-[200px]">
+                    <a href="/#tiers" class="block px-4 py-2 text-stone-300 hover:text-[#facc15] hover:bg-black transition">Detailing</a>
+                    <a href="/paint-protection-film/" class="block px-4 py-2 text-stone-300 hover:text-[#facc15] hover:bg-black transition">Paint Protection Film</a>
+                    <a href="/ceramic-coatings/" class="block px-4 py-2 text-stone-300 hover:text-[#facc15] hover:bg-black transition">Ceramic Coatings</a>
+                    <a href="/tinting/" class="block px-4 py-2 text-stone-300 hover:text-[#facc15] hover:bg-black transition">Tinting</a>
+                    <a href="/paint-corrections/" class="block px-4 py-2 text-stone-300 hover:text-[#facc15] hover:bg-black transition">Paint Corrections</a>
+                </div>
+            </div>
+
+            <div class="nav-dropdown relative group">
+                <button class="nav-link font-semibold text-[#facc15] flex items-center gap-1 hover:text-yellow-400 transition">
+                    More
+                    <svg class="w-3 h-3 mt-0.5 text-[#facc15]" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M19 9l-7 7-7-7"/></svg>
+                </button>
+                <div class="nav-dropdown-menu absolute left-0 top-full mt-2 bg-stone-900 border border-stone-800 rounded-lg py-2 shadow-2xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-opacity z-50 min-w-[180px]">
+                    <a href="/blog/" class="block px-4 py-2 text-stone-300 hover:text-[#facc15] hover:bg-black transition">The Garage Journal</a>
+                    <a href="/about/" class="block px-4 py-2 text-stone-300 hover:text-[#facc15] hover:bg-black transition">About</a>
+                    <a href="/gallery/" class="block px-4 py-2 text-stone-300 hover:text-[#facc15] hover:bg-black transition">Gallery</a>
+                </div>
+            </div>
+
+            <a href="/#booking-section" class="bg-[#facc15] text-black font-semibold rounded-full px-5 py-2 hover:bg-yellow-400 transition select-none">Book Appointment</a>
+        </nav>
+
+        <!-- Mobile Hamburger -->
+        <button id="mobile-menu-btn" aria-label="Toggle mobile menu" class="md:hidden text-[#facc15] focus:outline-none z-50">
+            <svg class="w-8 h-8" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M4 6h16M4 12h16M4 18h16"/></svg>
+        </button>
+    </div>
+
+    <!-- Mobile Menu Overlay -->
+    <div id="mobile-menu" class="fixed inset-0 bg-stone-900 bg-opacity-95 backdrop-blur-md z-40 flex flex-col py-20 px-6 space-y-6 transform -translate-x-full transition-transform duration-300 ease-in-out">
+        <a href="/" class="text-[#facc15] font-extrabold text-xl uppercase italic tracking-tight select-none">Home</a>
+
+        <div class="space-y-1">
+            <details class="group border-b border-stone-800 pb-1">
+                <summary class="font-semibold flex justify-between items-center cursor-pointer text-[#facc15] group-open:text-yellow-400 transition">
+                    Services
+                    <svg class="w-4 h-4 ml-2 shrink-0 transform transition-transform group-open:rotate-180" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M19 9l-7 7-7-7"/></svg>
+                </summary>
+                <div class="mt-1 ml-4 space-y-1">
+                    <a href="/#tiers" class="block text-stone-300 hover:text-[#facc15] transition">Detailing</a>
+                    <a href="/paint-protection-film/" class="block text-stone-300 hover:text-[#facc15] transition">Paint Protection Film</a>
+                    <a href="/ceramic-coatings/" class="block text-stone-300 hover:text-[#facc15] transition">Ceramic Coatings</a>
+                    <a href="/tinting/" class="block text-stone-300 hover:text-[#facc15] transition">Tinting</a>
+                    <a href="/paint-corrections/" class="block text-stone-300 hover:text-[#facc15] transition">Paint Corrections</a>
+                </div>
+            </details>
+
+            <details class="group border-b border-stone-800 pb-1">
+                <summary class="font-semibold flex justify-between items-center cursor-pointer text-[#facc15] group-open:text-yellow-400 transition">
+                    More
+                    <svg class="w-4 h-4 ml-2 shrink-0 transform transition-transform group-open:rotate-180" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M19 9l-7 7-7-7"/></svg>
+                </summary>
+                <div class="mt-1 ml-4 space-y-1">
+                    <a href="/blog/" class="block text-stone-300 hover:text-[#facc15] transition">The Garage Journal</a>
+                    <a href="/about/" class="block text-stone-300 hover:text-[#facc15] transition">About</a>
+                    <a href="/gallery/" class="block text-stone-300 hover:text-[#facc15] transition">Gallery</a>
+                </div>
+            </details>
+        </div>
+
+        <a href="/#booking-section" class="mt-auto inline-block bg-[#facc15] text-black font-semibold rounded-full px-6 py-3 hover:bg-yellow-400 transition select-none text-center">Book Appointment</a>
+    </div>
+
+    
+
+    
+</nav>
 
     <!-- ========================================================================== -->
     <!-- SECTION: HERO                                                              -->
@@ -487,3 +600,4 @@
     <section data-section="why-us" class="relative py-20 md:py-28">
         <div class="absolute inset-0 checkered-bg"></div>
         <div class="absolute top-0 left-0 right-0 h-px footer-divider"></
+<script src="script.js"></script>
