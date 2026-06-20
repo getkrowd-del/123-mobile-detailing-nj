@@ -217,9 +217,9 @@ html { scroll-behavior: smooth; }
     .card-lift { transition: transform .25s ease, box-shadow .25s ease, border-color .25s ease; }
     .card-lift:hover { transform: translateY(-6px); box-shadow: 0 24px 60px rgba(0,0,0,.38); border-color: rgba(250,204,21,.35); }
     .glass-dark { background: rgba(18,18,20,.82); backdrop-filter: blur(12px); }
-    .dropdown-panel { display:none; }
-    .dropdown-open .dropdown-panel { display:block; }
-    .menu-open { display:block; }
+    .dropdown-wrap { position: relative; }
+    .dropdown-wrap .dropdown-menu { display: none; position: absolute; left: 0; top: 100%; padding-top: 0.75rem; z-index: 60; }
+    .dropdown-wrap:hover .dropdown-menu { display: block; }
 
 :root {
             --racing-yellow: #facc15;
