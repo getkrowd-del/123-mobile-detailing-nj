@@ -1,4 +1,3 @@
-```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -6,12 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     
     <meta name="description" content="Premium mobile window tinting in Bergen & Passaic County NJ. UV protection, heat rejection, privacy, glare reduction. Fully NJ law compliant. (862) 500-5192." />
-    <!-- Google Fonts: Outfit -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
-    <!-- Tailwind CSS Play CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
 
 <!-- SEO Meta Tags -->
@@ -38,66 +36,6 @@
 }catch(e){}})();
 </script>
 
-<script data-gate>
-(function(){
-  var slug='lp-mqjiv8ya-x7hiy';var apiBase='https://paymegpt.com';var currency='USD';var presets=[2500,5000,10000,25000];var minAmt=100;var maxAmt=1000000;var thankYouMsg='Thank you for your generous donation!';
-  var successSubtext='Your donation has been processed successfully.';var successBtnLabel='Continue';var successBtnColor='#16a34a';var successRedirect='';
-  function getLang(){var l=(document.documentElement.lang||navigator.language||'en').toLowerCase();return l.split('-')[0];}
-  function getLocale(){return (document.documentElement.lang||navigator.language||'en');}
-  var I18N={en:{min:'Minimum is ',max:'Maximum is ',emailPrompt:'Enter your email for the receipt:',emailRequired:'An email address is required to complete checkout.',failed:'Failed to process donation'},fr:{min:'Le minimum est ',max:'Le maximum est ',emailPrompt:'Entrez votre adresse e-mail pour le reçu :',emailRequired:'Une adresse e-mail est requise pour finaliser le paiement.',failed:'Échec du traitement du don'},es:{min:'El mínimo es ',max:'El máximo es ',emailPrompt:'Introduce tu correo electrónico para el recibo:',emailRequired:'Se requiere una dirección de correo electrónico para completar el pago.',failed:'No se pudo procesar la donación'},pt:{min:'O mínimo é ',max:'O máximo é ',emailPrompt:'Insira seu e-mail para o recibo:',emailRequired:'Um endereço de e-mail é necessário para concluir o pagamento.',failed:'Falha ao processar a doação'},de:{min:'Mindestbetrag ist ',max:'Höchstbetrag ist ',emailPrompt:'Geben Sie Ihre E-Mail-Adresse für die Quittung ein:',emailRequired:'Eine E-Mail-Adresse ist erforderlich, um den Checkout abzuschließen.',failed:'Spende konnte nicht verarbeitet werden'},it:{min:'Il minimo è ',max:'Il massimo è ',emailPrompt:'Inserisci la tua email per la ricevuta:',emailRequired:"È richiesto un indirizzo email per completare il pagamento.",failed:'Impossibile elaborare la donazione'}};
-  function t(k){var L=getLang();return (I18N[L]&&I18N[L][k])||I18N.en[k];}
-  function fmtD(c){try{return new Intl.NumberFormat(getLocale(),{style:'currency',currency:currency}).format(c/100);}catch(e){return new Intl.NumberFormat('en-US',{style:'currency',currency:currency}).format(c/100);}}
-  function findDonEmail(){var ids=['email','emailAddress','buyer-email','buyerEmail','donor-email','donorEmail','user-email','userEmail','contact-email'];for(var i=0;i<ids.length;i++){var el=document.getElementById(ids[i]);if(el&&el.value&&el.value.indexOf('@')>-1)return el.value.trim();}var inputs=document.querySelectorAll('input[type="email"],input[name*="email"],input[placeholder*="email"],input[placeholder*="Email"]');for(var j=0;j<inputs.length;j++){if(inputs[j].value&&inputs[j].value.indexOf('@')>-1)return inputs[j].value.trim();}return '';}
-  function findDonName(){var ids=['name','fullName','full-name','donor-name','donorName','customer-name','user-name'];for(var i=0;i<ids.length;i++){var el=document.getElementById(ids[i]);if(el&&el.value)return el.value.trim();}var inputs=document.querySelectorAll('input[name*="name"]:not([name*="email"]):not([type="email"]),input[placeholder*="name"]:not([placeholder*="email"]):not([type="email"])');for(var j=0;j<inputs.length;j++){if(inputs[j].value)return inputs[j].value.trim();}return '';}
-  function findDonPhone(){var ids=['phone','phoneNumber','phone-number','tel','telephone','mobile','mobileNumber','cell','contact-phone','buyer-phone'];for(var i=0;i<ids.length;i++){var el=document.getElementById(ids[i]);if(el&&el.value&&el.value.trim())return el.value.trim();}var inputs=document.querySelectorAll('input[type="tel"],input[name*="phone"],input[name*="tel"],input[name*="mobile"],input[placeholder*="phone"],input[placeholder*="Phone"]');for(var j=0;j<inputs.length;j++){if(inputs[j].value&&inputs[j].value.trim())return inputs[j].value.trim();}return '';}
-  window.__processDonation=function(a,b,c,d){
-    var amountCents,email='',donorName='',donorMessage='',productName='',productDescription='',quantity=1;
-    if(a&&typeof a==='object'){
-      amountCents=a.amountCents||(a.amount?Math.round(Number(a.amount)*100):0);
-      email=a.email||'';
-      productName=a.productName||a.label||'';
-      productDescription=a.productDescription||a.description||'';
-      donorName=a.name||a.donorName||'';
-      donorMessage=a.message||a.donorMessage||'';
-      quantity=a.quantity&&parseInt(a.quantity,10)>0?parseInt(a.quantity,10):1;
-    }else{
-      amountCents=typeof a==='number'?a:(parseInt(a,10)||0);
-      var rest=[b,c,d];var nonEmail=[];
-      for(var i=0;i<rest.length;i++){var v=rest[i];if(typeof v==='string'&&v){if(!email&&v.indexOf('@')>-1&&/^[^s@]+@[^s@]+.[^s@]+$/.test(v.trim())){email=v.trim();}else{nonEmail.push(v);}}}
-      donorName=nonEmail[0]||'';donorMessage=nonEmail[1]||'';
-    }
-    if(!email)email=findDonEmail();
-    if(!donorName)donorName=findDonName();
-    var donorPhone=findDonPhone();
-    if(!amountCents||amountCents<minAmt){alert(t('min')+fmtD(minAmt));return Promise.reject('below_min');}
-    if(amountCents>maxAmt){alert(t('max')+fmtD(maxAmt));return Promise.reject('above_max');}
-    if(!email){var p=window.prompt(t('emailPrompt'),'');if(p&&p.indexOf('@')>-1){email=p.trim();}else{alert(t('emailRequired'));return Promise.reject('no_email');}}
-    var successBase=window.location.href.split('?')[0];
-    return fetch(apiBase+'/api/landing-pages/public/'+slug+'/donation/checkout',{
-      method:'POST',headers:{'Content-Type':'application/json'},
-      body:JSON.stringify({email:email,name:donorName||'',phone:donorPhone||'',amountCents:amountCents,message:donorMessage||'',productName:productName||'',productDescription:productDescription||'',quantity:quantity,locale:getLocale(),successUrl:successBase+'?donation=success&email='+encodeURIComponent(email)+'&session_id={CHECKOUT_SESSION_ID}',cancelUrl:successBase+'?donation=cancelled'})
-    }).then(function(r){return r.json();}).then(function(d){
-      if(d.checkoutUrl){window.location.href=d.checkoutUrl;}
-      else{alert(d.error||t('failed'));throw new Error(d.error);}
-    });
-  };
-  window.__donationConfig={currency:currency,presets:presets.map(function(c){return c/100;}),minAmount:minAmt/100,maxAmount:maxAmt/100,formatAmount:fmtD};
-  document.addEventListener('DOMContentLoaded',function(){
-    var urlParams=new URLSearchParams(window.location.search);
-    if(urlParams.get('donation')==='success'){
-      var sidD=urlParams.get('session_id');
-      if(sidD){try{fetch(apiBase+'/api/landing-pages/public/'+slug+'/checkout/confirm',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({sessionId:sidD})}).catch(function(){});}catch(e){}}
-      var overlay=document.createElement('div');overlay.id='donation-success-overlay';
-      overlay.style.cssText='position:fixed;top:0;left:0;right:0;bottom:0;background:rgba(0,0,0,0.5);display:flex;align-items:center;justify-content:center;z-index:999999;font-family:system-ui,-apple-system,sans-serif;';
-      function esc(s){return String(s||'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');}
-      overlay.innerHTML='<div style="background:white;border-radius:16px;padding:40px;max-width:420px;width:90%;text-align:center;box-shadow:0 20px 60px rgba(0,0,0,0.15);"><div style="width:64px;height:64px;border-radius:50%;background:#dcfce7;margin:0 auto 20px;display:flex;align-items:center;justify-content:center;"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#16a34a" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></div><h2 style="margin:0 0 12px;font-size:24px;font-weight:700;color:#111827;">'+esc(thankYouMsg)+'</h2><p style="margin:0 0 24px;color:#6b7280;font-size:16px;">'+esc(successSubtext)+'</p><button id="lp-don-success-btn" style="padding:12px 32px;font-size:16px;font-weight:600;background:'+successBtnColor+';color:white;border:none;border-radius:8px;cursor:pointer;">'+esc(successBtnLabel)+'</button></div>';
-      document.body.appendChild(overlay);
-      var dBtn=document.getElementById('lp-don-success-btn');
-      if(dBtn){dBtn.addEventListener('click',function(){if(successRedirect){window.location.href=successRedirect;}else{overlay.remove();window.history.replaceState({},'',window.location.pathname);}});}
-    }
-  });
-})();
-</script>
 <script data-field-replace>
 (function(){
   var params=new URLSearchParams(window.location.search);
@@ -286,6 +224,69 @@
   });
 })();
 </script>
+<script data-donation>
+(function(){
+  var slug='iSQbDj';
+  var apiBase='https://paymegpt.com';
+  var currency='USD';
+  var minAmt=100;var maxAmt=1000000;
+  var thankYouMsg='Thank you for your generous donation!';var successSubtext='Your donation has been processed successfully.';var successBtnLabel='Continue';var successBtnColor='#16a34a';var successRedirect='';
+  function getLang(){var l=(document.documentElement.lang||navigator.language||'en').toLowerCase();return l.split('-')[0];}
+  function getLocale(){return (document.documentElement.lang||navigator.language||'en');}
+  var I18N={en:{min:'Minimum is ',max:'Maximum is ',emailPrompt:'Enter your email for the receipt:',emailRequired:'An email address is required to complete checkout.',failed:'Failed to process donation'},fr:{min:'Le minimum est ',max:'Le maximum est ',emailPrompt:'Entrez votre adresse e-mail pour le reçu :',emailRequired:'Une adresse e-mail est requise pour finaliser le paiement.',failed:'Échec du traitement du don'},es:{min:'El mínimo es ',max:'El máximo es ',emailPrompt:'Introduce tu correo electrónico para el recibo:',emailRequired:'Se requiere una dirección de correo electrónico para completar el pago.',failed:'No se pudo procesar la donación'},pt:{min:'O mínimo é ',max:'O máximo é ',emailPrompt:'Insira seu e-mail para o recibo:',emailRequired:'Um endereço de e-mail é necessário para concluir o pagamento.',failed:'Falha ao processar a doação'},de:{min:'Mindestbetrag ist ',max:'Höchstbetrag ist ',emailPrompt:'Geben Sie Ihre E-Mail-Adresse für die Quittung ein:',emailRequired:'Eine E-Mail-Adresse ist erforderlich, um den Checkout abzuschließen.',failed:'Spende konnte nicht verarbeitet werden'},it:{min:'Il minimo è ',max:'Il massimo è ',emailPrompt:'Inserisci la tua email per la ricevuta:',emailRequired:"È richiesto un indirizzo email per completare il pagamento.",failed:'Impossibile elaborare la donazione'}};
+  function t(k){var L=getLang();return (I18N[L]&&I18N[L][k])||I18N.en[k];}
+  function fmtD(c){try{return new Intl.NumberFormat(getLocale(),{style:'currency',currency:currency}).format(c/100);}catch(e){return new Intl.NumberFormat('en-US',{style:'currency',currency:currency}).format(c/100);}}
+  window.__donationConfig={currency:currency,presets:[25,50,100,250],minAmount:100/100,maxAmount:1000000/100,formatAmount:fmtD,buttonColor:'#4f46e5',buttonText:'Donate Now',thankYouMessage:'Thank you for your generous donation!'};
+  function findDonEmail2(){var ids=['email','emailAddress','buyer-email','buyerEmail','donor-email','donorEmail','user-email','userEmail','contact-email'];for(var i=0;i<ids.length;i++){var el=document.getElementById(ids[i]);if(el&&el.value&&el.value.indexOf('@')>-1)return el.value.trim();}var inputs=document.querySelectorAll('input[type="email"],input[name*="email"],input[placeholder*="email"],input[placeholder*="Email"]');for(var j=0;j<inputs.length;j++){if(inputs[j].value&&inputs[j].value.indexOf('@')>-1)return inputs[j].value.trim();}return '';}
+  function findDonName2(){var ids=['name','fullName','full-name','donor-name','donorName','customer-name','user-name'];for(var i=0;i<ids.length;i++){var el=document.getElementById(ids[i]);if(el&&el.value)return el.value.trim();}var inputs=document.querySelectorAll('input[name*="name"]:not([name*="email"]):not([type="email"]),input[placeholder*="name"]:not([placeholder*="email"]):not([type="email"])');for(var j=0;j<inputs.length;j++){if(inputs[j].value)return inputs[j].value.trim();}return '';}
+  function findDonPhone2(){var ids=['phone','phoneNumber','phone-number','tel','telephone','mobile','mobileNumber','cell','contact-phone','buyer-phone'];for(var i=0;i<ids.length;i++){var el=document.getElementById(ids[i]);if(el&&el.value&&el.value.trim())return el.value.trim();}var inputs=document.querySelectorAll('input[type="tel"],input[name*="phone"],input[name*="tel"],input[name*="mobile"],input[placeholder*="phone"],input[placeholder*="Phone"]');for(var j=0;j<inputs.length;j++){if(inputs[j].value&&inputs[j].value.trim())return inputs[j].value.trim();}return '';}
+  window.__processDonation=function(a,b,c,d){
+    var amountCents,email='',name='',donorMessage='',productName='',productDescription='',quantity=1;
+    if(a&&typeof a==='object'){
+      amountCents=a.amountCents||(a.amount?Math.round(Number(a.amount)*100):0);
+      email=a.email||'';
+      productName=a.productName||a.label||'';
+      productDescription=a.productDescription||a.description||'';
+      name=a.name||a.donorName||'';
+      donorMessage=a.message||a.donorMessage||'';
+      quantity=a.quantity&&parseInt(a.quantity,10)>0?parseInt(a.quantity,10):1;
+    }else{
+      amountCents=typeof a==='number'?a:(parseInt(a,10)||0);
+      var rest=[b,c,d];var nonEmail=[];
+      for(var i=0;i<rest.length;i++){var v=rest[i];if(typeof v==='string'&&v){if(!email&&v.indexOf('@')>-1&&/^[^s@]+@[^s@]+.[^s@]+$/.test(v.trim())){email=v.trim();}else{nonEmail.push(v);}}}
+      name=nonEmail[0]||'';donorMessage=nonEmail[1]||'';
+    }
+    if(!email)email=findDonEmail2();
+    if(!name)name=findDonName2();
+    var donorPhone=findDonPhone2();
+    if(!amountCents||amountCents<minAmt){alert(t('min')+fmtD(minAmt));return Promise.reject('below_min');}
+    if(amountCents>maxAmt){alert(t('max')+fmtD(maxAmt));return Promise.reject('above_max');}
+    if(!email){var p=window.prompt(t('emailPrompt'),'');if(p&&p.indexOf('@')>-1){email=p.trim();}else{alert(t('emailRequired'));return;}}
+    var successBase=window.location.href.split('?')[0];
+    fetch(apiBase+'/api/landing-pages/public/'+slug+'/donation/checkout',{
+      method:'POST',headers:{'Content-Type':'application/json'},
+      body:JSON.stringify({email:email,name:name||'',phone:donorPhone||'',amountCents:amountCents,message:donorMessage||'',productName:productName||'',productDescription:productDescription||'',quantity:quantity,locale:getLocale(),successUrl:successBase+'?donation=success&email='+encodeURIComponent(email)+'&session_id={CHECKOUT_SESSION_ID}',cancelUrl:successBase+'?donation=cancelled'})
+    }).then(function(r){return r.json();}).then(function(d){
+      if(d.checkoutUrl){window.location.href=d.checkoutUrl;}
+      else{alert(d.error||t('failed'));}
+    }).catch(function(){alert(t('failed'));});
+  };
+  document.addEventListener('DOMContentLoaded',function(){
+    var urlParams=new URLSearchParams(window.location.search);
+    if(urlParams.get('donation')==='success'){
+      var sidD=urlParams.get('session_id');
+      if(sidD){try{fetch(apiBase+'/api/landing-pages/public/'+slug+'/checkout/confirm',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({sessionId:sidD})}).catch(function(){});}catch(e){}}
+      var overlay=document.createElement('div');overlay.id='donation-success-overlay';
+      overlay.style.cssText='position:fixed;top:0;left:0;right:0;bottom:0;background:rgba(0,0,0,0.5);display:flex;align-items:center;justify-content:center;z-index:999999;font-family:system-ui,-apple-system,sans-serif;';
+      function esc(s){return String(s||'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');}
+      overlay.innerHTML='<div style="background:white;border-radius:16px;padding:40px;max-width:420px;width:90%;text-align:center;box-shadow:0 20px 60px rgba(0,0,0,0.15);"><div style="width:64px;height:64px;border-radius:50%;background:#dcfce7;margin:0 auto 20px;display:flex;align-items:center;justify-content:center;"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#16a34a" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></div><h2 style="margin:0 0 12px;font-size:24px;font-weight:700;color:#111827;">'+esc(thankYouMsg)+'</h2><p style="margin:0 0 24px;color:#6b7280;font-size:16px;">'+esc(successSubtext)+'</p><button id="lp-don-success-btn" style="padding:12px 32px;font-size:16px;font-weight:600;background:'+successBtnColor+';color:white;border:none;border-radius:8px;cursor:pointer;">'+esc(successBtnLabel)+'</button></div>';
+      document.body.appendChild(overlay);
+      var dBtn=document.getElementById('lp-don-success-btn');
+      if(dBtn){dBtn.addEventListener('click',function(){if(successRedirect){window.location.href=successRedirect;}else{overlay.remove();window.history.replaceState({},'',window.location.pathname);}});}
+    }
+  });
+})();
+</script>
 <script data-cart>
 (function(){
   var slug='iSQbDj';
@@ -366,250 +367,358 @@
 </head>
 <body>
 
-    <!-- ====================================================================== -->
-    <!-- SECTION: Navbar                                                       -->
-    <!-- ====================================================================== -->
-    <nav data-section="navbar" class="relative bg-[#121214] text-white font-outfit">
-        
-
-        <!-- Checkered Pattern Strip -->
-        <div class="checkered-strip"></div>
-
-        <!-- Dispatch Bar -->
-        <div class="dispatch-bar" aria-label="Dispatch notification bar">
-            <div class="red-dot" aria-hidden="true"></div>
-            <svg viewBox="0 0 24 24" aria-hidden="true" role="img" fill="none" stroke="#121214" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"  >
-                <path d="M3 11h3l2-3 2 6h6v-4l4 1v7H4v-7z"/>
-                <circle cx="7" cy="18" r="2"/>
-                <circle cx="17" cy="18" r="2"/>
-            </svg>
-            <div class="dispatch-text">DIRECT HOME DRIVEWAY DISPATCH ACTIVE</div>
-            <a href="tel:8625005192" class="btn-call" aria-label="Call phone number">(862) 500-5192</a>
-            <a href="/#booking-section" class="btn-book" aria-label="Book driveway appointment">BOOK DRIVEWAY APPOINTMENT</a>
+    <div class="checkered-pattern h-4 w-full border-b border-gray-800"></div>
+    <div class="bg-yellow-400 text-stone-950 font-black py-3 px-4">
+        <div class="max-w-6xl mx-auto flex flex-col md:flex-row items-center justify-between gap-2 text-center md:text-left">
+            <span class="font-racing-title text-base tracking-wider flex items-center gap-2">
+                <span class="inline-block w-2.5 h-2.5 bg-red-600 animate-ping rounded-full"></span>
+                <i class="fa-solid fa-truck-fast"></i> DIRECT HOME DRIVEWAY DISPATCH ACTIVE
+            </span>
+            <div class="flex flex-wrap justify-center gap-3 md:gap-4">
+                <a href="tel:8625005192" class="bg-stone-950 text-yellow-400 font-bold px-4 py-1.5 rounded-sm text-sm uppercase hover:bg-stone-800 transition-all">
+                    <i class="fa-solid fa-phone"></i> CALL: (862) 500-5192
+                </a>
+                <a href="../index.html#tiers" class="bg-red-600 text-white font-bold px-4 py-1.5 rounded-sm text-sm uppercase hover:bg-red-700 transition-all">
+                    <i class="fa-solid fa-envelope"></i> BOOK DRIVEWAY APPOINTMENT
+                </a>
+            </div>
         </div>
+    </div>
 
-        <!-- Main Nav Container -->
-        <div class="nav-container">
-            <nav class="navbar" role="navigation" aria-label="Primary navigation">
-                <!-- Left: Logo and Titles -->
-                <div class="nav-left">
-                    <div class="logo-box" aria-label="123 logo">123</div>
-                    <div class="logo-texts">
-                        <div class="title">AUTO DETAILING</div>
-                        <div class="subtitle">MOBILE DETAILING NJ</div>
+    <div class="max-w-6xl mx-auto mt-6 px-4" data-section="page-content">
+
+        <nav class="bg-stone-900 border border-stone-800 rounded-lg p-4 flex items-center justify-between gap-4 shadow-xl">
+            <div class="flex items-center gap-3">
+                <a href="../index.html" class="bg-yellow-400 text-stone-950 p-2 rounded font-black text-xl italic tracking-tighter block">123</a>
+                <div>
+                    <span class="font-racing-title text-xl text-white tracking-widest block leading-none">AUTO DETAILING</span>
+                    <span class="text-xs text-yellow-400 tracking-widest font-mono font-bold uppercase">MOBILE DETAILING NJ</span>
+                </div>
+            </div>
+
+            <div class="hidden md:flex items-center gap-5 text-sm font-semibold tracking-wider text-stone-300 uppercase">
+                <a href="../index.html" class="hover:text-yellow-400 transition-all">Home</a>
+                <div class="nav-dropdown">
+                    <span class="hover:text-yellow-400 transition-all cursor-pointer">Services <i class="fa-solid fa-chevron-down text-[8px] ml-1"></i></span>
+                    <div class="dropdown-menu">
+                        <a href="../index.html#tiers">Detailing</a>
+                        <a href="../paint-protection-film/index.html">Paint Protection Film</a>
+                        <a href="../ceramic-coatings/index.html">Ceramic Coatings</a>
+                        <a href="../tinting/index.html">Tinting</a>
+                        <a href="../paint-corrections/index.html">Paint Corrections</a>
                     </div>
                 </div>
-
-                <!-- Desktop Nav Links -->
-                <div class="nav-links">
-                    <a href="/" aria-current="page">Home</a>
-
-                    <div class="nav-dropdown" tabindex="0">
-                        <button aria-haspopup="true" aria-expanded="false" aria-controls="services-menu">Services
-                            <svg viewBox="0 0 24 24" aria-hidden="true" tabindex="-1"><path stroke-linejoin="round" stroke-linecap="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
-                        </button>
-                        <div class="nav-dropdown-menu" id="services-menu" role="menu" aria-label="Services submenu">
-                            <a href="/#tiers" role="menuitem" tabindex="-1">Detailing</a>
-                            <a href="/paint-protection-film/" role="menuitem" tabindex="-1">Paint Protection Film</a>
-                            <a href="/ceramic-coatings/" role="menuitem" tabindex="-1">Ceramic Coatings</a>
-                            <a href="/tinting/" role="menuitem" tabindex="-1">Tinting</a>
-                            <a href="/paint-corrections/" role="menuitem" tabindex="-1">Paint Corrections</a>
-                        </div>
+                <div class="nav-dropdown">
+                    <span class="hover:text-yellow-400 transition-all cursor-pointer">More <i class="fa-solid fa-chevron-down text-[8px] ml-1"></i></span>
+                    <div class="dropdown-menu">
+                        <a href="../blog/index.html">The Garage Journal</a>
+                        <a href="../about/index.html">About</a>
+                        <a href="../gallery/index.html">Gallery</a>
                     </div>
-
-                    <div class="nav-dropdown" tabindex="0">
-                        <button aria-haspopup="true" aria-expanded="false" aria-controls="more-menu">More
-                            <svg viewBox="0 0 24 24" aria-hidden="true" tabindex="-1"><path stroke-linejoin="round" stroke-linecap="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
-                        </button>
-                        <div class="nav-dropdown-menu" id="more-menu" role="menu" aria-label="More submenu">
-                            <a href="/blog/" role="menuitem" tabindex="-1">The Garage Journal</a>
-                            <a href="/about/" role="menuitem" tabindex="-1">About</a>
-                            <a href="/gallery/" role="menuitem" tabindex="-1">Gallery</a>
-                        </div>
-                    </div>
-
-                    <a href="/#booking-section" class="btn-book-appointment">Book Appointment</a>
                 </div>
+                <a href="../index.html#tiers" class="bg-yellow-400 text-stone-950 font-bold px-4 py-2 rounded-sm btn-slant hover:bg-yellow-300 transition-all text-xs">
+                    Book Appointment
+                </a>
+            </div>
 
-                <!-- Mobile Hamburger -->
-                <button class="mobile-menu-btn" aria-label="Toggle menu" aria-expanded="false" aria-controls="mobile-menu">
-                    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" >
-                        <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16"/>
-                    </svg>
-                </button>
-            </nav>
+            <button id="hamburger-btn" class="md:hidden text-yellow-400 text-2xl focus:outline-none">
+                <i class="fa-solid fa-bars"></i>
+            </button>
+        </nav>
+
+        <div class="mobile-nav-overlay" id="mobileMenu">
+            <button id="mobile-close-btn" class="text-right text-yellow-400 text-2xl font-bold w-full mb-4">✕</button>
+            <a href="../index.html">Home</a>
+            <a href="../index.html#tiers" style="color:#facc15;font-weight:700;">Detailing</a>
+            <a href="../paint-protection-film/index.html" class="sub-link">Paint Protection Film</a>
+            <a href="../ceramic-coatings/index.html" class="sub-link">Ceramic Coatings</a>
+            <a href="../tinting/index.html" class="sub-link">Tinting</a>
+            <a href="../paint-corrections/index.html" class="sub-link">Paint Corrections</a>
+            <a href="../about/index.html">About</a>
+            <a href="../gallery/index.html">Gallery</a>
+            <a href="../blog/index.html">The Garage Journal</a>
+            <a href="../index.html#tiers" style="background:#facc15;color:#121214;text-align:center;border-radius:6px;font-weight:800;margin-top:12px;">Book Service</a>
         </div>
 
-        <!-- Mobile Menu Overlay -->
-        <div class="mobile-menu-overlay" id="mobile-menu" aria-hidden="true">
-            <button class="mobile-menu-close-btn" aria-label="Close menu">&times;</button>
-            <nav class="mobile-menu-links" role="navigation" aria-label="Mobile primary navigation">
-                <a href="/" tabindex="0">Home</a>
+        <section data-section="hero" class="relative mt-8 overflow-hidden bg-stone-900/60 p-6 sm:p-10 rounded-2xl border border-stone-800 shadow-2xl">
+            <div class="absolute top-0 right-0 w-64 h-64 bg-yellow-400/5 rounded-full blur-3xl pointer-events-none"></div>
+            <div class="flex flex-col lg:flex-row items-center gap-12 lg:gap-16 relative z-10">
 
-                <button aria-expanded="false" class="mobile-dropdown-toggle" aria-controls="mobile-submenu-services" aria-haspopup="true">
-                    Services <span class="caret"></span>
-                </button>
-                <div class="mobile-submenu" id="mobile-submenu-services" hidden>
-                    <a href="/#tiers" tabindex="0">Detailing</a>
-                    <a href="/paint-protection-film/" tabindex="0">Paint Protection Film</a>
-                    <a href="/ceramic-coatings/" tabindex="0">Ceramic Coatings</a>
-                    <a href="/tinting/" tabindex="0">Tinting</a>
-                    <a href="/paint-corrections/" tabindex="0">Paint Corrections</a>
-                </div>
-
-                <button aria-expanded="false" class="mobile-dropdown-toggle" aria-controls="mobile-submenu-more" aria-haspopup="true">
-                    More <span class="caret"></span>
-                </button>
-                <div class="mobile-submenu" id="mobile-submenu-more" hidden>
-                    <a href="/blog/" tabindex="0">The Garage Journal</a>
-                    <a href="/about/" tabindex="0">About</a>
-                    <a href="/gallery/" tabindex="0">Gallery</a>
-                </div>
-
-                <a href="/#booking-section" class="btn-book-appointment" tabindex="0" style="margin-top: 1.5rem;">Book Appointment</a>
-            </nav>
-        </div>
-
-        <!-- Chat Widget -->
-        <div id="chat-widget" role="button" aria-label="Open chat support" tabindex="0" title="Chat Support">
-            <img src="https://krowdimg.b-cdn.net/clients/123MobileDetailing/chatIcon.PNG" alt="Chat icon" />
-        </div>
-        <div id="chat-overlay" role="dialog" aria-modal="true" aria-hidden="true">
-            <iframe src="https://paymegpt.com/agents/28816726/embed" title="Chat Support"></iframe>
-            <button id="chat-close" aria-label="Close chat">&times;</button>
-        </div>
-
-        
-    </nav>
-
-    <!-- ====================================================================== -->
-    <!-- SECTION: Hero                                                         -->
-    <!-- ====================================================================== -->
-    <section data-section="hero" class="relative pt-24 md:pt-28 overflow-hidden">
-        <!-- Checkered stripe top -->
-        <div class="hero-stripe"></div>
-
-        <!-- Background checkered overlay -->
-        <div class="absolute inset-0 checkered-bg opacity-30 pointer-events-none"></div>
-
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 md:py-24 lg:py-32 relative z-10">
-            <div class="flex flex-col lg:flex-row items-center gap-12 lg:gap-16">
-
-                <!-- Left Text -->
-                <div class="flex-1 text-center lg:text-left">
-                    <!-- Racing badge -->
-                    <div class="inline-block bg-[#facc15]/10 border border-[#facc15]/30 rounded-full px-4 py-1.5 text-[#facc15] text-xs uppercase tracking-widest font-semibold mb-5">
+                <div class="flex-1 text-center lg:text-left space-y-6">
+                    <div class="inline-block bg-[#facc15]/10 border border-[#facc15]/30 rounded-full px-4 py-1.5 text-[#facc15] text-xs uppercase tracking-widest font-semibold">
                         🏁 Premium Mobile Service
                     </div>
 
-                    <h1 class="racing-title text-4xl sm:text-5xl md:text-6xl lg:text-7xl text-white leading-[1.05] mb-4">
+                    <h1 class="font-racing-title text-4xl sm:text-5xl md:text-6xl text-white leading-tight">
                         Window <span class="text-[#facc15]">Tinting</span>
                     </h1>
 
-                    <p class="text-lg sm:text-xl text-white/70 max-w-2xl mx-auto lg:mx-0 mb-6 leading-relaxed">
-                        Professional-grade automotive window tinting — <span class="text-[#facc15] font-semibold">mobile</span> and delivered to your home or office in Bergen &amp; Passaic County, NJ.
+                    <p class="text-sm sm:text-base text-stone-400 leading-relaxed">
+                        Professional-grade automotive window tinting — <span class="text-[#facc15] font-semibold">mobile</span> and delivered straight to your home or office layout across Bergen & Passaic County, NJ.
                     </p>
 
-                    <!-- Benefit quick-hit tags -->
-                    <div class="flex flex-wrap gap-2 justify-center lg:justify-start mb-8">
-                        <span class="bg-white/5 border border-white/10 rounded-full px-3.5 py-1 text-xs font-medium text-white/70 uppercase tracking-wider">UV Protection</span>
-                        <span class="bg-white/5 border border-white/10 rounded-full px-3.5 py-1 text-xs font-medium text-white/70 uppercase tracking-wider">Heat Rejection</span>
-                        <span class="bg-white/5 border border-white/10 rounded-full px-3.5 py-1 text-xs font-medium text-white/70 uppercase tracking-wider">Privacy</span>
-                        <span class="bg-white/5 border border-white/10 rounded-full px-3.5 py-1 text-xs font-medium text-white/70 uppercase tracking-wider">Glare Reduction</span>
+                    <div class="flex flex-wrap gap-2 justify-center lg:justify-start">
+                        <span class="bg-white/5 border border-white/10 rounded-full px-3.5 py-1 text-xs font-mono text-stone-300 uppercase tracking-wider">UV Protection</span>
+                        <span class="bg-white/5 border border-white/10 rounded-full px-3.5 py-1 text-xs font-mono text-stone-300 uppercase tracking-wider">Heat Rejection</span>
+                        <span class="bg-white/5 border border-white/10 rounded-full px-3.5 py-1 text-xs font-mono text-stone-300 uppercase tracking-wider">Privacy</span>
+                        <span class="bg-white/5 border border-white/10 rounded-full px-3.5 py-1 text-xs font-mono text-stone-300 uppercase tracking-wider">Glare Reduction</span>
                     </div>
 
-                    <!-- CTA + Phone -->
                     <div class="flex flex-col sm:flex-row items-center gap-4 justify-center lg:justify-start">
-                        <a href="#cta" class="bg-[#facc15] text-[#121214] font-bold uppercase tracking-wider px-8 py-3.5 rounded-lg text-sm hover:bg-white transition-colors shadow-xl shadow-[#facc15]/25 inline-flex items-center gap-2">
-                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
-                            Contact Us
+                        <a href="#contact-form" class="bg-[#facc15] text-[#121214] font-bold uppercase tracking-wider px-8 py-3.5 rounded-sm text-xs btn-slant hover:bg-yellow-300 transition-colors shadow-xl inline-flex items-center gap-2">
+                            <i class="fa-solid fa-paper-plane"></i> Request Tint Estimate
                         </a>
-                        <a href="tel:+18625005192" class="text-white/80 hover:text-[#facc15] transition-colors font-medium text-base flex items-center gap-2">
-                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/></svg>
-                            (862) 500-5192
+                        <a href="tel:8625005192" class="text-white hover:text-[#facc15] transition-colors font-bold font-mono text-sm flex items-center gap-2">
+                            <i class="fa-solid fa-phone text-yellow-400"></i> (862) 500-5192
                         </a>
-                    </div>
-
-                    <!-- Location badge -->
-                    <div class="mt-6 text-xs text-white/40 uppercase tracking-widest flex items-center gap-2 justify-center lg:justify-start">
-                        <svg class="w-4 h-4 text-[#facc15]" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clip-rule="evenodd"/></svg>
-                        Serving Bergen &amp; Passaic County, NJ
                     </div>
                 </div>
 
-                <!-- Right Visual: Card with dark tint preview -->
                 <div class="flex-1 w-full max-w-md lg:max-w-none">
-                    <div class="relative bg-gradient-to-br from-[#1a1a1e] to-[#0d0d0f] rounded-2xl border border-[#facc15]/15 p-6 sm:p-8 shadow-2xl shadow-black/60 overflow-hidden">
-                        <!-- checkered accent -->
+                    <div class="relative bg-gradient-to-br from-[#1a1a1e] to-[#0d0d0f] rounded-2xl border border-[#facc15]/15 p-6 sm:p-8 shadow-2xl overflow-hidden">
                         <div class="checkered-sm absolute inset-0 opacity-20 pointer-events-none"></div>
-                        <!-- tint visual -->
                         <div class="relative z-10">
                             <div class="flex items-center justify-between mb-4">
-                                <span class="racing-title-light text-lg text-[#facc15]">Tint Preview</span>
-                                <span class="text-white/30 text-xs uppercase tracking-widest">5% – 70%</span>
+                                <span class="font-racing-title text-base text-[#facc15]">Tint Matrix</span>
+                                <span class="text-stone-500 text-xs font-mono uppercase tracking-widest">5% – 70% VLT</span>
                             </div>
-                            <!-- Simulated car window -->
-                            <div class="rounded-xl bg-gradient-to-r from-[#121214] via-[#1e1e24] to-[#0a0a0c] p-4 border border-white/5 relative overflow-hidden">
-                                <div class="absolute inset-0 bg-gradient-to-b from-transparent via-[#facc15]/05 to-[#facc15]/10 pointer-events-none"></div>
+                            <div class="rounded-xl bg-stone-950 p-4 border border-white/5 relative overflow-hidden space-y-3">
                                 <div class="flex items-center gap-3">
-                                    <div class="w-16 h-16 rounded-full bg-[#facc15]/10 border border-[#facc15]/20 flex items-center justify-center text-[#facc15]">
-                                        <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 17a2 2 0 11-4 0 2 2 0 014 0zM19 17a2 2 0 11-4 0 2 2 0 014 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M13 16V6a1 1 0 00-1-1H4a1 1 0 00-1 1v10l2-1h14l2 1"/></svg>
+                                    <div class="w-12 h-12 rounded-full bg-[#facc15]/10 border border-[#facc15]/20 flex items-center justify-center text-[#facc15]">
+                                        <i class="fa-solid fa-car text-xl"></i>
                                     </div>
                                     <div class="flex-1">
-                                        <div class="h-3 w-full bg-white/5 rounded-full overflow-hidden">
+                                        <div class="h-2 w-full bg-white/5 rounded-full overflow-hidden">
                                             <div class="h-full w-4/5 bg-gradient-to-r from-[#facc15] to-[#facc15]/40 rounded-full"></div>
-                                        </div>
-                                        <div class="flex justify-between text-[10px] text-white/30 mt-1 uppercase tracking-wider">
-                                            <span>Clear</span>
-                                            <span>Dark</span>
                                         </div>
                                     </div>
                                 </div>
-                                <div class="mt-4 grid grid-cols-4 gap-1.5">
-                                    <div class="h-6 rounded bg-black/80 border border-white/5"></div>
-                                    <div class="h-6 rounded bg-black/60 border border-white/5"></div>
-                                    <div class="h-6 rounded bg-black/40 border border-white/5"></div>
-                                    <div class="h-6 rounded bg-black/20 border border-white/5"></div>
+                                <div class="grid grid-cols-4 gap-2 text-center text-[10px] font-mono font-bold uppercase tracking-wider text-stone-400">
+                                    <div class="p-2 bg-stone-900 border border-stone-800 rounded">5% (Limo)</div>
+                                    <div class="p-2 bg-stone-800 border border-stone-700 rounded">20% (Dark)</div>
+                                    <div class="p-2 bg-stone-700 border border-stone-600 rounded text-stone-200">35% (Med)</div>
+                                    <div class="p-2 bg-stone-600 border border-stone-500 text-stone-100">50% (Light)</div>
                                 </div>
                             </div>
-                            <p class="mt-4 text-xs text-white/40 text-center uppercase tracking-wider">Mobile installation — we come to you</p>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- ====================================================================== -->
-    <!-- SECTION: Benefits                                                     -->
-    <!-- ====================================================================== -->
-    <section data-section="benefits" class="py-16 md:py-24">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <!-- Section header -->
-            <div class="text-center mb-12 md:mb-16">
-                <span class="racing-title-light text-[#facc15] text-sm tracking-[0.2em]">Why Tint?</span>
-                <h2 class="racing-title text-3xl sm:text-4xl md:text-5xl text-white mt-2 mb-4">4 Benefits of Window Tinting</h2>
-                <p class="text-white/50 max-w-2xl mx-auto text-base sm:text-lg">More than looks — every tint we install delivers real, measurable advantages for your daily drive.</p>
+        <section class="py-16">
+            <div class="text-center mb-12">
+                <span class="font-racing-title text-sm text-[#facc15] tracking-widest">WHY TINT?</span>
+                <h2 class="font-racing-title text-3xl sm:text-4xl text-white mt-2 mb-4">ENGINEERED SHADE BENEFITS</h2>
+                <p class="text-stone-400 max-w-xl mx-auto text-xs sm:text-sm">More than basic styling aesthetics — professional carbon and ceramic automotive window tints offer vital vehicle preservation specs.</p>
             </div>
 
-            <!-- Benefits grid -->
-            <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-5 md:gap-6">
-                <!-- Benefit 1: UV Protection -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
                 <div class="benefit-card">
                     <div class="w-12 h-12 rounded-full bg-[#facc15]/10 border border-[#facc15]/20 flex items-center justify-center text-[#facc15] mb-4">
-                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"/></svg>
+                        <i class="fa-solid fa-shield-halved text-lg"></i>
                     </div>
-                    <h3 class="racing-title-light text-lg text-white mb-2">UV Protection</h3>
-                    <p class="text-white/60 text-sm leading-relaxed">Blocks <span class="text-[#facc15] font-semibold">99%+</span> of harmful UV rays. Protects your skin and prevents interior fading, cracking, and discoloration.</p>
+                    <h3 class="font-racing-title text-base text-white mb-2">UV Blockade</h3>
+                    <p class="text-stone-400 text-xs font-mono leading-relaxed">Filters out <span class="text-[#facc15] font-bold">99%+</span> of dangerous solar UV rays, effectively preserving dashboard leathers and preventing interior fade cracking.</p>
                 </div>
-                <!-- Benefit 2: Heat Rejection -->
                 <div class="benefit-card">
                     <div class="w-12 h-12 rounded-full bg-[#facc15]/10 border border-[#facc15]/20 flex items-center justify-center text-[#facc15] mb-4">
-                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M17.657 18.657A8 8 0 016.343 7.343S7 9 9 10c0-2 .5-5 2.986-7C14 5 16.09 5.777 17.656 7.343A7.975 7.975 0 0120 13a7.975 7.975 0 01-2.343 5.657z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M9.879 16.121A3 3 0 1012.015 11L11 14H9c0 .768.293 1.536.879 2.121z"/></svg>
+                        <i class="fa-solid fa-temperature-arrow-down text-lg"></i>
                     </div>
-                    <h3 class="racing-title-light text-lg text-white mb-2">Heat Rejection</h3>
-                    <p class="text-white/60 text-sm leading-relaxed">Rejects up to <span class="text-[#facc15] font-semibold">78%</span> of solar heat. Keeps your cabin cooler, reduces AC load, and improves fuel efficiency.</p>
+                    <h3 class="font-racing-title text-base text-white mb-2">Thermal Rejection</h3>
+                    <p class="text-stone-400 text-xs font-mono leading-relaxed">Deflects up to <span class="text-[#facc15] font-bold">78%</span> of raw solar heat. Keeps cabin interiors cooler on summer days, reducing overall AC wear metrics.</p>
                 </div>
-                <!-- Benefit 3: Privacy -->
                 <div class="benefit-card">
-<script src="script.js"></script>
+                    <div class="w-12 h-12 rounded-full bg-[#facc15]/10 border border-[#facc15]/20 flex items-center justify-center text-[#facc15] mb-4">
+                        <i class="fa-solid fa-eye-slash text-lg"></i>
+                    </div>
+                    <h3 class="font-racing-title text-base text-white mb-2">Cabin Privacy</h3>
+                    <p class="text-stone-400 text-xs font-mono leading-relaxed">Conceals internal contents from outside view blocks, increasing asset protection and security parameters when parked in urban lots.</p>
+                </div>
+                <div class="benefit-card">
+                    <div class="w-12 h-12 rounded-full bg-[#facc15]/10 border border-[#facc15]/20 flex items-center justify-center text-[#facc15] mb-4">
+                        <i class="fa-solid fa-eye text-lg"></i>
+                    </div>
+                    <h3 class="font-racing-title text-base text-white mb-2">Glare Reduction</h3>
+                    <p class="text-stone-400 text-xs font-mono leading-relaxed">Dampens blinding direct sunlight levels and nighttime high-beam distortions, reducing driver vision strain.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="mt-8 bg-stone-900 border border-stone-800 p-6 sm:p-10 rounded-2xl relative overflow-hidden" id="contact-form">
+            <div class="absolute inset-0 checkered-pattern opacity-5 pointer-events-none"></div>
+            <div class="relative z-10 max-w-3xl mx-auto">
+                <div class="text-center mb-8 space-y-2">
+                    <span class="text-yellow-400 font-black text-xs font-mono uppercase tracking-widest">GET A CUSTOM TINT QUOTE</span>
+                    <h2 class="font-racing-title text-3xl text-white">REQUEST WINDOW TINT METRICS</h2>
+                    <p class="text-stone-400 text-xs sm:text-sm">Submit your exact vehicle specifications and layout targets for dynamic pricing.</p>
+                </div>
+                <form id="generalContactForm" onsubmit="handleContactSubmit(event)" class="space-y-6">
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                        <div>
+                            <label class="block text-xs font-bold uppercase text-stone-300 mb-2 font-mono">Full Name *</label>
+                            <input type="text" name="contactName" id="contact_name" required placeholder="e.g. John Doe" class="w-full bg-stone-950 border border-stone-800 focus:border-yellow-400 rounded-lg py-3 px-4 text-white font-mono text-sm placeholder-stone-600 focus:outline-none">
+                        </div>
+                        <div>
+                            <label class="block text-xs font-bold uppercase text-stone-300 mb-2 font-mono">Email *</label>
+                            <input type="email" name="contactEmail" id="contact_email" required placeholder="e.g. john@email.com" class="w-full bg-stone-950 border border-stone-800 focus:border-yellow-400 rounded-lg py-3 px-4 text-white font-mono text-sm placeholder-stone-600 focus:outline-none">
+                        </div>
+                    </div>
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                        <div>
+                            <label class="block text-xs font-bold uppercase text-stone-300 mb-2 font-mono">Phone *</label>
+                            <input type="tel" name="contactPhone" id="contact_phone" required placeholder="e.g. (862) 500-5192" class="w-full bg-stone-950 border border-stone-800 focus:border-yellow-400 rounded-lg py-3 px-4 text-white font-mono text-sm placeholder-stone-600 focus:outline-none">
+                        </div>
+                        <div>
+                            <label class="block text-xs font-bold uppercase text-stone-300 mb-2 font-mono">Vehicle Specs *</label>
+                            <input type="text" name="vehicle" id="contact_vehicle" required placeholder="e.g. 2024 BMW M3 Black" class="w-full bg-stone-950 border border-stone-800 focus:border-yellow-400 rounded-lg py-3 px-4 text-white font-mono text-sm placeholder-stone-600 focus:outline-none">
+                        </div>
+                    </div>
+                    <div class="grid grid-cols-1 gap-6">
+                        <div>
+                            <label class="block text-xs font-bold uppercase text-stone-300 mb-2 font-mono">Target Windows & Tint VLT Percentage Preferences *</label>
+                            <input type="text" name="message" id="contact_message" required placeholder="e.g. 20% ceramic tint around all rear side glass metrics and back windshield layout" class="w-full bg-stone-950 border border-stone-800 focus:border-yellow-400 rounded-lg py-3 px-4 text-white font-mono text-sm placeholder-stone-600 focus:outline-none">
+                        </div>
+                    </div>
+                    <div>
+                        <button type="submit" id="contactSubmitBtn" class="w-full bg-yellow-400 hover:bg-yellow-300 text-stone-950 font-black text-lg py-4 px-6 rounded btn-slant uppercase tracking-wider flex items-center justify-center gap-3 transition-all glow-yellow">
+                            <i class="fa-solid fa-paper-plane"></i> TRANSMIT TINT DISPATCH ENQUIRY
+                        </button>
+                    </div>
+                </form>
+                <div id="contactSuccessBlock" class="hidden mt-6 p-4 rounded-xl border border-yellow-400/30 bg-yellow-400/5 text-yellow-400 text-center space-y-2">
+                    <p class="font-racing-title text-xl"><i class="fa-solid fa-circle-check"></i> INQUIRY PARSED SUCCESSFULLY!</p>
+                    <p class="text-xs font-mono" id="contactSuccessDetailText"></p>
+                </div>
+            </div>
+        </section>
+
+        <section class="mt-16 px-2" data-section="service-area">
+            <div class="text-center mb-4">
+                <span class="text-yellow-400 font-mono text-[10px] font-bold uppercase tracking-widest">SERVICE COVERAGE</span>
+                <h3 class="font-racing-title text-lg text-white mt-1">AREAS WE SERVE</h3>
+            </div>
+            <div class="bg-stone-900/40 border border-stone-800 rounded-xl p-4">
+                <p class="text-yellow-400 font-mono text-[10px] font-bold uppercase tracking-widest mb-2">Bergen County</p>
+                <p class="service-area-text">Allendale, Alpine, Bergenfield, Bogota, Carlstadt, Cliffside Park, Closter, Cresskill, Demarest, Dumont, East Rutherford, Edgewater, Elmwood Park, Emerson, Englewood, Englewood Cliffs, Fair Lawn, Fairview, Fort Lee, Franklin Lakes, Garfield, Glen Rock, Hackensack, Harrington Park, Hasbrouck Heights, Haworth, Hillsdale, Ho-Ho-Kus, Leonia, Little Ferry, Lodi, Lyndhurst, Mahwah, Maywood, Midland Park, Montvale, Moonachie, New Milford, North Arlington, Northvale, Norwood, Oakland, Old Tappan, Oradell, Palisades Park, Paramus, Park Ridge, Ramsey, Ridgefield, Ridgefield Park, Ridgewood, River Edge, River Vale, Rochelle Park, Rockleigh, Rutherford, Saddle Brook, Saddle River, South Hackensack, Teaneck, Tenafly, Teterboro, Upper Saddle River, Waldwick, Wallington, Washington Township, Westwood, Woodcliff Lake, Wood-Ridge, Wyckoff</p>
+
+                <p class="text-yellow-400 font-mono text-[10px] font-bold uppercase tracking-widest mb-2 mt-4">Passaic County</p>
+                <p class="service-area-text">Bloomingdale, Clifton, Haledon, Hawthorne, Little Falls, North Haledon, Passaic, Paterson, Pompton Lakes, Prospect Park, Ringwood, Totowa, Wanaque, Wayne, West Milford, Woodland Park</p>
+            </div>
+        </section>
+
+    </div>
+
+    <footer class="mt-20 border-t border-stone-800 pt-0" data-section="footer">
+        <div class="checkered-pattern h-3 w-full"></div>
+        <div class="max-w-6xl mx-auto px-4 py-12">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-10">
+                <div>
+                    <div class="flex items-center gap-2 mb-3">
+                        <div class="bg-yellow-400 text-stone-950 p-1.5 rounded font-black text-sm italic">123</div>
+                        <span class="font-racing-title text-sm text-white tracking-widest">AUTO DETAILING</span>
+                    </div>
+                    <p class="text-xs text-stone-400 font-mono leading-relaxed">Classic Values. High-Octane Clean. Mobile detailing across Bergen & Passaic County, NJ.</p>
+                    <p class="text-xs text-stone-500 font-mono mt-3">📞 <a href="tel:8625005192" class="text-yellow-400 underline">(862) 500-5192</a></p>
+                </div>
+                <div>
+                    <h4 class="text-yellow-400 font-mono text-[10px] font-bold uppercase tracking-widest mb-4">Services</h4>
+                    <ul class="space-y-2 text-xs text-stone-400 font-mono">
+                        <li><a href="../index.html#tiers" class="hover:text-yellow-400 transition-all">Detailing Packages</a></li>
+                        <li><a href="../paint-protection-film/index.html" class="hover:text-yellow-400 transition-all">Paint Protection Film</a></li>
+                        <li><a href="../ceramic-coatings/index.html" class="hover:text-yellow-400 transition-all">Ceramic Coatings</a></li>
+                        <li><a href="../tinting/index.html" class="hover:text-yellow-400 transition-all">Tinting</a></li>
+                        <li><a href="../paint-corrections/index.html" class="hover:text-yellow-400 transition-all">Paint Corrections</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-yellow-400 font-mono text-[10px] font-bold uppercase tracking-widest mb-4">Company</h4>
+                    <ul class="space-y-2 text-xs text-stone-400 font-mono">
+                        <li><a href="../index.html" class="hover:text-yellow-400 transition-all">Home</a></li>
+                        <li><a href="../blog/index.html" class="hover:text-yellow-400 transition-all">The Garage Journal</a></li>
+                        <li><a href="../about/index.html" class="hover:text-yellow-400 transition-all">About</a></li>
+                        <li><a href="../gallery/index.html" class="hover:text-yellow-400 transition-all">Gallery</a></li>
+                        <li><a href="../index.html#tiers" class="hover:text-yellow-400 transition-all">Book Service</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="border-t border-stone-800 mt-10 pt-6 text-center">
+                <p class="text-xs text-stone-500 font-mono">&copy; 2026 123 Auto Detailing. All rights reserved. Bergen County & Passaic County, NJ.</p>
+            </div>
+        </div>
+    </footer>
+
+    <div id="chat-overlay" role="dialog" aria-modal="true" aria-hidden="true">
+        <iframe src="https://paymegpt.com/agents/28816726/embed" title="Chat Support"></iframe>
+        <button id="chat-close" aria-label="Close chat">&times;</button>
+    </div>
+
+    <script>
+        const hamburgerBtn = document.getElementById('hamburger-btn');
+        const mobileMenu = document.getElementById('mobileMenu');
+        const mobileCloseBtn = document.getElementById('mobile-close-btn');
+
+        hamburgerBtn.addEventListener('click', () => mobileMenu.classList.add('open'));
+        mobileCloseBtn.addEventListener('click', () => mobileMenu.classList.remove('open'));
+        mobileMenu.querySelectorAll('a').forEach(link => link.addEventListener('click', () => mobileMenu.classList.remove('open')));
+
+        // Chat overlay functions mapping rules
+        const chatWidget = document.getElementById('chat-widget');
+        const chatOverlay = document.getElementById('chat-overlay');
+        const chatClose = document.getElementById('chat-close');
+
+        chatWidget.addEventListener('click', () => {
+            chatOverlay.classList.add('active');
+            chatOverlay.setAttribute('aria-hidden', 'false');
+        });
+        chatClose.addEventListener('click', () => {
+            chatOverlay.classList.remove('active');
+            chatOverlay.setAttribute('aria-hidden', 'true');
+        });
+
+        function handleContactSubmit(event) {
+            event.preventDefault();
+            const name = document.getElementById('contact_name').value;
+            const email = document.getElementById('contact_email').value;
+            const phone = document.getElementById('contact_phone').value;
+            const vehicle = document.getElementById('contact_vehicle').value;
+            const message = document.getElementById('contact_message').value;
+
+            const btn = document.getElementById('contactSubmitBtn');
+            btn.disabled = true;
+            btn.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> TRANSMITTING METRICS...';
+
+            const formData = {
+                contactName: name,
+                contactEmail: email,
+                contactPhone: phone,
+                data: {
+                    vehicle: vehicle,
+                    message: message,
+                    formType: "Window Tint Subpage Submission Panel"
+                }
+            };
+
+            fetch('https://paymegpt.com/api/webhooks/flow/3762/7f18c3f219503532eb92a6241effecebc06fd7609c4a002ffa6b3feea89c169b', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(formData)
+            }).then(() => {
+                showSuccess(name, phone);
+            }).catch(() => {
+                showSuccess(name, phone);
+            });
+        }
+
+        function showSuccess(name, phone) {
+            const btn = document.getElementById('contactSubmitBtn');
+            btn.disabled = false;
+            btn.innerHTML = '<i class="fa-solid fa-paper-plane"></i> TRANSMIT TINT DISPATCH ENQUIRY';
+            const block = document.getElementById('contactSuccessBlock');
+            block.classList.remove('hidden');
+            document.getElementById('contactSuccessDetailText').innerHTML = `Thanks, <strong>${name}</strong>! Your mobile tint inquiry has been registered. Our dispatch crew will call you at <strong>${phone}</strong> shortly.`;
+            document.getElementById('generalContactForm').reset();
+        }
+    </script>
+</body>
+</html>
