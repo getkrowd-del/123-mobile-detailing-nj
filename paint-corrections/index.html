@@ -184,6 +184,7 @@
     for(var j=0;j<inputs.length;j++){if(inputs[j].value)return inputs[j].value.trim();}
     return '';
   }
+  function findPhone(){var ids=['phone','phoneNumber','phone-number','tel','telephone','mobile','mobileNumber','cell','contact-phone','buyer-phone'];for(var i=0;i<ids.length;i++){var el=document.getElementById(ids[i]);if(el&&el.value&&el.value.trim())return el.value.trim();}var inputs=document.querySelectorAll('input[type="tel"],input[name*="phone"],input[name*="tel"],input[name*="mobile"],input[placeholder*="phone"],input[placeholder*="Phone"]');for(var j=0;j<inputs.length;j++){if(inputs[j].value&&inputs[j].value.trim())return inputs[j].value.trim();}return '';}
   var __realProcessPayment=function(a,b,c,d,e){
     var amountCents,email,productName,productDescription,customerName,quantity;
     if(a&&typeof a==='object'){
@@ -195,6 +196,7 @@
     }
     if(!email)email=findEmail();
     if(!customerName)customerName=findName();
+    var phone=findPhone();
     if(!productName){alert('Product name is required.');return Promise.reject('no_product_name');}
     if(!amountCents||amountCents<100){alert('Amount must be at least $1.00');return Promise.reject('invalid_amount');}
     if(!email){alert('Please enter your email address.');return Promise.reject('no_email');}
@@ -202,7 +204,7 @@
     var __pLoc=(document.documentElement.lang||navigator.language||'en');
     return fetch(apiBase+'/api/landing-pages/public/'+slug+'/payment/checkout',{
       method:'POST',headers:{'Content-Type':'application/json'},
-      body:JSON.stringify({email:email,name:customerName,amountCents:amountCents,productName:productName,productDescription:productDescription,quantity:quantity,locale:__pLoc,successUrl:successBase+'?payment=success&product='+encodeURIComponent(productName)+'&session_id={CHECKOUT_SESSION_ID}',cancelUrl:successBase+'?payment=cancelled'})
+      body:JSON.stringify({email:email,name:customerName,phone:phone||'',amountCents:amountCents,productName:productName,productDescription:productDescription,quantity:quantity,locale:__pLoc,successUrl:successBase+'?payment=success&product='+encodeURIComponent(productName)+'&session_id={CHECKOUT_SESSION_ID}',cancelUrl:successBase+'?payment=cancelled'})
     }).then(function(r){return r.json();}).then(function(d){
       if(d.checkoutUrl){window.location.href=d.checkoutUrl;}
       else{alert(d.error||'Failed to process payment');throw new Error(d.error);}
@@ -226,6 +228,83 @@
     }
   });
 })();
+</script>
+<script data-cart>
+(function(){
+  var slug='cR5zmtxpfa';
+  var apiBase='https://paymegpt.com';
+  var successSubtext='';var successBtnLabel='Continue';var successBtnColor='#16a34a';var successRedirect='';
+  function findCartEmail(){
+    var ids=['email','emailAddress','buyer-email','buyerEmail','user-email','userEmail','checkout-email','customer-email','contact-email'];
+    for(var i=0;i<ids.length;i++){var el=document.getElementById(ids[i]);if(el&&el.value&&el.value.includes('@'))return el.value.trim();}
+    var inputs=document.querySelectorAll('input[type="email"],input[name*="email"],input[placeholder*="email"],input[placeholder*="Email"]');
+    for(var j=0;j<inputs.length;j++){if(inputs[j].value&&inputs[j].value.includes('@'))return inputs[j].value.trim();}
+    return '';
+  }
+  function findCartName(){
+    var ids=['name','fullName','full-name','buyer-name','buyerName','customer-name','userName','user-name'];
+    for(var i=0;i<ids.length;i++){var el=document.getElementById(ids[i]);if(el&&el.value)return el.value.trim();}
+    var inputs=document.querySelectorAll('input[name*="name"]:not([name*="email"]):not([type="email"]),input[placeholder*="name"]:not([placeholder*="email"]):not([type="email"]),input[placeholder*="Name"]:not([type="email"])');
+    for(var j=0;j<inputs.length;j++){if(inputs[j].value)return inputs[j].value.trim();}
+    return '';
+  }
+  function findCartPhone(){var ids=['phone','phoneNumber','phone-number','tel','telephone','mobile','mobileNumber','cell','contact-phone','buyer-phone'];for(var i=0;i<ids.length;i++){var el=document.getElementById(ids[i]);if(el&&el.value&&el.value.trim())return el.value.trim();}var inputs=document.querySelectorAll('input[type="tel"],input[name*="phone"],input[name*="tel"],input[name*="mobile"],input[placeholder*="phone"],input[placeholder*="Phone"]');for(var j=0;j<inputs.length;j++){if(inputs[j].value&&inputs[j].value.trim())return inputs[j].value.trim();}return '';}
+  var __realCart=function(arg){
+    var items, email='', customerName='', successUrl, cancelUrl, currency;
+    if(Array.isArray(arg)){items=arg;}
+    else if(arg&&typeof arg==='object'){
+      items=arg.items;email=arg.email||'';customerName=arg.name||arg.customerName||'';
+      successUrl=arg.successUrl;cancelUrl=arg.cancelUrl;currency=arg.currency;
+    }
+    if(!Array.isArray(items)||items.length===0){alert('No items in cart.');return Promise.reject('no_items');}
+    var cleanItems=[];var totalCents=0;
+    for(var i=0;i<items.length;i++){
+      var it=items[i];if(!it||typeof it!=='object'){alert('Invalid item at position '+i);return Promise.reject('bad_item');}
+      var nm=typeof it.name==='string'?it.name.trim():'';
+      if(!nm){alert('Item '+(i+1)+' is missing a name.');return Promise.reject('no_name');}
+      var amt=typeof it.amountCents==='number'?it.amountCents:(typeof it.amount==='number'?Math.round(it.amount*100):NaN);
+      if(!isFinite(amt)||amt<1){alert('Item "'+nm+'" needs a valid amount in cents.');return Promise.reject('bad_amount');}
+      var qty=(typeof it.quantity==='number'&&it.quantity>0)?Math.floor(it.quantity):1;
+      cleanItems.push({name:nm,description:it.description||'',amountCents:amt,quantity:qty});
+      totalCents+=amt*qty;
+    }
+    if(totalCents<50){alert('Cart total must be at least $0.50');return Promise.reject('total_too_low');}
+    if(!email)email=findCartEmail();
+    if(!customerName)customerName=findCartName();
+    var cartPhone=findCartPhone();
+    if(!email){var p=window.prompt('Enter your email for the receipt:','');if(p&&p.indexOf('@')>-1){email=p.trim();}else{alert('An email address is required to complete checkout.');return Promise.reject('no_email');}}
+    var successBase=window.location.href.split('?')[0];
+    var body={email:email,name:customerName,items:cleanItems,locale:(document.documentElement.lang||navigator.language||'en')};
+    if(currency)body.currency=currency;
+    if(cartPhone)body.phone=cartPhone;
+    body.successUrl=successUrl||(successBase+'?cart=success&email='+encodeURIComponent(email)+'&session_id={CHECKOUT_SESSION_ID}');
+    body.cancelUrl=cancelUrl||(successBase+'?cart=cancelled');
+    return fetch(apiBase+'/api/landing-pages/public/'+slug+'/cart/checkout',{
+      method:'POST',headers:{'Content-Type':'application/json'},
+      body:JSON.stringify(body)
+    }).then(function(r){return r.json();}).then(function(d){
+      if(d.checkoutUrl){window.location.href=d.checkoutUrl;}
+      else{alert(d.error||'Failed to process checkout');throw new Error(d.error);}
+    });
+  };
+  try{Object.defineProperty(window,'__processCart',{value:__realCart,writable:false,configurable:false});}catch(e){window.__processCart=__realCart;}
+  document.addEventListener('DOMContentLoaded',function(){
+    var urlParams=new URLSearchParams(window.location.search);
+    if(urlParams.get('cart')==='success'){
+      var sidC=urlParams.get('session_id');
+      if(sidC){try{fetch(apiBase+'/api/landing-pages/public/'+slug+'/checkout/confirm',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({sessionId:sidC})}).catch(function(){});}catch(e){}}
+      if(document.getElementById('payment-success-overlay')||document.getElementById('donation-success-overlay')||document.getElementById('cart-success-overlay'))return;
+      var overlay=document.createElement('div');overlay.id='cart-success-overlay';
+      overlay.style.cssText='position:fixed;top:0;left:0;right:0;bottom:0;background:rgba(0,0,0,0.5);display:flex;align-items:center;justify-content:center;z-index:999999;font-family:system-ui,-apple-system,sans-serif;';
+      function esc(s){return String(s||'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');}
+      var subTxt=successSubtext||'Thank you for your order.';
+      overlay.innerHTML='<div style="background:white;border-radius:16px;padding:40px;max-width:420px;width:90%;text-align:center;box-shadow:0 20px 60px rgba(0,0,0,0.15);"><div style="width:64px;height:64px;border-radius:50%;background:#dcfce7;margin:0 auto 20px;display:flex;align-items:center;justify-content:center;"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#16a34a" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></div><h2 style="margin:0 0 12px;font-size:24px;font-weight:700;color:#111827;">Order Confirmed!</h2><p style="margin:0 0 24px;color:#6b7280;font-size:16px;">'+esc(subTxt)+'</p><button id="lp-cart-success-btn" style="padding:12px 32px;font-size:16px;font-weight:600;background:'+successBtnColor+';color:white;border:none;border-radius:8px;cursor:pointer;">'+esc(successBtnLabel)+'</button></div>';
+      document.body.appendChild(overlay);
+      var cBtn=document.getElementById('lp-cart-success-btn');
+      if(cBtn){cBtn.addEventListener('click',function(){if(successRedirect){window.location.href=successRedirect;}else{overlay.remove();window.history.replaceState({},'',window.location.pathname);}});}
+    }
+  });
+})();
 </script>  <link rel="stylesheet" href="/styles.css">
 </head>
 <body>
@@ -234,36 +313,129 @@
   <!-- SECTION: Navbar                                                            -->
   <!-- Dark racing navbar with logo, phone, and anchor links                      -->
   <!-- ========================================================================== -->
-  <nav data-section="navbar" class="bg-carbon border-b border-white/5 px-4 sm:px-6 lg:px-8 py-4 sticky top-0 z-50 backdrop-blur-md bg-opacity-95">
-    <div class="max-w-7xl mx-auto flex items-center justify-between">
-      <!-- Logo + Brand -->
-      <a href="/" class="flex items-center gap-3 group">
-        <div class="w-10 h-10 checkered-yellow-bg rounded flex items-center justify-center font-black text-lg text-carbon">123</div>
-        <div class="hidden sm:block">
-          <span class="text-white font-bold text-lg tracking-tight">123 Mobile Detailing</span>
-          <span class="block text-xs text-racing-yellow racing-title-sm tracking-widest">NJ</span>
-        </div>
-      </a>
-      <!-- Nav Links (desktop) -->
-      <div class="hidden md:flex items-center gap-8">
-        <a href="/" class="nav-link text-sm uppercase tracking-widest text-gray-300">Home</a>
-        <a href="#correction" class="nav-link text-sm uppercase tracking-widest text-gray-300">Paint Correction</a>
-        <a href="#stages" class="nav-link text-sm uppercase tracking-widest text-gray-300">Stages</a>
-        <a href="#gallery" class="nav-link text-sm uppercase tracking-widest text-gray-300">Gallery</a>
-        <a href="#contact" class="nav-link text-sm uppercase tracking-widest text-gray-300">Contact</a>
+  <nav data-section="navbar" class="relative font-outfit text-racing-yellow">
+    <!-- Checkered Pattern Strip -->
+    <div class="h-[4px] bg-carbon relative" style="background-image:
+      linear-gradient(45deg, #444 25%, transparent 25%),
+      linear-gradient(-45deg, #444 25%, transparent 25%),
+      linear-gradient(45deg, transparent 75%, #444 75%),
+      linear-gradient(-45deg, transparent 75%, #444 75%);
+      background-size: 12px 12px;
+      background-position: 0 0, 0 6px, 6px -6px, -6px 0px;">
+    </div>
+    <!-- Dispatch Bar -->
+    <div class="bg-yellow-500 flex items-center justify-between px-6 py-2 text-sm font-semibold tracking-wider" style="background-color:#facc15;">
+      <div class="flex items-center gap-3">
+        <!-- Animated Red Dot -->
+        <span class="inline-block w-3 h-3 rounded-full bg-red-600 animate-pulse"></span>
+        <!-- Truck Icon -->
+        <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 text-black" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M9 17v-6a1 1 0 011-1h8a1 1 0 011 1v6M9 17H6a2 2 0 01-2-2v-3a1 1 0 011-1h3m9-2V7a1 1 0 00-1-1H5a2 2 0 00-2 2v3m16 0v7m-9 0a2 2 0 104 0m-4 0h4" />
+        </svg>
+        <span class="uppercase" style="font-weight:900; font-style:italic; letter-spacing:-0.03em;">DIRECT HOME DRIVEWAY DISPATCH ACTIVE</span>
       </div>
-      <!-- Phone + Mobile Toggle -->
-      <div class="flex items-center gap-4">
-        <a href="tel:+18625005192" class="hidden sm:inline-flex items-center gap-2 text-racing-yellow font-semibold text-sm uppercase tracking-wider hover:underline">
-          <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M6.62 10.79a15.05 15.05 0 006.59 6.59l2.2-2.2a1 1 0 011.01-.24 11.36 11.36 0 003.58.57 1 1 0 011 1V20a1 1 0 01-1 1A17 17 0 013 4a1 1 0 011-1h3.5a1 1 0 011 1 11.36 11.36 0 00.57 3.58 1 1 0 01-.24 1.01l-2.2 2.2z"/></svg>
-          (862) 500-5192
-        </a>
-        <!-- Mobile hamburger (simple anchor) -->
-        <a href="#contact" class="md:hidden text-racing-yellow">
-          <svg class="w-7 h-7" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16"/></svg>
-        </a>
+      <div class="flex gap-3">
+        <a href="tel:8625005192" class="bg-black text-yellow-500 font-bold px-4 py-1 rounded border border-black hover:bg-gray-900 transition" aria-label="Call 8625005192">CALL: (862) 500-5192</a>
+        <a href="/#booking-section" class="bg-red-600 text-white font-bold px-4 py-1 rounded hover:bg-red-700 transition">BOOK DRIVEWAY APPOINTMENT</a>
       </div>
     </div>
+    <!-- Main Nav Container -->
+    <div class="max-w-6xl mx-auto mt-6 px-4">
+      <nav class="bg-stone-900 border border-stone-800 rounded-lg p-4 flex items-center justify-between relative" role="navigation" aria-label="Primary Navigation">
+        <!-- Left: Logo and Titles -->
+        <div class="flex items-center gap-4">
+          <div class="w-12 h-12 bg-yellow-400 rounded flex items-center justify-center font-black text-carbon text-xl" style="color:#121214">123</div>
+          <div class="text-racing-yellow">
+            <h1 class="font-racing-title text-yellow-400 font-[900] italic uppercase tracking-[-0.03em] m-0 text-xl">AUTO DETAILING</h1>
+            <p class="text-yellow-400 uppercase tracking-wide text-xs font-bold mt-0.5">MOBILE DETAILING NJ</p>
+          </div>
+        </div>
+        <!-- Desktop Nav Links -->
+        <ul class="hidden md:flex items-center gap-6 font-semibold uppercase tracking-wide text-yellow-400 select-none">
+          <li><a href="/" class="nav-link hover:text-yellow-500 transition ease-in-out duration-300">Home</a></li>
+          <li class="relative group">
+            <button type="button" class="nav-link flex items-center gap-1 hover:text-yellow-500 transition ease-in-out duration-300 select-none" aria-haspopup="true" aria-expanded="false">Services
+              <svg class="w-3 h-3 mt-px" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M5.23 7.21a.75.75 0 011.06-.02L10 10.915l3.71-3.726a.75.75 0 011.08 1.04l-4.218 4.238a.75.75 0 01-1.08 0L5.23 8.27a.75.75 0 01-.02-1.06z" clip-rule="evenodd"/></svg>
+            </button>
+            <ul class="nav-dropdown absolute left-0 top-full mt-2 w-48 bg-stone-900 border border-stone-700 rounded-lg shadow-lg opacity-0 group-hover:opacity-100 invisible group-hover:visible transition-opacity duration-300 z-20 py-2">
+              <li><a href="/#tiers" class="block px-4 py-2 hover:bg-yellow-500 hover:text-black transition">Detailing</a></li>
+              <li><a href="/paint-protection-film/" class="block px-4 py-2 hover:bg-yellow-500 hover:text-black transition">Paint Protection Film</a></li>
+              <li><a href="/ceramic-coatings/" class="block px-4 py-2 hover:bg-yellow-500 hover:text-black transition">Ceramic Coatings</a></li>
+              <li><a href="/tinting/" class="block px-4 py-2 hover:bg-yellow-500 hover:text-black transition">Tinting</a></li>
+              <li><a href="/paint-corrections/" class="block px-4 py-2 hover:bg-yellow-500 hover:text-black transition">Paint Corrections</a></li>
+            </ul>
+          </li>
+          <li class="relative group">
+            <button type="button" class="nav-link flex items-center gap-1 hover:text-yellow-500 transition ease-in-out duration-300 select-none" aria-haspopup="true" aria-expanded="false">More
+              <svg class="w-3 h-3 mt-px" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M5.23 7.21a.75.75 0 011.06-.02L10 10.915l3.71-3.726a.75.75 0 011.08 1.04l-4.218 4.238a.75.75 0 01-1.08 0L5.23 8.27a.75.75 0 01-.02-1.06z" clip-rule="evenodd"/></svg>
+            </button>
+            <ul class="nav-dropdown absolute left-0 top-full mt-2 w-40 bg-stone-900 border border-stone-700 rounded-lg shadow-lg opacity-0 group-hover:opacity-100 invisible group-hover:visible transition-opacity duration-300 z-20 py-2">
+              <li><a href="/blog/" class="block px-4 py-2 hover:bg-yellow-500 hover:text-black transition">The Garage Journal</a></li>
+              <li><a href="/about/" class="block px-4 py-2 hover:bg-yellow-500 hover:text-black transition">About</a></li>
+              <li><a href="/gallery/" class="block px-4 py-2 hover:bg-yellow-500 hover:text-black transition">Gallery</a></li>
+            </ul>
+          </li>
+          <li><a href="/#booking-section" class="btn-racing px-6 py-2 rounded text-carbon hover:text-carbon hover:bg-yellow-400 transition font-bold">Book Appointment</a></li>
+        </ul>
+        <!-- Mobile Hamburger -->
+        <button id="mobile-menu-button" aria-label="Open menu" aria-expanded="false" class="md:hidden p-2 rounded text-yellow-400 hover:text-yellow-300 hover:bg-stone-800 transition">
+          <svg class="w-7 h-7" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round" stroke-linecap="round" viewBox="0 0 24 24">
+            <path d="M4 6h16M4 12h16M4 18h16" />
+          </svg>
+        </button>
+      </nav>
+    </div>
+    <!-- Mobile Overlay Menu -->
+    <div id="mobile-menu-overlay" class="fixed inset-0 bg-stone-900 bg-opacity-95 backdrop-blur-md z-50 transform translate-x-full transition-transform duration-300">
+      <div class="flex justify-between items-center p-6 border-b border-stone-800">
+        <div class="flex items-center gap-3">
+          <div class="w-12 h-12 bg-yellow-400 rounded flex items-center justify-center font-black text-carbon text-xl" style="color:#121214">123</div>
+          <div class="text-racing-yellow">
+            <h2 class="font-racing-title font-[900] italic uppercase tracking-[-0.03em] text-yellow-400 m-0 text-lg">AUTO DETAILING</h2>
+            <p class="text-yellow-400 uppercase tracking-wide text-xs font-bold mt-0.5">MOBILE DETAILING NJ</p>
+          </div>
+        </div>
+        <button id="mobile-menu-close" aria-label="Close menu" class="text-yellow-400 hover:text-yellow-300 transition p-2 rounded">
+          <svg class="w-7 h-7" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round" stroke-linecap="round" viewBox="0 0 24 24">
+            <path d="M6 18L18 6M6 6l12 12" />
+          </svg>
+        </button>
+      </div>
+      <nav class="flex flex-col p-6 space-y-4 text-yellow-400 font-semibold uppercase tracking-wide select-none">
+        <a href="/" class="py-2 px-3 hover:bg-yellow-500 hover:text-black rounded transition">Home</a>
+        <details class="group" open>
+          <summary class="cursor-pointer flex justify-between items-center py-2 px-3 hover:bg-yellow-500 hover:text-black rounded transition">
+            Services
+            <svg class="w-4 h-4 shrink-0 transition-transform group-open:rotate-180" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round" stroke-linecap="round" viewBox="0 0 24 24">
+              <path d="M6 9l6 6 6-6" />
+            </svg>
+          </summary>
+          <div class="pl-6 flex flex-col space-y-1 mt-1">
+            <a href="/#tiers" class="py-1 px-3 hover:bg-yellow-400 hover:text-black rounded transition">Detailing</a>
+            <a href="/paint-protection-film/" class="py-1 px-3 hover:bg-yellow-400 hover:text-black rounded transition">Paint Protection Film</a>
+            <a href="/ceramic-coatings/" class="py-1 px-3 hover:bg-yellow-400 hover:text-black rounded transition">Ceramic Coatings</a>
+            <a href="/tinting/" class="py-1 px-3 hover:bg-yellow-400 hover:text-black rounded transition">Tinting</a>
+            <a href="/paint-corrections/" class="py-1 px-3 hover:bg-yellow-400 hover:text-black rounded transition">Paint Corrections</a>
+          </div>
+        </details>
+        <details class="group" open>
+          <summary class="cursor-pointer flex justify-between items-center py-2 px-3 hover:bg-yellow-500 hover:text-black rounded transition">
+            More
+            <svg class="w-4 h-4 shrink-0 transition-transform group-open:rotate-180" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round" stroke-linecap="round" viewBox="0 0 24 24">
+              <path d="M6 9l6 6 6-6" />
+            </svg>
+          </summary>
+          <div class="pl-6 flex flex-col space-y-1 mt-1">
+            <a href="/blog/" class="py-1 px-3 hover:bg-yellow-400 hover:text-black rounded transition">The Garage Journal</a>
+            <a href="/about/" class="py-1 px-3 hover:bg-yellow-400 hover:text-black rounded transition">About</a>
+            <a href="/gallery/" class="py-1 px-3 hover:bg-yellow-400 hover:text-black rounded transition">Gallery</a>
+          </div>
+        </details>
+        <a href="/#booking-section" class="bg-yellow-400 text-black font-bold uppercase text-center py-3 rounded shadow hover:bg-yellow-300 transition">Book Appointment</a>
+      </nav>
+    </div>
+    
+    
   </nav>
 
   <!-- ========================================================================== -->
@@ -528,3 +700,4 @@
             <!-- Swirl mark icon -->
             <div class="absolute inset-0 flex items-center justify-center">
               <svg class="w-16 h-16 text-gray-700" fill="none" stroke="currentColor" stroke-width="1" viewBox="0 0 24 24"><path stroke-linecap="round" d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2z"/><path stroke-linecap="round" d="M12 6v6l4
+<script src="script.js"></script>
