@@ -310,17 +310,17 @@
 <body class="min-h-screen">
 
 <!-- Chat Teaser -->
-<div id="chat-teaser">
+<div id="chat-teaser" data-section="chat-teaser">
     <div class="teaser-bubble">
         <button class="teaser-close" id="teaser-close-btn">✕</button>
         <p style="font-size:0.88rem;color:#f3f4f6;line-height:1.55;">👋 Hey! Need a quote or want to book a detail? <strong style="color:#facc15;">Tap me</strong> and let's get your ride looking fresh!</p>
     </div>
 </div>
 <button id="custom-chat-btn" class="chat-bounce"><img src="https://krowdimg.b-cdn.net/clients/123MobileDetailing/chatIcon.PNG" alt="Chat with us"></button>
-<div id="chat-panel"><iframe id="chat-iframe" src="" allow="microphone"></iframe></div>
+<div id="chat-panel" data-section="chat-panel"><iframe id="chat-iframe" src="" allow="microphone"></iframe></div>
 
 <!-- Mobile Nav Overlay -->
-<div class="mobile-nav-overlay" id="mobileMenu">
+<div class="mobile-nav-overlay" id="mobileMenu" data-section="mobile-nav">
     <a href="/">Home</a>
     <a href="#tiers" style="color:#facc15;font-weight:700;">Detailing</a>
     <a href="/paint-protection-film/" class="sub-link" data-subpage="ppf">Paint Protection Film</a>
@@ -334,8 +334,8 @@
 </div>
 
 <!-- Top Dispatch Bar -->
-<div class="checkered-pattern h-4 w-full border-b border-gray-800"></div>
-<div class="bg-yellow-400 text-stone-950 font-black py-3 px-4">
+<div class="checkered-pattern h-4 w-full border-b border-gray-800" data-section="dispatch-strip"></div>
+<div class="bg-yellow-400 text-stone-950 font-black py-3 px-4" data-section="dispatch-bar">
     <div class="max-w-6xl mx-auto flex flex-col md:flex-row items-center justify-between gap-2 text-center md:text-left">
         <span class="font-racing-title text-base tracking-wider flex items-center gap-2">
             <span class="inline-block w-2.5 h-2.5 bg-red-600 animate-ping rounded-full"></span>
@@ -352,10 +352,10 @@
     </div>
 </div>
 
-<div class="max-w-6xl mx-auto mt-6 px-4">
+<div class="max-w-6xl mx-auto mt-6 px-4" data-section="page-content">
 
     <!-- Navigation -->
-    <nav class="bg-stone-900 border border-stone-800 rounded-lg p-4 flex items-center justify-between gap-4 shadow-xl">
+    <nav class="bg-stone-900 border border-stone-800 rounded-lg p-4 flex items-center justify-between gap-4 shadow-xl" data-section="navbar">
         <div class="flex items-center gap-3">
             <div class="bg-yellow-400 text-stone-950 p-2 rounded font-black text-xl italic tracking-tighter">123</div>
             <div>
@@ -399,7 +399,7 @@
     </nav>
 
     <!-- Hero -->
-    <main class="mt-8 grid grid-cols-1 lg:grid-cols-12 gap-8 items-center bg-stone-900/60 p-6 sm:p-10 rounded-2xl border border-stone-800 shadow-2xl relative overflow-hidden" id="about">
+    <main class="mt-8 grid grid-cols-1 lg:grid-cols-12 gap-8 items-center bg-stone-900/60 p-6 sm:p-10 rounded-2xl border border-stone-800 shadow-2xl relative overflow-hidden" id="about" data-section="hero">
         <div class="absolute top-0 right-0 w-64 h-64 bg-yellow-400/5 rounded-full blur-3xl pointer-events-none"></div>
         <div class="lg:col-span-6 space-y-6">
             <div class="inline-flex items-center gap-2 bg-stone-800 border border-stone-700 rounded-full px-3 py-1 text-xs font-bold text-stone-300 uppercase">
@@ -445,7 +445,7 @@
     </main>
 
     <!-- Pricing Section -->
-    <section class="mt-16" id="tiers">
+    <section class="mt-16" id="tiers" data-section="pricing">
         <div class="text-center max-w-xl mx-auto space-y-3 mb-12">
             <div class="inline-block checkered-pattern px-4 py-1 text-xs text-white tracking-widest font-bold uppercase rounded-sm border border-stone-800">SERVICE PACKAGES</div>
             <h2 class="font-racing-title text-3xl sm:text-4xl text-white">CHOOSE YOUR DETAIL PACKAGE</h2>
@@ -559,7 +559,7 @@
     </section>
 
     <!-- Unified Interactive Booking Section (hidden initially until a package is selected) -->
-    <section id="booking-section" class="scroll-mt-24 mt-16 max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-3 gap-8 hidden">
+    <section id="booking-section" class="scroll-mt-24 mt-16 max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-3 gap-8 hidden" data-section="booking-section">
         
         <!-- Interactive Step-by-Step Dispatch Form (Left 2 Columns) -->
         <div class="lg:col-span-2 bg-stone-900 border border-stone-800 rounded-2xl p-6 sm:p-8 space-y-8 relative overflow-hidden">
@@ -913,7 +913,7 @@
     </section>
 
     <!-- Contact Us Form (General fallbacks and queries) -->
-    <section class="mt-16 bg-stone-900 border border-stone-800 p-6 sm:p-10 rounded-2xl relative overflow-hidden" id="contact-form">
+    <section class="mt-16 bg-stone-900 border border-stone-800 p-6 sm:p-10 rounded-2xl relative overflow-hidden" id="contact-form" data-section="contact-form">
         <div class="absolute inset-0 checkered-pattern opacity-5 pointer-events-none"></div>
         <div class="relative z-10 max-w-3xl mx-auto">
             <div class="text-center mb-8 space-y-2">
@@ -972,7 +972,7 @@
     </section>
 
     <!-- Service Area Section -->
-    <section class="mt-16 px-2">
+    <section class="mt-16 px-2" data-section="service-area">
         <div class="text-center mb-4">
             <span class="text-yellow-400 font-mono text-[10px] font-bold uppercase tracking-widest">SERVICE COVERAGE</span>
             <h3 class="font-racing-title text-lg text-white mt-1">AREAS WE SERVE</h3>
@@ -989,7 +989,7 @@
 </div>
 
 <!-- Footer -->
-<footer class="mt-20 border-t border-stone-800 pt-0">
+<footer class="mt-20 border-t border-stone-800 pt-0" data-section="footer">
     <div class="checkered-pattern h-3 w-full"></div>
     <div class="max-w-6xl mx-auto px-4 py-12">
         <div class="grid grid-cols-1 md:grid-cols-4 gap-10">
@@ -1458,7 +1458,14 @@
     // Smooth scroll logic linked cleanly to elements
     document.querySelectorAll('a[href^="#"]').forEach(a => {
         a.addEventListener('click', e => {
-            const t = document.querySelector(a.getAttribute('href'));
+            const href = a.getAttribute('href');
+            if (href === '#booking-section') {
+                e.preventDefault();
+                selectPackage('tier4');
+                mobileMenu.classList.remove('open');
+                return;
+            }
+            const t = document.querySelector(href);
             if (t) { 
                 e.preventDefault(); 
                 t.scrollIntoView({ behavior: 'smooth' }); 
