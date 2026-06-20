@@ -1,17 +1,15 @@
-```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
-    <meta name="description" content="Premium paint protection film installation by 123 Mobile Detailing NJ. Self-healing, UV-resistant PPF for your vehicle. Serving Bergen &amp; Passaic County." />
-    <!-- Google Fonts: Outfit -->
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
-    <!-- Tailwind Play CDN -->
+    <meta name="description" content="Premium paint protection film installation by 123 Mobile Detailing NJ. Self-healing, UV-resistant PPF for your vehicle. Serving Bergen & Passaic County.">
     <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;800;900&display=swap" rel="stylesheet">
     
 
 <!-- SEO Meta Tags -->
@@ -304,300 +302,327 @@
 })();
 </script>  <link rel="stylesheet" href="/styles.css">
 </head>
-<body>
+<body class="min-h-screen">
 
-    <!-- ========================================================================== -->
-    <!-- SECTION: NAVBAR                                                            -->
-    <!-- Description: Top navigation with logo, links, Services & More dropdowns,   -->
-    <!--              and Contact Us button. Sticky on scroll.                      -->
-    <!-- ========================================================================== -->
-    <nav data-section="navbar" class="relative bg-stone-900 border-stone-800 rounded-lg max-w-6xl mx-auto mt-6 px-4 p-4 border">
-    <!-- Checkered Pattern Strip -->
-    <div class="absolute top-0 left-0 right-0 h-1 w-full bg-black checkered-bg-light opacity-40"></div>
+<div id="chat-teaser" data-section="chat-teaser">
+    <div class="teaser-bubble">
+        <button class="teaser-close" id="teaser-close-btn">✕</button>
+        <p style="font-size:0.88rem;color:#f3f4f6;line-height:1.55;">👋 Hey! Need a quote or want to book a detail? <strong style="color:#facc15;">Tap me</strong> and let's get your ride looking fresh!</p>
+    </div>
+</div>
+<button id="custom-chat-btn" class="chat-bounce"><img src="https://krowdimg.b-cdn.net/clients/123MobileDetailing/chatIcon.PNG" alt="Chat with us"></button>
+<div id="chat-panel" data-section="chat-panel"><iframe id="chat-iframe" src="" allow="microphone"></iframe></div>
 
-    <!-- Dispatch Bar -->
-    <div class="flex items-center justify-between bg-[#facc15] px-4 py-1 rounded-md text-black font-semibold mb-4">
+<div class="mobile-nav-overlay" id="mobileMenu" data-section="mobile-nav">
+    <a href="/">Home</a>
+    <a href="/#tiers" style="color:#facc15;font-weight:700;">Detailing</a>
+    <a href="/paint-protection-film/" class="sub-link">Paint Protection Film</a>
+    <a href="/ceramic-coatings/" class="sub-link">Ceramic Coatings</a>
+    <a href="/tinting/" class="sub-link">Tinting</a>
+    <a href="/paint-corrections/" class="sub-link">Paint Corrections</a>
+    <a href="/about/">About</a>
+    <a href="/gallery/">Gallery</a>
+    <a href="/blog/">The Garage Journal</a>
+    <a href="/#tiers" style="background:#facc15;color:#121214;text-align:center;border-radius:6px;font-weight:800;margin-top:12px;">Book Service</a>
+</div>
+
+<div class="checkered-pattern h-4 w-full border-b border-gray-800" data-section="dispatch-strip"></div>
+<div class="bg-yellow-400 text-stone-950 font-black py-3 px-4" data-section="dispatch-bar">
+    <div class="max-w-6xl mx-auto flex flex-col md:flex-row items-center justify-between gap-2 text-center md:text-left">
+        <span class="font-racing-title text-base tracking-wider flex items-center gap-2">
+            <span class="inline-block w-2.5 h-2.5 bg-red-600 animate-ping rounded-full"></span>
+            <i class="fa-solid fa-truck-fast"></i> DIRECT HOME DRIVEWAY DISPATCH ACTIVE
+        </span>
+        <div class="flex flex-wrap justify-center gap-3 md:gap-4">
+            <a href="tel:8625005192" class="bg-stone-950 text-yellow-400 font-bold px-4 py-1.5 rounded-sm text-sm uppercase hover:bg-stone-800 transition-all">
+                <i class="fa-solid fa-phone"></i> CALL: (862) 500-5192
+            </a>
+            <a href="/#tiers" class="bg-red-600 text-white font-bold px-4 py-1.5 rounded-sm text-sm uppercase hover:bg-red-700 transition-all">
+                <i class="fa-solid fa-envelope"></i> BOOK DRIVEWAY APPOINTMENT
+            </a>
+        </div>
+    </div>
+</div>
+
+<div class="max-w-6xl mx-auto mt-6 px-4" data-section="page-content">
+
+    <nav class="bg-stone-900 border border-stone-800 rounded-lg p-4 flex items-center justify-between gap-4 shadow-xl" data-section="navbar">
         <div class="flex items-center gap-3">
-            <span class="animate-pulse w-3 h-3 rounded-full bg-red-600"></span>
-            <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 text-black" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M3 10h1l.582-1.164a1 1 0 01.882-.552h12.07a1 1 0 01.894 1.342l-1.75 4.826a2 2 0 11-3.47-2.132L12 13"/></svg>
-            <span>DIRECT HOME DRIVEWAY DISPATCH ACTIVE</span>
-        </div>
-        <div class="flex gap-3">
-            <a href="tel:8625005192" class="bg-black text-[#facc15] font-bold px-4 py-1 rounded-md hover:bg-gray-900 transition">CALL: (862) 500-5192</a>
-            <a href="/#booking-section" class="bg-red-700 text-white font-bold px-4 py-1 rounded-md hover:bg-red-800 transition">BOOK DRIVEWAY APPOINTMENT</a>
-        </div>
-    </div>
-
-    <!-- Navbar container -->
-    <div class="flex items-center justify-between">
-        <!-- Left Logo -->
-        <a href="/" class="flex items-center gap-3">
-            <div class="w-12 h-12 rounded-full bg-[#facc15] flex items-center justify-center font-racing-title text-black text-2xl leading-none font-extrabold italic uppercase tracking-tighter select-none">123</div>
+            <a href="/" class="bg-yellow-400 text-stone-950 p-2 rounded font-black text-xl italic tracking-tighter block">123</a>
             <div>
-                <div class="font-racing-title font-extrabold italic uppercase tracking-tighter text-[#facc15] text-xl -mb-1 select-none">AUTO DETAILING</div>
-                <div class="font-racing-title uppercase tracking-widest text-stone-400 text-xs select-none">MOBILE DETAILING NJ</div>
+                <span class="font-racing-title text-xl text-white tracking-widest block leading-none">AUTO DETAILING</span>
+                <span class="text-xs text-yellow-400 tracking-widest font-mono font-bold uppercase">MOBILE DETAILING NJ</span>
             </div>
-        </a>
+        </div>
 
-        <!-- Desktop Nav Links -->
-        <nav class="hidden md:flex items-center gap-8">
-            <a href="/" class="nav-link text-[#facc15] font-semibold hover:text-yellow-400 transition">Home</a>
-
-            <div class="nav-dropdown relative group">
-                <button class="nav-link font-semibold text-[#facc15] flex items-center gap-1 hover:text-yellow-400 transition">
-                    Services
-                    <svg class="w-3 h-3 mt-0.5 text-[#facc15]" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M19 9l-7 7-7-7"/></svg>
-                </button>
-                <div class="nav-dropdown-menu absolute left-0 top-full mt-2 bg-stone-900 border border-stone-800 rounded-lg py-2 shadow-2xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-opacity z-50 min-w-[200px]">
-                    <a href="/#tiers" class="block px-4 py-2 text-stone-300 hover:text-[#facc15] hover:bg-black transition">Detailing</a>
-                    <a href="/paint-protection-film/" class="block px-4 py-2 text-stone-300 hover:text-[#facc15] hover:bg-black transition">Paint Protection Film</a>
-                    <a href="/ceramic-coatings/" class="block px-4 py-2 text-stone-300 hover:text-[#facc15] hover:bg-black transition">Ceramic Coatings</a>
-                    <a href="/tinting/" class="block px-4 py-2 text-stone-300 hover:text-[#facc15] hover:bg-black transition">Tinting</a>
-                    <a href="/paint-corrections/" class="block px-4 py-2 text-stone-300 hover:text-[#facc15] hover:bg-black transition">Paint Corrections</a>
+        <div class="desktop-nav flex items-center gap-5 text-sm font-semibold tracking-wider text-stone-300 uppercase">
+            <a href="/" class="hover:text-yellow-400 transition-all">Home</a>
+            <div class="nav-dropdown">
+                <a href="/#tiers" class="hover:text-yellow-400 transition-all cursor-pointer">Services <i class="fa-solid fa-chevron-down text-[8px] ml-1"></i></a>
+                <div class="nav-dropdown-menu">
+                    <a href="/#tiers">Detailing</a>
+                    <a href="/paint-protection-film/">Paint Protection Film</a>
+                    <a href="/ceramic-coatings/">Ceramic Coatings</a>
+                    <a href="/tinting/">Tinting</a>
+                    <a href="/paint-corrections/">Paint Corrections</a>
                 </div>
             </div>
-
-            <div class="nav-dropdown relative group">
-                <button class="nav-link font-semibold text-[#facc15] flex items-center gap-1 hover:text-yellow-400 transition">
-                    More
-                    <svg class="w-3 h-3 mt-0.5 text-[#facc15]" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M19 9l-7 7-7-7"/></svg>
-                </button>
-                <div class="nav-dropdown-menu absolute left-0 top-full mt-2 bg-stone-900 border border-stone-800 rounded-lg py-2 shadow-2xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-opacity z-50 min-w-[180px]">
-                    <a href="/blog/" class="block px-4 py-2 text-stone-300 hover:text-[#facc15] hover:bg-black transition">The Garage Journal</a>
-                    <a href="/about/" class="block px-4 py-2 text-stone-300 hover:text-[#facc15] hover:bg-black transition">About</a>
-                    <a href="/gallery/" class="block px-4 py-2 text-stone-300 hover:text-[#facc15] hover:bg-black transition">Gallery</a>
+            <div class="nav-dropdown">
+                <span class="hover:text-yellow-400 transition-all cursor-pointer">More <i class="fa-solid fa-chevron-down text-[8px] ml-1"></i></span>
+                <div class="nav-dropdown-menu">
+                    <a href="/blog">The Garage Journal</a>
+                    <a href="/about/">About</a>
+                    <a href="/gallery/">Gallery</a>
                 </div>
             </div>
+            <a href="/#tiers" class="bg-yellow-400 text-stone-950 font-bold px-4 py-2 rounded-sm btn-slant hover:bg-yellow-300 transition-all text-xs">
+                Book Appointment
+            </a>
+        </div>
 
-            <a href="/#booking-section" class="bg-[#facc15] text-black font-semibold rounded-full px-5 py-2 hover:bg-yellow-400 transition select-none">Book Appointment</a>
-        </nav>
-
-        <!-- Mobile Hamburger -->
-        <button id="mobile-menu-btn" aria-label="Toggle mobile menu" class="md:hidden text-[#facc15] focus:outline-none z-50">
-            <svg class="w-8 h-8" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M4 6h16M4 12h16M4 18h16"/></svg>
+        <button class="mobile-hamburger flex-col gap-1.5 cursor-pointer" id="hamburger" style="display:none;">
+            <span class="block w-6 h-0.5 bg-white transition-all"></span>
+            <span class="block w-6 h-0.5 bg-white transition-all"></span>
+            <span class="block w-6 h-0.5 bg-white transition-all"></span>
         </button>
-    </div>
+    </nav>
 
-    <!-- Mobile Menu Overlay -->
-    <div id="mobile-menu" class="fixed inset-0 bg-stone-900 bg-opacity-95 backdrop-blur-md z-40 flex flex-col py-20 px-6 space-y-6 transform -translate-x-full transition-transform duration-300 ease-in-out">
-        <a href="/" class="text-[#facc15] font-extrabold text-xl uppercase italic tracking-tight select-none">Home</a>
-
-        <div class="space-y-1">
-            <details class="group border-b border-stone-800 pb-1">
-                <summary class="font-semibold flex justify-between items-center cursor-pointer text-[#facc15] group-open:text-yellow-400 transition">
-                    Services
-                    <svg class="w-4 h-4 ml-2 shrink-0 transform transition-transform group-open:rotate-180" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M19 9l-7 7-7-7"/></svg>
-                </summary>
-                <div class="mt-1 ml-4 space-y-1">
-                    <a href="/#tiers" class="block text-stone-300 hover:text-[#facc15] transition">Detailing</a>
-                    <a href="/paint-protection-film/" class="block text-stone-300 hover:text-[#facc15] transition">Paint Protection Film</a>
-                    <a href="/ceramic-coatings/" class="block text-stone-300 hover:text-[#facc15] transition">Ceramic Coatings</a>
-                    <a href="/tinting/" class="block text-stone-300 hover:text-[#facc15] transition">Tinting</a>
-                    <a href="/paint-corrections/" class="block text-stone-300 hover:text-[#facc15] transition">Paint Corrections</a>
-                </div>
-            </details>
-
-            <details class="group border-b border-stone-800 pb-1">
-                <summary class="font-semibold flex justify-between items-center cursor-pointer text-[#facc15] group-open:text-yellow-400 transition">
-                    More
-                    <svg class="w-4 h-4 ml-2 shrink-0 transform transition-transform group-open:rotate-180" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M19 9l-7 7-7-7"/></svg>
-                </summary>
-                <div class="mt-1 ml-4 space-y-1">
-                    <a href="/blog/" class="block text-stone-300 hover:text-[#facc15] transition">The Garage Journal</a>
-                    <a href="/about/" class="block text-stone-300 hover:text-[#facc15] transition">About</a>
-                    <a href="/gallery/" class="block text-stone-300 hover:text-[#facc15] transition">Gallery</a>
-                </div>
-            </details>
-        </div>
-
-        <a href="/#booking-section" class="mt-auto inline-block bg-[#facc15] text-black font-semibold rounded-full px-6 py-3 hover:bg-yellow-400 transition select-none text-center">Book Appointment</a>
-    </div>
-
-    
-
-    
-</nav>
-
-    <!-- ========================================================================== -->
-    <!-- SECTION: HERO                                                              -->
-    <!-- Description: Full-screen hero with PPF tagline, benefits intro, CTA.       -->
-    <!-- ========================================================================== -->
-    <section data-section="hero" class="relative min-h-screen flex items-center pt-24 pb-16 overflow-hidden">
-        <!-- Background: dark base + checkered overlay -->
-        <div class="absolute inset-0 bg-[#121214]"></div>
-        <div class="absolute inset-0 hero-checker"></div>
-        <div class="absolute inset-0 hero-overlay"></div>
-        <!-- Subtle radial glow -->
-        <div class="absolute top-1/3 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] rounded-full bg-[#facc15]/5 blur-3xl pointer-events-none"></div>
-        <!-- Checkered edge accent -->
-        <div class="absolute bottom-0 left-0 right-0 h-2 checkered-bg-light"></div>
-
-        <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
-            <div class="max-w-4xl mx-auto text-center">
-                <!-- Racing badge -->
-                <div class="inline-flex items-center gap-2 bg-[#facc15]/10 border border-[#facc15]/20 rounded-full px-4 py-1.5 mb-6">
-                    <span class="w-2 h-2 rounded-full bg-[#facc15]"></span>
-                    <span class="text-[#facc15] text-xs font-semibold tracking-widest uppercase">Premium Paint Protection Film</span>
-                </div>
-
-                <h1 class="racing-title text-5xl sm:text-6xl md:text-7xl lg:text-8xl text-white leading-[0.92] tracking-tight mb-6 text-glow">
-                    Armor for<br />
-                    <span class="text-[#facc15]">Your Paint</span>
-                </h1>
-
-                <p class="text-gray-400 text-base sm:text-lg md:text-xl max-w-2xl mx-auto mb-8 font-light leading-relaxed">
-                    Self-healing, UV-resistant Paint Protection Film that preserves your vehicle's value and keeps it looking flawless — installed by certified pros at <strong class="text-white">123 Mobile Detailing NJ</strong>.
-                </p>
-
-                <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
-                    <a href="https://newjerseyautocare.net/#contact" class="inline-flex items-center gap-2 bg-[#facc15] text-[#121214] font-bold text-base px-8 py-3.5 rounded-full hover:bg-yellow-300 transition-all shadow-xl shadow-yellow-500/25 glow-yellow">
-                        Get a Free Quote
-                        <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
-                    </a>
-                    <a href="tel:+18625005192" class="inline-flex items-center gap-2 text-gray-300 hover:text-[#facc15] font-medium text-base px-6 py-3.5 border border-white/10 rounded-full hover:border-[#facc15]/30 transition-all">
-                        <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
-                        (862) 500-5192
-                    </a>
-                </div>
-
-                <!-- Quick benefit badges -->
-                <div class="mt-12 flex flex-wrap justify-center gap-3 sm:gap-5">
-                    <span class="inline-flex items-center gap-1.5 text-xs sm:text-sm text-gray-400 bg-white/5 px-3 py-1.5 rounded-full border border-white/5">
-                        <span class="text-[#facc15]">✓</span> Self-Healing
-                    </span>
-                    <span class="inline-flex items-center gap-1.5 text-xs sm:text-sm text-gray-400 bg-white/5 px-3 py-1.5 rounded-full border border-white/5">
-                        <span class="text-[#facc15]">✓</span> UV Protection
-                    </span>
-                    <span class="inline-flex items-center gap-1.5 text-xs sm:text-sm text-gray-400 bg-white/5 px-3 py-1.5 rounded-full border border-white/5">
-                        <span class="text-[#facc15]">✓</span> Preserves Value
-                    </span>
-                    <span class="inline-flex items-center gap-1.5 text-xs sm:text-sm text-gray-400 bg-white/5 px-3 py-1.5 rounded-full border border-white/5">
-                        <span class="text-[#facc15]">✓</span> Mobile Installation
-                    </span>
-                </div>
+    <main class="mt-8 grid grid-cols-1 lg:grid-cols-12 gap-8 items-center bg-stone-900/60 p-6 sm:p-10 rounded-2xl border border-stone-800 shadow-2xl relative overflow-hidden" data-section="hero">
+        <div class="absolute top-0 right-0 w-64 h-64 bg-yellow-400/5 rounded-full blur-3xl pointer-events-none"></div>
+        <div class="lg:col-span-7 space-y-6">
+            <div class="inline-flex items-center gap-2 bg-stone-800 border border-stone-700 rounded-full px-3 py-1 text-xs font-bold text-stone-300 uppercase">
+                <i class="fa-solid fa-shield text-yellow-400"></i> Premium Paint Protection Film
             </div>
-        </div>
-    </section>
-
-    <!-- ========================================================================== -->
-    <!-- SECTION: PPF BENEFITS                                                      -->
-    <!-- Description: Three-column grid explaining key PPF advantages.              -->
-    <!-- ========================================================================== -->
-    <section data-section="benefits" class="relative py-20 md:py-28">
-        <div class="absolute inset-0 checkered-bg"></div>
-        <div class="absolute top-0 left-0 right-0 h-px footer-divider"></div>
-
-        <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center mb-14 md:mb-18">
-                <p class="text-[#facc15] text-xs sm:text-sm font-semibold tracking-[0.2em] uppercase mb-3">Why PPF?</p>
-                <h2 class="racing-title text-3xl sm:text-4xl md:text-5xl text-white">Intelligent Protection<br /><span class="text-[#facc15]">That Works for You</span></h2>
-            </div>
-
-            <div class="grid md:grid-cols-3 gap-6 md:gap-8">
-                <!-- Benefit 1: Self-Healing -->
-                <div class="benefit-card rounded-2xl p-7 md:p-9">
-                    <div class="w-12 h-12 rounded-full bg-[#facc15]/10 flex items-center justify-center mb-5">
-                        <svg class="w-6 h-6 text-[#facc15]" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><path d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"/></svg>
-                    </div>
-                    <h3 class="racing-title text-xl md:text-2xl text-white mb-3">Self-Healing <span class="text-[#facc15]">Technology</span></h3>
-                    <p class="text-gray-400 text-sm md:text-base leading-relaxed">
-                        Minor scratches and swirl marks disappear with heat — the film's elastomeric top coat reforms itself, keeping your paint flawless without intervention.
-                    </p>
-                </div>
-
-                <!-- Benefit 2: UV Protection -->
-                <div class="benefit-card rounded-2xl p-7 md:p-9">
-                    <div class="w-12 h-12 rounded-full bg-[#facc15]/10 flex items-center justify-center mb-5">
-                        <svg class="w-6 h-6 text-[#facc15]" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><path d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"/></svg>
-                    </div>
-                    <h3 class="racing-title text-xl md:text-2xl text-white mb-3">UV &amp; <span class="text-[#facc15]">Environmental</span></h3>
-                    <p class="text-gray-400 text-sm md:text-base leading-relaxed">
-                        Blocks 99%+ of UV rays, preventing oxidation, fading, and yellowing. Also shields against road salt, bird droppings, tree sap, and acid rain.
-                    </p>
-                </div>
-
-                <!-- Benefit 3: Preserves Value -->
-                <div class="benefit-card rounded-2xl p-7 md:p-9">
-                    <div class="w-12 h-12 rounded-full bg-[#facc15]/10 flex items-center justify-center mb-5">
-                        <svg class="w-6 h-6 text-[#facc15]" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><path d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
-                    </div>
-                    <h3 class="racing-title text-xl md:text-2xl text-white mb-3">Preserves <span class="text-[#facc15]">Resale Value</span></h3>
-                    <p class="text-gray-400 text-sm md:text-base leading-relaxed">
-                        Your original paint stays in pristine condition underneath. When it's time to sell or trade, that factory finish can add thousands to your vehicle's value.
-                    </p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- ========================================================================== -->
-    <!-- SECTION: COVERAGE AREAS (What can be covered)                              -->
-    <!-- Description: Three tiers of PPF coverage — full front, partial, full body. -->
-    <!-- ========================================================================== -->
-    <section data-section="coverage" class="relative py-20 md:py-28 bg-[#151518]">
-        <div class="absolute top-0 left-0 right-0 h-px footer-divider"></div>
-        <div class="absolute bottom-0 left-0 right-0 h-px footer-divider"></div>
-
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center mb-14 md:mb-18">
-                <p class="text-[#facc15] text-xs sm:text-sm font-semibold tracking-[0.2em] uppercase mb-3">Coverage Options</p>
-                <h2 class="racing-title text-3xl sm:text-4xl md:text-5xl text-white">Choose Your <span class="text-[#facc15]">Protection Level</span></h2>
-                <p class="text-gray-400 text-sm md:text-base mt-4 max-w-xl mx-auto">Every kit is precision-cut and hand-finished by our certified installers.</p>
-            </div>
-
-            <div class="grid md:grid-cols-3 gap-6 md:gap-8">
-                <!-- Full Front -->
-                <div class="coverage-card rounded-2xl p-7 md:p-9 text-center">
-                    <div class="w-16 h-16 mx-auto rounded-full bg-[#facc15]/10 flex items-center justify-center mb-5">
-                        <svg class="w-8 h-8 text-[#facc15]" fill="none" stroke="currentColor" stroke-width="1.6" viewBox="0 0 24 24"><path d="M4 7v10c0 2 1 3 3 3h10c2 0 3-1 3-3V7c0-2-1-3-3-3H7C5 4 4 5 4 7z"/><path d="M9 12h6"/><path d="M12 9v6"/></svg>
-                    </div>
-                    <h3 class="racing-title text-xl md:text-2xl text-white mb-2">Full Front <span class="text-[#facc15]">Coverage</span></h3>
-                    <p class="text-gray-400 text-sm leading-relaxed mb-4">
-                        Hood, front fenders, bumper, mirrors, headlights, and A-pillars. The most popular choice for maximum front-end defense against rock chips and road debris.
-                    </p>
-                    <span class="inline-block text-xs text-gray-500 bg-white/5 px-3 py-1 rounded-full border border-white/5">Most Popular</span>
-                </div>
-
-                <!-- Partial Front -->
-                <div class="coverage-card rounded-2xl p-7 md:p-9 text-center border-[#facc15]/10">
-                    <div class="w-16 h-16 mx-auto rounded-full bg-[#facc15]/10 flex items-center justify-center mb-5">
-                        <svg class="w-8 h-8 text-[#facc15]" fill="none" stroke="currentColor" stroke-width="1.6" viewBox="0 0 24 24"><path d="M4 7v10c0 2 1 3 3 3h10c2 0 3-1 3-3V7c0-2-1-3-3-3H7C5 4 4 5 4 7z"/><path d="M9 12h6"/></svg>
-                    </div>
-                    <h3 class="racing-title text-xl md:text-2xl text-white mb-2">Partial <span class="text-[#facc15]">Front</span></h3>
-                    <p class="text-gray-400 text-sm leading-relaxed mb-4">
-                        Lower bumper, partial hood, mirrors, and headlights. Ideal budget-friendly option for covering the highest-impact zones without a full wrap.
-                    </p>
-                    <span class="inline-block text-xs text-gray-500 bg-white/5 px-3 py-1 rounded-full border border-white/5">Budget-Friendly</span>
-                </div>
-
-                <!-- Full Body -->
-                <div class="coverage-card rounded-2xl p-7 md:p-9 text-center">
-                    <div class="w-16 h-16 mx-auto rounded-full bg-[#facc15]/10 flex items-center justify-center mb-5">
-                        <svg class="w-8 h-8 text-[#facc15]" fill="none" stroke="currentColor" stroke-width="1.6" viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
-                    </div>
-                    <h3 class="racing-title text-xl md:text-2xl text-white mb-2">Full Body <span class="text-[#facc15]">Wrap</span></h3>
-                    <p class="text-gray-400 text-sm leading-relaxed mb-4">
-                        Every painted surface — hood, fenders, doors, quarter panels, bumpers, mirrors, rocker panels, and trunk. Complete preservation for show cars, exotics, and daily drivers alike.
-                    </p>
-                    <span class="inline-block text-xs text-gray-500 bg-white/5 px-3 py-1 rounded-full border border-white/5">Ultimate Protection</span>
-                </div>
-            </div>
-
-            <!-- Additional coverage note -->
-            <div class="mt-10 text-center">
-                <p class="text-gray-500 text-sm">Also available: <span class="text-gray-300">headlight &amp; taillight kits, rocker panels, door edge guards, and custom-cut pieces.</span></p>
-                <a href="https://newjerseyautocare.net/#contact" class="inline-flex items-center gap-2 text-[#facc15] hover:text-yellow-300 font-medium text-sm mt-3 transition-colors">
-                    Request a custom quote →
+            <h1 class="font-racing-title text-4xl sm:text-6xl text-white leading-tight">
+                ARMOR FOR <br><span class="text-yellow-400">YOUR PAINT!</span>
+            </h1>
+            <p class="text-stone-400 text-sm sm:text-base leading-relaxed">
+                Self-healing, UV-resistant Paint Protection Film (PPF) preserves your vehicle's physical surface values and blocks extreme high-impact damage. Installed by certified track-grade detailing crews directly at your home driveway.
+            </p>
+            <div class="flex flex-col sm:flex-row gap-3 pt-4">
+                <a href="#contact-form" class="bg-yellow-400 hover:bg-yellow-300 text-stone-950 font-black px-6 py-4 rounded text-center btn-slant uppercase tracking-wider flex items-center justify-center gap-2 transition-all glow-yellow">
+                    <i class="fa-solid fa-calculator"></i> Get a Free PPF Quote
+                </a>
+                <a href="tel:8625005192" class="bg-stone-800 hover:bg-stone-700 border border-stone-700 text-white font-black px-6 py-4 rounded text-center btn-slant uppercase tracking-wider flex items-center justify-center gap-2 transition-all">
+                    <i class="fa-solid fa-phone text-yellow-400"></i> (862) 500-5192
                 </a>
             </div>
         </div>
+        <div class="lg:col-span-5 flex justify-center">
+            <div class="bg-stone-950 p-4 rounded-xl border border-stone-800 space-y-3 w-full font-mono text-xs">
+                <span class="text-yellow-400 font-bold block uppercase tracking-wider">⚡ Elite Physical Architecture</span>
+                <ul class="space-y-2 text-stone-300">
+                    <li class="flex items-center gap-2"><i class="fa-solid fa-check text-green-500"></i> Elastomere Self-Healing Film Top Coat</li>
+                    <li class="flex items-center gap-2"><i class="fa-solid fa-check text-green-500"></i> High Velocity Rock Chip Deficit Protection</li>
+                    <li class="flex items-center gap-2"><i class="fa-solid fa-check text-green-500"></i> 99%+ Solar Oxidation UV Filtration Block</li>
+                    <li class="flex items-center gap-2"><i class="fa-solid fa-check text-green-500"></i> 100% Mobile Home Driveway Logistics</li>
+                </ul>
+            </div>
+        </div>
+    </main>
+
+    <section class="mt-16 grid grid-cols-1 md:grid-cols-3 gap-6">
+        <div class="bg-stone-900 border border-stone-800 p-6 rounded-xl space-y-3">
+            <div class="w-10 h-10 rounded-lg bg-yellow-400/10 flex items-center justify-center text-yellow-400 font-bold"><i class="fa-solid fa-border-top-left"></i></div>
+            <h3 class="font-racing-title text-xl text-white">Partial Front</h3>
+            <p class="text-xs text-stone-400 font-mono leading-relaxed">Covers lower bumper metrics, partial hood layout, mirrors, and headlights. Perfect budget-friendly protection for targeted high-impact highway exposure zones.</p>
+        </div>
+        <div class="bg-stone-900 border border-stone-800 p-6 rounded-xl space-y-3 border-yellow-400 relative">
+            <div class="absolute -top-3 right-4 bg-yellow-400 text-stone-950 text-[9px] font-bold font-mono px-2 py-0.5 rounded uppercase tracking-wider">Most Popular</div>
+            <div class="w-10 h-10 rounded-lg bg-yellow-400/10 flex items-center justify-center text-yellow-400 font-bold"><i class="fa-solid fa-car-front"></i></div>
+            <h3 class="font-racing-title text-xl text-white">Full Front Shield</h3>
+            <p class="text-xs text-stone-400 font-mono leading-relaxed">Complete bumper, full wrap hood, front fenders, mirrors, headlights, and structural A-pillars. The ultimate baseline package for performance and exotic daily commuters.</p>
+        </div>
+        <div class="bg-stone-900 border border-stone-800 p-6 rounded-xl space-y-3">
+            <div class="w-10 h-10 rounded-lg bg-yellow-400/10 flex items-center justify-center text-yellow-400 font-bold"><i class="fa-solid fa-cubes"></i></div>
+            <h3 class="font-racing-title text-xl text-white">Full Vehicle Wraps</h3>
+            <p class="text-xs text-stone-400 font-mono leading-relaxed">Every single external painted panel gets precision-shielded. Uncompromised complete vehicle preservation from rear quarter impact zones to door edges.</p>
+        </div>
     </section>
 
-    <!-- ========================================================================== -->
-    <!-- SECTION: WHY CHOOSE US                                                     -->
-    <!-- Description: Reasons to pick 123 Mobile Detailing for PPF installation.    -->
-    <!-- ========================================================================== -->
-    <section data-section="why-us" class="relative py-20 md:py-28">
-        <div class="absolute inset-0 checkered-bg"></div>
-        <div class="absolute top-0 left-0 right-0 h-px footer-divider"></
-<script src="script.js"></script>
+    <section class="mt-16 bg-stone-900 border border-stone-800 p-6 sm:p-10 rounded-2xl relative overflow-hidden" id="contact-form">
+        <div class="absolute inset-0 checkered-pattern opacity-5 pointer-events-none"></div>
+        <div class="relative z-10 max-w-3xl mx-auto">
+            <div class="text-center mb-8 space-y-2">
+                <span class="text-yellow-400 font-black text-xs font-mono uppercase tracking-widest">GET AN ELITE ESTIMATE</span>
+                <h2 class="font-racing-title text-3xl text-white">REQUEST PPF FILM PRICING</h2>
+                <p class="text-stone-400 text-xs sm:text-sm">Submit your vehicle parameters below and our specialist dispatch team will build your custom quote matrix.</p>
+            </div>
+            <form id="generalContactForm" onsubmit="handleContactSubmit(event)" class="space-y-6">
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                    <div>
+                        <label class="block text-xs font-bold uppercase text-stone-300 mb-2 font-mono">Full Name *</label>
+                        <input type="text" name="contactName" id="contact_name" required placeholder="e.g. John Doe" class="w-full bg-stone-950 border border-stone-800 focus:border-yellow-400 rounded-lg py-3 px-4 text-white font-mono text-sm placeholder-stone-600 focus:outline-none">
+                    </div>
+                    <div>
+                        <label class="block text-xs font-bold uppercase text-stone-300 mb-2 font-mono">Email *</label>
+                        <input type="email" name="contactEmail" id="contact_email" required placeholder="e.g. john@email.com" class="w-full bg-stone-950 border border-stone-800 focus:border-yellow-400 rounded-lg py-3 px-4 text-white font-mono text-sm placeholder-stone-600 focus:outline-none">
+                    </div>
+                </div>
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                    <div>
+                        <label class="block text-xs font-bold uppercase text-stone-300 mb-2 font-mono">Phone *</label>
+                        <input type="tel" name="contactPhone" id="contact_phone" required placeholder="e.g. (862) 500-5192" class="w-full bg-stone-950 border border-stone-800 focus:border-yellow-400 rounded-lg py-3 px-4 text-white font-mono text-sm placeholder-stone-600 focus:outline-none">
+                    </div>
+                    <div>
+                        <label class="block text-xs font-bold uppercase text-stone-300 mb-2 font-mono">Vehicle Year, Make & Model *</label>
+                        <input type="text" name="vehicle" id="contact_vehicle" required placeholder="e.g. 2025 Porsche 911 GT3" class="w-full bg-stone-950 border border-stone-800 focus:border-yellow-400 rounded-lg py-3 px-4 text-white font-mono text-sm placeholder-stone-600 focus:outline-none">
+                    </div>
+                </div>
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                    <div>
+                        <label class="block text-xs font-bold uppercase text-stone-300 mb-2 font-mono">Target Film Coverage Option *</label>
+                        <select name="package" id="contact_package" required class="w-full bg-stone-950 border border-stone-800 focus:border-yellow-400 rounded-lg py-3 px-4 text-white font-mono text-sm focus:outline-none cursor-pointer">
+                            <option value="Partial Front Protection Film Kit">Partial Front Protection Film Kit</option>
+                            <option value="Full Front Protection Shield Wrap" selected>Full Front Protection Shield Wrap</option>
+                            <option value="Full Complete Vehicle Armor Wrap">Full Complete Vehicle Armor Wrap</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label class="block text-xs font-bold uppercase text-stone-300 mb-2 font-mono">Message / Target Install Timeline *</label>
+                        <input type="text" name="message" id="contact_message" required placeholder="e.g. Deliver quote for full driveway installation next week" class="w-full bg-stone-950 border border-stone-800 focus:border-yellow-400 rounded-lg py-3 px-4 text-white font-mono text-sm placeholder-stone-600 focus:outline-none">
+                    </div>
+                </div>
+                <div>
+                    <button type="submit" id="contactSubmitBtn" class="w-full bg-yellow-400 hover:bg-yellow-300 text-stone-950 font-black text-lg py-4 px-6 rounded btn-slant uppercase tracking-wider flex items-center justify-center gap-3 transition-all glow-yellow">
+                        <i class="fa-solid fa-paper-plane"></i> SUBMIT CUSTOM PPF QUOTE
+                    </button>
+                </div>
+            </form>
+            <div id="contactSuccessBlock" class="hidden mt-6 p-4 rounded-xl border border-yellow-400/30 bg-yellow-400/5 text-yellow-400 text-center space-y-2">
+                <p class="font-racing-title text-xl"><i class="fa-solid fa-circle-check"></i> REQUEST RECORDED!</p>
+                <p class="text-xs font-mono" id="contactSuccessDetailText"></p>
+            </div>
+        </div>
+    </section>
+
+    <section class="mt-16 px-2" data-section="service-area">
+        <div class="text-center mb-4">
+            <span class="text-yellow-400 font-mono text-[10px] font-bold uppercase tracking-widest">SERVICE COVERAGE</span>
+            <h3 class="font-racing-title text-lg text-white mt-1">AREAS WE SERVE</h3>
+        </div>
+        <div class="bg-stone-900/40 border border-stone-800 rounded-xl p-4">
+            <p class="text-yellow-400 font-mono text-[10px] font-bold uppercase tracking-widest mb-2">Bergen County</p>
+            <p class="service-area-text">Allendale, Alpine, Bergenfield, Bogota, Carlstadt, Cliffside Park, Closter, Cresskill, Demarest, Dumont, East Rutherford, Edgewater, Elmwood Park, Emerson, Englewood, Englewood Cliffs, Fair Lawn, Fairview, Fort Lee, Franklin Lakes, Garfield, Glen Rock, Hackensack, Harrington Park, Hasbrouck Heights, Haworth, Hillsdale, Ho-Ho-Kus, Leonia, Little Ferry, Lodi, Lyndhurst, Mahwah, Maywood, Midland Park, Montvale, Moonachie, New Milford, North Arlington, Northvale, Norwood, Oakland, Old Tappan, Oradell, Palisades Park, Paramus, Park Ridge, Ramsey, Ridgefield, Ridgefield Park, Ridgewood, River Edge, River Vale, Rochelle Park, Rockleigh, Rutherford, Saddle Brook, Saddle River, South Hackensack, Teaneck, Tenafly, Teterboro, Upper Saddle River, Waldwick, Wallington, Washington Township, Westwood, Woodcliff Lake, Wood-Ridge, Wyckoff</p>
+
+            <p class="text-yellow-400 font-mono text-[10px] font-bold uppercase tracking-widest mb-2 mt-4">Passaic County</p>
+            <p class="service-area-text">Bloomingdale, Clifton, Haledon, Hawthorne, Little Falls, North Haledon, Passaic, Paterson, Pompton Lakes, Prospect Park, Ringwood, Totowa, Wanaque, Wayne, West Milford, Woodland Park</p>
+        </div>
+    </section>
+
+</div>
+
+<footer class="mt-20 border-t border-stone-800 pt-0" data-section="footer">
+    <div class="checkered-pattern h-3 w-full"></div>
+    <div class="max-w-6xl mx-auto px-4 py-12">
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-10">
+            <div>
+                <div class="flex items-center gap-2 mb-3">
+                    <div class="bg-yellow-400 text-stone-950 p-1.5 rounded font-black text-sm italic">123</div>
+                    <span class="font-racing-title text-sm text-white tracking-widest">AUTO DETAILING</span>
+                </div>
+                <p class="text-xs text-stone-400 font-mono leading-relaxed">Classic Values. High-Octane Clean. Mobile detailing across Bergen & Passaic County, NJ.</p>
+                <p class="text-xs text-stone-500 font-mono mt-3">📞 <a href="tel:8625005192" class="text-yellow-400 underline">(862) 500-5192</a></p>
+            </div>
+            <div>
+                <h4 class="text-yellow-400 font-mono text-[10px] font-bold uppercase tracking-widest mb-4">Services</h4>
+                <ul class="space-y-2 text-xs text-stone-400 font-mono">
+                    <li><a href="/#tiers" class="hover:text-yellow-400 transition-all">Detailing Packages</a></li>
+                    <li><a href="/paint-protection-film/" class="hover:text-yellow-400 transition-all">Paint Protection Film</a></li>
+                    <li><a href="/ceramic-coatings/" class="hover:text-yellow-400 transition-all">Ceramic Coatings</a></li>
+                    <li><a href="/tinting/" class="hover:text-yellow-400 transition-all">Tinting</a></li>
+                    <li><a href="/paint-corrections/" class="hover:text-yellow-400 transition-all">Paint Corrections</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4 class="text-yellow-400 font-mono text-[10px] font-bold uppercase tracking-widest mb-4">Company</h4>
+                <ul class="space-y-2 text-xs text-stone-400 font-mono">
+                    <li><a href="/" class="hover:text-yellow-400 transition-all">Home</a></li>
+                    <li><a href="/blog/" class="hover:text-yellow-400 transition-all">The Garage Journal</a></li>
+                    <li><a href="/about/" class="hover:text-yellow-400 transition-all">About</a></li>
+                    <li><a href="/gallery/" class="hover:text-yellow-400 transition-all">Gallery</a></li>
+                    <li><a href="/#tiers" class="hover:text-yellow-400 transition-all">Book Service</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="border-t border-stone-800 mt-10 pt-6 text-center">
+            <p class="text-xs text-stone-500 font-mono">&copy; 2026 123 Auto Detailing. All rights reserved. Bergen County & Passaic County, NJ.</p>
+        </div>
+    </div>
+</footer>
+
+<script>
+    const hamburger = document.getElementById('hamburger');
+    const mobileMenu = document.getElementById('mobileMenu');
+    hamburger.addEventListener('click', () => mobileMenu.classList.toggle('open'));
+    mobileMenu.querySelectorAll('a').forEach(a => a.addEventListener('click', () => mobileMenu.classList.remove('open')));
+
+    const chatBtn = document.getElementById('custom-chat-btn');
+    const chatPanel = document.getElementById('chat-panel');
+    const chatIframe = document.getElementById('chat-iframe');
+    const teaser = document.getElementById('chat-teaser');
+    let chatLoaded = false, chatOpen = false;
+
+    chatBtn.addEventListener('click', () => {
+        chatOpen = !chatOpen;
+        if (chatOpen) {
+            if (!chatLoaded) { chatIframe.src = 'https://paymegpt.com/agents/28816726/embed'; chatLoaded = true; }
+            chatPanel.classList.add('open');
+            teaser.classList.remove('visible'); teaser.classList.add('hidden');
+            chatBtn.classList.remove('chat-bounce');
+        } else {
+            chatPanel.classList.remove('open');
+        }
+    });
+
+    document.addEventListener('click', e => {
+        if (chatOpen && !chatPanel.contains(e.target) && e.target !== chatBtn && !chatBtn.contains(e.target)) {
+            chatPanel.classList.remove('open'); chatOpen = false;
+        }
+    });
+    setTimeout(() => teaser.classList.add('visible'), 3000);
+    document.getElementById('teaser-close-btn').addEventListener('click', () => { teaser.classList.remove('visible'); teaser.classList.add('hidden'); });
+
+    function handleContactSubmit(event) {
+        event.preventDefault();
+        const name = document.getElementById('contact_name').value;
+        const email = document.getElementById('contact_email').value;
+        const phone = document.getElementById('contact_phone').value;
+        const vehicle = document.getElementById('contact_vehicle').value;
+        const pkg = document.getElementById('contact_package').value;
+        const message = document.getElementById('contact_message').value;
+        
+        const btn = document.getElementById('contactSubmitBtn');
+        btn.disabled = true;
+        btn.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> SENDING...';
+
+        const formData = { 
+            contactName: name, 
+            contactEmail: email, 
+            contactPhone: phone, 
+            data: { vehicle: vehicle, package: pkg, message: message, formType: "PPF Specific Landing Inquiry Page" } 
+        };
+
+        fetch('https://paymegpt.com/api/webhooks/flow/3762/7f18c3f219503532eb92a6241effecebc06fd7609c4a002ffa6b3feea89c169b', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(formData)
+        }).then(() => {
+            showContactSuccess(name, pkg, phone);
+        }).catch(() => {
+            showContactSuccess(name, pkg, phone);
+        });
+    }
+
+    function showContactSuccess(name, pkg, phone) {
+        const btn = document.getElementById('contactSubmitBtn');
+        btn.disabled = false;
+        btn.innerHTML = '<i class="fa-solid fa-paper-plane"></i> SUBMIT CUSTOM PPF QUOTE';
+        const block = document.getElementById('contactSuccessBlock');
+        block.classList.remove('hidden');
+        document.getElementById('contactSuccessDetailText').innerHTML = `Thanks, <strong>${name}</strong>! We logged your interest for <strong>${pkg}</strong>. Our custom specialist team will reach out to <strong>${phone}</strong> shortly.`;
+        document.getElementById('generalContactForm').reset();
+    }
+</script>
+</body>
+</html>
