@@ -134,7 +134,11 @@
             }
           }
 
-          document.addEventListener('DOMContentLoaded', loadArticles);
+          if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', loadArticles);
+      } else {
+        loadArticles();
+      }
         })();
 
 const mobileNavToggle = document.getElementById('mobile-nav-toggle');
