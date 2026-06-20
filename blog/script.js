@@ -1,3 +1,42 @@
+// Mobile menu toggle logic
+    const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+    const mobileMenu = document.getElementById('mobile-menu');
+    const mobileMenuClose = document.getElementById('mobile-menu-close');
+    mobileMenuBtn.addEventListener('click', () => {
+      mobileMenu.classList.remove('hidden');
+      mobileMenu.setAttribute('aria-hidden', 'false');
+    });
+    mobileMenuClose.addEventListener('click', () => {
+      mobileMenu.classList.add('hidden');
+      mobileMenu.setAttribute('aria-hidden', 'true');
+    });
+
+    // Chat widget logic: open chat iframe on click
+    const chatWidget = document.getElementById('chat-widget');
+    let chatIframe;
+    chatWidget.addEventListener('click', () => {
+      if (!chatIframe) {
+        chatIframe = document.createElement('iframe');
+        chatIframe.src = 'https://paymegpt.com/agents/28816726/embed';
+        chatIframe.style.position = 'fixed';
+        chatIframe.style.bottom = '24px';
+        chatIframe.style.right = '24px';
+        chatIframe.style.width = '400px';
+        chatIframe.style.height = '600px';
+        chatIframe.style.border = 'none';
+        chatIframe.style.borderRadius = '8px';
+        chatIframe.style.boxShadow = '0 12px 32px rgba(250, 204, 21, 0.5)';
+        chatIframe.style.zIndex = '1000';
+        document.body.appendChild(chatIframe);
+      } else {
+        if (chatIframe.style.display === 'none') {
+          chatIframe.style.display = 'block';
+        } else {
+          chatIframe.style.display = 'none';
+        }
+      }
+    });
+
 (() => {
           const API_URL = 'https://paymegpt.com/api/public/landing-pages/5008/sheet-data';
           const container = document.getElementById('blog-cards-container');
@@ -97,3 +136,45 @@
 
           document.addEventListener('DOMContentLoaded', loadArticles);
         })();
+
+const mobileNavToggle = document.getElementById('mobile-nav-toggle');
+      const mobileNavOverlay = document.getElementById('mobile-nav-overlay');
+
+      mobileNavToggle.addEventListener('click', () => {
+        const expanded = mobileNavToggle.getAttribute('aria-expanded') === 'true';
+        mobileNavToggle.setAttribute('aria-expanded', !expanded);
+        if (expanded) {
+          mobileNavOverlay.classList.add('hidden');
+          document.body.style.overflow = '';
+        } else {
+          mobileNavOverlay.classList.remove('hidden');
+          document.body.style.overflow = 'hidden';
+        }
+      });
+
+(function() {
+        const widget = document.getElementById('chat-widget');
+        let chatIframe = null;
+        widget.addEventListener('click', () => {
+          if (chatIframe) return;
+          chatIframe = document.createElement('iframe');
+          chatIframe.src = 'https://paymegpt.com/agents/28816726/embed';
+          chatIframe.style.position = 'fixed';
+          chatIframe.style.bottom = '130px';
+          chatIframe.style.right = '24px';
+          chatIframe.style.width = '320px';
+          chatIframe.style.height = '480px';
+          chatIframe.style.border = 'none';
+          chatIframe.style.borderRadius = '12px';
+          chatIframe.style.zIndex = '10000';
+          chatIframe.style.boxShadow = '0 6px 24px rgba(250, 204, 21, 0.5)';
+          document.body.appendChild(chatIframe);
+          // Optionally disable widget click after open or allow closing chat by extra logic
+        });
+        widget.addEventListener('keydown', e => {
+          if (e.key === 'Enter' || e.key === ' ') {
+            e.preventDefault();
+            widget.click();
+          }
+        });
+      })();
