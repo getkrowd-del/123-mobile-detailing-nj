@@ -315,41 +315,115 @@ html
   <!-- SECTION: NAVBAR                                                          -->
   <!-- Dark background, sticky top, racing yellow accents, responsive           -->
   <!-- ======================================================================== -->
-  <nav data-section="navbar" class="sticky top-0 z-50 bg-[#121214]/95 backdrop-blur-sm border-b border-[#facc15]/20">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="flex items-center justify-between h-16 md:h-20">
-        <!-- Logo / Brand -->
-        <a href="/" class="flex items-center gap-2 group">
-          <span class="text-2xl md:text-3xl racing-title text-[#facc15] tracking-wider">123<span class="text-white">MD</span></span>
-        </a>
-
-        <!-- Desktop Nav Links -->
-        <div class="hidden md:flex items-center gap-8">
-          <a href="/" class="text-sm font-medium text-gray-300 hover:text-[#facc15] transition-colors uppercase tracking-wider">Home</a>
-          <a href="/services/" class="text-sm font-medium text-gray-300 hover:text-[#facc15] transition-colors uppercase tracking-wider">Services</a>
-          <a href="/about/" class="text-sm font-medium text-gray-300 hover:text-[#facc15] transition-colors uppercase tracking-wider">About</a>
-          <a href="/contact/" class="text-sm font-medium text-gray-300 hover:text-[#facc15] transition-colors uppercase tracking-wider">Contact</a>
-        </div>
-
-        <!-- Mobile menu button (simple hamburger) -->
-        <button id="mobile-menu-btn" class="md:hidden p-2 rounded-lg text-gray-300 hover:text-[#facc15] focus:outline-none focus:ring-2 focus:ring-[#facc15]/50" aria-label="Toggle menu">
-          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
-          </svg>
-        </button>
-      </div>
-
-      <!-- Mobile Nav -->
-      <div id="mobile-menu" class="hidden md:hidden pb-4 border-t border-[#facc15]/10 pt-4">
-        <div class="flex flex-col gap-3">
-          <a href="/" class="text-sm font-medium text-gray-300 hover:text-[#facc15] transition-colors uppercase tracking-wider px-2 py-1">Home</a>
-          <a href="/services/" class="text-sm font-medium text-gray-300 hover:text-[#facc15] transition-colors uppercase tracking-wider px-2 py-1">Services</a>
-          <a href="/about/" class="text-sm font-medium text-gray-300 hover:text-[#facc15] transition-colors uppercase tracking-wider px-2 py-1">About</a>
-          <a href="/contact/" class="text-sm font-medium text-gray-300 hover:text-[#facc15] transition-colors uppercase tracking-wider px-2 py-1">Contact</a>
-        </div>
-      </div>
+  <nav data-section="navbar" class="sticky top-0 z-50">
+  <!-- Top dispatch bar -->
+  <div class="h-[4px] checkered-yellow"></div>
+  <div class="bg-[#facc15] text-[#121214] flex justify-between items-center px-4 py-1 max-w-6xl mx-auto font-semibold text-xs sm:text-sm select-none">
+    <span>DIRECT HOME DRIVEWAY DISPATCH ACTIVE</span>
+    <div class="flex gap-4 items-center">
+      <a href="tel:8625005192" class="hover:underline">(862) 500-5192</a>
+      <a href="/#booking-section" class="bg-red-600 hover:bg-red-700 px-3 py-1 rounded-full font-bold uppercase tracking-wider transition-colors text-white">BOOK DRIVEWAY APPOINTMENT</a>
     </div>
-  </nav>
+  </div>
+
+  <!-- Navigation container -->
+  <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 bg-stone-900 border border-stone-800 rounded-lg shadow-md mt-1">
+    <div class="flex items-center justify-between h-20">
+      <!-- Logo block -->
+      <a href="/" class="flex items-center gap-3 select-none">
+        <div class="bg-[#facc15] text-[#121214] font-racing-title font-black italic uppercase tracking-tight px-2 py-1 text-3xl leading-none flex flex-col justify-center rounded-sm">
+          <span>123</span>
+        </div>
+        <div class="flex flex-col text-gray-300 text-xs sm:text-sm leading-tight">
+          <span class="uppercase font-semibold tracking-wide">AUTO DETAILING</span>
+          <span class="text-yellow-400 font-bold uppercase leading-tight text-[10px] sm:text-xs">MOBILE DETAILING NJ</span>
+        </div>
+      </a>
+
+      <!-- Desktop navigation links -->
+      <nav class="hidden md:flex items-center space-x-10 font-medium uppercase tracking-wider text-gray-300 select-none">
+        <a href="/" class="hover:text-[#facc15] transition-colors">Home</a>
+
+        <!-- Services dropdown -->
+        <div class="group relative">
+          <button class="hover:text-[#facc15] transition-colors flex items-center gap-1 focus:outline-none" aria-expanded="false" aria-haspopup="true">
+            Services
+            <svg class="w-4 h-4 fill-current" viewBox="0 0 20 20"><path d="M5.516 7.548l4.484 4.37 4.484-4.37L15.484 9l-5.484 5.34L4.516 9z"/></svg>
+          </button>
+          <div class="absolute left-0 mt-2 w-48 bg-stone-900 border border-stone-800 rounded shadow-lg opacity-0 group-hover:opacity-100 invisible group-hover:visible transition-opacity duration-200">
+            <a href="/#tiers" class="block px-4 py-2 text-gray-300 hover:bg-[#facc15] hover:text-[#121214] transition-colors">Detailing</a>
+            <a href="/paint-protection-film/" class="block px-4 py-2 text-gray-300 hover:bg-[#facc15] hover:text-[#121214] transition-colors">Paint Protection Film</a>
+            <a href="/ceramic-coatings/" class="block px-4 py-2 text-gray-300 hover:bg-[#facc15] hover:text-[#121214] transition-colors">Ceramic Coatings</a>
+            <a href="/tinting/" class="block px-4 py-2 text-gray-300 hover:bg-[#facc15] hover:text-[#121214] transition-colors">Tinting</a>
+            <a href="/paint-corrections/" class="block px-4 py-2 text-gray-300 hover:bg-[#facc15] hover:text-[#121214] transition-colors">Paint Corrections</a>
+          </div>
+        </div>
+
+        <!-- More dropdown -->
+        <div class="group relative">
+          <button class="hover:text-[#facc15] transition-colors flex items-center gap-1 focus:outline-none" aria-expanded="false" aria-haspopup="true">
+            More
+            <svg class="w-4 h-4 fill-current" viewBox="0 0 20 20"><path d="M5.516 7.548l4.484 4.37 4.484-4.37L15.484 9l-5.484 5.34L4.516 9z"/></svg>
+          </button>
+          <div class="absolute left-0 mt-2 w-48 bg-stone-900 border border-stone-800 rounded shadow-lg opacity-0 group-hover:opacity-100 invisible group-hover:visible transition-opacity duration-200">
+            <a href="/blog/" class="block px-4 py-2 text-gray-300 hover:bg-[#facc15] hover:text-[#121214] transition-colors">The Garage Journal</a>
+            <a href="/about/" class="block px-4 py-2 text-gray-300 hover:bg-[#facc15] hover:text-[#121214] transition-colors">About</a>
+            <a href="/gallery/" class="block px-4 py-2 text-gray-300 hover:bg-[#facc15] hover:text-[#121214] transition-colors">Gallery</a>
+          </div>
+        </div>
+
+        <a href="/#booking-section" class="inline-block bg-[#facc15] text-[#121214] rounded px-4 py-2 font-bold tracking-wider uppercase hover:bg-yellow-400 transition-colors">Book Appointment</a>
+      </nav>
+
+      <!-- Mobile menu button -->
+      <button id="mobile-menu-btn" aria-label="Toggle menu" class="md:hidden p-2 rounded-lg text-gray-300 hover:text-[#facc15] focus:outline-none focus:ring-2 focus:ring-[#facc15]/50">
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+        </svg>
+      </button>
+    </div>
+  </div>
+
+  <!-- Mobile menu overlay -->
+  <div id="mobile-menu" class="fixed inset-0 bg-[#121214] bg-opacity-95 z-50 hidden flex-col p-8" aria-hidden="true">
+    <button id="mobile-menu-close" aria-label="Close menu" class="self-end mb-6 text-[#facc15] hover:text-yellow-400 focus:outline-none">
+      <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" >
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
+      </svg>
+    </button>
+    <nav class="flex flex-col gap-6 uppercase font-racing-title font-black italic tracking-tight text-[#facc15] text-2xl">
+      <a href="/" class="hover:text-yellow-400 transition-colors">Home</a>
+
+      <div>
+        <button disabled class="mb-2 cursor-default opacity-70">Services</button>
+        <ul class="space-y-1 pl-4 text-lg font-normal normal-case tracking-normal">
+          <li><a href="/#tiers" class="block hover:text-yellow-400 transition-colors">Detailing</a></li>
+          <li><a href="/paint-protection-film/" class="block hover:text-yellow-400 transition-colors">Paint Protection Film</a></li>
+          <li><a href="/ceramic-coatings/" class="block hover:text-yellow-400 transition-colors">Ceramic Coatings</a></li>
+          <li><a href="/tinting/" class="block hover:text-yellow-400 transition-colors">Tinting</a></li>
+          <li><a href="/paint-corrections/" class="block hover:text-yellow-400 transition-colors">Paint Corrections</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <button disabled class="mb-2 cursor-default opacity-70">More</button>
+        <ul class="space-y-1 pl-4 text-lg font-normal normal-case tracking-normal">
+          <li><a href="/blog/" class="block hover:text-yellow-400 transition-colors">The Garage Journal</a></li>
+          <li><a href="/about/" class="block hover:text-yellow-400 transition-colors">About</a></li>
+          <li><a href="/gallery/" class="block hover:text-yellow-400 transition-colors">Gallery</a></li>
+        </ul>
+      </div>
+
+      <a href="/#booking-section" class="bg-[#facc15] text-[#121214] rounded px-4 py-2 font-bold tracking-wider uppercase hover:bg-yellow-400 transition-colors max-w-max mx-auto mt-6">Book Appointment</a>
+    </nav>
+  </div>
+
+  <!-- Chat widget -->
+  <div id="chat-widget" role="button" aria-label="Open chat" tabindex="0" style="background-image: url('https://krowdimg.b-cdn.net/clients/123MobileDetailing/chatIcon.PNG'); background-size: 60% 60%; background-repeat: no-repeat; background-position: center;">
+  </div>
+
+  
+</nav>
 
   <!-- ======================================================================== -->
   <!-- SECTION: HERO — "THE GARAGE JOURNAL"                                     -->
@@ -459,6 +533,137 @@ html
         </a>
       </div>
     </div>
+
+    <!-- Updated footer matching home page -->
+    <footer class="mt-20 bg-[#121214] border-t border-[#2a2a2f]">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 md:py-16 grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-16 text-gray-400">
+        <div>
+          <h3 class="racing-title text-[#facc15] mb-4 text-lg">Services</h3>
+          <ul class="space-y-2">
+            <li><a href="/paint-protection-film/" class="hover:text-[#facc15] transition-colors">Paint Protection Film</a></li>
+            <li><a href="/ceramic-coatings/" class="hover:text-[#facc15] transition-colors">Ceramic Coatings</a></li>
+            <li><a href="/tinting/" class="hover:text-[#facc15] transition-colors">Tinting</a></li>
+            <li><a href="/paint-corrections/" class="hover:text-[#facc15] transition-colors">Paint Corrections</a></li>
+          </ul>
+        </div>
+        <div>
+          <h3 class="racing-title text-[#facc15] mb-4 text-lg">Company</h3>
+          <ul class="space-y-2">
+            <li><a href="/" class="hover:text-[#facc15] transition-colors">Home</a></li>
+            <li><a href="/blog/" class="hover:text-[#facc15] transition-colors">Blog</a></li>
+            <li><a href="/about/" class="hover:text-[#facc15] transition-colors">About</a></li>
+            <li><a href="/gallery/" class="hover:text-[#facc15] transition-colors">Gallery</a></li>
+            <li><a href="/#booking-section" class="hover:text-[#facc15] transition-colors">Book Service</a></li>
+          </ul>
+        </div>
+        <div class="flex flex-col justify-center text-sm text-gray-500 italic select-none">&copy; 123 Mobile Detailing - All rights reserved.</div>
+      </div>
+    </footer>
+
+    <!-- Top dispatch bar (checkered pattern + text bar + call + book button) -->
+    <div class="w-full fixed top-0 left-0 z-50 select-none">
+      <div class="checkered-yellow h-1 w-full"></div>
+      <div class="bg-[#facc15] flex items-center justify-center font-semibold text-[#121214] text-xs uppercase tracking-[0.12em] px-4 py-1 gap-6 md:gap-12">
+        <span>DIRECT HOME DRIVEWAY DISPATCH ACTIVE</span>
+        <a href="tel:8625005192" class="underline hover:no-underline">Call (862) 500-5192</a>
+        <a href="/#booking-section" class="bg-[#121214] text-[#facc15] font-bold uppercase rounded-full px-4 py-1 hover:bg-yellow-500 transition-colors whitespace-nowrap">BOOK DRIVEWAY APPOINTMENT</a>
+      </div>
+    </div>
+
+    <!-- Main navigation container -->
+    <nav class="fixed top-6 left-1/2 -translate-x-1/2 z-50 bg-stone-900 border border-stone-800 rounded-lg max-w-6xl w-full mx-auto px-6 py-4 flex items-center justify-between text-white font-sans" style="font-family: 'Outfit', sans-serif;">
+      <!-- Left logo block -->
+      <a href="/" class="flex items-center gap-3 flex-shrink-0">
+        <div class="bg-[#facc15] text-[#121214] font-black text-3xl leading-none px-3 rounded-sm font-racing-title" style="font-weight: 900; font-style: italic; text-transform: uppercase; letter-spacing: -0.03em; user-select:none;">123</div>
+        <div class="flex flex-col leading-tight select-none">
+          <span class="font-black tracking-tight text-[1.35rem] font-racing-title" style="font-weight: 900; font-style: italic; text-transform: uppercase; letter-spacing: -0.03em;">AUTO DETAILING</span>
+          <span class="text-xs font-normal tracking-widest uppercase">MOBILE DETAILING NJ</span>
+        </div>
+      </a>
+
+      <!-- Desktop nav links -->
+      <ul class="hidden md:flex gap-8 items-center font-semibold text-sm tracking-widest uppercase">
+        <li><a href="/" class="hover:text-[#facc15] transition-colors">Home</a></li>
+        <li class="relative group">
+          <button aria-haspopup="true" aria-expanded="false" class="flex items-center gap-1 hover:text-[#facc15] transition-colors font-semibold tracking-wide">Services
+            <svg class="w-3 h-3 text-[#facc15]" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg>
+          </button>
+          <ul class="absolute hidden group-hover:block bg-stone-900 border border-stone-800 rounded-md mt-2 py-2 w-48 shadow-lg z-50">
+            <li><a href="/#tiers" class="block px-4 py-2 hover:bg-[#facc15] hover:text-[#121214]">Detailing</a></li>
+            <li><a href="/paint-protection-film/" class="block px-4 py-2 hover:bg-[#facc15] hover:text-[#121214]">Paint Protection Film</a></li>
+            <li><a href="/ceramic-coatings/" class="block px-4 py-2 hover:bg-[#facc15] hover:text-[#121214]">Ceramic Coatings</a></li>
+            <li><a href="/tinting/" class="block px-4 py-2 hover:bg-[#facc15] hover:text-[#121214]">Tinting</a></li>
+            <li><a href="/paint-corrections/" class="block px-4 py-2 hover:bg-[#facc15] hover:text-[#121214]">Paint Corrections</a></li>
+          </ul>
+        </li>
+        <li class="relative group">
+          <button aria-haspopup="true" aria-expanded="false" class="flex items-center gap-1 hover:text-[#facc15] transition-colors font-semibold tracking-wide">More
+            <svg class="w-3 h-3 text-[#facc15]" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg>
+          </button>
+          <ul class="absolute hidden group-hover:block bg-stone-900 border border-stone-800 rounded-md mt-2 py-2 w-44 shadow-lg z-50">
+            <li><a href="/blog/" class="block px-4 py-2 hover:bg-[#facc15] hover:text-[#121214]">The Garage Journal</a></li>
+            <li><a href="/about/" class="block px-4 py-2 hover:bg-[#facc15] hover:text-[#121214]">About</a></li>
+            <li><a href="/gallery/" class="block px-4 py-2 hover:bg-[#facc15] hover:text-[#121214]">Gallery</a></li>
+          </ul>
+        </li>
+        <li>
+          <a href="/#booking-section" class="bg-[#facc15] text-[#121214] font-bold uppercase rounded-full px-4 py-2 text-sm hover:bg-yellow-500 transition-colors whitespace-nowrap">Book Appointment</a>
+        </li>
+      </ul>
+
+      <!-- Mobile hamburger button -->
+      <button id="mobile-nav-toggle" aria-label="Toggle menu" aria-expanded="false" class="md:hidden flex flex-col justify-center items-center gap-[6px] w-8 h-8">
+        <span class="block w-6 h-0.5 bg-[#facc15] rounded-full transition-transform"></span>
+        <span class="block w-6 h-0.5 bg-[#facc15] rounded-full transition-opacity"></span>
+        <span class="block w-6 h-0.5 bg-[#facc15] rounded-full transition-transform"></span>
+      </button>
+    </nav>
+
+    <!-- Mobile navigation overlay -->
+    <div id="mobile-nav-overlay" class="fixed inset-0 bg-[#121214] bg-opacity-95 z-40 hidden flex flex-col py-12 px-8 overflow-auto" style="font-family: 'Outfit', sans-serif;">
+      <a href="/" class="mb-8 flex items-center gap-3 flex-shrink-0 select-none">
+        <div class="bg-[#facc15] text-[#121214] font-black text-4xl leading-none px-4 rounded-sm font-racing-title" style="font-weight: 900; font-style: italic; text-transform: uppercase; letter-spacing: -0.03em;">123</div>
+        <div class="flex flex-col leading-tight">
+          <span class="font-black tracking-tight text-2xl font-racing-title" style="font-weight: 900; font-style: italic; text-transform: uppercase; letter-spacing: -0.03em;">AUTO DETAILING</span>
+          <span class="text-xs font-normal tracking-widest uppercase">MOBILE DETAILING NJ</span>
+        </div>
+      </a>
+      <nav class="flex flex-col gap-6 text-lg font-semibold tracking-wide uppercase">
+        <a href="/" class="hover:text-[#facc15] transition-colors">Home</a>
+        <details>
+          <summary class="cursor-pointer flex justify-between items-center hover:text-[#facc15] transition-colors select-none">
+            Services
+            <svg class="w-4 h-4 ml-2" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg>
+          </summary>
+          <div class="mt-2 ml-4 flex flex-col gap-4">
+            <a href="/#tiers" class="hover:text-[#facc15] transition-colors">Detailing</a>
+            <a href="/paint-protection-film/" class="hover:text-[#facc15] transition-colors">Paint Protection Film</a>
+            <a href="/ceramic-coatings/" class="hover:text-[#facc15] transition-colors">Ceramic Coatings</a>
+            <a href="/tinting/" class="hover:text-[#facc15] transition-colors">Tinting</a>
+            <a href="/paint-corrections/" class="hover:text-[#facc15] transition-colors">Paint Corrections</a>
+          </div>
+        </details>
+        <details>
+          <summary class="cursor-pointer flex justify-between items-center hover:text-[#facc15] transition-colors select-none">
+            More
+            <svg class="w-4 h-4 ml-2" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg>
+          </summary>
+          <div class="mt-2 ml-4 flex flex-col gap-4">
+            <a href="/blog/" class="hover:text-[#facc15] transition-colors">The Garage Journal</a>
+            <a href="/about/" class="hover:text-[#facc15] transition-colors">About</a>
+            <a href="/gallery/" class="hover:text-[#facc15] transition-colors">Gallery</a>
+          </div>
+        </details>
+        <a href="/#booking-section" class="bg-[#facc15] text-[#121214] font-bold uppercase rounded-full px-4 py-2 text-base hover:bg-yellow-500 transition-colors whitespace-nowrap max-w-max">Book Appointment</a>
+      </nav>
+    </div>
+
+    
+
+    <!-- Chat widget -->
+    <div id="chat-widget" aria-label="Open chat" role="button" tabindex="0" title="Chat with us" style="background-image: url('https://krowdimg.b-cdn.net/clients/123MobileDetailing/chatIcon.PNG'); background-size: 64% 64%; background-repeat: no-repeat; background-position: center;">
+    </div>
+    
   </section>
 
   <!-- ======================================================================== -->
