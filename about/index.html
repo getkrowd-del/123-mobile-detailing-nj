@@ -1,4 +1,3 @@
-```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -8,9 +7,10 @@
     <meta name="description" content="Learn the story behind 123 Mobile Detailing NJ. We bring precision, reliability, and convenience to Bergen County and Passaic County with premium mobile detailing.">
     <!-- Tailwind + Fonts + Custom Styles -->
     <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;800;900&display=swap" rel="stylesheet">
     
 
 <!-- SEO Meta Tags -->
@@ -37,66 +37,6 @@
 }catch(e){}})();
 </script>
 
-<script data-gate>
-(function(){
-  var slug='lp-mqjiwxy2-6jmv5';var apiBase='https://paymegpt.com';var currency='USD';var presets=[2500,5000,10000,25000];var minAmt=100;var maxAmt=1000000;var thankYouMsg='Thank you for your generous donation!';
-  var successSubtext='Your donation has been processed successfully.';var successBtnLabel='Continue';var successBtnColor='#16a34a';var successRedirect='';
-  function getLang(){var l=(document.documentElement.lang||navigator.language||'en').toLowerCase();return l.split('-')[0];}
-  function getLocale(){return (document.documentElement.lang||navigator.language||'en');}
-  var I18N={en:{min:'Minimum is ',max:'Maximum is ',emailPrompt:'Enter your email for the receipt:',emailRequired:'An email address is required to complete checkout.',failed:'Failed to process donation'},fr:{min:'Le minimum est ',max:'Le maximum est ',emailPrompt:'Entrez votre adresse e-mail pour le reçu :',emailRequired:'Une adresse e-mail est requise pour finaliser le paiement.',failed:'Échec du traitement du don'},es:{min:'El mínimo es ',max:'El máximo es ',emailPrompt:'Introduce tu correo electrónico para el recibo:',emailRequired:'Se requiere una dirección de correo electrónico para completar el pago.',failed:'No se pudo procesar la donación'},pt:{min:'O mínimo é ',max:'O máximo é ',emailPrompt:'Insira seu e-mail para o recibo:',emailRequired:'Um endereço de e-mail é necessário para concluir o pagamento.',failed:'Falha ao processar a doação'},de:{min:'Mindestbetrag ist ',max:'Höchstbetrag ist ',emailPrompt:'Geben Sie Ihre E-Mail-Adresse für die Quittung ein:',emailRequired:'Eine E-Mail-Adresse ist erforderlich, um den Checkout abzuschließen.',failed:'Spende konnte nicht verarbeitet werden'},it:{min:'Il minimo è ',max:'Il massimo è ',emailPrompt:'Inserisci la tua email per la ricevuta:',emailRequired:"È richiesto un indirizzo email per completare il pagamento.",failed:'Impossibile elaborare la donazione'}};
-  function t(k){var L=getLang();return (I18N[L]&&I18N[L][k])||I18N.en[k];}
-  function fmtD(c){try{return new Intl.NumberFormat(getLocale(),{style:'currency',currency:currency}).format(c/100);}catch(e){return new Intl.NumberFormat('en-US',{style:'currency',currency:currency}).format(c/100);}}
-  function findDonEmail(){var ids=['email','emailAddress','buyer-email','buyerEmail','donor-email','donorEmail','user-email','userEmail','contact-email'];for(var i=0;i<ids.length;i++){var el=document.getElementById(ids[i]);if(el&&el.value&&el.value.indexOf('@')>-1)return el.value.trim();}var inputs=document.querySelectorAll('input[type="email"],input[name*="email"],input[placeholder*="email"],input[placeholder*="Email"]');for(var j=0;j<inputs.length;j++){if(inputs[j].value&&inputs[j].value.indexOf('@')>-1)return inputs[j].value.trim();}return '';}
-  function findDonName(){var ids=['name','fullName','full-name','donor-name','donorName','customer-name','user-name'];for(var i=0;i<ids.length;i++){var el=document.getElementById(ids[i]);if(el&&el.value)return el.value.trim();}var inputs=document.querySelectorAll('input[name*="name"]:not([name*="email"]):not([type="email"]),input[placeholder*="name"]:not([placeholder*="email"]):not([type="email"])');for(var j=0;j<inputs.length;j++){if(inputs[j].value)return inputs[j].value.trim();}return '';}
-  function findDonPhone(){var ids=['phone','phoneNumber','phone-number','tel','telephone','mobile','mobileNumber','cell','contact-phone','buyer-phone'];for(var i=0;i<ids.length;i++){var el=document.getElementById(ids[i]);if(el&&el.value&&el.value.trim())return el.value.trim();}var inputs=document.querySelectorAll('input[type="tel"],input[name*="phone"],input[name*="tel"],input[name*="mobile"],input[placeholder*="phone"],input[placeholder*="Phone"]');for(var j=0;j<inputs.length;j++){if(inputs[j].value&&inputs[j].value.trim())return inputs[j].value.trim();}return '';}
-  window.__processDonation=function(a,b,c,d){
-    var amountCents,email='',donorName='',donorMessage='',productName='',productDescription='',quantity=1;
-    if(a&&typeof a==='object'){
-      amountCents=a.amountCents||(a.amount?Math.round(Number(a.amount)*100):0);
-      email=a.email||'';
-      productName=a.productName||a.label||'';
-      productDescription=a.productDescription||a.description||'';
-      donorName=a.name||a.donorName||'';
-      donorMessage=a.message||a.donorMessage||'';
-      quantity=a.quantity&&parseInt(a.quantity,10)>0?parseInt(a.quantity,10):1;
-    }else{
-      amountCents=typeof a==='number'?a:(parseInt(a,10)||0);
-      var rest=[b,c,d];var nonEmail=[];
-      for(var i=0;i<rest.length;i++){var v=rest[i];if(typeof v==='string'&&v){if(!email&&v.indexOf('@')>-1&&/^[^s@]+@[^s@]+.[^s@]+$/.test(v.trim())){email=v.trim();}else{nonEmail.push(v);}}}
-      donorName=nonEmail[0]||'';donorMessage=nonEmail[1]||'';
-    }
-    if(!email)email=findDonEmail();
-    if(!donorName)donorName=findDonName();
-    var donorPhone=findDonPhone();
-    if(!amountCents||amountCents<minAmt){alert(t('min')+fmtD(minAmt));return Promise.reject('below_min');}
-    if(amountCents>maxAmt){alert(t('max')+fmtD(maxAmt));return Promise.reject('above_max');}
-    if(!email){var p=window.prompt(t('emailPrompt'),'');if(p&&p.indexOf('@')>-1){email=p.trim();}else{alert(t('emailRequired'));return Promise.reject('no_email');}}
-    var successBase=window.location.href.split('?')[0];
-    return fetch(apiBase+'/api/landing-pages/public/'+slug+'/donation/checkout',{
-      method:'POST',headers:{'Content-Type':'application/json'},
-      body:JSON.stringify({email:email,name:donorName||'',phone:donorPhone||'',amountCents:amountCents,message:donorMessage||'',productName:productName||'',productDescription:productDescription||'',quantity:quantity,locale:getLocale(),successUrl:successBase+'?donation=success&email='+encodeURIComponent(email)+'&session_id={CHECKOUT_SESSION_ID}',cancelUrl:successBase+'?donation=cancelled'})
-    }).then(function(r){return r.json();}).then(function(d){
-      if(d.checkoutUrl){window.location.href=d.checkoutUrl;}
-      else{alert(d.error||t('failed'));throw new Error(d.error);}
-    });
-  };
-  window.__donationConfig={currency:currency,presets:presets.map(function(c){return c/100;}),minAmount:minAmt/100,maxAmount:maxAmt/100,formatAmount:fmtD};
-  document.addEventListener('DOMContentLoaded',function(){
-    var urlParams=new URLSearchParams(window.location.search);
-    if(urlParams.get('donation')==='success'){
-      var sidD=urlParams.get('session_id');
-      if(sidD){try{fetch(apiBase+'/api/landing-pages/public/'+slug+'/checkout/confirm',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({sessionId:sidD})}).catch(function(){});}catch(e){}}
-      var overlay=document.createElement('div');overlay.id='donation-success-overlay';
-      overlay.style.cssText='position:fixed;top:0;left:0;right:0;bottom:0;background:rgba(0,0,0,0.5);display:flex;align-items:center;justify-content:center;z-index:999999;font-family:system-ui,-apple-system,sans-serif;';
-      function esc(s){return String(s||'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');}
-      overlay.innerHTML='<div style="background:white;border-radius:16px;padding:40px;max-width:420px;width:90%;text-align:center;box-shadow:0 20px 60px rgba(0,0,0,0.15);"><div style="width:64px;height:64px;border-radius:50%;background:#dcfce7;margin:0 auto 20px;display:flex;align-items:center;justify-content:center;"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#16a34a" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></div><h2 style="margin:0 0 12px;font-size:24px;font-weight:700;color:#111827;">'+esc(thankYouMsg)+'</h2><p style="margin:0 0 24px;color:#6b7280;font-size:16px;">'+esc(successSubtext)+'</p><button id="lp-don-success-btn" style="padding:12px 32px;font-size:16px;font-weight:600;background:'+successBtnColor+';color:white;border:none;border-radius:8px;cursor:pointer;">'+esc(successBtnLabel)+'</button></div>';
-      document.body.appendChild(overlay);
-      var dBtn=document.getElementById('lp-don-success-btn');
-      if(dBtn){dBtn.addEventListener('click',function(){if(successRedirect){window.location.href=successRedirect;}else{overlay.remove();window.history.replaceState({},'',window.location.pathname);}});}
-    }
-  });
-})();
-</script>
 <script data-field-replace>
 (function(){
   var params=new URLSearchParams(window.location.search);
@@ -285,6 +225,69 @@
   });
 })();
 </script>
+<script data-donation>
+(function(){
+  var slug='5ALBAfT4m';
+  var apiBase='https://paymegpt.com';
+  var currency='USD';
+  var minAmt=100;var maxAmt=1000000;
+  var thankYouMsg='Thank you for your generous donation!';var successSubtext='Your donation has been processed successfully.';var successBtnLabel='Continue';var successBtnColor='#16a34a';var successRedirect='';
+  function getLang(){var l=(document.documentElement.lang||navigator.language||'en').toLowerCase();return l.split('-')[0];}
+  function getLocale(){return (document.documentElement.lang||navigator.language||'en');}
+  var I18N={en:{min:'Minimum is ',max:'Maximum is ',emailPrompt:'Enter your email for the receipt:',emailRequired:'An email address is required to complete checkout.',failed:'Failed to process donation'},fr:{min:'Le minimum est ',max:'Le maximum est ',emailPrompt:'Entrez votre adresse e-mail pour le reçu :',emailRequired:'Une adresse e-mail est requise pour finaliser le paiement.',failed:'Échec du traitement du don'},es:{min:'El mínimo es ',max:'El máximo es ',emailPrompt:'Introduce tu correo electrónico para el recibo:',emailRequired:'Se requiere una dirección de correo electrónico para completar el pago.',failed:'No se pudo procesar la donación'},pt:{min:'O mínimo é ',max:'O máximo é ',emailPrompt:'Insira seu e-mail para o recibo:',emailRequired:'Um endereço de e-mail é necessário para concluir o pagamento.',failed:'Falha ao processar a doação'},de:{min:'Mindestbetrag ist ',max:'Höchstbetrag ist ',emailPrompt:'Geben Sie Ihre E-Mail-Adresse für die Quittung ein:',emailRequired:'Eine E-Mail-Adresse ist erforderlich, um den Checkout abzuschließen.',failed:'Spende konnte nicht verarbeitet werden'},it:{min:'Il minimo è ',max:'Il massimo è ',emailPrompt:'Inserisci la tua email per la ricevuta:',emailRequired:"È richiesto un indirizzo email per completare il pagamento.",failed:'Impossibile elaborare la donazione'}};
+  function t(k){var L=getLang();return (I18N[L]&&I18N[L][k])||I18N.en[k];}
+  function fmtD(c){try{return new Intl.NumberFormat(getLocale(),{style:'currency',currency:currency}).format(c/100);}catch(e){return new Intl.NumberFormat('en-US',{style:'currency',currency:currency}).format(c/100);}}
+  window.__donationConfig={currency:currency,presets:[25,50,100,250],minAmount:100/100,maxAmount:1000000/100,formatAmount:fmtD,buttonColor:'#4f46e5',buttonText:'Donate Now',thankYouMessage:'Thank you for your generous donation!'};
+  function findDonEmail2(){var ids=['email','emailAddress','buyer-email','buyerEmail','donor-email','donorEmail','user-email','userEmail','contact-email'];for(var i=0;i<ids.length;i++){var el=document.getElementById(ids[i]);if(el&&el.value&&el.value.indexOf('@')>-1)return el.value.trim();}var inputs=document.querySelectorAll('input[type="email"],input[name*="email"],input[placeholder*="email"],input[placeholder*="Email"]');for(var j=0;j<inputs.length;j++){if(inputs[j].value&&inputs[j].value.indexOf('@')>-1)return inputs[j].value.trim();}return '';}
+  function findDonName2(){var ids=['name','fullName','full-name','donor-name','donorName','customer-name','user-name'];for(var i=0;i<ids.length;i++){var el=document.getElementById(ids[i]);if(el&&el.value)return el.value.trim();}var inputs=document.querySelectorAll('input[name*="name"]:not([name*="email"]):not([type="email"]),input[placeholder*="name"]:not([placeholder*="email"]):not([type="email"])');for(var j=0;j<inputs.length;j++){if(inputs[j].value)return inputs[j].value.trim();}return '';}
+  function findDonPhone2(){var ids=['phone','phoneNumber','phone-number','tel','telephone','mobile','mobileNumber','cell','contact-phone','buyer-phone'];for(var i=0;i<ids.length;i++){var el=document.getElementById(ids[i]);if(el&&el.value&&el.value.trim())return el.value.trim();}var inputs=document.querySelectorAll('input[type="tel"],input[name*="phone"],input[name*="tel"],input[name*="mobile"],input[placeholder*="phone"],input[placeholder*="Phone"]');for(var j=0;j<inputs.length;j++){if(inputs[j].value&&inputs[j].value.trim())return inputs[j].value.trim();}return '';}
+  window.__processDonation=function(a,b,c,d){
+    var amountCents,email='',name='',donorMessage='',productName='',productDescription='',quantity=1;
+    if(a&&typeof a==='object'){
+      amountCents=a.amountCents||(a.amount?Math.round(Number(a.amount)*100):0);
+      email=a.email||'';
+      productName=a.productName||a.label||'';
+      productDescription=a.productDescription||a.description||'';
+      name=a.name||a.donorName||'';
+      donorMessage=a.message||a.donorMessage||'';
+      quantity=a.quantity&&parseInt(a.quantity,10)>0?parseInt(a.quantity,10):1;
+    }else{
+      amountCents=typeof a==='number'?a:(parseInt(a,10)||0);
+      var rest=[b,c,d];var nonEmail=[];
+      for(var i=0;i<rest.length;i++){var v=rest[i];if(typeof v==='string'&&v){if(!email&&v.indexOf('@')>-1&&/^[^s@]+@[^s@]+.[^s@]+$/.test(v.trim())){email=v.trim();}else{nonEmail.push(v);}}}
+      name=nonEmail[0]||'';donorMessage=nonEmail[1]||'';
+    }
+    if(!email)email=findDonEmail2();
+    if(!name)name=findDonName2();
+    var donorPhone=findDonPhone2();
+    if(!amountCents||amountCents<minAmt){alert(t('min')+fmtD(minAmt));return Promise.reject('below_min');}
+    if(amountCents>maxAmt){alert(t('max')+fmtD(maxAmt));return Promise.reject('above_max');}
+    if(!email){var p=window.prompt(t('emailPrompt'),'');if(p&&p.indexOf('@')>-1){email=p.trim();}else{alert(t('emailRequired'));return;}}
+    var successBase=window.location.href.split('?')[0];
+    fetch(apiBase+'/api/landing-pages/public/'+slug+'/donation/checkout',{
+      method:'POST',headers:{'Content-Type':'application/json'},
+      body:JSON.stringify({email:email,name:name||'',phone:donorPhone||'',amountCents:amountCents,message:donorMessage||'',productName:productName||'',productDescription:productDescription||'',quantity:quantity,locale:getLocale(),successUrl:successBase+'?donation=success&email='+encodeURIComponent(email)+'&session_id={CHECKOUT_SESSION_ID}',cancelUrl:successBase+'?donation=cancelled'})
+    }).then(function(r){return r.json();}).then(function(d){
+      if(d.checkoutUrl){window.location.href=d.checkoutUrl;}
+      else{alert(d.error||t('failed'));}
+    }).catch(function(){alert(t('failed'));});
+  };
+  document.addEventListener('DOMContentLoaded',function(){
+    var urlParams=new URLSearchParams(window.location.search);
+    if(urlParams.get('donation')==='success'){
+      var sidD=urlParams.get('session_id');
+      if(sidD){try{fetch(apiBase+'/api/landing-pages/public/'+slug+'/checkout/confirm',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({sessionId:sidD})}).catch(function(){});}catch(e){}}
+      var overlay=document.createElement('div');overlay.id='donation-success-overlay';
+      overlay.style.cssText='position:fixed;top:0;left:0;right:0;bottom:0;background:rgba(0,0,0,0.5);display:flex;align-items:center;justify-content:center;z-index:999999;font-family:system-ui,-apple-system,sans-serif;';
+      function esc(s){return String(s||'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');}
+      overlay.innerHTML='<div style="background:white;border-radius:16px;padding:40px;max-width:420px;width:90%;text-align:center;box-shadow:0 20px 60px rgba(0,0,0,0.15);"><div style="width:64px;height:64px;border-radius:50%;background:#dcfce7;margin:0 auto 20px;display:flex;align-items:center;justify-content:center;"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#16a34a" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></div><h2 style="margin:0 0 12px;font-size:24px;font-weight:700;color:#111827;">'+esc(thankYouMsg)+'</h2><p style="margin:0 0 24px;color:#6b7280;font-size:16px;">'+esc(successSubtext)+'</p><button id="lp-don-success-btn" style="padding:12px 32px;font-size:16px;font-weight:600;background:'+successBtnColor+';color:white;border:none;border-radius:8px;cursor:pointer;">'+esc(successBtnLabel)+'</button></div>';
+      document.body.appendChild(overlay);
+      var dBtn=document.getElementById('lp-don-success-btn');
+      if(dBtn){dBtn.addEventListener('click',function(){if(successRedirect){window.location.href=successRedirect;}else{overlay.remove();window.history.replaceState({},'',window.location.pathname);}});}
+    }
+  });
+})();
+</script>
 <script data-cart>
 (function(){
   var slug='5ALBAfT4m';
@@ -365,346 +368,316 @@
 </head>
 <body>
 
-    <!-- ============================================================================ -->
-    <!-- SECTION: Navbar – dark racing nav with yellow accents                        -->
-    <!-- ============================================================================ -->
-    <nav data-section="navbar" class="relative">
-    <!-- Checkered Pattern Strip -->
-    <div class="w-full h-[4px] bg-black checkered-bg-sm"></div>
-
-    <!-- Dispatch Bar -->
-    <div class="bg-[#facc15] text-black flex items-center justify-between px-4 py-2 max-w-6xl mx-auto mt-1 rounded-sm select-none">
-        <div class="flex items-center gap-3 font-semibold uppercase tracking-wider">
-            <!-- Animated Red Dot -->
-            <span class="w-3 h-3 rounded-full bg-red-600 animate-pulse inline-block"></span>
-            <!-- Truck Icon (SVG) -->
-            <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M3 11V7a2 2 0 012-2h11l3 4v6h-1"></path>
-                <path d="M16 5v5h4"></path>
-                <circle cx="7.5" cy="17.5" r="2.5"></circle>
-                <circle cx="17.5" cy="17.5" r="2.5"></circle>
-            </svg>
-            <span>DIRECT HOME DRIVEWAY DISPATCH ACTIVE</span>
-        </div>
-        <div class="flex gap-3">
-            <a href="tel:8625005192" class="bg-black text-[#facc15] font-bold px-4 py-1 rounded border border-black hover:bg-[#222] transition">CALL: (862) 500-5192</a>
-            <a href="/#booking-section" class="bg-red-600 text-white font-bold px-4 py-1 rounded hover:bg-red-700 transition">BOOK DRIVEWAY APPOINTMENT</a>
+    <!-- Top Checkered Dispatch Banner -->
+    <div class="checkered-pattern h-4 w-full border-b border-gray-800"></div>
+    <div class="bg-yellow-400 text-stone-950 font-black py-3 px-4">
+        <div class="max-w-6xl mx-auto flex flex-col md:flex-row items-center justify-between gap-2 text-center md:text-left">
+            <span class="font-racing-title text-base tracking-wider flex items-center gap-2">
+                <span class="inline-block w-2.5 h-2.5 bg-red-600 animate-ping rounded-full"></span>
+                <i class="fa-solid fa-truck-fast"></i> DIRECT HOME DRIVEWAY DISPATCH ACTIVE
+            </span>
+            <div class="flex flex-wrap justify-center gap-3 md:gap-4">
+                <a href="tel:8625005192" class="bg-stone-950 text-yellow-400 font-bold px-4 py-1.5 rounded-sm text-sm uppercase hover:bg-stone-800 transition-all">
+                    <i class="fa-solid fa-phone"></i> CALL: (862) 500-5192
+                </a>
+                <a href="../index.html#tiers" class="bg-red-600 text-white font-bold px-4 py-1.5 rounded-sm text-sm uppercase hover:bg-red-700 transition-all">
+                    <i class="fa-solid fa-envelope"></i> BOOK DRIVEWAY APPOINTMENT
+                </a>
+            </div>
         </div>
     </div>
 
-    <!-- Main Nav Container -->
-    <div class="max-w-6xl mt-6 px-4 mx-auto">
-        <nav class="bg-stone-900 border border-stone-800 rounded-lg p-4 flex items-center justify-between relative z-10">
-            <!-- Left Side -->
-            <div class="flex items-center gap-4">
-                <div class="bg-[#facc15] text-black font-extrabold text-3xl w-14 h-14 flex items-center justify-center rounded select-none tracking-wide">
-                    123
-                </div>
-                <div class="flex flex-col leading-tight select-none">
-                    <span class="text-yellow-400 font-bold tracking-widest uppercase text-sm">AUTO DETAILING</span>
-                    <span class="text-white/70 uppercase text-xs tracking-widest">MOBILE DETAILING NJ</span>
+    <div class="max-w-6xl mx-auto mt-6 px-4" data-section="page-content">
+
+        <!-- Navigation Architecture -->
+        <nav class="bg-stone-900 border border-stone-800 rounded-lg p-4 flex items-center justify-between gap-4 shadow-xl" data-section="navbar">
+            <div class="flex items-center gap-3">
+                <a href="../index.html" class="bg-yellow-400 text-stone-950 p-2 rounded font-black text-xl italic tracking-tighter block">123</a>
+                <div>
+                    <span class="font-racing-title text-xl text-white tracking-widest block leading-none">AUTO DETAILING</span>
+                    <span class="text-xs text-yellow-400 tracking-widest font-mono font-bold uppercase">MOBILE DETAILING NJ</span>
                 </div>
             </div>
 
-            <!-- Desktop Links -->
-            <div class="hidden md:flex items-center gap-8 font-medium uppercase tracking-widest text-sm select-none">
-                <a href="/" class="hover:text-[#facc15] text-white transition-colors duration-200">Home</a>
-
-                <!-- Services Dropdown -->
-                <div class="relative group">
-                    <button class="flex items-center gap-1 hover:text-[#facc15] text-white focus:outline-none cursor-pointer transition-colors duration-200">
-                        Services
-                        <svg xmlns="http://www.w3.org/2000/svg" class="w-3 h-3 mt-[2px]" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" stroke-linejoin="round" stroke-linecap="round">
-                            <path d="M19 9l-7 7-7-7"></path>
-                        </svg>
-                    </button>
-                    <div class="absolute left-0 mt-2 w-48 bg-stone-900 border border-stone-800 rounded shadow-lg opacity-0 group-hover:opacity-100 invisible group-hover:visible transition-opacity duration-150 z-20">
-                        <a href="/#tiers" class="block px-4 py-2 hover:bg-yellow-500 hover:text-black">Detailing</a>
-                        <a href="/paint-protection-film/" class="block px-4 py-2 hover:bg-yellow-500 hover:text-black">PPF</a>
-                        <a href="/ceramic-coatings/" class="block px-4 py-2 hover:bg-yellow-500 hover:text-black">Ceramic</a>
-                        <a href="/tinting/" class="block px-4 py-2 hover:bg-yellow-500 hover:text-black">Tinting</a>
-                        <a href="/paint-corrections/" class="block px-4 py-2 hover:bg-yellow-500 hover:text-black">Paint Corrections</a>
+            <!-- Desktop Nav System -->
+            <div class="desktop-nav flex items-center gap-5 text-sm font-semibold tracking-wider text-stone-300 uppercase">
+                <a href="../index.html" class="hover:text-yellow-400 transition-all">Home</a>
+                <div class="nav-dropdown">
+                    <span class="hover:text-yellow-400 transition-all cursor-pointer">Services <i class="fa-solid fa-chevron-down text-[8px] ml-1"></i></span>
+                    <div class="nav-dropdown-menu">
+                        <a href="../index.html#tiers">Detailing</a>
+                        <a href="../paint-protection-film/index.html">Paint Protection Film</a>
+                        <a href="../ceramic-coatings/index.html">Ceramic Coatings</a>
+                        <a href="../tinting/index.html">Tinting</a>
+                        <a href="../paint-corrections/index.html">Paint Corrections</a>
                     </div>
                 </div>
-
-                <!-- More Dropdown -->
-                <div class="relative group">
-                    <button class="flex items-center gap-1 hover:text-[#facc15] text-white focus:outline-none cursor-pointer transition-colors duration-200">
-                        More
-                        <svg xmlns="http://www.w3.org/2000/svg" class="w-3 h-3 mt-[2px]" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" stroke-linejoin="round" stroke-linecap="round">
-                            <path d="M19 9l-7 7-7-7"></path>
-                        </svg>
-                    </button>
-                    <div class="absolute left-0 mt-2 w-36 bg-stone-900 border border-stone-800 rounded shadow-lg opacity-0 group-hover:opacity-100 invisible group-hover:visible transition-opacity duration-150 z-20">
-                        <a href="/blog/" class="block px-4 py-2 hover:bg-yellow-500 hover:text-black">Blog</a>
-                        <a href="/about/" class="block px-4 py-2 hover:bg-yellow-500 hover:text-black">About</a>
-                        <a href="/gallery/" class="block px-4 py-2 hover:bg-yellow-500 hover:text-black">Gallery</a>
+                <div class="nav-dropdown">
+                    <span class="hover:text-yellow-400 transition-all cursor-pointer">More <i class="fa-solid fa-chevron-down text-[8px] ml-1"></i></span>
+                    <div class="nav-dropdown-menu">
+                        <a href="../blog/index.html">The Garage Journal</a>
+                        <a href="../about/index.html">About</a>
+                        <a href="../gallery/index.html">Gallery</a>
                     </div>
                 </div>
-
-                <a href="/#booking-section" class="bg-[#facc15] text-black font-bold px-4 py-2 rounded hover:bg-yellow-500 transition">Book Appointment</a>
+                <a href="../index.html#tiers" class="bg-yellow-400 text-stone-950 font-bold px-4 py-2 rounded-sm btn-slant hover:bg-yellow-300 transition-all text-xs">
+                    Book Appointment
+                </a>
             </div>
 
-            <!-- Mobile Hamburger -->
-            <button id="mobile-menu-btn" aria-label="Toggle menu" class="md:hidden flex flex-col gap-1.5 p-2 focus:outline-none z-30 relative">
-                <span class="block w-6 h-0.5 bg-[#facc15] transition-transform duration-200"></span>
-                <span class="block w-6 h-0.5 bg-[#facc15] transition-opacity duration-200"></span>
-                <span class="block w-6 h-0.5 bg-[#facc15] transition-transform duration-200"></span>
+            <!-- Mobile hamburger -->
+            <button class="mobile-hamburger flex-col gap-1.5 cursor-pointer" id="hamburger" style="display:none;">
+                <span class="block w-6 h-0.5 bg-white transition-all"></span>
+                <span class="block w-6 h-0.5 bg-white transition-all"></span>
+                <span class="block w-6 h-0.5 bg-white transition-all"></span>
             </button>
         </nav>
 
         <!-- Mobile Menu Overlay -->
-        <div id="mobile-menu" class="fixed inset-0 bg-[#121214] bg-opacity-95 backdrop-blur-md transform scale-95 opacity-0 pointer-events-none transition-all duration-300 z-20">
-            <div class="flex flex-col items-center justify-center h-full gap-8 text-xl uppercase tracking-widest font-semibold select-none">
-                <a href="/" class="hover:text-[#facc15] text-white transition-colors duration-200" tabindex="0">Home</a>
-                <!-- Services Dropdown Mobile -->
-                <div class="flex flex-col gap-2 w-full text-center">
-                    <span class="text-[#facc15] font-bold">Services</span>
-                    <a href="/#tiers" class="hover:text-[#facc15] text-white transition-colors duration-200">Detailing</a>
-                    <a href="/paint-protection-film/" class="hover:text-[#facc15] text-white transition-colors duration-200">PPF</a>
-                    <a href="/ceramic-coatings/" class="hover:text-[#facc15] text-white transition-colors duration-200">Ceramic</a>
-                    <a href="/tinting/" class="hover:text-[#facc15] text-white transition-colors duration-200">Tinting</a>
-                    <a href="/paint-corrections/" class="hover:text-[#facc15] text-white transition-colors duration-200">Paint Corrections</a>
-                </div>
-                <!-- More Dropdown Mobile -->
-                <div class="flex flex-col gap-2 w-full text-center">
-                    <span class="text-[#facc15] font-bold">More</span>
-                    <a href="/blog/" class="hover:text-[#facc15] text-white transition-colors duration-200">Blog</a>
-                    <a href="/about/" class="hover:text-[#facc15] text-white transition-colors duration-200">About</a>
-                    <a href="/gallery/" class="hover:text-[#facc15] text-white transition-colors duration-200">Gallery</a>
-                </div>
-                <a href="/#booking-section" class="bg-[#facc15] text-black font-bold px-6 py-3 rounded hover:bg-yellow-500 transition">Book Appointment</a>
-                <button id="mobile-menu-close" class="mt-4 text-red-600 font-bold uppercase tracking-widest hover:text-red-700">Close Menu</button>
-            </div>
+        <div class="mobile-nav-overlay" id="mobileMenu" data-section="mobile-nav">
+            <a href="../index.html">Home</a>
+            <a href="../index.html#tiers" style="color:#facc15;font-weight:700;">Detailing</a>
+            <a href="../paint-protection-film/index.html" class="sub-link">Paint Protection Film</a>
+            <a href="../ceramic-coatings/index.html" class="sub-link">Ceramic Coatings</a>
+            <a href="../tinting/index.html" class="sub-link">Tinting</a>
+            <a href="../paint-corrections/index.html" class="sub-link">Paint Corrections</a>
+            <a href="../about/index.html">About</a>
+            <a href="../gallery/index.html">Gallery</a>
+            <a href="../blog/index.html">The Garage Journal</a>
+            <a href="../index.html#tiers" style="background:#facc15;color:#121214;text-align:center;border-radius:6px;font-weight:800;margin-top:12px;">Book Service</a>
         </div>
-    </div>
 
-    <!-- Chat Widget -->
-    <div id="chat-widget" tabindex="0" role="button" aria-label="Chat with us">
-        <img src="https://krowdimg.b-cdn.net/clients/123MobileDetailing/chatIcon.PNG" alt="Chat Icon" class="w-10 h-10 rounded-full" />
-        <iframe src="https://paymegpt.com/agents/28816726/embed" title="Chat Widget" class="hidden w-[350px] h-[500px] fixed bottom-[130px] right-6 border border-[#facc15] rounded-md shadow-lg bg-black z-50" id="chat-iframe"></iframe>
-    </div>
-
-    
-</nav>
-    <!-- Spacer for fixed nav -->
-    <div class="h-16 sm:h-18"></div>
-
-    <!-- ============================================================================ -->
-    <!-- SECTION: Hero – About intro with checkered backdrop                         -->
-    <!-- ============================================================================ -->
-    <section data-section="hero" class="relative overflow-hidden py-16 sm:py-20 lg:py-28 section-pad">
-        <!-- Checkered background pattern -->
-        <div class="absolute inset-0 checkered-bg opacity-[0.04] pointer-events-none"></div>
-        <!-- Diagonal yellow stripe accent -->
-        <div class="absolute top-0 right-0 w-48 h-48 sm:w-72 sm:h-72 bg-[#facc15]/5 rounded-full blur-3xl -translate-y-1/2 translate-x-1/4 pointer-events-none"></div>
-        <div class="max-w-6xl mx-auto relative z-10">
-            <p class="racing-title text-sm sm:text-base tracking-[0.2em] mb-2">Since 2022</p>
-            <h1 class="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold text-white leading-[1.05] mb-6">
-                Built for <span class="racing-yellow">Performance</span><br>
-                <span class="text-3xl sm:text-4xl md:text-5xl font-light italic text-white/70">— Driven by Detail</span>
-            </h1>
-            <p class="text-lg sm:text-xl text-white/70 max-w-2xl leading-relaxed mb-8">
-                123 Mobile Detailing NJ was founded with one obsession: make every vehicle look, feel, and perform like it just rolled off the showroom floor — no matter its age or condition.
-            </p>
-            <div class="flex flex-wrap items-center gap-4">
-                <a href="/contact/" class="inline-block bg-[#facc15] text-[#121214] font-bold uppercase tracking-widest text-sm sm:text-base px-8 py-4 rounded-sm hover:brightness-110 transition-all duration-200 shadow-lg shadow-[#facc15]/20">
-                    Contact Us
-                </a>
-                <a href="tel:+18625005192" class="inline-flex items-center gap-2 text-white/70 hover:text-[#facc15] transition-colors text-sm uppercase tracking-widest font-medium">
-                    <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M2.25 6.75c0 8.284 6.716 15 15 15h2.25a2.25 2.25 0 002.25-2.25v-1.372c0-.516-.351-.966-.852-1.091l-4.423-1.106c-.44-.11-.902.055-1.173.417l-.97 1.293c-.282.376-.769.542-1.21.38a12.035 12.035 0 01-7.143-7.143c-.162-.441.004-.928.38-1.21l1.293-.97c.363-.271.527-.734.417-1.173L6.963 3.102a1.125 1.125 0 00-1.091-.852H4.5A2.25 2.25 0 002.25 4.5v2.25z"/></svg>
-                    (862) 500-5192
-                </a>
+        <!-- ============================================================================ -->
+        <!-- SECTION: Hero – About intro                                                  -->
+        <!-- ============================================================================ -->
+        <section data-section="hero" class="relative overflow-hidden py-16 sm:py-20 lg:py-28">
+            <div class="absolute top-0 right-0 w-48 h-48 sm:w-72 sm:h-72 bg-[#facc15]/5 rounded-full blur-3xl -translate-y-1/2 translate-x-1/4 pointer-events-none"></div>
+            <div class="relative z-10 max-w-6xl">
+                <p class="font-racing-title text-sm sm:text-base tracking-[0.2em] mb-2 text-yellow-400">SINCE 2022</p>
+                <h1 class="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold text-white leading-[1.05] mb-6 font-racing-title">
+                    BUILT FOR <span class="text-yellow-400">PERFORMANCE</span><br>
+                    <span class="text-2xl sm:text-4xl md:text-5xl font-light italic text-stone-400">— Driven by Detail</span>
+                </h1>
+                <p class="text-sm sm:text-base text-stone-400 max-w-2xl leading-relaxed mb-8">
+                    123 Mobile Detailing NJ was founded with one obsession: make every vehicle look, feel, and perform like it just rolled off the showroom floor — no matter its age or road exposure profiles.
+                </p>
+                <div class="flex flex-wrap items-center gap-4">
+                    <a href="../index.html#tiers" class="inline-block bg-[#facc15] text-[#121214] font-bold uppercase tracking-widest text-xs px-8 py-4 rounded-sm hover:bg-yellow-300 btn-slant transition-all duration-200 shadow-lg glow-yellow">
+                        Configure Package
+                    </a>
+                    <a href="tel:8625005192" class="inline-flex items-center gap-2 text-stone-300 hover:text-[#facc15] transition-colors text-xs uppercase tracking-widest font-bold font-mono">
+                        <i class="fa-solid fa-phone text-yellow-400"></i> (862) 500-5192
+                    </a>
+                </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- ============================================================================ -->
-    <!-- SECTION: Story & Mission – the company background and driving purpose        -->
-    <!-- ============================================================================ -->
-    <section data-section="story" class="py-16 sm:py-20 section-pad border-t border-[#facc15]/10">
-        <div class="max-w-6xl mx-auto grid md:grid-cols-2 gap-12 md:gap-16 items-center">
-            <!-- Left: Text -->
-            <div>
-                <h2 class="racing-title text-3xl sm:text-4xl md:text-5xl mb-6">Our Story</h2>
-                <div class="space-y-4 text-white/70 leading-relaxed text-base sm:text-lg">
+        <!-- ============================================================================ -->
+        <!-- SECTION: Story & Mission                                                     -->
+        <!-- ============================================================================ -->
+        <section data-section="story" class="py-16 border-t border-[#facc15]/10">
+            <div class="grid md:grid-cols-2 gap-12 md:gap-16 items-center">
+                <div class="space-y-4 text-stone-400 leading-relaxed text-sm">
+                    <h2 class="font-racing-title text-3xl sm:text-4xl text-white">OUR STORY</h2>
                     <p>
-                        <strong class="text-white">123 Mobile Detailing NJ</strong> started in a driveway in Bergen County with a bucket, a microfiber towel, and an obsession for perfection. We realized that car owners in North Jersey deserved more than a quick wash — they deserved a <strong class="text-white">precision detail experience</strong> that protects their investment and restores pride in their ride.
+                        <strong class="text-white">123 Auto Detailing</strong> started in a local driveway in Bergen County with a basic wash configuration, a premium microfiber array, and an uncompromised commitment to finish depth. We realized car owners in North Jersey deserved a <strong class="text-white">precision fleet experience</strong> that shields clear coats right at their residency.
                     </p>
                     <p>
-                        What began as weekend work for friends and family quickly grew by word-of-mouth. Today, we serve clients across <strong class="text-white">Bergen County</strong> and <strong class="text-white">Passaic County</strong> with a fully equipped mobile fleet. Our mission is simple:
+                        What began as target work quickly grew via word-of-mouth logistics. Today, we dispatch fully self-contained power and pure pressure washing units straight across <strong class="text-white">Bergen County</strong> and <strong class="text-white">Passaic County</strong>. Our mission matrix remains unchanged:
                     </p>
-                    <blockquote class="racing-title text-lg sm:text-xl italic border-l-4 border-[#facc15] pl-4 my-6 leading-snug">
-                        Deliver showroom-quality detailing at your doorstep — with zero shortcuts, zero compromises.
+                    <blockquote class="font-racing-title text-lg sm:text-xl italic border-l-4 border-[#facc15] pl-4 my-6 leading-snug text-yellow-400">
+                        Deliver showroom-quality detailing parameters at your doorstep — with zero shortcuts and zero compromises.
                     </blockquote>
-                    <p>
-                        Every vehicle we touch gets the same treatment: meticulous hand-wash, clay bar decontamination, machine polishing, ceramic protection, and a deep interior refresh. We don't stop until every panel, stitch, and vent meets our standard.
-                    </p>
                 </div>
-            </div>
-            <!-- Right: Checkered decorative panel -->
-            <div class="relative flex items-center justify-center">
-                <div class="w-full aspect-square max-w-md rounded-sm overflow-hidden checkered-bg opacity-[0.12] absolute inset-0"></div>
-                <div class="relative z-10 bg-[#1a1a1e] border border-[#facc15]/20 rounded-sm p-8 sm:p-10 w-full max-w-md shadow-2xl">
-                    <div class="text-center">
-                        <div class="racing-title text-6xl sm:text-7xl font-black italic tracking-tight">123</div>
-                        <div class="text-white/40 uppercase tracking-[0.3em] text-sm mt-2">Mobile Detailing NJ</div>
+                <!-- Right Grid Block -->
+                <div class="relative flex items-center justify-center min-h-[220px]">
+                    <div class="w-full aspect-square max-w-sm rounded-sm overflow-hidden checkered-pattern opacity-[0.08] absolute inset-0"></div>
+                    <div class="relative z-10 bg-stone-900 border border-stone-800 rounded-lg p-8 text-center max-w-sm w-full shadow-2xl">
+                        <div class="font-racing-title text-6xl text-yellow-400">123</div>
+                        <div class="text-stone-500 uppercase tracking-[0.3em] font-mono text-[10px] mt-2">Mobile Detailing NJ</div>
                         <div class="w-12 h-0.5 bg-[#facc15] mx-auto my-4"></div>
-                        <p class="text-white/60 text-sm italic">"Precision. Reliability. Convenience."</p>
+                        <p class="text-stone-400 text-xs font-mono italic">"Precision. Reliability. Convenience."</p>
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- ============================================================================ -->
-    <!-- SECTION: Why Mobile Detailing – benefits of coming to you                    -->
-    <!-- ============================================================================ -->
-    <section data-section="why-mobile" class="py-16 sm:py-20 section-pad bg-[#16161a]">
-        <div class="max-w-6xl mx-auto">
-            <div class="text-center mb-12 sm:mb-16">
-                <p class="text-[#facc15]/60 uppercase tracking-[0.25em] text-sm font-medium">Convenience Redefined</p>
-                <h2 class="racing-title text-3xl sm:text-4xl md:text-5xl mt-2">Why Mobile Detailing?</h2>
-                <p class="text-white/60 text-lg max-w-2xl mx-auto mt-4">We bring the detail shop to you — your home, office, or anywhere in Bergen &amp; Passaic Counties.</p>
+        <!-- ============================================================================ -->
+        <!-- SECTION: Why Mobile Detailing                                                 -->
+        <!-- ============================================================================ -->
+        <section data-section="why-mobile" class="py-16 bg-stone-900/40 border-t border-b border-stone-800 rounded-2xl px-6">
+            <div class="text-center mb-12">
+                <p class="text-[#facc15] uppercase tracking-[0.25em] text-xs font-bold font-mono">CONVENIENCE REDEFINED</p>
+                <h2 class="font-racing-title text-3xl sm:text-4xl text-white mt-1">WHY MOBILE DETAILING?</h2>
+                <p class="text-stone-400 text-xs sm:text-sm max-w-xl mx-auto mt-2">We process and execute advanced garage finishes directly inside your residential layout parameters.</p>
             </div>
-            <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 font-mono text-xs">
                 <!-- Benefit 1 -->
-                <div class="bg-[#121214] border border-[#facc15]/10 p-6 sm:p-8 rounded-sm value-card">
-                    <div class="w-12 h-12 rounded-full bg-[#facc15]/10 flex items-center justify-center mb-4">
-                        <svg class="w-6 h-6 text-[#facc15]" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M15 10.5a3 3 0 11-6 0 3 3 0 016 0z"/><path stroke-linecap="round" stroke-linejoin="round" d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1115 0z"/></svg>
+                <div class="bg-stone-950 border border-stone-800 p-6 rounded-xl value-card space-y-3">
+                    <div class="w-10 h-10 rounded-full bg-[#facc15]/10 flex items-center justify-center text-yellow-400">
+                        <i class="fa-solid fa-map-location-dot"></i>
                     </div>
-                    <h3 class="racing-title text-lg mb-2">We Come to You</h3>
-                    <p class="text-white/60 text-sm leading-relaxed">No need to drop off your car or wait at a shop. We arrive at your driveway, parking lot, or office — fully equipped and ready to detail.</p>
+                    <h3 class="font-racing-title text-base text-white normal-case not-italic">Driveway Dispatch</h3>
+                    <p class="text-stone-400 leading-relaxed">No logistics drop-offs or waiting loops required. Our units appear aligned on schedule with water and extraction parameters onboard.</p>
                 </div>
                 <!-- Benefit 2 -->
-                <div class="bg-[#121214] border border-[#facc15]/10 p-6 sm:p-8 rounded-sm value-card">
-                    <div class="w-12 h-12 rounded-full bg-[#facc15]/10 flex items-center justify-center mb-4">
-                        <svg class="w-6 h-6 text-[#facc15]" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 6v6h4.5m4.5 0a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+                <div class="bg-stone-950 border border-stone-800 p-6 rounded-xl value-card space-y-3">
+                    <div class="w-10 h-10 rounded-full bg-[#facc15]/10 flex items-center justify-center text-yellow-400">
+                        <i class="fa-solid fa-hourglass-start"></i>
                     </div>
-                    <h3 class="racing-title text-lg mb-2">Save Your Time</h3>
-                    <p class="text-white/60 text-sm leading-relaxed">We respect your schedule. While we detail your vehicle, you can work, relax, or take care of errands. Most details take 2–4 hours.</p>
+                    <h3 class="font-racing-title text-base text-white normal-case not-italic">Preserve Your Timeline</h3>
+                    <p class="text-stone-400 leading-relaxed">Execute your office metrics or relax inside your home framework while our technical team processes multi-hour restorations safely.</p>
                 </div>
                 <!-- Benefit 3 -->
-                <div class="bg-[#121214] border border-[#facc15]/10 p-6 sm:p-8 rounded-sm value-card">
-                    <div class="w-12 h-12 rounded-full bg-[#facc15]/10 flex items-center justify-center mb-4">
-                        <svg class="w-6 h-6 text-[#facc15]" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9.813 15.904L9 18.75l-.813-2.846a4.5 4.5 0 00-3.09-3.09L2.25 12l2.846-.813a4.5 4.5 0 003.09-3.09L9 5.25l.813 2.846a4.5 4.5 0 003.09 3.09L15.75 12l-2.846.813a4.5 4.5 0 00-3.09 3.09zM18.259 8.715L18 9.75l-.259-1.035a3.375 3.375 0 00-2.455-2.456L14.25 6l1.036-.259a3.375 3.375 0 002.455-2.456L18 2.25l.259 1.035a3.375 3.375 0 002.455 2.456L21.75 6l-1.036.259a3.375 3.375 0 00-2.455 2.456z"/></svg>
+                <div class="bg-stone-950 border border-stone-800 p-6 rounded-xl value-card space-y-3">
+                    <div class="w-10 h-10 rounded-full bg-[#facc15]/10 flex items-center justify-center text-yellow-400">
+                        <i class="fa-solid fa-gears"></i>
                     </div>
-                    <h3 class="racing-title text-lg mb-2">Premium Equipment</h3>
-                    <p class="text-white/60 text-sm leading-relaxed">We carry pro-grade pressure washers, steam cleaners, polishers, and ceramic coatings — all in our mobile rig. Same quality as a fixed shop, delivered to your door.</p>
+                    <h3 class="font-racing-title text-base text-white normal-case not-italic">Industrial Machinery</h3>
+                    <p class="text-stone-400 leading-relaxed">Equipped with heated extraction lines, multi-stage rotary polish gear, and ceramic sealant matrix upgrades directly within the rig chassis.</p>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- ============================================================================ -->
-    <!-- SECTION: Commitment to Quality – standards and process                       -->
-    <!-- ============================================================================ -->
-    <section data-section="commitment" class="py-16 sm:py-20 section-pad">
-        <div class="max-w-6xl mx-auto">
-            <div class="text-center mb-12 sm:mb-16">
-                <p class="text-[#facc15]/60 uppercase tracking-[0.25em] text-sm font-medium">No Shortcuts. Ever.</p>
-                <h2 class="racing-title text-3xl sm:text-4xl md:text-5xl mt-2">Our Commitment to Quality</h2>
+        <!-- ============================================================================ -->
+        <!-- SECTION: Commitment to Quality                                               -->
+        <!-- ============================================================================ -->
+        <section data-section="commitment" class="py-16">
+            <div class="text-center mb-12">
+                <p class="text-[#facc15] uppercase tracking-[0.25em] text-xs font-bold font-mono">NO SHORTCUTS. EVER.</p>
+                <h2 class="font-racing-title text-3xl sm:text-4xl text-white mt-1">OUR COMMITMENT TO QUALITY</h2>
             </div>
-            <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
-                <!-- Quality point 1 -->
-                <div class="border border-[#facc15]/10 p-6 rounded-sm text-center bg-[#16161a]">
-                    <div class="text-4xl font-black italic text-[#facc15] mb-2">01</div>
-                    <h3 class="racing-title text-base mb-2">Inspection</h3>
-                    <p class="text-white/50 text-xs leading-relaxed">Every vehicle is fully assessed under proper lighting. We identify swirls, contaminants, and problem areas before we begin.</p>
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 font-mono text-xs">
+                <div class="border border-stone-800 p-5 rounded-xl text-center bg-stone-900/60">
+                    <div class="text-3xl font-black font-racing-title text-yellow-400 mb-1">01</div>
+                    <h3 class="font-racing-title text-sm text-white mb-2 normal-case not-italic">Visual Audit</h3>
+                    <p class="text-stone-400 leading-relaxed">Telemetry metrics checked under inspection illumination to accurately log swirl lines and clear coat hazards.</p>
                 </div>
-                <!-- Quality point 2 -->
-                <div class="border border-[#facc15]/10 p-6 rounded-sm text-center bg-[#16161a]">
-                    <div class="text-4xl font-black italic text-[#facc15] mb-2">02</div>
-                    <h3 class="racing-title text-base mb-2">Prep</h3>
-                    <p class="text-white/50 text-xs leading-relaxed">Hand-wash with pH-neutral soap, iron decon, clay bar treatment, and paint-grade prep before any polish or coating.</p>
+                <div class="border border-stone-800 p-5 rounded-xl text-center bg-stone-900/60">
+                    <div class="text-3xl font-black font-racing-title text-yellow-400 mb-1">02</div>
+                    <h3 class="font-racing-title text-sm text-white mb-2 normal-case not-italic">Surface Prep</h3>
+                    <p class="text-stone-400 leading-relaxed">pH-neutral cleaning foam blankets alongside mechanical clay bars safely lift deep iron embedded deposits away.</p>
                 </div>
-                <!-- Quality point 3 -->
-                <div class="border border-[#facc15]/10 p-6 rounded-sm text-center bg-[#16161a]">
-                    <div class="text-4xl font-black italic text-[#facc15] mb-2">03</div>
-                    <h3 class="racing-title text-base mb-2">Correction</h3>
-                    <p class="text-white/50 text-xs leading-relaxed">Multi-stage machine polishing using Rupes tools and fine-grade compounds. We remove defects, not clear coat.</p>
+                <div class="border border-stone-800 p-5 rounded-xl text-center bg-stone-900/60">
+                    <div class="text-3xl font-black font-racing-title text-yellow-400 mb-1">03</div>
+                    <h3 class="font-racing-title text-sm text-white mb-2 normal-case not-italic">Refinement Pass</h3>
+                    <p class="text-stone-400 leading-relaxed">Variable DA leveling systems track lines evenly to erase paint defects without micro-marring structural layouts.</p>
                 </div>
-                <!-- Quality point 4 -->
-                <div class="border border-[#facc15]/10 p-6 rounded-sm text-center bg-[#16161a]">
-                    <div class="text-4xl font-black italic text-[#facc15] mb-2">04</div>
-                    <h3 class="racing-title text-base mb-2">Protection</h3>
-                    <p class="text-white/50 text-xs leading-relaxed">Ceramic sealants, wax, or full ceramic coating applied with precision. Your paint stays protected for months.</p>
+                <div class="border border-stone-800 p-5 rounded-xl text-center bg-stone-900/60">
+                    <div class="text-3xl font-black font-racing-title text-yellow-400 mb-1">04</div>
+                    <h3 class="font-racing-title text-sm text-white mb-2 normal-case not-italic">Shell Protection</h3>
+                    <p class="text-stone-400 leading-relaxed">Advanced nanoceramic matrix coats or technical sealant formulas lock reflections down for months of road defense.</p>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- ============================================================================ -->
-    <!-- SECTION: Service Area – Bergen & Passaic Counties map style                  -->
-    <!-- ============================================================================ -->
-    <section data-section="service-area" class="py-16 sm:py-20 section-pad bg-[#16161a] border-t border-[#facc15]/10">
-        <div class="max-w-6xl mx-auto">
-            <div class="flex flex-col lg:flex-row items-center gap-12 lg:gap-20">
-                <div class="flex-1">
-                    <p class="text-[#facc15]/60 uppercase tracking-[0.25em] text-sm font-medium">Where We Operate</p>
-                    <h2 class="racing-title text-3xl sm:text-4xl md:text-5xl mt-2 mb-6">Service Area</h2>
-                    <p class="text-white/70 text-lg leading-relaxed mb-4">
-                        We proudly serve all of <strong class="text-white">Bergen County</strong> and <strong class="text-white">Passaic County</strong> in New Jersey — from ridge tops to river towns.
-                    </p>
-                    <ul class="grid grid-cols-2 gap-x-6 gap-y-2 text-white/60 text-sm">
-                        <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 bg-[#facc15] rounded-full"></span>Paramus</li>
-                        <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 bg-[#facc15] rounded-full"></span>Hackensack</li>
-                        <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 bg-[#facc15] rounded-full"></span>Ridgewood</li>
-                        <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 bg-[#facc15] rounded-full"></span>Teaneck</li>
-                        <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 bg-[#facc15] rounded-full"></span>Wayne</li>
-                        <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 bg-[#facc15] rounded-full"></span>Paterson</li>
-                        <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 bg-[#facc15] rounded-full"></span>Clifton</li>
-                        <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 bg-[#facc15] rounded-full"></span>Passaic</li>
-                        <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 bg-[#facc15] rounded-full"></span>Fort Lee</li>
-                        <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 bg-[#facc15] rounded-full"></span>Englewood</li>
-                        <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 bg-[#facc15] rounded-full"></span>Mahwah</li>
-                        <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 bg-[#facc15] rounded-full"></span>Ringwood</li>
-                    </ul>
-                    <p class="text-white/50 text-sm mt-6 italic">Don't see your town? Call us — we probably cover it.</p>
-                </div>
-                <!-- Decorative "map" panel -->
-                <div class="flex-shrink-0 w-full max-w-sm lg:max-w-md">
-                    <div class="relative bg-[#121214] border border-[#facc15]/20 rounded-sm overflow-hidden p-6 sm:p-8">
-                        <div class="checkered-bg-sm absolute inset-0 opacity-10"></div>
-                        <div class="relative z-10 text-center">
-                            <div class="racing-title text-2xl sm:text-3xl mb-2">Bergen + Passaic</div>
-                            <div class="w-full h-px bg-[#facc15]/20 my-4"></div>
-                            <div class="text-white/50 text-sm">Covering all surrounding communities</div>
-                            <div class="mt-4 inline-block border border-[#facc15]/40 text-[#facc15] text-xs uppercase tracking-widest px-4 py-2 rounded-sm">Full Mobile Service</div>
-                        </div>
-                    </div>
-                </div>
+        <!-- ============================================================================ -->
+        <!-- SECTION: Team Values (Repaired & Completed Truncation)                      -->
+        <!-- ============================================================================ -->
+        <section data-section="team-values" class="py-16 border-t border-stone-800">
+            <div class="text-center mb-12">
+                <p class="text-[#facc15] uppercase tracking-[0.25em] text-xs font-bold font-mono">WHAT DRIVES US</p>
+                <h2 class="font-racing-title text-3xl sm:text-4xl text-white mt-2">TEAM VALUES</h2>
             </div>
-        </div>
-    </section>
-
-    <!-- ============================================================================ -->
-    <!-- SECTION: Team Values – precision, reliability, convenience                    -->
-    <!-- ============================================================================ -->
-    <section data-section="team-values" class="py-16 sm:py-20 section-pad">
-        <div class="max-w-6xl mx-auto">
-            <div class="text-center mb-12 sm:mb-16">
-                <p class="text-[#facc15]/60 uppercase tracking-[0.25em] text-sm font-medium">What Drives Us</p>
-                <h2 class="racing-title text-3xl sm:text-4xl md:text-5xl mt-2">Team Values</h2>
-            </div>
-            <div class="grid sm:grid-cols-3 gap-6 sm:gap-8">
+            <div class="grid grid-cols-1 sm:grid-cols-3 gap-6 font-mono text-xs">
                 <!-- Precision -->
-                <div class="bg-[#16161a] border border-[#facc15]/10 p-8 rounded-sm text-center value-card">
-                    <div class="w-16 h-16 mx-auto mb-4 rounded-full bg-[#facc15]/10 flex items-center justify-center">
-                        <svg class="w-8 h-8 text-[#facc15]" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9.813 15.904L9 18.75l-.813-2.846a4.5 4.5 0 00-3.09-3.09L2.25 12l2.846-.813a4.5 4.5 0 003.09-3.09L9 5.25l.813 2.846a4.5 4.5 0 003.09 3.09L15.75 12l-2.846.813a4.5 4.5 0 00-3.09 3.09z"/></svg>
+                <div class="bg-stone-900 border border-stone-800 p-6 rounded-xl text-center value-card space-y-3">
+                    <div class="w-12 h-12 mx-auto rounded-full bg-[#facc15]/10 flex items-center justify-center text-yellow-400">
+                        <i class="fa-solid fa-bullseye text-lg"></i>
                     </div>
-                    <h3 class="racing-title text-xl mb-3">Precision</h3>
-                    <p class="text-white/60 text-sm leading-relaxed">Every inch of your vehicle gets meticulous attention. We use proper techniques, calibrated tools, and a trained eye to deliver defect-free results.</p>
+                    <h3 class="font-racing-title text-sm text-white normal-case not-italic">Precision Tracking</h3>
+                    <p class="text-stone-400 leading-relaxed">Every seam, stitch line, and clear coat pixel receives deliberate evaluation. We drive consistent output using technical methodologies.</p>
                 </div>
                 <!-- Reliability -->
-                <div class="bg-[#16161a] border border-[#facc15]/10 p-8 rounded-sm text-center value-card">
-                    <div class="w-16 h-16 mx-auto mb-4 rounded-full bg-[#facc15]/10 flex items-center justify-center">
-                        <svg class="w-8 h-8 text-[#facc15]" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75m-3-7.036A11.959 11.959 0 013.598 6 11.99 11.99 0 003 9.749c0 5.592 3.824 10.29 9 11.623 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.571-.598-3.751h-.152c-3.196 0-6.1-1.248-8.25-3.285z"/></svg>
+                <div class="bg-stone-900 border border-stone-800 p-6 rounded-xl text-center value-card space-y-3">
+                    <div class="w-12 h-12 mx-auto rounded-full bg-[#facc15]/10 flex items-center justify-center text-yellow-400">
+                        <i class="fa-solid fa-circle-check text-lg"></i>
                     </div>
-                    <h3 class="racing-title text-xl mb-3">Reliability</h3>
-                    <p class="text-white/60 text-sm leading-relaxed">We show up on time, communicate clearly, and deliver what we promise. Our reputation is built on trust and consistency — job after job.</p>
+                    <h3 class="font-racing-title text-sm text-white normal-case not-italic">Operational Trust</h3>
+                    <p class="text-stone-400 leading-relaxed">Our rigs arrive inside target timeline slots with proactive digital check-ins. Trust is earned across every appointment window.</p>
                 </div>
                 <!-- Convenience -->
-                <div class="bg-[#16161a] border border-[#facc15]/10 p-8 rounded-sm text-center value-card">
-                    <div class="w-16 h-16 mx-auto
-<script src="script.js"></script>
+                <div class="bg-stone-900 border border-stone-800 p-6 rounded-xl text-center value-card space-y-3">
+                    <div class="w-12 h-12 mx-auto rounded-full bg-[#facc15]/10 flex items-center justify-center text-yellow-400">
+                        <i class="fa-solid fa-bolt text-lg"></i>
+                    </div>
+                    <h3 class="font-racing-title text-sm text-white normal-case not-italic">Total Convenience</h3>
+                    <p class="text-stone-400 leading-relaxed">Self-sufficient water networks and generator electronics mean we operate without needing access to your utility lines on site.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Service Area Footprint Mapping -->
+        <section data-section="service-area" class="py-16 bg-stone-900/40 border border-stone-800 rounded-2xl p-4">
+            <div class="text-center mb-6">
+                <span class="text-yellow-400 font-mono text-[10px] font-bold uppercase tracking-widest">SERVICE COVERAGE</span>
+                <h3 class="font-racing-title text-lg text-white mt-1">AREAS WE SERVE</h3>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 p-2">
+                <div>
+                    <p class="text-yellow-400 font-mono text-[10px] font-bold uppercase tracking-widest mb-1">Bergen County Coverage</p>
+                    <p class="service-area-text">Allendale, Alpine, Bergenfield, Bogota, Carlstadt, Cliffside Park, Closter, Cresskill, Demarest, Dumont, East Rutherford, Edgewater, Elmwood Park, Emerson, Englewood, Englewood Cliffs, Fair Lawn, Fairview, Fort Lee, Franklin Lakes, Garfield, Glen Rock, Hackensack, Harrington Park, Hasbrouck Heights, Haworth, Hillsdale, Ho-Ho-Kus, Leonia, Little Ferry, Lodi, Lyndhurst, Mahwah, Maywood, Midland Park, Montvale, Moonachie, New Milford, North Arlington, Northvale, Norwood, Oakland, Old Tappan, Oradell, Palisades Park, Paramus, Park Ridge, Ramsey, Ridgefield, Ridgefield Park, Ridgewood, River Edge, River Vale, Rochelle Park, Rockleigh, Rutherford, Saddle Brook, Saddle River, South Hackensack, Teaneck, Tenafly, Teterboro, Upper Saddle River, Waldwick, Wallington, Washington Township, Westwood, Woodcliff Lake, Wood-Ridge, Wyckoff</p>
+                </div>
+                <div>
+                    <p class="text-yellow-400 font-mono text-[10px] font-bold uppercase tracking-widest mb-1">Passaic County Coverage</p>
+                    <p class="service-area-text">Bloomingdale, Clifton, Haledon, Hawthorne, Little Falls, North Haledon, Passaic, Paterson, Pompton Lakes, Prospect Park, Ringwood, Totowa, Wanaque, Wayne, West Milford, Woodland Park</p>
+                </div>
+            </div>
+        </section>
+
+    </div>
+
+    <!-- Footer Integration System -->
+    <footer class="mt-20 border-t border-stone-800 pt-0" data-section="footer">
+        <div class="checkered-pattern h-3 w-full"></div>
+        <div class="max-w-6xl mx-auto px-4 py-12">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-10">
+                <div>
+                    <div class="flex items-center gap-2 mb-3">
+                        <div class="bg-yellow-400 text-stone-950 p-1.5 rounded font-black text-sm italic">123</div>
+                        <span class="font-racing-title text-sm text-white tracking-widest">AUTO DETAILING</span>
+                    </div>
+                    <p class="text-xs text-stone-400 font-mono leading-relaxed">Classic Values. High-Octane Clean. Mobile detailing across Bergen & Passaic County, NJ.</p>
+                    <p class="text-xs text-stone-500 font-mono mt-3">📞 <a href="tel:8625005192" class="text-yellow-400 underline">(862) 500-5192</a></p>
+                </div>
+                <div>
+                    <h4 class="text-yellow-400 font-mono text-[10px] font-bold uppercase tracking-widest mb-4">Services</h4>
+                    <ul class="space-y-2 text-xs text-stone-400 font-mono">
+                        <li><a href="../index.html#tiers" class="hover:text-yellow-400 transition-all">Detailing Packages</a></li>
+                        <li><a href="../paint-protection-film/index.html" class="hover:text-yellow-400 transition-all">Paint Protection Film</a></li>
+                        <li><a href="../ceramic-coatings/index.html" class="hover:text-yellow-400 transition-all">Ceramic Coatings</a></li>
+                        <li><a href="../tinting/index.html" class="hover:text-yellow-400 transition-all">Tinting</a></li>
+                        <li><a href="../paint-corrections/index.html" class="hover:text-yellow-400 transition-all">Paint Corrections</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-yellow-400 font-mono text-[10px] font-bold uppercase tracking-widest mb-4">Company</h4>
+                    <ul class="space-y-2 text-xs text-stone-400 font-mono">
+                        <li><a href="../index.html" class="hover:text-yellow-400 transition-all">Home</a></li>
+                        <li><a href="../blog/index.html" class="hover:text-yellow-400 transition-all">The Garage Journal</a></li>
+                        <li><a href="../about/index.html" class="hover:text-yellow-400 transition-all">About</a></li>
+                        <li><a href="../gallery/index.html" class="hover:text-yellow-400 transition-all">Gallery</a></li>
+                        <li><a href="../index.html#tiers" class="hover:text-yellow-400 transition-all">Book Service</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="border-t border-stone-800 mt-10 pt-6 text-center">
+                <p class="text-xs text-stone-500 font-mono">&copy; 2026 123 Auto Detailing. All rights reserved. Bergen County & Passaic County, NJ.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Chat Trigger Overlay Telemetry -->
+    <div id="chat-teaser" data-section="chat-teaser">
+        <div class="teaser-bubble">
+            <button class="teaser-close" id="teaser-close-btn">✕</button>
+            <p style="font-size:0.88rem;color:#f3f4f6;line-height:1.55;">👋 Hey! Need a quote or want to book a detail? <strong style="color:#facc15;">Tap me</strong> and let's get your ride looking fresh!</p>
+        </div>
+    </div>
+    <button id="custom-chat-btn" class="chat-bounce"><img src="https://krowdimg.b-cdn.net/clients/123MobileDetailing/chatIcon.PNG" alt="Chat with us"></button>
+    <div id="chat-panel" data-section="chat-panel"><iframe id="chat-iframe" src="" allow="microphone"></iframe></div>
+
+    
+  <script src="script.js"></script>
+</body>
+</html>
