@@ -1,4 +1,4 @@
-```html
+html
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -40,66 +40,6 @@
 }catch(e){}})();
 </script>
 
-<script data-gate>
-(function(){
-  var slug='lp-mqjixnw6-8kbkt';var apiBase='https://paymegpt.com';var currency='USD';var presets=[2500,5000,10000,25000];var minAmt=100;var maxAmt=1000000;var thankYouMsg='Thank you for your generous donation!';
-  var successSubtext='Your donation has been processed successfully.';var successBtnLabel='Continue';var successBtnColor='#16a34a';var successRedirect='';
-  function getLang(){var l=(document.documentElement.lang||navigator.language||'en').toLowerCase();return l.split('-')[0];}
-  function getLocale(){return (document.documentElement.lang||navigator.language||'en');}
-  var I18N={en:{min:'Minimum is ',max:'Maximum is ',emailPrompt:'Enter your email for the receipt:',emailRequired:'An email address is required to complete checkout.',failed:'Failed to process donation'},fr:{min:'Le minimum est ',max:'Le maximum est ',emailPrompt:'Entrez votre adresse e-mail pour le reçu :',emailRequired:'Une adresse e-mail est requise pour finaliser le paiement.',failed:'Échec du traitement du don'},es:{min:'El mínimo es ',max:'El máximo es ',emailPrompt:'Introduce tu correo electrónico para el recibo:',emailRequired:'Se requiere una dirección de correo electrónico para completar el pago.',failed:'No se pudo procesar la donación'},pt:{min:'O mínimo é ',max:'O máximo é ',emailPrompt:'Insira seu e-mail para o recibo:',emailRequired:'Um endereço de e-mail é necessário para concluir o pagamento.',failed:'Falha ao processar a doação'},de:{min:'Mindestbetrag ist ',max:'Höchstbetrag ist ',emailPrompt:'Geben Sie Ihre E-Mail-Adresse für die Quittung ein:',emailRequired:'Eine E-Mail-Adresse ist erforderlich, um den Checkout abzuschließen.',failed:'Spende konnte nicht verarbeitet werden'},it:{min:'Il minimo è ',max:'Il massimo è ',emailPrompt:'Inserisci la tua email per la ricevuta:',emailRequired:"È richiesto un indirizzo email per completare il pagamento.",failed:'Impossibile elaborare la donazione'}};
-  function t(k){var L=getLang();return (I18N[L]&&I18N[L][k])||I18N.en[k];}
-  function fmtD(c){try{return new Intl.NumberFormat(getLocale(),{style:'currency',currency:currency}).format(c/100);}catch(e){return new Intl.NumberFormat('en-US',{style:'currency',currency:currency}).format(c/100);}}
-  function findDonEmail(){var ids=['email','emailAddress','buyer-email','buyerEmail','donor-email','donorEmail','user-email','userEmail','contact-email'];for(var i=0;i<ids.length;i++){var el=document.getElementById(ids[i]);if(el&&el.value&&el.value.indexOf('@')>-1)return el.value.trim();}var inputs=document.querySelectorAll('input[type="email"],input[name*="email"],input[placeholder*="email"],input[placeholder*="Email"]');for(var j=0;j<inputs.length;j++){if(inputs[j].value&&inputs[j].value.indexOf('@')>-1)return inputs[j].value.trim();}return '';}
-  function findDonName(){var ids=['name','fullName','full-name','donor-name','donorName','customer-name','user-name'];for(var i=0;i<ids.length;i++){var el=document.getElementById(ids[i]);if(el&&el.value)return el.value.trim();}var inputs=document.querySelectorAll('input[name*="name"]:not([name*="email"]):not([type="email"]),input[placeholder*="name"]:not([placeholder*="email"]):not([type="email"])');for(var j=0;j<inputs.length;j++){if(inputs[j].value)return inputs[j].value.trim();}return '';}
-  function findDonPhone(){var ids=['phone','phoneNumber','phone-number','tel','telephone','mobile','mobileNumber','cell','contact-phone','buyer-phone'];for(var i=0;i<ids.length;i++){var el=document.getElementById(ids[i]);if(el&&el.value&&el.value.trim())return el.value.trim();}var inputs=document.querySelectorAll('input[type="tel"],input[name*="phone"],input[name*="tel"],input[name*="mobile"],input[placeholder*="phone"],input[placeholder*="Phone"]');for(var j=0;j<inputs.length;j++){if(inputs[j].value&&inputs[j].value.trim())return inputs[j].value.trim();}return '';}
-  window.__processDonation=function(a,b,c,d){
-    var amountCents,email='',donorName='',donorMessage='',productName='',productDescription='',quantity=1;
-    if(a&&typeof a==='object'){
-      amountCents=a.amountCents||(a.amount?Math.round(Number(a.amount)*100):0);
-      email=a.email||'';
-      productName=a.productName||a.label||'';
-      productDescription=a.productDescription||a.description||'';
-      donorName=a.name||a.donorName||'';
-      donorMessage=a.message||a.donorMessage||'';
-      quantity=a.quantity&&parseInt(a.quantity,10)>0?parseInt(a.quantity,10):1;
-    }else{
-      amountCents=typeof a==='number'?a:(parseInt(a,10)||0);
-      var rest=[b,c,d];var nonEmail=[];
-      for(var i=0;i<rest.length;i++){var v=rest[i];if(typeof v==='string'&&v){if(!email&&v.indexOf('@')>-1&&/^[^s@]+@[^s@]+.[^s@]+$/.test(v.trim())){email=v.trim();}else{nonEmail.push(v);}}}
-      donorName=nonEmail[0]||'';donorMessage=nonEmail[1]||'';
-    }
-    if(!email)email=findDonEmail();
-    if(!donorName)donorName=findDonName();
-    var donorPhone=findDonPhone();
-    if(!amountCents||amountCents<minAmt){alert(t('min')+fmtD(minAmt));return Promise.reject('below_min');}
-    if(amountCents>maxAmt){alert(t('max')+fmtD(maxAmt));return Promise.reject('above_max');}
-    if(!email){var p=window.prompt(t('emailPrompt'),'');if(p&&p.indexOf('@')>-1){email=p.trim();}else{alert(t('emailRequired'));return Promise.reject('no_email');}}
-    var successBase=window.location.href.split('?')[0];
-    return fetch(apiBase+'/api/landing-pages/public/'+slug+'/donation/checkout',{
-      method:'POST',headers:{'Content-Type':'application/json'},
-      body:JSON.stringify({email:email,name:donorName||'',phone:donorPhone||'',amountCents:amountCents,message:donorMessage||'',productName:productName||'',productDescription:productDescription||'',quantity:quantity,locale:getLocale(),successUrl:successBase+'?donation=success&email='+encodeURIComponent(email)+'&session_id={CHECKOUT_SESSION_ID}',cancelUrl:successBase+'?donation=cancelled'})
-    }).then(function(r){return r.json();}).then(function(d){
-      if(d.checkoutUrl){window.location.href=d.checkoutUrl;}
-      else{alert(d.error||t('failed'));throw new Error(d.error);}
-    });
-  };
-  window.__donationConfig={currency:currency,presets:presets.map(function(c){return c/100;}),minAmount:minAmt/100,maxAmount:maxAmt/100,formatAmount:fmtD};
-  document.addEventListener('DOMContentLoaded',function(){
-    var urlParams=new URLSearchParams(window.location.search);
-    if(urlParams.get('donation')==='success'){
-      var sidD=urlParams.get('session_id');
-      if(sidD){try{fetch(apiBase+'/api/landing-pages/public/'+slug+'/checkout/confirm',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({sessionId:sidD})}).catch(function(){});}catch(e){}}
-      var overlay=document.createElement('div');overlay.id='donation-success-overlay';
-      overlay.style.cssText='position:fixed;top:0;left:0;right:0;bottom:0;background:rgba(0,0,0,0.5);display:flex;align-items:center;justify-content:center;z-index:999999;font-family:system-ui,-apple-system,sans-serif;';
-      function esc(s){return String(s||'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');}
-      overlay.innerHTML='<div style="background:white;border-radius:16px;padding:40px;max-width:420px;width:90%;text-align:center;box-shadow:0 20px 60px rgba(0,0,0,0.15);"><div style="width:64px;height:64px;border-radius:50%;background:#dcfce7;margin:0 auto 20px;display:flex;align-items:center;justify-content:center;"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#16a34a" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></div><h2 style="margin:0 0 12px;font-size:24px;font-weight:700;color:#111827;">'+esc(thankYouMsg)+'</h2><p style="margin:0 0 24px;color:#6b7280;font-size:16px;">'+esc(successSubtext)+'</p><button id="lp-don-success-btn" style="padding:12px 32px;font-size:16px;font-weight:600;background:'+successBtnColor+';color:white;border:none;border-radius:8px;cursor:pointer;">'+esc(successBtnLabel)+'</button></div>';
-      document.body.appendChild(overlay);
-      var dBtn=document.getElementById('lp-don-success-btn');
-      if(dBtn){dBtn.addEventListener('click',function(){if(successRedirect){window.location.href=successRedirect;}else{overlay.remove();window.history.replaceState({},'',window.location.pathname);}});}
-    }
-  });
-})();
-</script>
 <script data-field-replace>
 (function(){
   var params=new URLSearchParams(window.location.search);
@@ -288,6 +228,69 @@
   });
 })();
 </script>
+<script data-donation>
+(function(){
+  var slug='VKnshGdb';
+  var apiBase='https://paymegpt.com';
+  var currency='USD';
+  var minAmt=100;var maxAmt=1000000;
+  var thankYouMsg='Thank you for your generous donation!';var successSubtext='Your donation has been processed successfully.';var successBtnLabel='Continue';var successBtnColor='#16a34a';var successRedirect='';
+  function getLang(){var l=(document.documentElement.lang||navigator.language||'en').toLowerCase();return l.split('-')[0];}
+  function getLocale(){return (document.documentElement.lang||navigator.language||'en');}
+  var I18N={en:{min:'Minimum is ',max:'Maximum is ',emailPrompt:'Enter your email for the receipt:',emailRequired:'An email address is required to complete checkout.',failed:'Failed to process donation'},fr:{min:'Le minimum est ',max:'Le maximum est ',emailPrompt:'Entrez votre adresse e-mail pour le reçu :',emailRequired:'Une adresse e-mail est requise pour finaliser le paiement.',failed:'Échec du traitement du don'},es:{min:'El mínimo es ',max:'El máximo es ',emailPrompt:'Introduce tu correo electrónico para el recibo:',emailRequired:'Se requiere una dirección de correo electrónico para completar el pago.',failed:'No se pudo procesar la donación'},pt:{min:'O mínimo é ',max:'O máximo é ',emailPrompt:'Insira seu e-mail para o recibo:',emailRequired:'Um endereço de e-mail é necessário para concluir o pagamento.',failed:'Falha ao processar a doação'},de:{min:'Mindestbetrag ist ',max:'Höchstbetrag ist ',emailPrompt:'Geben Sie Ihre E-Mail-Adresse für die Quittung ein:',emailRequired:'Eine E-Mail-Adresse ist erforderlich, um den Checkout abzuschließen.',failed:'Spende konnte nicht verarbeitet werden'},it:{min:'Il minimo è ',max:'Il massimo è ',emailPrompt:'Inserisci la tua email per la ricevuta:',emailRequired:"È richiesto un indirizzo email per completare il pagamento.",failed:'Impossibile elaborare la donazione'}};
+  function t(k){var L=getLang();return (I18N[L]&&I18N[L][k])||I18N.en[k];}
+  function fmtD(c){try{return new Intl.NumberFormat(getLocale(),{style:'currency',currency:currency}).format(c/100);}catch(e){return new Intl.NumberFormat('en-US',{style:'currency',currency:currency}).format(c/100);}}
+  window.__donationConfig={currency:currency,presets:[25,50,100,250],minAmount:100/100,maxAmount:1000000/100,formatAmount:fmtD,buttonColor:'#4f46e5',buttonText:'Donate Now',thankYouMessage:'Thank you for your generous donation!'};
+  function findDonEmail2(){var ids=['email','emailAddress','buyer-email','buyerEmail','donor-email','donorEmail','user-email','userEmail','contact-email'];for(var i=0;i<ids.length;i++){var el=document.getElementById(ids[i]);if(el&&el.value&&el.value.indexOf('@')>-1)return el.value.trim();}var inputs=document.querySelectorAll('input[type="email"],input[name*="email"],input[placeholder*="email"],input[placeholder*="Email"]');for(var j=0;j<inputs.length;j++){if(inputs[j].value&&inputs[j].value.indexOf('@')>-1)return inputs[j].value.trim();}return '';}
+  function findDonName2(){var ids=['name','fullName','full-name','donor-name','donorName','customer-name','user-name'];for(var i=0;i<ids.length;i++){var el=document.getElementById(ids[i]);if(el&&el.value)return el.value.trim();}var inputs=document.querySelectorAll('input[name*="name"]:not([name*="email"]):not([type="email"]),input[placeholder*="name"]:not([placeholder*="email"]):not([type="email"])');for(var j=0;j<inputs.length;j++){if(inputs[j].value)return inputs[j].value.trim();}return '';}
+  function findDonPhone2(){var ids=['phone','phoneNumber','phone-number','tel','telephone','mobile','mobileNumber','cell','contact-phone','buyer-phone'];for(var i=0;i<ids.length;i++){var el=document.getElementById(ids[i]);if(el&&el.value&&el.value.trim())return el.value.trim();}var inputs=document.querySelectorAll('input[type="tel"],input[name*="phone"],input[name*="tel"],input[name*="mobile"],input[placeholder*="phone"],input[placeholder*="Phone"]');for(var j=0;j<inputs.length;j++){if(inputs[j].value&&inputs[j].value.trim())return inputs[j].value.trim();}return '';}
+  window.__processDonation=function(a,b,c,d){
+    var amountCents,email='',name='',donorMessage='',productName='',productDescription='',quantity=1;
+    if(a&&typeof a==='object'){
+      amountCents=a.amountCents||(a.amount?Math.round(Number(a.amount)*100):0);
+      email=a.email||'';
+      productName=a.productName||a.label||'';
+      productDescription=a.productDescription||a.description||'';
+      name=a.name||a.donorName||'';
+      donorMessage=a.message||a.donorMessage||'';
+      quantity=a.quantity&&parseInt(a.quantity,10)>0?parseInt(a.quantity,10):1;
+    }else{
+      amountCents=typeof a==='number'?a:(parseInt(a,10)||0);
+      var rest=[b,c,d];var nonEmail=[];
+      for(var i=0;i<rest.length;i++){var v=rest[i];if(typeof v==='string'&&v){if(!email&&v.indexOf('@')>-1&&/^[^s@]+@[^s@]+.[^s@]+$/.test(v.trim())){email=v.trim();}else{nonEmail.push(v);}}}
+      name=nonEmail[0]||'';donorMessage=nonEmail[1]||'';
+    }
+    if(!email)email=findDonEmail2();
+    if(!name)name=findDonName2();
+    var donorPhone=findDonPhone2();
+    if(!amountCents||amountCents<minAmt){alert(t('min')+fmtD(minAmt));return Promise.reject('below_min');}
+    if(amountCents>maxAmt){alert(t('max')+fmtD(maxAmt));return Promise.reject('above_max');}
+    if(!email){var p=window.prompt(t('emailPrompt'),'');if(p&&p.indexOf('@')>-1){email=p.trim();}else{alert(t('emailRequired'));return;}}
+    var successBase=window.location.href.split('?')[0];
+    fetch(apiBase+'/api/landing-pages/public/'+slug+'/donation/checkout',{
+      method:'POST',headers:{'Content-Type':'application/json'},
+      body:JSON.stringify({email:email,name:name||'',phone:donorPhone||'',amountCents:amountCents,message:donorMessage||'',productName:productName||'',productDescription:productDescription||'',quantity:quantity,locale:getLocale(),successUrl:successBase+'?donation=success&email='+encodeURIComponent(email)+'&session_id={CHECKOUT_SESSION_ID}',cancelUrl:successBase+'?donation=cancelled'})
+    }).then(function(r){return r.json();}).then(function(d){
+      if(d.checkoutUrl){window.location.href=d.checkoutUrl;}
+      else{alert(d.error||t('failed'));}
+    }).catch(function(){alert(t('failed'));});
+  };
+  document.addEventListener('DOMContentLoaded',function(){
+    var urlParams=new URLSearchParams(window.location.search);
+    if(urlParams.get('donation')==='success'){
+      var sidD=urlParams.get('session_id');
+      if(sidD){try{fetch(apiBase+'/api/landing-pages/public/'+slug+'/checkout/confirm',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({sessionId:sidD})}).catch(function(){});}catch(e){}}
+      var overlay=document.createElement('div');overlay.id='donation-success-overlay';
+      overlay.style.cssText='position:fixed;top:0;left:0;right:0;bottom:0;background:rgba(0,0,0,0.5);display:flex;align-items:center;justify-content:center;z-index:999999;font-family:system-ui,-apple-system,sans-serif;';
+      function esc(s){return String(s||'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');}
+      overlay.innerHTML='<div style="background:white;border-radius:16px;padding:40px;max-width:420px;width:90%;text-align:center;box-shadow:0 20px 60px rgba(0,0,0,0.15);"><div style="width:64px;height:64px;border-radius:50%;background:#dcfce7;margin:0 auto 20px;display:flex;align-items:center;justify-content:center;"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#16a34a" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></div><h2 style="margin:0 0 12px;font-size:24px;font-weight:700;color:#111827;">'+esc(thankYouMsg)+'</h2><p style="margin:0 0 24px;color:#6b7280;font-size:16px;">'+esc(successSubtext)+'</p><button id="lp-don-success-btn" style="padding:12px 32px;font-size:16px;font-weight:600;background:'+successBtnColor+';color:white;border:none;border-radius:8px;cursor:pointer;">'+esc(successBtnLabel)+'</button></div>';
+      document.body.appendChild(overlay);
+      var dBtn=document.getElementById('lp-don-success-btn');
+      if(dBtn){dBtn.addEventListener('click',function(){if(successRedirect){window.location.href=successRedirect;}else{overlay.remove();window.history.replaceState({},'',window.location.pathname);}});}
+    }
+  });
+})();
+</script>
 <script data-cart>
 (function(){
   var slug='VKnshGdb';
@@ -368,369 +371,426 @@
 </head>
 <body>
 
-    <!-- ============================================================================ -->
-    <!-- SECTION: NAVBAR — Same dark racing nav used across the site                  -->
-    <!-- Notes: Links to Home (/), About (/about/), Services (/services/), Gallery    -->
-    <!-- (/gallery/), Contact (/contact/). Active state for gallery.                  -->
-    <!-- ============================================================================ -->
-    <nav data-section="navbar" class="fixed top-0 left-0 w-full z-50 font-outfit" style="background: #121214;">
-        <!-- Checkered strip 4px high -->
-        <div class="w-full h-1" style="background: repeating-linear-gradient(45deg, #000 0 4px, #444 0 8px);"></div>
-        
-        <!-- Yellow Dispatch Bar -->
-        <div class="bg-[#facc15] flex items-center justify-center gap-6 px-4 py-1.5 text-sm font-semibold uppercase tracking-wider text-stone-900 select-none">
-            <div class="flex items-center gap-2">
-                <span class="animate-pulse text-red-600 text-xl">&#x25CF;</span>
-                <i class="fas fa-truck text-stone-900"></i>
-                <span>DIRECT HOME DRIVEWAY DISPATCH ACTIVE</span>
-            </div>
-            <a href="tel:8625005192" class="ml-auto px-4 py-1 rounded bg-black text-[#facc15] font-bold border border-[#facc15] hover:bg-stone-800 transition-colors whitespace-nowrap">CALL: (862) 500-5192</a>
-            <a href="/#booking-section" class="px-4 py-1 rounded bg-red-600 text-white font-bold hover:bg-red-700 transition-colors whitespace-nowrap">BOOK DRIVEWAY APPOINTMENT</a>
-        </div>
-
-        <!-- Main Nav Container -->
-        <div class="max-w-6xl mx-auto mt-6 px-4">
-            <nav class="bg-stone-900 border border-stone-800 rounded-lg p-4 flex items-center justify-between gap-6 relative">
-                <!-- Left: Logo + Titles -->
-                <a href="/" class="flex items-center gap-3 shrink-0">
-                    <div class="w-10 h-10 bg-[#facc15] rounded flex items-center justify-center">
-                        <span class="font-black text-lg tracking-tight text-stone-900 select-none">123</span>
-                    </div>
-                    <div class="flex flex-col select-none">
-                        <span class="text-[#facc15] font-bold text-xl tracking-wide racing-title-yellow">AUTO DETAILING</span>
-                        <span class="text-gray-400 text-xs uppercase font-semibold mt-0.5">MOBILE DETAILING NJ</span>
-                    </div>
+    <!-- Top Dispatch Bar -->
+    <div class="checkered-pattern h-4 w-full border-b border-gray-800"></div>
+    <div class="bg-yellow-400 text-stone-950 font-black py-3 px-4">
+        <div class="max-w-6xl mx-auto flex flex-col md:flex-row items-center justify-between gap-2 text-center md:text-left">
+            <span class="font-racing-title text-base tracking-wider flex items-center gap-2">
+                <span class="inline-block w-2.5 h-2.5 bg-red-600 animate-ping rounded-full"></span>
+                <i class="fa-solid fa-truck-fast"></i> DIRECT HOME DRIVEWAY DISPATCH ACTIVE
+            </span>
+            <div class="flex flex-wrap justify-center gap-3 md:gap-4">
+                <a href="tel:8625005192" class="bg-stone-950 text-yellow-400 font-bold px-4 py-1.5 rounded-sm text-sm uppercase hover:bg-stone-800 transition-all">
+                    <i class="fa-solid fa-phone"></i> CALL: (862) 500-5192
                 </a>
-
-                <!-- Desktop nav links -->
-                <div class="hidden md:flex items-center gap-8 text-stone-300 font-semibold uppercase tracking-wider select-none">
-                    <a href="/" class="hover:text-[#facc15] transition-colors text-sm">Home</a>
-
-                    <!-- Services Dropdown -->
-                    <div class="relative group">
-                        <button class="flex items-center gap-1 text-sm hover:text-[#facc15] transition-colors focus:outline-none" aria-haspopup="true" aria-expanded="false" type="button">
-                            Services <i class="fas fa-chevron-down text-xs"></i>
-                        </button>
-                        <div class="absolute left-0 top-full mt-1 bg-stone-800 rounded-md border border-stone-700 shadow-lg opacity-0 group-hover:opacity-100 pointer-events-none group-focus-within:opacity-100 group-focus-within:pointer-events-auto transition-opacity text-sm w-48 z-50">
-                            <a href="/#tiers" class="block px-4 py-2 hover:bg-[#facc15] hover:text-stone-900 transition-colors">Detailing</a>
-                            <a href="/paint-protection-film/" class="block px-4 py-2 hover:bg-[#facc15] hover:text-stone-900 transition-colors">PPF</a>
-                            <a href="/ceramic-coatings/" class="block px-4 py-2 hover:bg-[#facc15] hover:text-stone-900 transition-colors">Ceramic</a>
-                            <a href="/tinting/" class="block px-4 py-2 hover:bg-[#facc15] hover:text-stone-900 transition-colors">Tinting</a>
-                            <a href="/paint-corrections/" class="block px-4 py-2 hover:bg-[#facc15] hover:text-stone-900 transition-colors">Paint Corrections</a>
-                        </div>
-                    </div>
-
-                    <!-- More Dropdown -->
-                    <div class="relative group">
-                        <button class="flex items-center gap-1 text-sm hover:text-[#facc15] transition-colors focus:outline-none" aria-haspopup="true" aria-expanded="false" type="button">
-                            More <i class="fas fa-chevron-down text-xs"></i>
-                        </button>
-                        <div class="absolute left-0 top-full mt-1 bg-stone-800 rounded-md border border-stone-700 shadow-lg opacity-0 group-hover:opacity-100 pointer-events-none group-focus-within:opacity-100 group-focus-within:pointer-events-auto transition-opacity text-sm w-40 z-50">
-                            <a href="/blog/" class="block px-4 py-2 hover:bg-[#facc15] hover:text-stone-900 transition-colors">Blog</a>
-                            <a href="/about/" class="block px-4 py-2 hover:bg-[#facc15] hover:text-stone-900 transition-colors">About</a>
-                            <a href="/gallery/" class="block px-4 py-2 hover:bg-[#facc15] hover:text-stone-900 transition-colors">Gallery</a>
-                        </div>
-                    </div>
-
-                    <a href="/#booking-section" class="bg-[#facc15] text-stone-900 py-2 px-6 rounded-full text-sm font-bold hover:bg-yellow-300 transition-colors whitespace-nowrap">Book Appointment</a>
-                </div>
-
-                <!-- Mobile Menu Button -->
-                <button id="mobile-menu-btn" aria-label="Toggle menu" class="md:hidden text-[#facc15] focus:outline-none z-50">
-                    <i class="fas fa-bars text-2xl"></i>
-                </button>
-            </nav>
-        </div>
-
-        <!-- Mobile Menu Overlay -->
-        <div id="mobile-menu" class="fixed inset-0 bg-[#121214] bg-opacity-95 py-12 px-6 hidden z-40 overflow-auto">
-            <button id="mobile-menu-close" aria-label="Close menu" class="mb-8 text-[#facc15] text-3xl hover:text-yellow-400 transition-colors"><i class="fas fa-times"></i></button>
-            <nav class="flex flex-col gap-6 uppercase font-semibold tracking-wider text-[#facc15] text-lg select-none">
-                <a href="/" class="block hover:text-yellow-300">Home</a>
-
-                <details open class="bg-[#1c1c1f] rounded-lg border border-stone-700 p-4" style="font-weight: 600;">
-                    <summary class="cursor-pointer flex justify-between items-center hover:text-yellow-300 list-none">
-                        Services <i class="fas fa-chevron-down text-sm"></i>
-                    </summary>
-                    <div class="mt-3 flex flex-col gap-3 pl-4">
-                        <a href="/#tiers" class="hover:text-yellow-300">Detailing</a>
-                        <a href="/paint-protection-film/" class="hover:text-yellow-300">PPF</a>
-                        <a href="/ceramic-coatings/" class="hover:text-yellow-300">Ceramic</a>
-                        <a href="/tinting/" class="hover:text-yellow-300">Tinting</a>
-                        <a href="/paint-corrections/" class="hover:text-yellow-300">Paint Corrections</a>
-                    </div>
-                </details>
-
-                <details class="bg-[#1c1c1f] rounded-lg border border-stone-700 p-4" style="font-weight: 600;">
-                    <summary class="cursor-pointer flex justify-between items-center hover:text-yellow-300 list-none">
-                        More <i class="fas fa-chevron-down text-sm"></i>
-                    </summary>
-                    <div class="mt-3 flex flex-col gap-3 pl-4">
-                        <a href="/blog/" class="hover:text-yellow-300">Blog</a>
-                        <a href="/about/" class="hover:text-yellow-300">About</a>
-                        <a href="/gallery/" class="hover:text-yellow-300">Gallery</a>
-                    </div>
-                </details>
-
-                <a href="/#booking-section" class="bg-[#facc15] text-stone-900 py-3 rounded-full text-center font-bold hover:bg-yellow-300 transition-colors">Book Appointment</a>
-            </nav>
-        </div>
-    </nav>
-
-    <!-- ============================================================================ -->
-    <!-- SECTION: HERO — "OUR WORK" with racing checkered backdrop                    -->
-    <!-- Notes: Full-viewport hero with checkered pattern, yellow accent underline,   -->
-    <!-- and a subtle scroll indicator. Fully visible at 375px.                       -->
-    <!-- ============================================================================ -->
-    <section data-section="hero" class="relative min-h-[70vh] md:min-h-[80vh] flex items-center justify-center overflow-hidden pt-20 md:pt-24">
-        <!-- Checkered background -->
-        <div class="absolute inset-0 checkered-pattern-lg opacity-30"></div>
-        <div class="absolute inset-0 bg-gradient-to-b from-[#121214]/30 via-transparent to-[#121214]"></div>
-        <!-- Diagonal yellow stripe accent -->
-        <div class="absolute top-0 right-0 w-[40%] h-full bg-[#facc15]/5 skew-x-12 origin-top-right"></div>
-
-        <div class="relative z-10 text-center px-4 sm:px-6 max-w-5xl mx-auto">
-            <!-- Small tagline -->
-            <p class="text-[#facc15] text-sm md:text-base font-semibold uppercase tracking-[0.2em] mb-2 opacity-80">123 Mobile Detailing NJ</p>
-            <!-- Main headline -->
-            <h1 class="racing-title text-6xl sm:text-7xl md:text-8xl lg:text-9xl font-black text-white leading-[0.85] tracking-tight">
-                OUR<br>
-                <span class="racing-title-yellow">WORK</span>
-            </h1>
-            <!-- Yellow divider -->
-            <div class="divider-yellow mt-4 md:mt-6"></div>
-            <!-- Subhead -->
-            <p class="text-gray-400 text-base md:text-lg mt-4 max-w-xl mx-auto font-light">
-                Every detail tells a story. Browse our transformations — from daily drivers to showroom legends.
-            </p>
-            <!-- Scroll hint -->
-            <div class="mt-8 animate-bounce">
-                <i class="fas fa-chevron-down text-[#facc15] text-2xl opacity-60"></i>
+                <a href="../index.html#tiers" class="bg-red-600 text-white font-bold px-4 py-1.5 rounded-sm text-sm uppercase hover:bg-red-700 transition-all">
+                    <i class="fa-solid fa-envelope"></i> BOOK DRIVEWAY APPOINTMENT
+                </a>
             </div>
         </div>
-    </section>
+    </div>
 
+    <div class="max-w-6xl mx-auto mt-6 px-4" data-section="page-content">
 
-    <!-- ============================================================================ -->
-    <!-- SECTION: GALLERY GRID — 12 placeholder image cards with racing style         -->
-    <!-- Notes: Responsive grid (1,2,4 cols). Each card has a dark background,        -->
-    <!-- checkered overlay, yellow hover border, and "COMING SOON" with car icon.     -->
-    <!-- ============================================================================ -->
-    <section data-section="gallery" class="py-16 md:py-24 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
-        <!-- Section header -->
-        <div class="text-center mb-12 md:mb-16">
-            <p class="text-[#facc15] text-sm font-semibold uppercase tracking-[0.15em]">Our Portfolio</p>
-            <h2 class="racing-title text-3xl md:text-5xl font-black text-white mt-2">Featured Work</h2>
-            <div class="divider-yellow mt-3"></div>
-            <p class="text-gray-400 text-sm md:text-base mt-4 max-w-2xl mx-auto font-light">
-                Each vehicle gets the full treatment. Tap any card to view the full gallery.
-            </p>
-        </div>
-
-        <!-- Gallery Grid: 12 placeholder cards -->
-        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-5 md:gap-6">
-
-            <!-- Card 1 -->
-            <div class="gallery-card rounded-xl bg-[#1a1a1e] aspect-4-3 flex items-center justify-center group">
-                <div class="absolute inset-0 checkered-pattern-sm opacity-20"></div>
-                <div class="relative z-10 text-center px-4">
-                    <i class="fas fa-car text-[#facc15] text-3xl md:text-4xl mb-3 opacity-70 group-hover:opacity-100 transition-opacity"></i>
-                    <p class="text-[#facc15] font-bold uppercase tracking-widest text-sm md:text-base racing-title">Coming Soon</p>
-                    <p class="text-gray-500 text-xs mt-1 uppercase tracking-wider">Ceramic Coating</p>
-                </div>
-                <div class="card-overlay">
-                    <p class="text-white text-xs font-semibold uppercase tracking-wider">Porsche 911 — Ceramic Pro</p>
-                    <p class="text-gray-400 text-[10px] uppercase tracking-wider mt-0.5">Coming Soon</p>
+        <!-- Navigation Array -->
+        <nav class="bg-stone-900 border border-stone-800 rounded-lg p-4 flex items-center justify-between gap-4 shadow-xl">
+            <div class="flex items-center gap-3">
+                <a href="../index.html" class="bg-yellow-400 text-stone-950 p-2 rounded font-black text-xl italic tracking-tighter block">123</a>
+                <div>
+                    <span class="font-racing-title text-xl text-white tracking-widest block leading-none">AUTO DETAILING</span>
+                    <span class="text-xs text-yellow-400 tracking-widest font-mono font-bold uppercase">MOBILE DETAILING NJ</span>
                 </div>
             </div>
 
-            <!-- Card 2 -->
-            <div class="gallery-card rounded-xl bg-[#1a1a1e] aspect-4-3 flex items-center justify-center group">
-                <div class="absolute inset-0 checkered-pattern-sm opacity-20"></div>
-                <div class="relative z-10 text-center px-4">
-                    <i class="fas fa-car-side text-[#facc15] text-3xl md:text-4xl mb-3 opacity-70 group-hover:opacity-100 transition-opacity"></i>
-                    <p class="text-[#facc15] font-bold uppercase tracking-widest text-sm md:text-base racing-title">Coming Soon</p>
-                    <p class="text-gray-500 text-xs mt-1 uppercase tracking-wider">Full Detail</p>
-                </div>
-                <div class="card-overlay">
-                    <p class="text-white text-xs font-semibold uppercase tracking-wider">Mercedes S-Class — Full Detail</p>
-                    <p class="text-gray-400 text-[10px] uppercase tracking-wider mt-0.5">Coming Soon</p>
-                </div>
-            </div>
-
-            <!-- Card 3 -->
-            <div class="gallery-card rounded-xl bg-[#1a1a1e] aspect-4-3 flex items-center justify-center group">
-                <div class="absolute inset-0 checkered-pattern-sm opacity-20"></div>
-                <div class="relative z-10 text-center px-4">
-                    <i class="fas fa-tint text-[#facc15] text-3xl md:text-4xl mb-3 opacity-70 group-hover:opacity-100 transition-opacity"></i>
-                    <p class="text-[#facc15] font-bold uppercase tracking-widest text-sm md:text-base racing-title">Coming Soon</p>
-                    <p class="text-gray-500 text-xs mt-1 uppercase tracking-wider">Paint Correction</p>
-                </div>
-                <div class="card-overlay">
-                    <p class="text-white text-xs font-semibold uppercase tracking-wider">BMW M4 — Paint Correction</p>
-                    <p class="text-gray-400 text-[10px] uppercase tracking-wider mt-0.5">Coming Soon</p>
-                </div>
-            </div>
-
-            <!-- Card 4 -->
-            <div class="gallery-card rounded-xl bg-[#1a1a1e] aspect-4-3 flex items-center justify-center group">
-                <div class="absolute inset-0 checkered-pattern-sm opacity-20"></div>
-                <div class="relative z-10 text-center px-4">
-                    <i class="fas fa-shield-alt text-[#facc15] text-3xl md:text-4xl mb-3 opacity-70 group-hover:opacity-100 transition-opacity"></i>
-                    <p class="text-[#facc15] font-bold uppercase tracking-widest text-sm md:text-base racing-title">Coming Soon</p>
-                    <p class="text-gray-500 text-xs mt-1 uppercase tracking-wider">PPF Install</p>
-                </div>
-                <div class="card-overlay">
-                    <p class="text-white text-xs font-semibold uppercase tracking-wider">Tesla Model Y — PPF</p>
-                    <p class="text-gray-400 text-[10px] uppercase tracking-wider mt-0.5">Coming Soon</p>
-                </div>
-            </div>
-
-            <!-- Card 5 -->
-            <div class="gallery-card rounded-xl bg-[#1a1a1e] aspect-4-3 flex items-center justify-center group">
-                <div class="absolute inset-0 checkered-pattern-sm opacity-20"></div>
-                <div class="relative z-10 text-center px-4">
-                    <i class="fas fa-spray-can text-[#facc15] text-3xl md:text-4xl mb-3 opacity-70 group-hover:opacity-100 transition-opacity"></i>
-                    <p class="text-[#facc15] font-bold uppercase tracking-widest text-sm md:text-base racing-title">Coming Soon</p>
-                    <p class="text-gray-500 text-xs mt-1 uppercase tracking-wider">Interior Detail</p>
-                </div>
-                <div class="card-overlay">
-                    <p class="text-white text-xs font-semibold uppercase tracking-wider">Range Rover — Interior Detail</p>
-                    <p class="text-gray-400 text-[10px] uppercase tracking-wider mt-0.5">Coming Soon</p>
-                </div>
-            </div>
-
-            <!-- Card 6 -->
-            <div class="gallery-card rounded-xl bg-[#1a1a1e] aspect-4-3 flex items-center justify-center group">
-                <div class="absolute inset-0 checkered-pattern-sm opacity-20"></div>
-                <div class="relative z-10 text-center px-4">
-                    <i class="fas fa-water text-[#facc15] text-3xl md:text-4xl mb-3 opacity-70 group-hover:opacity-100 transition-opacity"></i>
-                    <p class="text-[#facc15] font-bold uppercase tracking-widest text-sm md:text-base racing-title">Coming Soon</p>
-                    <p class="text-gray-500 text-xs mt-1 uppercase tracking-wider">Exterior Detail</p>
-                </div>
-                <div class="card-overlay">
-                    <p class="text-white text-xs font-semibold uppercase tracking-wider">Audi R8 — Exterior Detail</p>
-                    <p class="text-gray-400 text-[10px] uppercase tracking-wider mt-0.5">Coming Soon</p>
-                </div>
-            </div>
-
-            <!-- Card 7 -->
-            <div class="gallery-card rounded-xl bg-[#1a1a1e] aspect-4-3 flex items-center justify-center group">
-                <div class="absolute inset-0 checkered-pattern-sm opacity-20"></div>
-                <div class="relative z-10 text-center px-4">
-                    <i class="fas fa-broom text-[#facc15] text-3xl md:text-4xl mb-3 opacity-70 group-hover:opacity-100 transition-opacity"></i>
-                    <p class="text-[#facc15] font-bold uppercase tracking-widest text-sm md:text-base racing-title">Coming Soon</p>
-                    <p class="text-gray-500 text-xs mt-1 uppercase tracking-wider">Deep Clean</p>
-                </div>
-                <div class="card-overlay">
-                    <p class="text-white text-xs font-semibold uppercase tracking-wider">Ford F-150 — Deep Clean</p>
-                    <p class="text-gray-400 text-[10px] uppercase tracking-wider mt-0.5">Coming Soon</p>
-                </div>
-            </div>
-
-            <!-- Card 8 -->
-            <div class="gallery-card rounded-xl bg-[#1a1a1e] aspect-4-3 flex items-center justify-center group">
-                <div class="absolute inset-0 checkered-pattern-sm opacity-20"></div>
-                <div class="relative z-10 text-center px-4">
-                    <i class="fas fa-gem text-[#facc15] text-3xl md:text-4xl mb-3 opacity-70 group-hover:opacity-100 transition-opacity"></i>
-                    <p class="text-[#facc15] font-bold uppercase tracking-widest text-sm md:text-base racing-title">Coming Soon</p>
-                    <p class="text-gray-500 text-xs mt-1 uppercase tracking-wider">Showroom Finish</p>
-                </div>
-                <div class="card-overlay">
-                    <p class="text-white text-xs font-semibold uppercase tracking-wider">Lamborghini Huracán — Showroom</p>
-                    <p class="text-gray-400 text-[10px] uppercase tracking-wider mt-0.5">Coming Soon</p>
-                </div>
-            </div>
-
-            <!-- Card 9 -->
-            <div class="gallery-card rounded-xl bg-[#1a1a1e] aspect-4-3 flex items-center justify-center group">
-                <div class="absolute inset-0 checkered-pattern-sm opacity-20"></div>
-                <div class="relative z-10 text-center px-4">
-                    <i class="fas fa-wind text-[#facc15] text-3xl md:text-4xl mb-3 opacity-70 group-hover:opacity-100 transition-opacity"></i>
-                    <p class="text-[#facc15] font-bold uppercase tracking-widest text-sm md:text-base racing-title">Coming Soon</p>
-                    <p class="text-gray-500 text-xs mt-1 uppercase tracking-wider">Engine Bay</p>
-                </div>
-                <div class="card-overlay">
-                    <p class="text-white text-xs font-semibold uppercase tracking-wider">Chevrolet Camaro — Engine Bay</p>
-                    <p class="text-gray-400 text-[10px] uppercase tracking-wider mt-0.5">Coming Soon</p>
-                </div>
-            </div>
-
-            <!-- Card 10 -->
-            <div class="gallery-card rounded-xl bg-[#1a1a1e] aspect-4-3 flex items-center justify-center group">
-                <div class="absolute inset-0 checkered-pattern-sm opacity-20"></div>
-                <div class="relative z-10 text-center px-4">
-                    <i class="fas fa-chair text-[#facc15] text-3xl md:text-4xl mb-3 opacity-70 group-hover:opacity-100 transition-opacity"></i>
-                    <p class="text-[#facc15] font-bold uppercase tracking-widest text-sm md:text-base racing-title">Coming Soon</p>
-                    <p class="text-gray-500 text-xs mt-1 uppercase tracking-wider">Leather Restore</p>
-                </div>
-                <div class="card-overlay">
-                    <p class="text-white text-xs font-semibold uppercase tracking-wider">Lexus LX — Leather Restore</p>
-                    <p class="text-gray-400 text-[10px] uppercase tracking-wider mt-0.5">Coming Soon</p>
-                </div>
-            </div>
-
-            <!-- Card 11 -->
-            <div class="gallery-card rounded-xl bg-[#1a1a1e] aspect-4-3 flex items-center justify-center group">
-                <div class="absolute inset-0 checkered-pattern-sm opacity-20"></div>
-                <div class="relative z-10 text-center px-4">
-                    <i class="fas fa-sun text-[#facc15] text-3xl md:text-4xl mb-3 opacity-70 group-hover:opacity-100 transition-opacity"></i>
-                    <p class="text-[#facc15] font-bold uppercase tracking-widest text-sm md:text-base racing-title">Coming Soon</p>
-                    <p class="text-gray-500 text-xs mt-1 uppercase tracking-wider">Headlight Restore</p>
-                </div>
-                <div class="card-overlay">
-                    <p class="text-white text-xs font-semibold uppercase tracking-wider">Honda Civic — Headlight Restore</p>
-                    <p class="text-gray-400 text-[10px] uppercase tracking-wider mt-0.5">Coming Soon</p>
-                </div>
-            </div>
-
-            <!-- Card 12 -->
-            <div class="gallery-card rounded-xl bg-[#1a1a1e] aspect-4-3 flex items-center justify-center group">
-                <div class="absolute inset-0 checkered-pattern-sm opacity-20"></div>
-                <div class="relative z-10 text-center px-4">
-                    <i class="fas fa-star text-[#facc15] text-3xl md:text-4xl mb-3 opacity-70 group-hover:opacity-100 transition-opacity"></i>
-                    <p class="text-[#facc15] font-bold uppercase tracking-widest text-sm md:text-base racing-title">Coming Soon</p>
-                    <p class="text-gray-500 text-xs mt-1 uppercase tracking-wider">Full Makeover</p>
-                </div>
-                <div class="card-overlay">
-                    <p class="text-white text-xs font-semibold uppercase tracking-wider">Dodge Challenger — Full Makeover</p>
-                    <p class="text-gray-400 text-[10px] uppercase tracking-wider mt-0.5">Coming Soon</p>
-                </div>
-            </div>
-
-        </div>
-    </section>
-
-
-    <!-- ============================================================================ -->
-    <!-- SECTION: BEFORE / AFTER — Split comparison cards with checkered accents      -->
-    <!-- Notes: Three comparison pairs. Each card has "BEFORE" / "AFTER" labels       -->
-    <!-- with placeholder styling.                                                    -->
-    <!-- ============================================================================ -->
-    <section data-section="before-after" class="py-16 md:py-24 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto border-t border-[#facc15]/10">
-        <!-- Section header -->
-        <div class="text-center mb-12 md:mb-16">
-            <p class="text-[#facc15] text-sm font-semibold uppercase tracking-[0.15em]">Real Results</p>
-            <h2 class="racing-title text-3xl md:text-5xl font-black text-white mt-2">Before <span class="text-gray-500">&</span> After</h2>
-            <div class="divider-yellow mt-3"></div>
-            <p class="text-gray-400 text-sm md:text-base mt-4 max-w-2xl mx-auto font-light">
-                We don't just clean — we transform. Swipe through our most dramatic turnarounds.
-            </p>
-        </div>
-
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8">
-
-            <!-- Comparison 1 -->
-            <div class="comparison-card rounded-xl overflow-hidden bg-[#1a1a1e]">
-                <div class="relative aspect-video bg-[#1e1e24] flex items-center justify-center checkered-pattern-sm opacity-40">
-                    <div class="absolute inset-0 flex items-center justify-center z-10">
-                        <span class="text-[#facc15]/40 text-5xl font-black racing-title">BEFORE</span>
+            <!-- Desktop Links (Restored Dropdowns) -->
+            <div class="hidden md:flex items-center gap-5 text-sm font-semibold tracking-wider text-stone-300 uppercase">
+                <a href="../index.html" class="hover:text-yellow-400 transition-all">Home</a>
+                <div class="nav-dropdown">
+                    <span class="hover:text-yellow-400 transition-all cursor-pointer">Services <i class="fa-solid fa-chevron-down text-[8px] ml-1"></i></span>
+                    <div class="nav-dropdown-menu">
+                        <a href="../index.html#tiers">Detailing</a>
+                        <a href="../paint-protection-film/index.html">Paint Protection Film</a>
+                        <a href="../ceramic-coatings/index.html">Ceramic Coatings</a>
+                        <a href="../tinting/index.html">Tinting</a>
+                        <a href="../paint-corrections/index.html">Paint Corrections</a>
                     </div>
                 </div>
-                <div class="p-3 text-center border-t border-[#facc15]/10">
-                    <i class="fas fa-arrow-down text-[#facc15] text-lg"></i>
+                <div class="nav-dropdown">
+                    <span class="hover:text-yellow-400 transition-all cursor-pointer">More <i class="fa-solid fa-chevron-down text-[8px] ml-1"></i></span>
+                    <div class="nav-dropdown-menu">
+                        <a href="../blog/index.html">The Garage Journal</a>
+                        <a href="../about/index.html">About</a>
+                        <a href="../gallery/index.html">Gallery</a>
+                    </div>
                 </div>
-                <div class="relative aspect-video bg-[#16161c] flex items-center justify-center">
+                <a href="../index.html#tiers" class="bg-yellow-400 text-stone-950 font-bold px-4 py-2 rounded-sm btn-slant hover:bg-yellow-300 transition-all text-xs">
+                    Book Appointment
+                </a>
+            </div>
+
+            <button id="hamburger-btn" class="md:hidden text-yellow-400 text-2xl focus:outline-none">
+                <i class="fa-solid fa-bars"></i>
+            </button>
+        </nav>
+
+        <!-- Mobile Nav Overlay -->
+        <div class="mobile-nav-overlay" id="mobileMenu">
+            <button id="mobile-close-btn" class="text-right text-yellow-400 text-2xl font-bold w-full mb-4">✕</button>
+            <a href="../index.html">Home</a>
+            <a href="../index.html#tiers" style="color:#facc15;font-weight:700;">Detailing</a>
+            <a href="../paint-protection-film/index.html" class="sub-link">Paint Protection Film</a>
+            <a href="../ceramic-coatings/index.html" class="sub-link">Ceramic Coatings</a>
+            <a href="../tinting/index.html" class="sub-link">Tinting</a>
+            <a href="../paint-corrections/index.html" class="sub-link">Paint Corrections</a>
+            <a href="../about/index.html">About</a>
+            <a href="../gallery/index.html">Gallery</a>
+            <a href="../blog/index.html">The Garage Journal</a>
+            <a href="../index.html#tiers" style="background:#facc15;color:#121214;text-align:center;border-radius:6px;font-weight:800;margin-top:12px;">Book Service</a>
+        </div>
+
+        <!-- ============================================================================ -->
+        <!-- SECTION: HERO — "OUR WORK" with racing checkered backdrop                    -->
+        <!-- ============================================================================ -->
+        <section data-section="hero" class="relative min-h-[50vh] flex items-center justify-center overflow-hidden mt-8 bg-stone-900/40 border border-stone-800 rounded-2xl p-6">
+            <div class="absolute inset-0 checkered-pattern-lg opacity-10"></div>
+            <div class="relative z-10 text-center max-w-5xl mx-auto space-y-4">
+                <p class="text-[#facc15] text-sm font-semibold uppercase tracking-[0.2em] opacity-80">123 Mobile Detailing NJ</p>
+                <h1 class="font-racing-title text-5xl sm:text-7xl text-white leading-tight">
+                    OUR <span class="text-yellow-400">WORK GALLERY</span>
+                </h1>
+                <div class="divider-yellow"></div>
+                <p class="text-stone-400 text-sm sm:text-base max-w-xl mx-auto font-light">
+                    Every detail tells a story. Browse our tracking transformations — from premium daily commuters to showroom exotic legends.
+                </p>
+            </div>
+        </section>
+
+        <!-- ============================================================================ -->
+        <!-- SECTION: GALLERY GRID                                                       -->
+        <!-- ============================================================================ -->
+        <section data-section="gallery" class="py-16">
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-5 md:gap-6">
+
+                <!-- Card 1 -->
+                <div class="gallery-card rounded-xl bg-[#1a1a1e] aspect-4-3 flex items-center justify-center group">
                     <div class="absolute inset-0 checkered-pattern-sm opacity-20"></div>
-                    <div class="absolute inset-0 flex items-center justify-center z-10">
-                        <span class="text-[#facc15]/60 text
+                    <div class="relative z-10 text-center px-4">
+                        <i class="fas fa-car text-[#facc15] text-3xl md:text-4xl mb-3 opacity-70 group-hover:opacity-100 transition-opacity"></i>
+                        <p class="text-[#facc15] font-bold uppercase tracking-widest text-sm md:text-base font-racing-title">Coming Soon</p>
+                        <p class="text-gray-500 text-xs mt-1 uppercase tracking-wider">Ceramic Coating</p>
+                    </div>
+                    <div class="card-overlay">
+                        <p class="text-white text-xs font-semibold uppercase tracking-wider">Porsche 911 — Ceramic Pro</p>
+                        <p class="text-gray-400 text-[10px] uppercase tracking-wider mt-0.5">Coming Soon</p>
+                    </div>
+                </div>
+
+                <!-- Card 2 -->
+                <div class="gallery-card rounded-xl bg-[#1a1a1e] aspect-4-3 flex items-center justify-center group">
+                    <div class="absolute inset-0 checkered-pattern-sm opacity-20"></div>
+                    <div class="relative z-10 text-center px-4">
+                        <i class="fas fa-car-side text-[#facc15] text-3xl md:text-4xl mb-3 opacity-70 group-hover:opacity-100 transition-opacity"></i>
+                        <p class="text-[#facc15] font-bold uppercase tracking-widest text-sm md:text-base font-racing-title">Coming Soon</p>
+                        <p class="text-gray-500 text-xs mt-1 uppercase tracking-wider">Full Detail</p>
+                    </div>
+                    <div class="card-overlay">
+                        <p class="text-white text-xs font-semibold uppercase tracking-wider">Mercedes S-Class — Full Detail</p>
+                        <p class="text-gray-400 text-[10px] uppercase tracking-wider mt-0.5">Coming Soon</p>
+                    </div>
+                </div>
+
+                <!-- Card 3 -->
+                <div class="gallery-card rounded-xl bg-[#1a1a1e] aspect-4-3 flex items-center justify-center group">
+                    <div class="absolute inset-0 checkered-pattern-sm opacity-20"></div>
+                    <div class="relative z-10 text-center px-4">
+                        <i class="fas fa-tint text-[#facc15] text-3xl md:text-4xl mb-3 opacity-70 group-hover:opacity-100 transition-opacity"></i>
+                        <p class="text-[#facc15] font-bold uppercase tracking-widest text-sm md:text-base font-racing-title">Coming Soon</p>
+                        <p class="text-gray-500 text-xs mt-1 uppercase tracking-wider">Paint Correction</p>
+                    </div>
+                    <div class="card-overlay">
+                        <p class="text-white text-xs font-semibold uppercase tracking-wider">BMW M4 — Paint Correction</p>
+                        <p class="text-gray-400 text-[10px] uppercase tracking-wider mt-0.5">Coming Soon</p>
+                    </div>
+                </div>
+
+                <!-- Card 4 -->
+                <div class="gallery-card rounded-xl bg-[#1a1a1e] aspect-4-3 flex items-center justify-center group">
+                    <div class="absolute inset-0 checkered-pattern-sm opacity-20"></div>
+                    <div class="relative z-10 text-center px-4">
+                        <i class="fas fa-shield-alt text-[#facc15] text-3xl md:text-4xl mb-3 opacity-70 group-hover:opacity-100 transition-opacity"></i>
+                        <p class="text-[#facc15] font-bold uppercase tracking-widest text-sm md:text-base font-racing-title">Coming Soon</p>
+                        <p class="text-gray-500 text-xs mt-1 uppercase tracking-wider">PPF Install</p>
+                    </div>
+                    <div class="card-overlay">
+                        <p class="text-white text-xs font-semibold uppercase tracking-wider">Tesla Model Y — PPF</p>
+                        <p class="text-gray-400 text-[10px] uppercase tracking-wider mt-0.5">Coming Soon</p>
+                    </div>
+                </div>
+
+                <!-- Card 5 -->
+                <div class="gallery-card rounded-xl bg-[#1a1a1e] aspect-4-3 flex items-center justify-center group">
+                    <div class="absolute inset-0 checkered-pattern-sm opacity-20"></div>
+                    <div class="relative z-10 text-center px-4">
+                        <i class="fas fa-spray-can text-[#facc15] text-3xl md:text-4xl mb-3 opacity-70 group-hover:opacity-100 transition-opacity"></i>
+                        <p class="text-[#facc15] font-bold uppercase tracking-widest text-sm md:text-base font-racing-title">Coming Soon</p>
+                        <p class="text-gray-500 text-xs mt-1 uppercase tracking-wider">Interior Detail</p>
+                    </div>
+                    <div class="card-overlay">
+                        <p class="text-white text-xs font-semibold uppercase tracking-wider">Range Rover — Interior Detail</p>
+                        <p class="text-gray-400 text-[10px] uppercase tracking-wider mt-0.5">Coming Soon</p>
+                    </div>
+                </div>
+
+                <!-- Card 6 -->
+                <div class="gallery-card rounded-xl bg-[#1a1a1e] aspect-4-3 flex items-center justify-center group">
+                    <div class="absolute inset-0 checkered-pattern-sm opacity-20"></div>
+                    <div class="relative z-10 text-center px-4">
+                        <i class="fas fa-water text-[#facc15] text-3xl md:text-4xl mb-3 opacity-70 group-hover:opacity-100 transition-opacity"></i>
+                        <p class="text-[#facc15] font-bold uppercase tracking-widest text-sm md:text-base font-racing-title">Coming Soon</p>
+                        <p class="text-gray-500 text-xs mt-1 uppercase tracking-wider">Exterior Detail</p>
+                    </div>
+                    <div class="card-overlay">
+                        <p class="text-white text-xs font-semibold uppercase tracking-wider">Audi R8 — Exterior Detail</p>
+                        <p class="text-gray-400 text-[10px] uppercase tracking-wider mt-0.5">Coming Soon</p>
+                    </div>
+                </div>
+
+                <!-- Card 7 -->
+                <div class="gallery-card rounded-xl bg-[#1a1a1e] aspect-4-3 flex items-center justify-center group">
+                    <div class="absolute inset-0 checkered-pattern-sm opacity-20"></div>
+                    <div class="relative z-10 text-center px-4">
+                        <i class="fas fa-broom text-[#facc15] text-3xl md:text-4xl mb-3 opacity-70 group-hover:opacity-100 transition-opacity"></i>
+                        <p class="text-[#facc15] font-bold uppercase tracking-widest text-sm md:text-base font-racing-title">Coming Soon</p>
+                        <p class="text-gray-500 text-xs mt-1 uppercase tracking-wider">Deep Clean</p>
+                    </div>
+                    <div class="card-overlay">
+                        <p class="text-white text-xs font-semibold uppercase tracking-wider">Ford F-150 — Deep Clean</p>
+                        <p class="text-gray-400 text-[10px] uppercase tracking-wider mt-0.5">Coming Soon</p>
+                    </div>
+                </div>
+
+                <!-- Card 8 -->
+                <div class="gallery-card rounded-xl bg-[#1a1a1e] aspect-4-3 flex items-center justify-center group">
+                    <div class="absolute inset-0 checkered-pattern-sm opacity-20"></div>
+                    <div class="relative z-10 text-center px-4">
+                        <i class="fas fa-gem text-[#facc15] text-3xl md:text-4xl mb-3 opacity-70 group-hover:opacity-100 transition-opacity"></i>
+                        <p class="text-[#facc15] font-bold uppercase tracking-widest text-sm md:text-base font-racing-title">Coming Soon</p>
+                        <p class="text-gray-500 text-xs mt-1 uppercase tracking-wider">Showroom Finish</p>
+                    </div>
+                    <div class="card-overlay">
+                        <p class="text-white text-xs font-semibold uppercase tracking-wider">Lamborghini Huracán — Showroom</p>
+                        <p class="text-gray-400 text-[10px] uppercase tracking-wider mt-0.5">Coming Soon</p>
+                    </div>
+                </div>
+
+                <!-- Card 9 -->
+                <div class="gallery-card rounded-xl bg-[#1a1a1e] aspect-4-3 flex items-center justify-center group">
+                    <div class="absolute inset-0 checkered-pattern-sm opacity-20"></div>
+                    <div class="relative z-10 text-center px-4">
+                        <i class="fas fa-wind text-[#facc15] text-3xl md:text-4xl mb-3 opacity-70 group-hover:opacity-100 transition-opacity"></i>
+                        <p class="text-[#facc15] font-bold uppercase tracking-widest text-sm md:text-base font-racing-title">Coming Soon</p>
+                        <p class="text-gray-500 text-xs mt-1 uppercase tracking-wider">Engine Bay</p>
+                    </div>
+                    <div class="card-overlay">
+                        <p class="text-white text-xs font-semibold uppercase tracking-wider">Chevrolet Camaro — Engine Bay</p>
+                        <p class="text-gray-400 text-[10px] uppercase tracking-wider mt-0.5">Coming Soon</p>
+                    </div>
+                </div>
+
+                <!-- Card 10 -->
+                <div class="gallery-card rounded-xl bg-[#1a1a1e] aspect-4-3 flex items-center justify-center group">
+                    <div class="absolute inset-0 checkered-pattern-sm opacity-20"></div>
+                    <div class="relative z-10 text-center px-4">
+                        <i class="fas fa-chair text-[#facc15] text-3xl md:text-4xl mb-3 opacity-70 group-hover:opacity-100 transition-opacity"></i>
+                        <p class="text-[#facc15] font-bold uppercase tracking-widest text-sm md:text-base font-racing-title">Coming Soon</p>
+                        <p class="text-gray-500 text-xs mt-1 uppercase tracking-wider">Leather Restore</p>
+                    </div>
+                    <div class="card-overlay">
+                        <p class="text-white text-xs font-semibold uppercase tracking-wider">Lexus LX — Leather Restore</p>
+                        <p class="text-gray-400 text-[10px] uppercase tracking-wider mt-0.5">Coming Soon</p>
+                    </div>
+                </div>
+
+                <!-- Card 11 -->
+                <div class="gallery-card rounded-xl bg-[#1a1a1e] aspect-4-3 flex items-center justify-center group">
+                    <div class="absolute inset-0 checkered-pattern-sm opacity-20"></div>
+                    <div class="relative z-10 text-center px-4">
+                        <i class="fas fa-sun text-[#facc15] text-3xl md:text-4xl mb-3 opacity-70 group-hover:opacity-100 transition-opacity"></i>
+                        <p class="text-[#facc15] font-bold uppercase tracking-widest text-sm md:text-base font-racing-title">Coming Soon</p>
+                        <p class="text-gray-500 text-xs mt-1 uppercase tracking-wider">Headlight Restore</p>
+                    </div>
+                    <div class="card-overlay">
+                        <p class="text-white text-xs font-semibold uppercase tracking-wider">Honda Civic — Headlight Restore</p>
+                        <p class="text-gray-400 text-[10px] uppercase tracking-wider mt-0.5">Coming Soon</p>
+                    </div>
+                </div>
+
+                <!-- Card 12 -->
+                <div class="gallery-card rounded-xl bg-[#1a1a1e] aspect-4-3 flex items-center justify-center group">
+                    <div class="absolute inset-0 checkered-pattern-sm opacity-20"></div>
+                    <div class="relative z-10 text-center px-4">
+                        <i class="fas fa-star text-[#facc15] text-3xl md:text-4xl mb-3 opacity-70 group-hover:opacity-100 transition-opacity"></i>
+                        <p class="text-[#facc15] font-bold uppercase tracking-widest text-sm md:text-base font-racing-title">Coming Soon</p>
+                        <p class="text-gray-500 text-xs mt-1 uppercase tracking-wider">Full Makeover</p>
+                    </div>
+                    <div class="card-overlay">
+                        <p class="text-white text-xs font-semibold uppercase tracking-wider">Dodge Challenger — Full Makeover</p>
+                        <p class="text-gray-400 text-[10px] uppercase tracking-wider mt-0.5">Coming Soon</p>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- ============================================================================ -->
+        <!-- SECTION: BEFORE / AFTER REVEAL CONFIGURATION                                 -->
+        <!-- ============================================================================ -->
+        <section data-section="before-after" class="py-16 border-t border-[#facc15]/10">
+            <div class="text-center mb-12">
+                <p class="text-[#facc15] text-sm font-semibold uppercase tracking-[0.15em]">Real Results</p>
+                <h2 class="font-racing-title text-3xl md:text-5xl text-white mt-2">Before <span class="text-gray-500">&</span> After</h2>
+                <div class="divider-yellow"></div>
+                <p class="text-stone-400 text-sm mt-4 max-w-2xl mx-auto font-light">
+                    We don't just clean — we transform surface physics. View our structural recovery transformations.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8">
+
+                <!-- Comparison 1: Swirls -->
+                <div class="comparison-card rounded-xl overflow-hidden bg-[#1a1a1e]">
+                    <div class="relative aspect-video bg-[#1e1e24] flex items-center justify-center checkered-pattern-sm opacity-40">
+                        <div class="absolute inset-0 flex items-center justify-center z-10">
+                            <span class="text-[#facc15]/40 text-5xl font-black font-racing-title">BEFORE</span>
+                        </div>
+                    </div>
+                    <div class="p-3 text-center border-t border-[#facc15]/10">
+                        <i class="fas fa-arrow-down text-[#facc15] text-lg"></i>
+                    </div>
+                    <div class="relative aspect-video bg-[#16161c] flex items-center justify-center">
+                        <div class="absolute inset-0 checkered-pattern-sm opacity-20"></div>
+                        <div class="absolute inset-0 flex items-center justify-center z-10">
+                            <span class="text-[#facc15]/60 text-5xl font-black font-racing-title">AFTER</span>
+                        </div>
+                    </div>
+                    <div class="p-4 bg-stone-900 border-t border-stone-800 text-center font-mono text-xs text-stone-400">
+                        Multi-Stage Swirl Correction & Clear Coat Leveling
+                    </div>
+                </div>
+
+                <!-- Comparison 2: Interior -->
+                <div class="comparison-card rounded-xl overflow-hidden bg-[#1a1a1e]">
+                    <div class="relative aspect-video bg-[#1e1e24] flex items-center justify-center checkered-pattern-sm opacity-40">
+                        <div class="absolute inset-0 flex items-center justify-center z-10">
+                            <span class="text-[#facc15]/40 text-5xl font-black font-racing-title">BEFORE</span>
+                        </div>
+                    </div>
+                    <div class="p-3 text-center border-t border-[#facc15]/10">
+                        <i class="fas fa-arrow-down text-[#facc15] text-lg"></i>
+                    </div>
+                    <div class="relative aspect-video bg-[#16161c] flex items-center justify-center">
+                        <div class="absolute inset-0 checkered-pattern-sm opacity-20"></div>
+                        <div class="absolute inset-0 flex items-center justify-center z-10">
+                            <span class="text-[#facc15]/60 text-5xl font-black font-racing-title">AFTER</span>
+                        </div>
+                    </div>
+                    <div class="p-4 bg-stone-900 border-t border-stone-800 text-center font-mono text-xs text-stone-400">
+                        Hot-Water Extraction Carpet Sanitation & Soil Deep Clean
+                    </div>
+                </div>
+
+                <!-- Comparison 3: Headlights -->
+                <div class="comparison-card rounded-xl overflow-hidden bg-[#1a1a1e]">
+                    <div class="relative aspect-video bg-[#1e1e24] flex items-center justify-center checkered-pattern-sm opacity-40">
+                        <div class="absolute inset-0 flex items-center justify-center z-10">
+                            <span class="text-[#facc15]/40 text-5xl font-black font-racing-title">BEFORE</span>
+                        </div>
+                    </div>
+                    <div class="p-3 text-center border-t border-[#facc15]/10">
+                        <i class="fas fa-arrow-down text-[#facc15] text-lg"></i>
+                    </div>
+                    <div class="relative aspect-video bg-[#16161c] flex items-center justify-center">
+                        <div class="absolute inset-0 checkered-pattern-sm opacity-20"></div>
+                        <div class="absolute inset-0 flex items-center justify-center z-10">
+                            <span class="text-[#facc15]/60 text-5xl font-black font-racing-title">AFTER</span>
+                        </div>
+                    </div>
+                    <div class="p-4 bg-stone-900 border-t border-stone-800 text-center font-mono text-xs text-stone-400">
+                        Wet-Sanding Oxidation Strip & UV Layer Sealant Application
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- Service Area Footnote -->
+        <section class="mt-16 px-2" data-section="service-area">
+            <div class="text-center mb-4">
+                <span class="text-yellow-400 font-mono text-[10px] font-bold uppercase tracking-widest">SERVICE COVERAGE</span>
+                <h3 class="font-racing-title text-lg text-white mt-1">AREAS WE SERVE</h3>
+            </div>
+            <div class="bg-stone-900/40 border border-stone-800 rounded-xl p-4">
+                <p class="text-yellow-400 font-mono text-[10px] font-bold uppercase tracking-widest mb-2">Bergen County</p>
+                <p class="service-area-text">Allendale, Alpine, Bergenfield, Bogota, Carlstadt, Cliffside Park, Closter, Cresskill, Demarest, Dumont, East Rutherford, Edgewater, Elmwood Park, Emerson, Englewood, Englewood Cliffs, Fair Lawn, Fairview, Fort Lee, Franklin Lakes, Garfield, Glen Rock, Hackensack, Harrington Park, Hasbrouck Heights, Haworth, Hillsdale, Ho-Ho-Kus, Leonia, Little Ferry, Lodi, Lyndhurst, Mahwah, Maywood, Midland Park, Montvale, Moonachie, New Milford, North Arlington, Northvale, Norwood, Oakland, Old Tappan, Oradell, Palisades Park, Paramus, Park Ridge, Ramsey, Ridgefield, Ridgefield Park, Ridgewood, River Edge, River Vale, Rochelle Park, Rockleigh, Rutherford, Saddle Brook, Saddle River, South Hackensack, Teaneck, Tenafly, Teterboro, Upper Saddle River, Waldwick, Wallington, Washington Township, Westwood, Woodcliff Lake, Wood-Ridge, Wyckoff</p>
+
+                <p class="text-yellow-400 font-mono text-[10px] font-bold uppercase tracking-widest mb-2 mt-4">Passaic County</p>
+                <p class="service-area-text">Bloomingdale, Clifton, Haledon, Hawthorne, Little Falls, North Haledon, Passaic, Paterson, Pompton Lakes, Prospect Park, Ringwood, Totowa, Wanaque, Wayne, West Milford, Woodland Park</p>
+            </div>
+        </section>
+
+    </div>
+
+    <!-- Footer System Layout -->
+    <footer class="mt-20 border-t border-stone-800 pt-0" data-section="footer">
+        <div class="checkered-pattern h-3 w-full"></div>
+        <div class="max-w-6xl mx-auto px-4 py-12">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-10">
+                <div>
+                    <div class="flex items-center gap-2 mb-3">
+                        <div class="bg-yellow-400 text-stone-950 p-1.5 rounded font-black text-sm italic">123</div>
+                        <span class="font-racing-title text-sm text-white tracking-widest">AUTO DETAILING</span>
+                    </div>
+                    <p class="text-xs text-stone-400 font-mono leading-relaxed">Classic Values. High-Octane Clean. Mobile detailing across Bergen & Passaic County, NJ.</p>
+                    <p class="text-xs text-stone-500 font-mono mt-3">📞 <a href="tel:8625005192" class="text-yellow-400 underline">(862) 500-5192</a></p>
+                </div>
+                <div>
+                    <h4 class="text-yellow-400 font-mono text-[10px] font-bold uppercase tracking-widest mb-4">Services</h4>
+                    <ul class="space-y-2 text-xs text-stone-400 font-mono">
+                        <li><a href="../index.html#tiers" class="hover:text-yellow-400 transition-all">Detailing Packages</a></li>
+                        <li><a href="../paint-protection-film/index.html" class="hover:text-yellow-400 transition-all">Paint Protection Film</a></li>
+                        <li><a href="../ceramic-coatings/index.html" class="hover:text-yellow-400 transition-all">Ceramic Coatings</a></li>
+                        <li><a href="../tinting/index.html" class="hover:text-yellow-400 transition-all">Tinting</a></li>
+                        <li><a href="../paint-corrections/index.html" class="hover:text-yellow-400 transition-all">Paint Corrections</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-yellow-400 font-mono text-[10px] font-bold uppercase tracking-widest mb-4">Company</h4>
+                    <ul class="space-y-2 text-xs text-stone-400 font-mono">
+                        <li><a href="../index.html" class="hover:text-yellow-400 transition-all">Home</a></li>
+                        <li><a href="../blog/index.html" class="hover:text-yellow-400 transition-all">The Garage Journal</a></li>
+                        <li><a href="../about/index.html" class="hover:text-yellow-400 transition-all">About</a></li>
+                        <li><a href="../gallery/index.html" class="hover:text-yellow-400 transition-all">Gallery</a></li>
+                        <li><a href="../index.html#tiers" class="hover:text-yellow-400 transition-all">Book Service</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="border-t border-stone-800 mt-10 pt-6 text-center">
+                <p class="text-xs text-stone-500 font-mono">&copy; 2026 123 Auto Detailing. All rights reserved. Bergen County & Passaic County, NJ.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Chat Embed Overlay Trigger bubble -->
+    <div id="chat-teaser" data-section="chat-teaser">
+        <div class="teaser-bubble">
+            <button class="teaser-close" id="teaser-close-btn">✕</button>
+            <p style="font-size:0.88rem;color:#f3f4f6;line-height:1.55;">👋 Hey! Need a quote or want to book a detail? <strong style="color:#facc15;">Tap me</strong> and let's get your ride looking fresh!</p>
+        </div>
+    </div>
+    <button id="custom-chat-btn" class="chat-bounce"><img src="https://krowdimg.b-cdn.net/clients/123MobileDetailing/chatIcon.PNG" alt="Chat with us"></button>
+    <div id="chat-panel" data-section="chat-panel"><iframe id="chat-iframe" src="" allow="microphone"></iframe></div>
+
+    
+  <script src="script.js"></script>
+</body>
+</html>
