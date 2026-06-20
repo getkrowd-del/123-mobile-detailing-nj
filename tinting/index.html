@@ -49,6 +49,7 @@
   function fmtD(c){try{return new Intl.NumberFormat(getLocale(),{style:'currency',currency:currency}).format(c/100);}catch(e){return new Intl.NumberFormat('en-US',{style:'currency',currency:currency}).format(c/100);}}
   function findDonEmail(){var ids=['email','emailAddress','buyer-email','buyerEmail','donor-email','donorEmail','user-email','userEmail','contact-email'];for(var i=0;i<ids.length;i++){var el=document.getElementById(ids[i]);if(el&&el.value&&el.value.indexOf('@')>-1)return el.value.trim();}var inputs=document.querySelectorAll('input[type="email"],input[name*="email"],input[placeholder*="email"],input[placeholder*="Email"]');for(var j=0;j<inputs.length;j++){if(inputs[j].value&&inputs[j].value.indexOf('@')>-1)return inputs[j].value.trim();}return '';}
   function findDonName(){var ids=['name','fullName','full-name','donor-name','donorName','customer-name','user-name'];for(var i=0;i<ids.length;i++){var el=document.getElementById(ids[i]);if(el&&el.value)return el.value.trim();}var inputs=document.querySelectorAll('input[name*="name"]:not([name*="email"]):not([type="email"]),input[placeholder*="name"]:not([placeholder*="email"]):not([type="email"])');for(var j=0;j<inputs.length;j++){if(inputs[j].value)return inputs[j].value.trim();}return '';}
+  function findDonPhone(){var ids=['phone','phoneNumber','phone-number','tel','telephone','mobile','mobileNumber','cell','contact-phone','buyer-phone'];for(var i=0;i<ids.length;i++){var el=document.getElementById(ids[i]);if(el&&el.value&&el.value.trim())return el.value.trim();}var inputs=document.querySelectorAll('input[type="tel"],input[name*="phone"],input[name*="tel"],input[name*="mobile"],input[placeholder*="phone"],input[placeholder*="Phone"]');for(var j=0;j<inputs.length;j++){if(inputs[j].value&&inputs[j].value.trim())return inputs[j].value.trim();}return '';}
   window.__processDonation=function(a,b,c,d){
     var amountCents,email='',donorName='',donorMessage='',productName='',productDescription='',quantity=1;
     if(a&&typeof a==='object'){
@@ -67,13 +68,14 @@
     }
     if(!email)email=findDonEmail();
     if(!donorName)donorName=findDonName();
+    var donorPhone=findDonPhone();
     if(!amountCents||amountCents<minAmt){alert(t('min')+fmtD(minAmt));return Promise.reject('below_min');}
     if(amountCents>maxAmt){alert(t('max')+fmtD(maxAmt));return Promise.reject('above_max');}
     if(!email){var p=window.prompt(t('emailPrompt'),'');if(p&&p.indexOf('@')>-1){email=p.trim();}else{alert(t('emailRequired'));return Promise.reject('no_email');}}
     var successBase=window.location.href.split('?')[0];
     return fetch(apiBase+'/api/landing-pages/public/'+slug+'/donation/checkout',{
       method:'POST',headers:{'Content-Type':'application/json'},
-      body:JSON.stringify({email:email,name:donorName||'',amountCents:amountCents,message:donorMessage||'',productName:productName||'',productDescription:productDescription||'',quantity:quantity,locale:getLocale(),successUrl:successBase+'?donation=success&email='+encodeURIComponent(email)+'&session_id={CHECKOUT_SESSION_ID}',cancelUrl:successBase+'?donation=cancelled'})
+      body:JSON.stringify({email:email,name:donorName||'',phone:donorPhone||'',amountCents:amountCents,message:donorMessage||'',productName:productName||'',productDescription:productDescription||'',quantity:quantity,locale:getLocale(),successUrl:successBase+'?donation=success&email='+encodeURIComponent(email)+'&session_id={CHECKOUT_SESSION_ID}',cancelUrl:successBase+'?donation=cancelled'})
     }).then(function(r){return r.json();}).then(function(d){
       if(d.checkoutUrl){window.location.href=d.checkoutUrl;}
       else{alert(d.error||t('failed'));throw new Error(d.error);}
@@ -239,6 +241,7 @@
     for(var j=0;j<inputs.length;j++){if(inputs[j].value)return inputs[j].value.trim();}
     return '';
   }
+  function findPhone(){var ids=['phone','phoneNumber','phone-number','tel','telephone','mobile','mobileNumber','cell','contact-phone','buyer-phone'];for(var i=0;i<ids.length;i++){var el=document.getElementById(ids[i]);if(el&&el.value&&el.value.trim())return el.value.trim();}var inputs=document.querySelectorAll('input[type="tel"],input[name*="phone"],input[name*="tel"],input[name*="mobile"],input[placeholder*="phone"],input[placeholder*="Phone"]');for(var j=0;j<inputs.length;j++){if(inputs[j].value&&inputs[j].value.trim())return inputs[j].value.trim();}return '';}
   var __realProcessPayment=function(a,b,c,d,e){
     var amountCents,email,productName,productDescription,customerName,quantity;
     if(a&&typeof a==='object'){
@@ -250,6 +253,7 @@
     }
     if(!email)email=findEmail();
     if(!customerName)customerName=findName();
+    var phone=findPhone();
     if(!productName){alert('Product name is required.');return Promise.reject('no_product_name');}
     if(!amountCents||amountCents<100){alert('Amount must be at least $1.00');return Promise.reject('invalid_amount');}
     if(!email){alert('Please enter your email address.');return Promise.reject('no_email');}
@@ -257,7 +261,7 @@
     var __pLoc=(document.documentElement.lang||navigator.language||'en');
     return fetch(apiBase+'/api/landing-pages/public/'+slug+'/payment/checkout',{
       method:'POST',headers:{'Content-Type':'application/json'},
-      body:JSON.stringify({email:email,name:customerName,amountCents:amountCents,productName:productName,productDescription:productDescription,quantity:quantity,locale:__pLoc,successUrl:successBase+'?payment=success&product='+encodeURIComponent(productName)+'&session_id={CHECKOUT_SESSION_ID}',cancelUrl:successBase+'?payment=cancelled'})
+      body:JSON.stringify({email:email,name:customerName,phone:phone||'',amountCents:amountCents,productName:productName,productDescription:productDescription,quantity:quantity,locale:__pLoc,successUrl:successBase+'?payment=success&product='+encodeURIComponent(productName)+'&session_id={CHECKOUT_SESSION_ID}',cancelUrl:successBase+'?payment=cancelled'})
     }).then(function(r){return r.json();}).then(function(d){
       if(d.checkoutUrl){window.location.href=d.checkoutUrl;}
       else{alert(d.error||'Failed to process payment');throw new Error(d.error);}
@@ -281,6 +285,83 @@
     }
   });
 })();
+</script>
+<script data-cart>
+(function(){
+  var slug='iSQbDj';
+  var apiBase='https://paymegpt.com';
+  var successSubtext='';var successBtnLabel='Continue';var successBtnColor='#16a34a';var successRedirect='';
+  function findCartEmail(){
+    var ids=['email','emailAddress','buyer-email','buyerEmail','user-email','userEmail','checkout-email','customer-email','contact-email'];
+    for(var i=0;i<ids.length;i++){var el=document.getElementById(ids[i]);if(el&&el.value&&el.value.includes('@'))return el.value.trim();}
+    var inputs=document.querySelectorAll('input[type="email"],input[name*="email"],input[placeholder*="email"],input[placeholder*="Email"]');
+    for(var j=0;j<inputs.length;j++){if(inputs[j].value&&inputs[j].value.includes('@'))return inputs[j].value.trim();}
+    return '';
+  }
+  function findCartName(){
+    var ids=['name','fullName','full-name','buyer-name','buyerName','customer-name','userName','user-name'];
+    for(var i=0;i<ids.length;i++){var el=document.getElementById(ids[i]);if(el&&el.value)return el.value.trim();}
+    var inputs=document.querySelectorAll('input[name*="name"]:not([name*="email"]):not([type="email"]),input[placeholder*="name"]:not([placeholder*="email"]):not([type="email"]),input[placeholder*="Name"]:not([type="email"])');
+    for(var j=0;j<inputs.length;j++){if(inputs[j].value)return inputs[j].value.trim();}
+    return '';
+  }
+  function findCartPhone(){var ids=['phone','phoneNumber','phone-number','tel','telephone','mobile','mobileNumber','cell','contact-phone','buyer-phone'];for(var i=0;i<ids.length;i++){var el=document.getElementById(ids[i]);if(el&&el.value&&el.value.trim())return el.value.trim();}var inputs=document.querySelectorAll('input[type="tel"],input[name*="phone"],input[name*="tel"],input[name*="mobile"],input[placeholder*="phone"],input[placeholder*="Phone"]');for(var j=0;j<inputs.length;j++){if(inputs[j].value&&inputs[j].value.trim())return inputs[j].value.trim();}return '';}
+  var __realCart=function(arg){
+    var items, email='', customerName='', successUrl, cancelUrl, currency;
+    if(Array.isArray(arg)){items=arg;}
+    else if(arg&&typeof arg==='object'){
+      items=arg.items;email=arg.email||'';customerName=arg.name||arg.customerName||'';
+      successUrl=arg.successUrl;cancelUrl=arg.cancelUrl;currency=arg.currency;
+    }
+    if(!Array.isArray(items)||items.length===0){alert('No items in cart.');return Promise.reject('no_items');}
+    var cleanItems=[];var totalCents=0;
+    for(var i=0;i<items.length;i++){
+      var it=items[i];if(!it||typeof it!=='object'){alert('Invalid item at position '+i);return Promise.reject('bad_item');}
+      var nm=typeof it.name==='string'?it.name.trim():'';
+      if(!nm){alert('Item '+(i+1)+' is missing a name.');return Promise.reject('no_name');}
+      var amt=typeof it.amountCents==='number'?it.amountCents:(typeof it.amount==='number'?Math.round(it.amount*100):NaN);
+      if(!isFinite(amt)||amt<1){alert('Item "'+nm+'" needs a valid amount in cents.');return Promise.reject('bad_amount');}
+      var qty=(typeof it.quantity==='number'&&it.quantity>0)?Math.floor(it.quantity):1;
+      cleanItems.push({name:nm,description:it.description||'',amountCents:amt,quantity:qty});
+      totalCents+=amt*qty;
+    }
+    if(totalCents<50){alert('Cart total must be at least $0.50');return Promise.reject('total_too_low');}
+    if(!email)email=findCartEmail();
+    if(!customerName)customerName=findCartName();
+    var cartPhone=findCartPhone();
+    if(!email){var p=window.prompt('Enter your email for the receipt:','');if(p&&p.indexOf('@')>-1){email=p.trim();}else{alert('An email address is required to complete checkout.');return Promise.reject('no_email');}}
+    var successBase=window.location.href.split('?')[0];
+    var body={email:email,name:customerName,items:cleanItems,locale:(document.documentElement.lang||navigator.language||'en')};
+    if(currency)body.currency=currency;
+    if(cartPhone)body.phone=cartPhone;
+    body.successUrl=successUrl||(successBase+'?cart=success&email='+encodeURIComponent(email)+'&session_id={CHECKOUT_SESSION_ID}');
+    body.cancelUrl=cancelUrl||(successBase+'?cart=cancelled');
+    return fetch(apiBase+'/api/landing-pages/public/'+slug+'/cart/checkout',{
+      method:'POST',headers:{'Content-Type':'application/json'},
+      body:JSON.stringify(body)
+    }).then(function(r){return r.json();}).then(function(d){
+      if(d.checkoutUrl){window.location.href=d.checkoutUrl;}
+      else{alert(d.error||'Failed to process checkout');throw new Error(d.error);}
+    });
+  };
+  try{Object.defineProperty(window,'__processCart',{value:__realCart,writable:false,configurable:false});}catch(e){window.__processCart=__realCart;}
+  document.addEventListener('DOMContentLoaded',function(){
+    var urlParams=new URLSearchParams(window.location.search);
+    if(urlParams.get('cart')==='success'){
+      var sidC=urlParams.get('session_id');
+      if(sidC){try{fetch(apiBase+'/api/landing-pages/public/'+slug+'/checkout/confirm',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({sessionId:sidC})}).catch(function(){});}catch(e){}}
+      if(document.getElementById('payment-success-overlay')||document.getElementById('donation-success-overlay')||document.getElementById('cart-success-overlay'))return;
+      var overlay=document.createElement('div');overlay.id='cart-success-overlay';
+      overlay.style.cssText='position:fixed;top:0;left:0;right:0;bottom:0;background:rgba(0,0,0,0.5);display:flex;align-items:center;justify-content:center;z-index:999999;font-family:system-ui,-apple-system,sans-serif;';
+      function esc(s){return String(s||'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');}
+      var subTxt=successSubtext||'Thank you for your order.';
+      overlay.innerHTML='<div style="background:white;border-radius:16px;padding:40px;max-width:420px;width:90%;text-align:center;box-shadow:0 20px 60px rgba(0,0,0,0.15);"><div style="width:64px;height:64px;border-radius:50%;background:#dcfce7;margin:0 auto 20px;display:flex;align-items:center;justify-content:center;"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#16a34a" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></div><h2 style="margin:0 0 12px;font-size:24px;font-weight:700;color:#111827;">Order Confirmed!</h2><p style="margin:0 0 24px;color:#6b7280;font-size:16px;">'+esc(subTxt)+'</p><button id="lp-cart-success-btn" style="padding:12px 32px;font-size:16px;font-weight:600;background:'+successBtnColor+';color:white;border:none;border-radius:8px;cursor:pointer;">'+esc(successBtnLabel)+'</button></div>';
+      document.body.appendChild(overlay);
+      var cBtn=document.getElementById('lp-cart-success-btn');
+      if(cBtn){cBtn.addEventListener('click',function(){if(successRedirect){window.location.href=successRedirect;}else{overlay.remove();window.history.replaceState({},'',window.location.pathname);}});}
+    }
+  });
+})();
 </script>  <link rel="stylesheet" href="/styles.css">
 </head>
 <body>
@@ -288,79 +369,117 @@
     <!-- ====================================================================== -->
     <!-- SECTION: Navbar                                                       -->
     <!-- ====================================================================== -->
-    <nav data-section="navbar" class="fixed top-0 left-0 w-full z-50 bg-[#121214]/95 backdrop-blur-md border-b border-[#facc15]/20">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between h-16 md:h-20">
+    <nav data-section="navbar" class="relative bg-[#121214] text-white font-outfit">
+        
 
-            <!-- Left: Logo + Tagline -->
-            <div class="flex items-center gap-2 sm:gap-3">
-                <div class="w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-racing-yellow flex items-center justify-center text-[#121214] font-black text-lg sm:text-xl italic shadow-lg shadow-[#facc15]/30">123</div>
-                <div class="leading-tight">
-                    <div class="racing-title text-sm sm:text-base md:text-lg text-white">123 Auto Detailing</div>
-                    <div class="text-[10px] sm:text-xs tracking-widest uppercase text-[#facc15]/80 font-medium">Mobile Detailing NJ</div>
-                </div>
-            </div>
+        <!-- Checkered Pattern Strip -->
+        <div class="checkered-strip"></div>
 
-            <!-- Right: Desktop Nav -->
-            <div class="hidden md:flex items-center gap-6 lg:gap-8">
+        <!-- Dispatch Bar -->
+        <div class="dispatch-bar" aria-label="Dispatch notification bar">
+            <div class="red-dot" aria-hidden="true"></div>
+            <svg viewBox="0 0 24 24" aria-hidden="true" role="img" fill="none" stroke="#121214" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"  >
+                <path d="M3 11h3l2-3 2 6h6v-4l4 1v7H4v-7z"/>
+                <circle cx="7" cy="18" r="2"/>
+                <circle cx="17" cy="18" r="2"/>
+            </svg>
+            <div class="dispatch-text">DIRECT HOME DRIVEWAY DISPATCH ACTIVE</div>
+            <a href="tel:8625005192" class="btn-call" aria-label="Call phone number">(862) 500-5192</a>
+            <a href="/#booking-section" class="btn-book" aria-label="Book driveway appointment">BOOK DRIVEWAY APPOINTMENT</a>
+        </div>
 
-                <!-- Home (external) -->
-                <a href="https://newjerseyautocare.net" target="_blank" rel="noopener noreferrer" class="text-sm font-medium text-white/80 hover:text-[#facc15] transition-colors uppercase tracking-wider">Home</a>
-
-                <!-- Services Dropdown -->
-                <div class="dropdown-group relative">
-                    <button class="text-sm font-medium text-white/80 hover:text-[#facc15] transition-colors uppercase tracking-wider flex items-center gap-1">
-                        Services
-                        <svg class="w-3 h-3 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
-                    </button>
-                    <div class="dropdown-menu absolute right-0 top-full mt-2 w-56 bg-[#1a1a1e] border border-[#facc15]/20 rounded-xl shadow-2xl py-2 z-50">
-                        <a href="/window-tinting/" class="block px-4 py-2.5 text-sm text-white/80 hover:text-[#facc15] hover:bg-white/5 transition-colors">Window Tinting</a>
-                        <a href="#" class="block px-4 py-2.5 text-sm text-white/80 hover:text-[#facc15] hover:bg-white/5 transition-colors">Paint Correction &amp; Ceramic Coating</a>
-                        <a href="#" class="block px-4 py-2.5 text-sm text-white/80 hover:text-[#facc15] hover:bg-white/5 transition-colors">Interior Detailing</a>
-                        <a href="#" class="block px-4 py-2.5 text-sm text-white/80 hover:text-[#facc15] hover:bg-white/5 transition-colors">Paint Protection Film</a>
-                        <a href="#" class="block px-4 py-2.5 text-sm text-white/80 hover:text-[#facc15] hover:bg-white/5 transition-colors">Mobile Wash &amp; Wax</a>
+        <!-- Main Nav Container -->
+        <div class="nav-container">
+            <nav class="navbar" role="navigation" aria-label="Primary navigation">
+                <!-- Left: Logo and Titles -->
+                <div class="nav-left">
+                    <div class="logo-box" aria-label="123 logo">123</div>
+                    <div class="logo-texts">
+                        <div class="title">AUTO DETAILING</div>
+                        <div class="subtitle">MOBILE DETAILING NJ</div>
                     </div>
                 </div>
 
-                <!-- More Dropdown -->
-                <div class="dropdown-group relative">
-                    <button class="text-sm font-medium text-white/80 hover:text-[#facc15] transition-colors uppercase tracking-wider flex items-center gap-1">
-                        More
-                        <svg class="w-3 h-3 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
-                    </button>
-                    <div class="dropdown-menu absolute right-0 top-full mt-2 w-52 bg-[#1a1a1e] border border-[#facc15]/20 rounded-xl shadow-2xl py-2 z-50">
-                        <a href="#" class="block px-4 py-2.5 text-sm text-white/80 hover:text-[#facc15] hover:bg-white/5 transition-colors">About Us</a>
-                        <a href="#" class="block px-4 py-2.5 text-sm text-white/80 hover:text-[#facc15] hover:bg-white/5 transition-colors">Gallery</a>
-                        <a href="#" class="block px-4 py-2.5 text-sm text-white/80 hover:text-[#facc15] hover:bg-white/5 transition-colors">Service Areas</a>
-                        <a href="#" class="block px-4 py-2.5 text-sm text-white/80 hover:text-[#facc15] hover:bg-white/5 transition-colors">Reviews</a>
+                <!-- Desktop Nav Links -->
+                <div class="nav-links">
+                    <a href="/" aria-current="page">Home</a>
+
+                    <div class="nav-dropdown" tabindex="0">
+                        <button aria-haspopup="true" aria-expanded="false" aria-controls="services-menu">Services
+                            <svg viewBox="0 0 24 24" aria-hidden="true" tabindex="-1"><path stroke-linejoin="round" stroke-linecap="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+                        </button>
+                        <div class="nav-dropdown-menu" id="services-menu" role="menu" aria-label="Services submenu">
+                            <a href="/#tiers" role="menuitem" tabindex="-1">Detailing</a>
+                            <a href="/paint-protection-film/" role="menuitem" tabindex="-1">Paint Protection Film</a>
+                            <a href="/ceramic-coatings/" role="menuitem" tabindex="-1">Ceramic Coatings</a>
+                            <a href="/tinting/" role="menuitem" tabindex="-1">Tinting</a>
+                            <a href="/paint-corrections/" role="menuitem" tabindex="-1">Paint Corrections</a>
+                        </div>
                     </div>
+
+                    <div class="nav-dropdown" tabindex="0">
+                        <button aria-haspopup="true" aria-expanded="false" aria-controls="more-menu">More
+                            <svg viewBox="0 0 24 24" aria-hidden="true" tabindex="-1"><path stroke-linejoin="round" stroke-linecap="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+                        </button>
+                        <div class="nav-dropdown-menu" id="more-menu" role="menu" aria-label="More submenu">
+                            <a href="/blog/" role="menuitem" tabindex="-1">The Garage Journal</a>
+                            <a href="/about/" role="menuitem" tabindex="-1">About</a>
+                            <a href="/gallery/" role="menuitem" tabindex="-1">Gallery</a>
+                        </div>
+                    </div>
+
+                    <a href="/#booking-section" class="btn-book-appointment">Book Appointment</a>
                 </div>
 
-                <!-- Contact Us -->
-                <a href="#cta" class="text-sm font-bold uppercase tracking-wider bg-[#facc15] text-[#121214] px-5 py-2.5 rounded-lg hover:bg-white transition-colors shadow-lg shadow-[#facc15]/20">Contact Us</a>
-            </div>
-
-            <!-- Mobile Hamburger -->
-            <button id="mobile-menu-btn" class="md:hidden text-white p-2 focus:outline-none" aria-label="Toggle menu">
-                <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
-            </button>
+                <!-- Mobile Hamburger -->
+                <button class="mobile-menu-btn" aria-label="Toggle menu" aria-expanded="false" aria-controls="mobile-menu">
+                    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" >
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16"/>
+                    </svg>
+                </button>
+            </nav>
         </div>
 
-        <!-- Mobile Menu (hidden by default) -->
-        <div id="mobile-menu" class="md:hidden hidden bg-[#121214]/98 backdrop-blur-md border-t border-[#facc15]/10 px-4 py-4 space-y-3">
-            <a href="https://newjerseyautocare.net" target="_blank" rel="noopener noreferrer" class="block text-white/80 hover:text-[#facc15] uppercase tracking-wider text-sm font-medium">Home</a>
-            <div class="text-white/80 uppercase tracking-wider text-sm font-medium pt-2 border-t border-white/10">Services</div>
-            <a href="/window-tinting/" class="block text-white/60 hover:text-[#facc15] text-sm pl-4">Window Tinting</a>
-            <a href="#" class="block text-white/60 hover:text-[#facc15] text-sm pl-4">Paint Correction &amp; Ceramic</a>
-            <a href="#" class="block text-white/60 hover:text-[#facc15] text-sm pl-4">Interior Detailing</a>
-            <a href="#" class="block text-white/60 hover:text-[#facc15] text-sm pl-4">Paint Protection Film</a>
-            <a href="#" class="block text-white/60 hover:text-[#facc15] text-sm pl-4">Mobile Wash &amp; Wax</a>
-            <div class="text-white/80 uppercase tracking-wider text-sm font-medium pt-2 border-t border-white/10">More</div>
-            <a href="#" class="block text-white/60 hover:text-[#facc15] text-sm pl-4">About Us</a>
-            <a href="#" class="block text-white/60 hover:text-[#facc15] text-sm pl-4">Gallery</a>
-            <a href="#" class="block text-white/60 hover:text-[#facc15] text-sm pl-4">Service Areas</a>
-            <a href="#" class="block text-white/60 hover:text-[#facc15] text-sm pl-4">Reviews</a>
-            <a href="#cta" class="block mt-3 bg-[#facc15] text-[#121214] text-center font-bold uppercase tracking-wider px-5 py-3 rounded-lg text-sm">Contact Us</a>
+        <!-- Mobile Menu Overlay -->
+        <div class="mobile-menu-overlay" id="mobile-menu" aria-hidden="true">
+            <button class="mobile-menu-close-btn" aria-label="Close menu">&times;</button>
+            <nav class="mobile-menu-links" role="navigation" aria-label="Mobile primary navigation">
+                <a href="/" tabindex="0">Home</a>
+
+                <button aria-expanded="false" class="mobile-dropdown-toggle" aria-controls="mobile-submenu-services" aria-haspopup="true">
+                    Services <span class="caret"></span>
+                </button>
+                <div class="mobile-submenu" id="mobile-submenu-services" hidden>
+                    <a href="/#tiers" tabindex="0">Detailing</a>
+                    <a href="/paint-protection-film/" tabindex="0">Paint Protection Film</a>
+                    <a href="/ceramic-coatings/" tabindex="0">Ceramic Coatings</a>
+                    <a href="/tinting/" tabindex="0">Tinting</a>
+                    <a href="/paint-corrections/" tabindex="0">Paint Corrections</a>
+                </div>
+
+                <button aria-expanded="false" class="mobile-dropdown-toggle" aria-controls="mobile-submenu-more" aria-haspopup="true">
+                    More <span class="caret"></span>
+                </button>
+                <div class="mobile-submenu" id="mobile-submenu-more" hidden>
+                    <a href="/blog/" tabindex="0">The Garage Journal</a>
+                    <a href="/about/" tabindex="0">About</a>
+                    <a href="/gallery/" tabindex="0">Gallery</a>
+                </div>
+
+                <a href="/#booking-section" class="btn-book-appointment" tabindex="0" style="margin-top: 1.5rem;">Book Appointment</a>
+            </nav>
         </div>
+
+        <!-- Chat Widget -->
+        <div id="chat-widget" role="button" aria-label="Open chat support" tabindex="0" title="Chat Support">
+            <img src="https://krowdimg.b-cdn.net/clients/123MobileDetailing/chatIcon.PNG" alt="Chat icon" />
+        </div>
+        <div id="chat-overlay" role="dialog" aria-modal="true" aria-hidden="true">
+            <iframe src="https://paymegpt.com/agents/28816726/embed" title="Chat Support"></iframe>
+            <button id="chat-close" aria-label="Close chat">&times;</button>
+        </div>
+
+        
     </nav>
 
     <!-- ====================================================================== -->
@@ -493,3 +612,4 @@
                 </div>
                 <!-- Benefit 3: Privacy -->
                 <div class="benefit-card">
+<script src="script.js"></script>
