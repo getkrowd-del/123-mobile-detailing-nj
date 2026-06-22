@@ -374,6 +374,7 @@
       </div>
     </div>
   </nav>
+
   <main>
     <section data-section="hero" class="mx-auto max-w-7xl px-4 py-14 sm:px-6 md:py-20 lg:px-8">
       <div class="grid items-end gap-8 lg:grid-cols-[1.2fr_.8fr]">
@@ -395,14 +396,17 @@
         </div>
       </div>
     </section>
+
     <section data-section="blog-articles" class="mx-auto max-w-7xl px-4 pb-16 sm:px-6 lg:px-8">
       <div class="mb-8">
         <h2 class="racing-title text-2xl font-black text-white sm:text-3xl">Latest Articles</h2>
         <p class="mt-2 text-sm text-zinc-400">Fresh posts from the journal.</p>
       </div>
-      <div id="menu-error" class="hidden mb-6 rounded-2xl border border-red-500/30 bg-red-500/10 px-4 py-3 text-sm text-red-200">Articles could not be loaded right now.</div>
+      <div id="articles-loading" class="py-12 text-center text-zinc-500 text-sm">Loading articles...</div>
+      <div id="articles-error" class="hidden mb-6 rounded-2xl border border-red-500/30 bg-red-500/10 px-4 py-3 text-sm text-red-200">Articles could not be loaded right now.</div>
       <div id="sheet-data" class="grid gap-6 sm:grid-cols-2 xl:grid-cols-3"></div>
     </section>
+
     <section data-section="cta" class="mx-auto max-w-7xl px-4 pb-20 sm:px-6 lg:px-8">
       <div class="overflow-hidden rounded-[2rem] border border-[#facc15]/20 bg-gradient-to-r from-[#facc15]/15 via-white/5 to-white/0 p-8 md:p-10">
         <div class="grid gap-6 md:grid-cols-[1.2fr_.8fr] md:items-center">
@@ -418,12 +422,13 @@
       </div>
     </section>
   </main>
+
   <footer data-section="footer" class="border-t border-white/10 bg-black/20">
     <div class="mx-auto max-w-7xl px-4 py-10 sm:px-6 lg:px-8">
       <div class="grid gap-8 md:grid-cols-3">
         <div>
           <div class="text-sm font-black uppercase tracking-[0.3em] text-[#facc15]">123 Mobile Detailing NJ</div>
-          <p class="mt-3 max-w-sm text-sm leading-6 text-zinc-400">The Garage Journal shares practical care tips and detailing guidance for drivers who expect showroom results at home.</p>
+          <p class="mt-3 max-w-sm text-sm leading-6 text-zinc-400">Expert car care tips and detailing guidance for drivers who expect showroom results at home.</p>
         </div>
         <div>
           <h3 class="text-sm font-bold uppercase tracking-[0.22em] text-white">Services</h3>
@@ -448,6 +453,8 @@
       <div class="mt-10 border-t border-white/10 pt-6 text-sm text-zinc-500">&copy; 2026 123 Mobile Detailing NJ. All rights reserved.</div>
     </div>
   </footer>
+
+  <!-- Article Modal -->
   <div id="article-modal" class="fixed inset-0 z-50 hidden items-center justify-center px-4 py-6">
     <div class="absolute inset-0 bg-black/80"></div>
     <div class="relative z-10 max-h-[90vh] w-full max-w-4xl overflow-hidden rounded-3xl border border-white/10 bg-[#151518] shadow-2xl">
@@ -461,11 +468,13 @@
       <div class="max-h-[calc(90vh-73px)] overflow-y-auto p-5 sm:p-6">
         <div class="mb-4 flex flex-wrap gap-3 text-sm text-zinc-400"><span id="modal-author"></span><span id="modal-date"></span></div>
         <img id="modal-image" alt="" class="hidden mb-5 h-64 w-full rounded-2xl object-cover" />
-        <div id="modal-summary" class="mb-5 text-zinc-300"></div>
-        <div id="modal-content" class="prose prose-invert max-w-none prose-p:text-zinc-300 prose-headings:text-white prose-a:text-[#facc15]"></div>
+        <div id="modal-summary" class="mb-5 text-zinc-300 text-base leading-7"></div>
+        <div id="modal-content" class="prose prose-invert max-w-none text-zinc-300 leading-7"></div>
       </div>
     </div>
   </div>
+
+  <!-- Chat Widget -->
   <button id="chat-launcher" class="fixed bottom-5 right-5 z-40 flex h-16 w-16 items-center justify-center overflow-hidden rounded-full border-2 border-[#facc15] bg-[#facc15] shadow-2xl" type="button">
     <img src="https://krowdimg.b-cdn.net/clients/123MobileDetailing/chatIcon.PNG" alt="" class="h-full w-full object-cover">
   </button>
@@ -476,6 +485,7 @@
     </div>
     <iframe title="Chat widget" src="https://paymegpt.com/agents/28816726/embed" class="h-[520px] w-full border-0 bg-white"></iframe>
   </div>
+
   
   <script src="script.js"></script>
 </body>
