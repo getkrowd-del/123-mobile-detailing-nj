@@ -964,6 +964,54 @@
                     </button>
                 </div>
             </form>
+            <script>
+                function handleContactSubmit(event) {
+                    event.preventDefault();
+                    const name = document.getElementById('contact_name').value.trim();
+                    const email = document.getElementById('contact_email').value.trim();
+                    const phone = document.getElementById('contact_phone').value.trim();
+                    const vehicle = document.getElementById('contact_vehicle').value.trim();
+                    const pkg = document.getElementById('contact_package').value.trim();
+                    const message = document.getElementById('contact_message').value.trim();
+
+                    const btn = document.getElementById('contactSubmitBtn');
+                    btn.disabled = true;
+                    btn.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> SENDING...';
+
+                    const payload = {
+                        full_name: name,
+                        email: email,
+                        phone: phone,
+                        vehicle: vehicle || '',
+                        package: pkg || '',
+                        message: message
+                    };
+
+                    const _a = 'https://api.getkrowd.com/v3/company/123mobiledetailing/contact.cfm?companyId=1123&apiKey=';
+                    const _k = ['krwd_ad51f0162ffc9','e7d7337bd2bfa95d','d70d25a38c42d733','9bab67966620cb'].join('');
+
+                    fetch(_a + _k, {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify(payload)
+                    })
+                    .then(function(r) { return r.json(); })
+                    .then(function(res) {
+                        btn.disabled = false;
+                        btn.innerHTML = '<i class="fa-solid fa-paper-plane"></i> SEND MESSAGE';
+                        if (res.success) {
+                            showContactSuccess(name, pkg, vehicle, phone);
+                        } else {
+                            alert(res.error || 'Something went wrong. Please try again.');
+                        }
+                    })
+                    .catch(function() {
+                        btn.disabled = false;
+                        btn.innerHTML = '<i class="fa-solid fa-paper-plane"></i> SEND MESSAGE';
+                        alert('Unable to send message. Please try again.');
+                    });
+                }
+            </script>
             <div id="contactSuccessBlock" class="hidden mt-6 p-4 rounded-xl border border-yellow-400/30 bg-yellow-400/5 text-yellow-400 text-center space-y-2">
                 <p class="font-racing-title text-xl"><i class="fa-solid fa-circle-check"></i> MESSAGE SENT!</p>
                 <p class="text-xs font-mono" id="contactSuccessDetailText"></p>
