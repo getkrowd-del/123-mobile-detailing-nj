@@ -1,14 +1,17 @@
-(function(){
+function initBlog() {
       var mb=document.getElementById('mobile-menu-button'),mm=document.getElementById('mobile-menu');
       if(mb&&mm){mb.addEventListener('click',function(){mm.classList.toggle('hidden')})}
+
       var cl=document.getElementById('chat-launcher'),cp=document.getElementById('chat-panel'),cc=document.getElementById('chat-close');
       if(cl&&cp){cl.addEventListener('click',function(){cp.classList.toggle('hidden')})}
       if(cc&&cp){cc.addEventListener('click',function(){cp.classList.add('hidden')})}
+
       var modal=document.getElementById('article-modal'),mcb=document.getElementById('close-modal');
       function closeModal(){modal.classList.add('hidden');modal.classList.remove('flex')}
       if(mcb){mcb.addEventListener('click',closeModal)}
       if(modal){modal.addEventListener('click',function(e){if(e.target===modal||e.target===modal.firstElementChild)closeModal()})}
       document.addEventListener('keydown',function(e){if(e.key==='Escape')closeModal()});
+
       function openModal(a){
         document.getElementById('modal-category').textContent=a.category||'';
         document.getElementById('modal-title').textContent=a.title||'';
@@ -23,11 +26,13 @@
         document.getElementById('modal-content').innerHTML=html;
         modal.classList.remove('hidden');modal.classList.add('flex');
       }
+
       var _b='https://api.getkrowd.com/v3/company/';
       var _c='123mobiledetailing';
       var _e='/blog.cfm?companyId=1122&apiKey=';
       var _k=['krwd_ad51f0162ffc9','e7d7337bd2bfa95d','d70d25a38c42d733','9bab67966620cb'].join('');
       var API=_b+_c+_e+_k;
+
       fetch(API)
         .then(function(r){return r.json()})
         .then(function(json){
@@ -49,4 +54,10 @@
           document.getElementById('articles-loading').style.display='none';
           document.getElementById('articles-error').classList.remove('hidden');
         });
-    })();
+    }
+
+    if(document.readyState==='loading'){
+      document.addEventListener('DOMContentLoaded',initBlog);
+    } else {
+      initBlog();
+    }
