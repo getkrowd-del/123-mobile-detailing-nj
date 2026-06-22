@@ -217,6 +217,9 @@ html { scroll-behavior: smooth; }
     .card-lift { transition: transform .25s ease, box-shadow .25s ease, border-color .25s ease; }
     .card-lift:hover { transform: translateY(-6px); box-shadow: 0 24px 60px rgba(0,0,0,.38); border-color: rgba(250,204,21,.35); }
     .glass-dark { background: rgba(18,18,20,.82); backdrop-filter: blur(12px); }
+    @keyframes chatBounce { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-6px); } }
+    .chat-bounce { animation: chatBounce 2s ease-in-out infinite; }
+    .chat-bounce:hover { transform: scale(1.1); animation: none; }
 
 :root {
             --racing-yellow: #facc15;
