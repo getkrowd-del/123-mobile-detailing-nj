@@ -413,66 +413,17 @@
         <div class="absolute inset-0 checkered-pattern opacity-5 pointer-events-none"></div>
         <div class="relative z-10 max-w-3xl mx-auto">
             <div class="text-center mb-8 space-y-2"><span class="text-yellow-400 font-black text-xs font-mono uppercase tracking-widest">GET IN TOUCH</span><h2 class="font-racing-title text-3xl text-white">CONTACT US</h2><p class="text-stone-400 text-xs sm:text-sm">Have a custom query, a question about your paint work, or just want general info? Let us know below!</p></div>
-            <form id="generalContactForm" class="space-y-6" onsubmit="handleContactSubmit(event)">
-    <div><label for="contact_name" class="block text-xs font-semibold mb-1">Full Name</label><input id="contact_name" name="contact_name" type="text" required
-            class="w-full px-3 py-2 rounded-md bg-stone-800 border border-stone-700 focus:border-yellow-400 focus:ring-yellow-400 focus:ring-1 outline-none text-sm" /></div>
-    <div><label for="contact_email" class="block text-xs font-semibold mb-1">Email</label><input id="contact_email" name="contact_email" type="email" required
-            class="w-full px-3 py-2 rounded-md bg-stone-800 border border-stone-700 focus:border-yellow-400 focus:ring-yellow-400 focus:ring-1 outline-none text-sm" /></div>
-    <div><label for="contact_phone" class="block text-xs font-semibold mb-1">Phone</label><input id="contact_phone" name="contact_phone" type="tel" required
-            class="w-full px-3 py-2 rounded-md bg-stone-800 border border-stone-700 focus:border-yellow-400 focus:ring-yellow-400 focus:ring-1 outline-none text-sm" /></div>
-    <div><label for="contact_vehicle" class="block text-xs font-semibold mb-1">Vehicle</label><input id="contact_vehicle" name="contact_vehicle" type="text" required
-            class="w-full px-3 py-2 rounded-md bg-stone-800 border border-stone-700 focus:border-yellow-400 focus:ring-yellow-400 focus:ring-1 outline-none text-sm" /></div>
-    <div><label for="contact_package" class="block text-xs font-semibold mb-1">Package</label>
-        <select id="contact_package" name="contact_package" class="w-full px-3 py-2 rounded-md bg-stone-800 border border-stone-700 focus:border-yellow-400 focus:ring-yellow-400 focus:ring-1 outline-none text-sm" required>
-            <option value="">Select Package</option>
-            <option value="Basic">Basic</option>
-            <option value="Premium">Premium</option>
-            <option value="Deluxe">Deluxe</option>
-            <option value="Custom">Custom</option>
-        </select>
-    </div>
-    <div><label for="contact_message" class="block text-xs font-semibold mb-1">Message</label><textarea id="contact_message" name="contact_message" rows="4" required
-            class="w-full px-3 py-2 rounded-md bg-stone-800 border border-stone-700 focus:border-yellow-400 focus:ring-yellow-400 focus:ring-1 outline-none text-sm"></textarea></div>
-    <div><button id="contactSubmitBtn" type="submit" class="btn-slant bg-yellow-400 text-black px-6 py-3 font-bold text-sm uppercase tracking-wider flex items-center space-x-2 hover:bg-yellow-500 transition"><i
-                class="fa-solid fa-paper-plane"></i><span>SEND MESSAGE</span></button></div>
-    <div id="contactSuccessBlock" class="hidden mt-4 p-4 bg-green-600 rounded text-white text-sm"></div>
+            <form id="generalContactForm" onsubmit="handleContactSubmit(event)" class="space-y-6">
+<div class="grid grid-cols-1 sm:grid-cols-2 gap-6"><div><label class="block text-xs font-bold uppercase text-stone-300 mb-2 font-mono">Full Name *</label><input type="text" name="contactName" id="contact_name" required placeholder="e.g. John Doe" class="w-full bg-stone-950 border border-stone-800 focus:border-yellow-400 rounded-lg py-3 px-4 text-white font-mono text-sm placeholder-stone-600 focus:outline-none"></div><div><label class="block text-xs font-bold uppercase text-stone-300 mb-2 font-mono">Email *</label><input type="email" name="contactEmail" id="contact_email" required placeholder="e.g. john@email.com" class="w-full bg-stone-950 border border-stone-800 focus:border-yellow-400 rounded-lg py-3 px-4 text-white font-mono text-sm placeholder-stone-600 focus:outline-none"></div></div>
+<div class="grid grid-cols-1 sm:grid-cols-2 gap-6"><div><label class="block text-xs font-bold uppercase text-stone-300 mb-2 font-mono">Phone *</label><input type="tel" name="contactPhone" id="contact_phone" required placeholder="e.g. (862) 500-5192" class="w-full bg-stone-950 border border-stone-800 focus:border-yellow-400 rounded-lg py-3 px-4 text-white font-mono text-sm placeholder-stone-600 focus:outline-none"></div><div><label class="block text-xs font-bold uppercase text-stone-300 mb-2 font-mono">Vehicle</label><input type="text" name="vehicle" id="contact_vehicle" placeholder="e.g. 2024 Black Ford F-150" class="w-full bg-stone-950 border border-stone-800 focus:border-yellow-400 rounded-lg py-3 px-4 text-white font-mono text-sm placeholder-stone-600 focus:outline-none"></div></div>
+<div class="grid grid-cols-1 sm:grid-cols-2 gap-6"><div><label class="block text-xs font-bold uppercase text-stone-300 mb-2 font-mono">Package (Optional)</label><select name="package" id="contact_package" class="w-full bg-stone-950 border border-stone-800 focus:border-yellow-400 rounded-lg py-3 px-4 text-white font-mono text-sm focus:outline-none cursor-pointer"><option value="">&#8212; Select a Package (Optional) &#8212;</option><option value="Express / Maintenance Clean ($125)">Express / Maintenance Clean ($125)</option><option value="Complete Interior Detail ($225)">Complete Interior Detail ($225)</option><option value="Complete Exterior Detail ($225)">Complete Exterior Detail ($225)</option><option value="Full Comprehensive Detail ($400)">Full Comprehensive Detail ($400)</option></select></div><div><label class="block text-xs font-bold uppercase text-stone-300 mb-2 font-mono">Message *</label><input type="text" name="message" id="contact_message" required placeholder="How can we help you?" class="w-full bg-stone-950 border border-stone-800 focus:border-yellow-400 rounded-lg py-3 px-4 text-white font-mono text-sm placeholder-stone-600 focus:outline-none"></div></div>
+<div><button type="submit" id="contactSubmitBtn" class="w-full bg-yellow-400 hover:bg-yellow-300 text-stone-950 font-black text-lg py-4 px-6 rounded btn-slant uppercase tracking-wider flex items-center justify-center gap-3 transition-all glow-yellow"><i class="fa-solid fa-paper-plane"></i> SEND MESSAGE</button></div>
 </form>
+<div id="contactSuccessBlock" class="hidden mt-6 p-4 rounded-xl border border-yellow-400/30 bg-yellow-400/5 text-yellow-400 text-center space-y-2"><p class="font-racing-title text-xl"><i class="fa-solid fa-circle-check"></i> MESSAGE SENT!</p><p class="text-xs font-mono" id="contactSuccessDetailText"></p></div>
         </div>
     <script>
-function handleContactSubmit(event) {
-    event.preventDefault();
-    var name=document.getElementById('contact_name').value.trim();
-    var email=document.getElementById('contact_email').value.trim();
-    var phone=document.getElementById('contact_phone').value.trim();
-    var vehicle=document.getElementById('contact_vehicle').value.trim();
-    var pkg=document.getElementById('contact_package').value.trim();
-    var message=document.getElementById('contact_message').value.trim();
-    var btn=document.getElementById('contactSubmitBtn');
-    btn.disabled=true; btn.innerHTML='<i class="fa-solid fa-spinner fa-spin"></i> SENDING...';
-    fetch('https://paymegpt.com/api/webhooks/flow/3923/a524ebac34b0e384ea5f8c501daf6a7e9df01bb188984bb63bd2fffa8c949b4d',{
-        method:'POST',
-        headers:{'Content-Type':'application/json'},
-        body:JSON.stringify({
-            contactEmail:email,
-            contactName:name,
-            contactPhone:phone,
-            data:{fullName:name,email:email,phone:phone,vehicle:vehicle||'',package:pkg||'',message:message}
-        })
-    }).catch(function(err){console.warn('Webhook err:',err)}).finally(function(){
-        btn.disabled=false; btn.innerHTML='<i class="fa-solid fa-paper-plane"></i> SEND MESSAGE';
-        showContactSuccess(name,pkg,vehicle,phone);
-    });
-}
-function showContactSuccess(name,pkg,vehicle,phone) {
-    var block=document.getElementById('contactSuccessBlock'); block.classList.remove('hidden');
-    var safeName=name.replace(/</g,'&lt;').replace(/>/g,'&gt;');
-    var safePkg=pkg?pkg.replace(/</g,'&lt;').replace(/>/g,'&gt;'):'General Inquiry';
-    var safeVehicle=vehicle?vehicle.replace(/</g,'&lt;').replace(/>/g,'&gt;'):'your vehicle';
-    var safePhone=phone.replace(/</g,'&lt;').replace(/>/g,'&gt;');
-    document.getElementById('contactSuccessDetailText').innerHTML='Thanks, <strong>'+safeName+'</strong>! We received your <strong>'+safePkg+'</strong> inquiry for <strong>'+safeVehicle+'</strong>. Our team will reach out to <strong>'+safePhone+'</strong> shortly!';
-    document.getElementById('generalContactForm').reset();
-    block.scrollIntoView({behavior:'smooth',block:'nearest'});
-}
+function handleContactSubmit(event){event.preventDefault();var name=document.getElementById('contact_name').value.trim();var email=document.getElementById('contact_email').value.trim();var phone=document.getElementById('contact_phone').value.trim();var vehicle=document.getElementById('contact_vehicle').value.trim();var pkg=document.getElementById('contact_package').value.trim();var message=document.getElementById('contact_message').value.trim();var btn=document.getElementById('contactSubmitBtn');btn.disabled=true;btn.innerHTML='<i class="fa-solid fa-spinner fa-spin"></i> SENDING...';fetch('https://paymegpt.com/api/webhooks/flow/3923/a524ebac34b0e384ea5f8c501daf6a7e9df01bb188984bb63bd2fffa8c949b4d',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({contactEmail:email,contactName:name,contactPhone:phone,data:{fullName:name,email:email,phone:phone,vehicle:vehicle||'',package:pkg||'',message:message}})}).catch(function(err){console.warn('Webhook err:',err)}).finally(function(){btn.disabled=false;btn.innerHTML='<i class="fa-solid fa-paper-plane"></i> SEND MESSAGE';showContactSuccess(name,pkg,vehicle,phone);});}
+function showContactSuccess(name,pkg,vehicle,phone){var block=document.getElementById('contactSuccessBlock');block.classList.remove('hidden');document.getElementById('contactSuccessDetailText').innerHTML='Thanks, <strong>'+name+'</strong>! We received your <strong>'+(pkg||'General Inquiry')+'</strong> inquiry for <strong>'+(vehicle||'your vehicle')+'</strong>. Our team will reach out to <strong>'+phone+'</strong> shortly!';document.getElementById('generalContactForm').reset();block.scrollIntoView({behavior:'smooth',block:'nearest'});}
 </script>
 </section>
     <section class="mt-16 px-2" data-section="service-area">
