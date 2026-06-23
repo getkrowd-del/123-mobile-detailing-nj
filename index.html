@@ -488,7 +488,7 @@ function showContactSuccess(name,phone){var block=document.getElementById('conta
         document.getElementById('summaryAddonSubtotal').innerText='$'+addonTotal.toFixed(2);
         document.getElementById('summaryTotal').innerText='$'+(baseSub+addonTotal).toFixed(2);
     }
-    ['streetAddress','addressCity','addressState','addressZip'].forEach(fieldId=>{ document.getElementById(fieldId).addEventListener('input',calculateEstimate); });
+    ['streetAddress','addressCity','addressState','addressZip'].forEach(fieldId=>{ document.getElementById(fieldId).addEventListener('input',calculateEstimate()); });
     function goToStep(stepNum) {
         const ep=document.getElementById('errorPanel'); ep.classList.add('hidden');
         if(stepNum===2){if(!document.getElementById('vehicleYear').validity.valid||!document.getElementById('vehicleMake').validity.valid||!document.getElementById('vehicleModel').validity.valid||!document.getElementById('vehicleSize').validity.valid){document.getElementById('errorMessage').innerText="Please complete Year, Make, Model, and Vehicle Size Class.";ep.classList.remove('hidden');return;}}
@@ -519,35 +519,6 @@ function showContactSuccess(name,phone){var block=document.getElementById('conta
         block.scrollIntoView({behavior:'smooth',block:'nearest'});
     }
     function resetUnifiedForm() { document.getElementById('racingDispatchForm').reset(); document.getElementById('racingDispatchForm').classList.remove('hidden'); document.getElementById('dispatchSuccessBlock').classList.add('hidden'); goToStep(1); selectPackage('tier4'); }
-    function handleContactSubmit(event) {
-        event.preventDefault();
-        var name=document.getElementById('contact_name').value.trim();
-        var email=document.getElementById('contact_email').value.trim();
-        var phone=document.getElementById('contact_phone').value.trim();
-        var vehicle=document.getElementById('contact_vehicle').value.trim();
-        var pkg=document.getElementById('contact_package').value.trim();
-        var message=document.getElementById('contact_message').value.trim();
-        var btn=document.getElementById('contactSubmitBtn');
-        btn.disabled=true; btn.innerHTML='<i class="fa-solid fa-spinner fa-spin"></i> SENDING...';
-        fetch('https://api.getkrowd.com/v3/company/123mobiledetailing/contact.cfm?companyId=1123&apiKey=krwd_ad51f0162ffc9e7d7337bd2bfa95dd70d25a38c42d7339bab67966620cb',{
-            method:'POST', headers:{'Content-Type':'application/json'},
-            body:JSON.stringify({full_name:name,email:email,phone:phone,vehicle:vehicle||'',package:pkg||'',message:message})
-        }).then(function(r){return r.json();}).then(function(res){
-            btn.disabled=false; btn.innerHTML='<i class="fa-solid fa-paper-plane"></i> SEND MESSAGE';
-            if(res.success){showContactSuccess(name,pkg,vehicle,phone);}else{alert(res.error||'Something went wrong. Please try again.');}
-        }).catch(function(){
-            btn.disabled=false; btn.innerHTML='<i class="fa-solid fa-paper-plane"></i> SEND MESSAGE';
-            alert('Unable to send. Please call (862) 500-5192.');
-        });
-    }
-    function showContactSuccess(name,pkg,vehicle,phone) {
-        const btn=document.getElementById('contactSubmitBtn'); btn.disabled=false; btn.innerHTML='<i class="fa-solid fa-paper-plane"></i> SEND MESSAGE';
-        const block=document.getElementById('contactSuccessBlock'); block.classList.remove('hidden');
-        const safeName=name.replace(/</g,"&lt;").replace(/>/g,"&gt;"); const safePkg=pkg?pkg.replace(/</g,"&lt;").replace(/>/g,"&gt;"):'General Inquiry'; const safeVehicle=vehicle?vehicle.replace(/</g,"&lt;").replace(/>/g,"&gt;"):'your vehicle'; const safePhone=phone.replace(/</g,"&lt;").replace(/>/g,"&gt;");
-        document.getElementById('contactSuccessDetailText').innerHTML='Thanks, <strong>'+safeName+'</strong>! We received your <strong>'+safePkg+'</strong> inquiry for <strong>'+safeVehicle+'</strong>. Our team will reach out to <strong>'+safePhone+'</strong> shortly!';
-        document.getElementById('generalContactForm').reset();
-        block.scrollIntoView({behavior:'smooth',block:'nearest'});
-    }
     document.querySelectorAll('a[href^="#"]').forEach(a=>{a.addEventListener('click',e=>{const href=a.getAttribute('href');if(href==='#booking-section'){e.preventDefault();selectPackage('tier4');mobileMenu.classList.remove('open');return;}const t=document.querySelector(href);if(t){e.preventDefault();t.scrollIntoView({behavior:'smooth'});mobileMenu.classList.remove('open');}});});
 </script>
 </body>
