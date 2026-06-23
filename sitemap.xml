@@ -1,6 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>https://123mobiledetailing.com/gallery/</loc>
+    <lastmod>2026-06-23T21:51:09.623Z</lastmod>
+    <changefreq>weekly</changefreq>
+  </url>
+  <url>
     <loc>https://123mobiledetailing.com/ceramic-coatings/</loc>
     <lastmod>2026-06-23T21:50:55.934Z</lastmod>
     <changefreq>weekly</changefreq>
@@ -33,11 +38,6 @@
   <url>
     <loc>https://123mobiledetailing.com/paint-corrections/</loc>
     <lastmod>2026-06-23T21:44:50.897Z</lastmod>
-    <changefreq>weekly</changefreq>
-  </url>
-  <url>
-    <loc>https://123mobiledetailing.com/gallery/</loc>
-    <lastmod>2026-06-23T21:44:44.865Z</lastmod>
     <changefreq>weekly</changefreq>
   </url>
 </urlset>
