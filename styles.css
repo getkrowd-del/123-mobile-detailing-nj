@@ -150,6 +150,20 @@
             .mobile-hamburger { display: none !important; }
         }
 
+html{scroll-behavior:smooth}
+    body{font-family:'Outfit',sans-serif;background:#121214;color:#f5f5f5}
+    .racing-title{font-style:italic;text-transform:uppercase;letter-spacing:.08em}
+    .yellow-glow{box-shadow:0 0 0 1px rgba(250,204,21,.2),0 10px 30px rgba(250,204,21,.12)}
+    .card-lift{transition:transform .25s ease,box-shadow .25s ease,border-color .25s ease}
+    .card-lift:hover{transform:translateY(-6px);box-shadow:0 24px 60px rgba(0,0,0,.38);border-color:rgba(250,204,21,.35)}
+    .glass-dark{background:rgba(18,18,20,.82);backdrop-filter:blur(12px)}
+    @keyframes chatBounce{0%,100%{transform:translateY(0)}50%{transform:translateY(-6px)}}
+    #chat-btn{animation:chatBounce 2s ease-in-out infinite;position:fixed;bottom:16px;right:16px;z-index:9999;width:96px;height:96px;background:transparent;border:none;padding:0;cursor:pointer}
+    #chat-btn:hover{animation:none;transform:scale(1.1)}
+    #chat-pnl{display:none;position:fixed;bottom:120px;right:16px;z-index:9998;width:min(92vw,380px);border-radius:1.5rem;overflow:hidden;box-shadow:0 20px 60px rgba(0,0,0,.6);border:1px solid rgba(250,204,21,.2)}
+    #art-modal{display:none;position:fixed;inset:0;z-index:9999;align-items:center;justify-content:center;padding:1.5rem 1rem;background:rgba(0,0,0,.8)}
+    #art-modal.open{display:flex}
+
 :root {
             --racing-yellow: #facc15;
             --carbon-dark: #121214;
