@@ -1,6 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>https://123mobiledetailing.com/about/</loc>
+    <lastmod>2026-06-24T11:52:32.579Z</lastmod>
+    <changefreq>weekly</changefreq>
+  </url>
+  <url>
     <loc>https://123mobiledetailing.com/</loc>
     <lastmod>2026-06-24T11:52:26.768Z</lastmod>
     <changefreq>weekly</changefreq>
@@ -33,11 +38,6 @@
   <url>
     <loc>https://123mobiledetailing.com/blog/</loc>
     <lastmod>2026-06-24T00:36:34.583Z</lastmod>
-    <changefreq>weekly</changefreq>
-  </url>
-  <url>
-    <loc>https://123mobiledetailing.com/about/</loc>
-    <lastmod>2026-06-24T00:36:29.369Z</lastmod>
     <changefreq>weekly</changefreq>
   </url>
 </urlset>
